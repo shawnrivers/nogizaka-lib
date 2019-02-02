@@ -25,7 +25,10 @@ type ICdsContainerProps = {
 
 class CdsContainer extends React.Component<ICdsContainerProps> {
   componentDidMount() {
-    if (this.props.cds.singles.length === 0 && this.props.cds.albums.length === 0 ) {
+    if (
+      this.props.cds.singles.length === 0 &&
+      this.props.cds.albums.length === 0
+    ) {
       console.log("[componentDidMount] fetching singles & albums");
       this.props.fetchSingles();
       this.props.fetchAlbums();

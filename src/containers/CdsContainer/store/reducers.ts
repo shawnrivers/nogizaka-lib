@@ -24,12 +24,16 @@ export const cdsReducer = (
     case cdsActionTypes.FETCH_SINGLES:
       return {
         ...state,
-        singles: action.payload.slice().sort((itemA: ISingle, itemB: ISingle) => (itemB.number - itemA.number))
+        singles: action.payload
+          .slice()
+          .sort((itemA: ISingle, itemB: ISingle) => itemB.number - itemA.number)
       };
     case cdsActionTypes.FETCH_ALBUMS:
       return {
         ...state,
-        albums: action.payload.slice().sort((itemA: IAlbum, itemB: IAlbum) => (itemB.number - itemA.number))
+        albums: action.payload
+          .slice()
+          .sort((itemA: IAlbum, itemB: IAlbum) => itemB.number - itemA.number)
       };
     case cdsActionTypes.SWITCH_CDS_PAGE:
       return {
