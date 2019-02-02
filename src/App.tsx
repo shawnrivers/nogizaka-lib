@@ -1,15 +1,11 @@
 import React, { Component } from "react";
 import { Route, Redirect } from "react-router";
 import { Provider } from "react-redux";
-import { createStore, Store } from "redux";
 import { BrowserRouter } from "react-router-dom";
 
-import CdsContainer from "./containers/CdsContainer/cdsContainer";
+import { CdsContianer } from "./containers/CdsContainer";
 import "./App.scss";
-
-const reducer = (state = {}, action: any) => ({});
-
-const store: Store = createStore(reducer);
+import { store } from "./stores/appStore";
 
 class App extends Component {
   render() {
@@ -17,8 +13,7 @@ class App extends Component {
       <Provider store={store}>
         <BrowserRouter>
           <div className="app">
-            <Route exact path="/cds" component={CdsContainer} />
-            <Redirect from="/" to="/cds" />
+            <Route exact path="/" component={CdsContianer} />
           </div>
         </BrowserRouter>
       </Provider>
