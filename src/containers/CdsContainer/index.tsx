@@ -11,7 +11,7 @@ import { CdsCurrentPage } from "../../utils/constants";
 import { ISingle } from "../../models/ISingle";
 import { IAlbum } from "../../models/IAlbum";
 
-interface ICdsContainerProps {
+type ICdsContainerProps = {
   cds: {
     singles: ISingle[];
     albums: IAlbum[];
@@ -21,7 +21,7 @@ interface ICdsContainerProps {
   shiftCdsPage(): void;
   fetchSingles(): void;
   fetchAlbums(): void;
-}
+};
 
 class CdsContainer extends React.Component<ICdsContainerProps> {
   componentDidMount() {

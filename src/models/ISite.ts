@@ -1,4 +1,4 @@
-export interface ISite {
+export type ISite = {
   title: string;
   url: string;
-}
+};

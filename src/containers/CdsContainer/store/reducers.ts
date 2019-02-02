@@ -4,11 +4,11 @@ import { CdsCurrentPage } from "../../../utils/constants";
 import { ISingle } from "../../../models/ISingle";
 import { IAlbum } from "../../../models/IAlbum";
 
-interface ICdsState {
-  singles: ISingle[],
-  albums: IAlbum[],
-  currentPage: CdsCurrentPage
-}
+type ICdsState = {
+  singles: ISingle[];
+  albums: IAlbum[];
+  currentPage: CdsCurrentPage;
+};
 
 const initialCdsState: ICdsState = {
   singles: [],

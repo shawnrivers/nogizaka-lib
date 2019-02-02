@@ -1,24 +1,24 @@
 import { ICd } from "./ICd";
 import { CdType, SongType, FocusPerformersType } from "../utils/constants";
 
-export interface ISingle extends ICd {
+export type ISingle = ICd & {
   songs: ISingleSong[];
   behindPerformers: ISingleBehindPerformers;
-}
+};
 
-export interface ISingleSong {
+export type ISingleSong = {
   number: number;
   title: string;
   inType: CdType;
   type: SongType;
   focusPerformers: IFocusPerformers;
-}
-export interface IFocusPerformers {
+};
+export type IFocusPerformers = {
   type: FocusPerformersType;
   name: string[];
-}
+};
 
-export interface ISingleBehindPerformers {
+export type ISingleBehindPerformers = {
   trainees: string[];
   skips: string[];
-}
+};

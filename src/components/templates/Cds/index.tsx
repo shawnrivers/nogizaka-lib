@@ -3,15 +3,12 @@ import styles from "./cds.module.scss";
 import { ISingle } from "../../../models/ISingle";
 import { IAlbum } from "../../../models/IAlbum";
 
-interface ICdsProps {
+type ICdsProps = {
   cds: (ISingle | IAlbum)[];
   currentPage: string;
   handleClickSwitch(choice: string): void;
   handleClickShift(): void;
-}
-export class Cds extends React.Component<ICdsProps> {
-  render() {
-    const props = this.props;
+};
 
     return (
       <div className={styles.container}>
