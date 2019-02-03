@@ -1,7 +1,8 @@
 import * as React from "react";
-import styles from "./cds.module.scss";
+import styles from "./Cds.module.scss";
 import { ISingle } from "../../../models/ISingle";
 import { IAlbum } from "../../../models/IAlbum";
+import { CdCardList } from "../../organisms/CdCardList";
 
 type ICdsProps = {
   cds: (ISingle | IAlbum)[];
@@ -10,28 +11,13 @@ type ICdsProps = {
   handleClickShift(): void;
 };
 
-    return (
-      <div className={styles.container}>
-        <h1>Cds Page</h1>
-        <p>Current page: {props.currentPage}</p>
-        <button onClick={() => props.handleClickSwitch("singles")}>
-          Singles
-        </button>
-        <button onClick={() => props.handleClickSwitch("albums")}>
-          Albums
-        </button>
-        <button onClick={props.handleClickShift}>Shift</button>
-        {props.cds.length !== 0 ? (
-          <ul>
-            {this.props.cds.map((cd: ISingle | IAlbum) => (
-              <li key={cd.number}>
-                <strong>{cd.number} </strong>
-                <span>{cd.title}</span>
-              </li>
-            ))}
-          </ul>
-        ) : null}
-      </div>
-    );
-  }
-}
+export const Cds = (props: ICdsProps) => (
+  <div className={styles.container}>
+    <h1>Cds Page</h1>
+    <p>Current page: {props.currentPage}</p>
+    <button onClick={() => props.handleClickSwitch("singles")}>Singles</button>
+    <button onClick={() => props.handleClickSwitch("albums")}>Albums</button>
+    <button onClick={props.handleClickShift}>Shift</button>
+    <CdCardList cds={props.cds} />
+  </div>
+);
