@@ -2,14 +2,27 @@ import { CdsCurrentPage } from "../../../utils/constants";
 import { cdsActionTypes } from "./actionTypes";
 import { ISingle } from "../../../models/ISingle";
 import { IAlbum } from "../../../models/IAlbum";
+import { Dispatch } from "react";
 
 export type cdsActions =
   | {
-      type: cdsActionTypes.FETCH_SINGLES;
+      type: cdsActionTypes.FETCH_SINGLES_PENDING;
+    }
+  | {
+      type: cdsActionTypes.FETCH_SINGLES_REJECTED;
+    }
+  | {
+      type: cdsActionTypes.FETCH_SINGLES_FULFILLED;
       payload: ISingle[];
     }
   | {
-      type: cdsActionTypes.FETCH_ALBUMS;
+      type: cdsActionTypes.FETCH_ALBUMS_PENDING;
+    }
+  | {
+      type: cdsActionTypes.FETCH_ALBUMS_REJECTED;
+    }
+  | {
+      type: cdsActionTypes.FETCH_ALBUMS_FULFILLED;
       payload: IAlbum[];
     }
   | {
@@ -19,7 +32,6 @@ export type cdsActions =
   | {
       type: cdsActionTypes.SHIFT_CDS_PAGE;
     };
-
 
 // Action Creators
 
@@ -36,36 +48,40 @@ export const switchCdsPage = (page: CdsCurrentPage): cdsActions => {
   };
 };
 
-export const fetchSingles = () => {
-  return (dispatch: any) => {
-    fetch(
-      "https://raw.githubusercontent.com/shawnrivers/nogizaka-data/master/src/json/singles.json"
-    )
-      .then(response => response.json())
-      .then(singles => {
-        console.log("fetched data (singles):", singles);
-        return dispatch({
-          type: cdsActionTypes.FETCH_SINGLES,
-          payload: singles
-        });
-      })
-      .catch(error => console.log(error));
-  };
+export const fetchSingles = () => (dispatch: Dispatch<any>): Promise<void> => {
+  dispatch({ type: cdsActionTypes.FETCH_SINGLES_PENDING });
+  return fetch(
+    "https://raw.githubusercontent.com/shawnrivers/nogizaka-data/master/src/json/singles.json"
+  )
+    .then(res => res.json())
+    .then(data => {
+      dispatch({
+        type: cdsActionTypes.FETCH_SINGLES_FULFILLED,
+        payload: data
+      });
+    })
+    .catch(err => {
+      dispatch({
+        type: cdsActionTypes.FETCH_SINGLES_REJECTED
+      });
+    });
 };
 
-export const fetchAlbums = () => {
-  return (dispatch: any) => {
-    fetch(
-      "https://raw.githubusercontent.com/shawnrivers/nogizaka-data/master/src/json/albums.json"
-    )
-      .then(response => response.json())
-      .then(albums => {
-        console.log("fetched data (albums):", albums);
-        return dispatch({
-          type: cdsActionTypes.FETCH_ALBUMS,
-          payload: albums
-        });
-      })
-      .catch(error => console.log(error));
-  };
+export const fetchAlbums = () => (dispatch: Dispatch<any>): Promise<void> => {
+  dispatch({ type: cdsActionTypes.FETCH_ALBUMS_PENDING });
+  return fetch(
+    "https://raw.githubusercontent.com/shawnrivers/nogizaka-data/master/src/json/albums.json"
+  )
+    .then(res => res.json())
+    .then(data => {
+      dispatch({
+        type: cdsActionTypes.FETCH_ALBUMS_FULFILLED,
+        payload: data
+      });
+    })
+    .catch(err => {
+      dispatch({
+        type: cdsActionTypes.FETCH_ALBUMS_REJECTED
+      });
+    });
 };

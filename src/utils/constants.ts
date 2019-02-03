@@ -1,6 +1,6 @@
 export enum CdsCurrentPage {
   Single = "singles",
-  Album = "albums",
+  Album = "albums"
 }
 
 export enum CdType {
@@ -29,4 +29,11 @@ export enum FocusPerformersType {
   Solo = "solo",
   Unit = "unit",
   None = ""
+}
+
+export enum FetchStatus {
+  None,
+  Rejected,
+  Pending,
+  Fulfilled
 }
