@@ -1,18 +1,30 @@
 import { cdsActions } from "./actions";
 import { cdsActionTypes } from "./actionTypes";
-import { CdsCurrentPage } from "../../../utils/constants";
+import { CdsCurrentPage, FetchStatus } from "../../../utils/constants";
 import { ISingle } from "../../../models/ISingle";
 import { IAlbum } from "../../../models/IAlbum";
 
-type ICdsState = {
-  singles: ISingle[];
-  albums: IAlbum[];
+export type ICdsState = {
+  singles: {
+    fetchStatus: FetchStatus;
+    data: ISingle[];
+  };
+  albums: {
+    fetchStatus: FetchStatus;
+    data: IAlbum[];
+  };
   currentPage: CdsCurrentPage;
 };
 
-const initialCdsState: ICdsState = {
-  singles: [],
-  albums: [],
+export const initialCdsState: ICdsState = {
+  singles: {
+    fetchStatus: FetchStatus.None,
+    data: []
+  },
+  albums: {
+    fetchStatus: FetchStatus.None,
+    data: []
+  },
   currentPage: CdsCurrentPage.Single
 };
 
@@ -21,19 +33,53 @@ export const cdsReducer = (
   action: cdsActions
 ) => {
   switch (action.type) {
-    case cdsActionTypes.FETCH_SINGLES:
+    case cdsActionTypes.FETCH_SINGLES_PENDING:
       return {
         ...state,
-        singles: action.payload
-          .slice()
-          .sort((itemA: ISingle, itemB: ISingle) => itemB.number - itemA.number)
+        singles: {
+          fetchStatus: FetchStatus.Pending,
+          data: state.singles.data
+        }
       };
-    case cdsActionTypes.FETCH_ALBUMS:
+    case cdsActionTypes.FETCH_SINGLES_REJECTED:
       return {
         ...state,
-        albums: action.payload
-          .slice()
-          .sort((itemA: IAlbum, itemB: IAlbum) => itemB.number - itemA.number)
+        singles: {
+          fetchStatus: FetchStatus.Rejected,
+          data: state.singles.data
+        }
+      };
+    case cdsActionTypes.FETCH_SINGLES_FULFILLED:
+      return {
+        ...state,
+        singles: {
+          fetchStatus: FetchStatus.Fulfilled,
+          data: action.payload.slice().sort((itemA: ISingle, itemB: ISingle) => itemB.number - itemA.number)
+        }
+      };
+    case cdsActionTypes.FETCH_ALBUMS_PENDING:
+      return {
+        ...state,
+        albums: {
+          fetchStatus: FetchStatus.Pending,
+          data: state.albums.data
+        }
+      };
+    case cdsActionTypes.FETCH_ALBUMS_REJECTED:
+      return {
+        ...state,
+        albums: {
+          fetchStatus: FetchStatus.Rejected,
+          data: state.albums.data
+        }
+      };
+    case cdsActionTypes.FETCH_ALBUMS_FULFILLED:
+      return {
+        ...state,
+        albums: {
+          fetchStatus: FetchStatus.Fulfilled,
+          data: action.payload.slice().sort((itemA: IAlbum, itemB: IAlbum) => itemB.number - itemA.number)
+        }
       };
     case cdsActionTypes.SWITCH_CDS_PAGE:
       return {
