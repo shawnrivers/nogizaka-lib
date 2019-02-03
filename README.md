@@ -15,6 +15,7 @@ This is a React web application aiming at showing the information about [Nogizak
   * CSS modues
 * Test
   * jest
+  * enzyme
 
 ## File Structures
 
@@ -40,5 +41,7 @@ The components in this application is based on [Atomic Design](http://atomicdesi
   > specific instances of templates that show what a UI looks like with real representative content in place
   * each actual page with data processing and side effects
   * `reducers.ts` and `actions.ts` for each actual page also goes here
+* stores/
+  * make initial settings for store
 * utils/
   * declare functions which will be used commonly across the app
