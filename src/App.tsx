@@ -7,19 +7,21 @@ import { CdsContianer } from "./containers/CdsContainer";
 import "./App.scss";
 import { store } from "./stores/appStore";
 
-const App = () => {
-  return (
-    <Provider store={store}>
-      <BrowserRouter>
-        <div className="app">
-          <Switch>
-            <Route exact path="/cds" component={CdsContianer} />
-            <Redirect exact from="/" to="/cds" />
-          </Switch>
-        </div>
-      </BrowserRouter>
-    </Provider>
-  );
-};
+class App extends React.Component {
+  render() {
+    return (
+      <Provider store={store}>
+        <BrowserRouter>
+          <div className="app">
+            <Switch>
+              <Route exact path="/cds" component={CdsContianer} />
+              <Redirect exact from="/" to="/cds" />
+            </Switch>
+          </div>
+        </BrowserRouter>
+      </Provider>
+    );
+  }
+}
 
 export default App;
