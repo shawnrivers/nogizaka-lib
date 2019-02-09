@@ -13,8 +13,7 @@ const App = () => {
       <BrowserRouter basename="nogizaka-lib" >
         <div className="app">
           <Switch>
-            <Route exact path="/cds" component={CdsContianer} />
-            <Redirect exact from="/" to="/cds" />
+            <Route exact path="/" component={CdsContianer} />
           </Switch>
         </div>
       </BrowserRouter>
