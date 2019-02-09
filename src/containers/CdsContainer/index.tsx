@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { Cds } from "../../components/templates/Cds";
 import { switchCdsPage, fetchSingles, fetchAlbums } from "./store/actions";
