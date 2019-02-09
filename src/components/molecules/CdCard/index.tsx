@@ -9,6 +9,7 @@ type ICdProps = {
 
 export const CdCard = (props: ICdProps) => (
   <div>
+    <img src={props.cd.artworks[0].urls.medium} alt={props.cd.title} />
     <strong>{props.cd.number} </strong>
     <span>{props.cd.title}</span>
   </div>

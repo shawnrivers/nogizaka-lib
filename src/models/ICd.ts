@@ -12,7 +12,11 @@ export type ICd = {
 
 export type ICdArtworks = {
   type: CdType;
-  url: string;
+  urls: {
+    large: string;
+    medium: string;
+    small: string;
+  };
 };
 
 export type ICdSong = {
@@ -22,7 +26,7 @@ export type ICdSong = {
   type: SongType;
   artwork: string;
   focusPerformers: IFocusPerformers;
-}
+};
 
 type IFocusPerformers = {
   type: FocusPerformersType;
