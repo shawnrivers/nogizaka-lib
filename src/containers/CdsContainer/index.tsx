@@ -7,7 +7,7 @@ import { ISingle } from "../../models/ISingle";
 import { IAlbum } from "../../models/IAlbum";
 import { Dispatch } from "redux";
 
-type ICdsContainerProps = {
+export type ICdsContainerProps = {
   cds: {
     singles: {
       data: ISingle[];
