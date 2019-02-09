@@ -1,4 +1,4 @@
-import { cdsReducer, initialCdsState } from "./reducers";
+import { cdsReducer } from "./reducers";
 import { FetchStatus, CdsCurrentPage } from "../../../utils/constants";
 import { cdsActions } from "./actions";
 import { cdsActionTypes } from "./actionTypes";
@@ -37,7 +37,7 @@ describe("cd reducers", () => {
       currentPage: CdsCurrentPage.Single
     };
 
-    const mockAction = {
+    const mockAction: cdsActions = {
       type: cdsActionTypes.FETCH_SINGLES_FULFILLED,
       payload: [
         {
@@ -52,7 +52,7 @@ describe("cd reducers", () => {
     };
 
     expect(
-      cdsReducer(mockInitialState, mockAction as cdsActions)
+      cdsReducer(mockInitialState, mockAction)
     ).toStrictEqual({
       ...mockInitialState,
       singles: {
@@ -84,7 +84,7 @@ describe("cd reducers", () => {
       currentPage: CdsCurrentPage.Single
     };
 
-    const mockAction = {
+    const mockAction: cdsActions = {
       type: cdsActionTypes.FETCH_ALBUMS_FULFILLED,
       payload: [
         {
@@ -95,11 +95,11 @@ describe("cd reducers", () => {
           number: 2,
           title: "title12"
         }
-      ] as IAlbum[]
+      ] as ISingle[]
     };
 
     expect(
-      cdsReducer(mockInitialState, mockAction as cdsActions)
+      cdsReducer(mockInitialState, mockAction)
     ).toStrictEqual({
       ...mockInitialState,
       albums: {

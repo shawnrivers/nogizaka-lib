@@ -52,7 +52,7 @@ describe("cd actions", () => {
       
       const store = mockStore(initialState);
 
-      store.dispatch(fetchSingles() as unknown as AnyAction).then(() => {
+      store.dispatch(fetchSingles() as any).then(() => {
         expect(store.getActions()).toStrictEqual([
           {
             type: cdsActionTypes.FETCH_SINGLES_PENDING
@@ -97,7 +97,7 @@ describe("cd actions", () => {
   
       const store = mockStore(initialState);
   
-      store.dispatch(fetchAlbums() as unknown as AnyAction).then(() => {
+      store.dispatch(fetchAlbums() as any).then(() => {
         expect(store.getActions()).toStrictEqual([
           {
             type: cdsActionTypes.FETCH_ALBUMS_PENDING
