@@ -28,18 +28,9 @@ export type cdsActions =
   | {
       type: cdsActionTypes.SWITCH_CDS_PAGE;
       payload: CdsCurrentPage;
-    }
-  | {
-      type: cdsActionTypes.SHIFT_CDS_PAGE;
     };
 
 // Action Creators
-
-export const shiftCdsPage = (): cdsActions => {
-  return {
-    type: cdsActionTypes.SHIFT_CDS_PAGE
-  };
-};
 
 export const switchCdsPage = (page: CdsCurrentPage): cdsActions => {
   return {

@@ -86,14 +86,6 @@ export const cdsReducer = (
         ...state,
         currentPage: action.payload
       };
-    case cdsActionTypes.SHIFT_CDS_PAGE:
-      return {
-        ...state,
-        currentPage:
-          state.currentPage === CdsCurrentPage.Single
-            ? CdsCurrentPage.Album
-            : CdsCurrentPage.Single
-      };
     default:
       return state;
   }
