@@ -2,6 +2,7 @@
   "name": "nogizaka-lib",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://shawnrivers.github.io/nogizaka-lib/",
   "dependencies": {
     "bfj": "6.1.1",
     "case-sensitive-paths-webpack-plugin": "2.1.2",
@@ -36,6 +37,7 @@
     "redux-promise-middleware": "^5.1.1",
     "redux-thunk": "^2.3.0",
     "resolve": "1.8.1",
+    "sass-loader": "7.1.0",
     "terser-webpack-plugin": "1.1.0",
     "url-loader": "1.1.1"
   },
@@ -64,6 +66,7 @@
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.8.0",
     "fetch-mock": "^7.3.0",
+    "gh-pages": "^2.0.1",
     "html-webpack-plugin": "4.0.0-alpha.2",
     "jest": "23.6.0",
     "jest-pnp-resolver": "1.0.1",
@@ -72,7 +75,6 @@
     "postcss-loader": "3.0.0",
     "postcss-preset-env": "6.3.1",
     "postcss-safe-parser": "4.0.1",
-    "sass-loader": "7.1.0",
     "style-loader": "0.23.0",
     "typescript": "3.2.4",
     "webpack": "4.19.1",
@@ -83,7 +85,9 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js"
+    "test": "node scripts/test.js",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
