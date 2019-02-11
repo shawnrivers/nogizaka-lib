@@ -11,10 +11,11 @@ import { store } from "./stores/appStore";
 const App = () => {
   return (
     <Provider store={store}>
-      <BrowserRouter basename="nogizaka-lib" >
+      <BrowserRouter basename="nogizaka-lib">
         <div className="app">
           <Switch>
-            <Route exact path="/" component={CdsContianer} />
+            <Route exact path="/cds/:type" component={CdsContianer} />
+            <Redirect from="/" to="/cds/singles" />
           </Switch>
         </div>
       </BrowserRouter>

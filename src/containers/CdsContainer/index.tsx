@@ -6,8 +6,13 @@ import { CdsCurrentPage, FetchStatus } from "../../utils/constants";
 import { ISingle } from "../../models/ISingle";
 import { IAlbum } from "../../models/IAlbum";
 import { Dispatch } from "redux";
+import { RouteComponentProps } from "react-router";
 
-export type ICdsContainerProps = {
+type MatchParams = {
+  type: CdsCurrentPage;
+};
+
+export type ICdsContainerProps = RouteComponentProps<MatchParams> & {
   cds: {
     singles: {
       data: ISingle[];
@@ -35,9 +40,10 @@ const CdsContainer = (props: ICdsContainerProps) => {
     }
   }, []);
 
-  console.log(props.currentPage);
+  const currentPage = props.match.params.type;
+
   let cdsContents: ISingle[] | IAlbum[];
-  switch (props.currentPage) {
+  switch (currentPage) {
     case CdsCurrentPage.Single:
       cdsContents = props.cds.singles.data;
       break;
@@ -52,7 +58,7 @@ const CdsContainer = (props: ICdsContainerProps) => {
   return (
     <Cds
       cds={cdsContents}
-      currentPage={props.currentPage}
+      currentPage={currentPage}
       handleClickSwitch={props.switchCdsPage}
     />
   );

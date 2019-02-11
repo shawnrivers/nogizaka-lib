@@ -6,6 +6,7 @@ import { CdCardList } from "../../organisms/CdCardList";
 import { TopLeftBackground } from "../../atoms/Background/TopLeftBackground";
 import { TabMenu } from "../../molecules/TabMenu";
 import { CdsCurrentPage } from "../../../utils/constants";
+import { Link } from "react-router-dom";
 
 type ICdsProps = {
   cds: (ISingle | IAlbum)[];
@@ -17,12 +18,11 @@ const pages: CdsCurrentPage[] = [CdsCurrentPage.Single, CdsCurrentPage.Album];
 
 export const Cds = (props: ICdsProps) => (
   <div className={styles.container}>
+    <TopLeftBackground />
     <TabMenu
       items={pages}
-      handleClickItem={props.handleClickSwitch}
       currentPage={props.currentPage}
     />
     <CdCardList cds={props.cds} />
-    <TopLeftBackground />
   </div>
 );

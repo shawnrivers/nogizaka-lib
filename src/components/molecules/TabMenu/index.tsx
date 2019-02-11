@@ -25,7 +25,6 @@ const DropDownMenu = posed.div({
 type ITabMenuProps = {
   items: CdsCurrentPage[];
   currentPage: CdsCurrentPage;
-  handleClickItem(choice: CdsCurrentPage): void;
 };
 
 export const TabMenu = (props: ITabMenuProps) => {
@@ -61,16 +60,15 @@ export const TabMenu = (props: ITabMenuProps) => {
       <PoseGroup>
         {isDropdownOpen && (
           <DropDownMenu key="drop-down-menu" className={styles.dropdown}>
-          {props.items.map((item: CdsCurrentPage) => (
-            <li>
-              <TabButton
-                handleClickTab={props.handleClickItem}
-                handleHideDropdown={handleToggleDropdown}
-              >
-                {item}
-              </TabButton>
-            </li>
-          ))}
+            {props.items.map((item: CdsCurrentPage) => (
+              <li>
+                <TabButton
+                  handleHideDropdown={handleToggleDropdown}
+                >
+                  {item}
+                </TabButton>
+              </li>
+            ))}
           </DropDownMenu>
         )}
       </PoseGroup>
