@@ -7,7 +7,7 @@ import { CdCard } from "../../molecules/CdCard";
 import { CdsCurrentPage } from "../../../utils/constants";
 
 const CardListContainer = posed.div({
-  enter: { staggerChildren: 50, beforeChildren: true },
+  enter: { staggerChildren: 30, beforeChildren: true },
   exit: { staggerChildren: 25, afterChildren: true }
 });
 
