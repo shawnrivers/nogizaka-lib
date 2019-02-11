@@ -1,6 +1,6 @@
 export enum CdsCurrentPage {
-  Single = "singles",
-  Album = "albums"
+  Single = "Singles",
+  Album = "Albums"
 }
 
 export enum CdType {

@@ -38,10 +38,10 @@ const CdsContainer = (props: ICdsContainerProps) => {
   console.log(props.currentPage);
   let cdsContents: ISingle[] | IAlbum[];
   switch (props.currentPage) {
-    case "singles":
+    case CdsCurrentPage.Single:
       cdsContents = props.cds.singles.data;
       break;
-    case "albums":
+    case CdsCurrentPage.Album:
       cdsContents = props.cds.albums.data;
       break;
     default:
