@@ -16,7 +16,7 @@ self.__precacheManifest = [
     "url": "/nogizaka-lib/static/css/main.49bd3638.chunk.css"
   },
   {
-    "revision": "7f23377af9d204870731ff0bd203a8b3",
+    "revision": "7ace115538de165a54426d720e261ad6",
     "url": "/nogizaka-lib/index.html"
   }
 ];
