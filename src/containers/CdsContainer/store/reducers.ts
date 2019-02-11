@@ -13,7 +13,6 @@ export type ICdsState = {
     fetchStatus: FetchStatus;
     data: IAlbum[];
   };
-  currentPage: CdsCurrentPage;
 };
 
 export const initialCdsState: ICdsState = {
@@ -24,8 +23,7 @@ export const initialCdsState: ICdsState = {
   albums: {
     fetchStatus: FetchStatus.None,
     data: []
-  },
-  currentPage: CdsCurrentPage.Single
+  }
 };
 
 export const cdsReducer = (
@@ -54,7 +52,11 @@ export const cdsReducer = (
         ...state,
         singles: {
           fetchStatus: FetchStatus.Fulfilled,
-          data: action.payload.slice().sort((itemA: ISingle, itemB: ISingle) => itemB.number - itemA.number)
+          data: action.payload
+            .slice()
+            .sort(
+              (itemA: ISingle, itemB: ISingle) => itemB.number - itemA.number
+            )
         }
       };
     case cdsActionTypes.FETCH_ALBUMS_PENDING:
@@ -78,13 +80,10 @@ export const cdsReducer = (
         ...state,
         albums: {
           fetchStatus: FetchStatus.Fulfilled,
-          data: action.payload.slice().sort((itemA: IAlbum, itemB: IAlbum) => itemB.number - itemA.number)
+          data: action.payload
+            .slice()
+            .sort((itemA: IAlbum, itemB: IAlbum) => itemB.number - itemA.number)
         }
-      };
-    case cdsActionTypes.SWITCH_CDS_PAGE:
-      return {
-        ...state,
-        currentPage: action.payload
       };
     default:
       return state;

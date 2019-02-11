@@ -15,8 +15,7 @@ describe("cd reducers", () => {
       albums: {
         fetchStatus: FetchStatus.None,
         data: []
-      },
-      currentPage: CdsCurrentPage.Single
+      }
     };
 
     expect(cdsReducer(undefined, {} as cdsActions)).toStrictEqual(
@@ -33,8 +32,7 @@ describe("cd reducers", () => {
       albums: {
         fetchStatus: FetchStatus.None,
         data: []
-      },
-      currentPage: CdsCurrentPage.Single
+      }
     };
 
     const mockAction: cdsActions = {
@@ -80,8 +78,7 @@ describe("cd reducers", () => {
       albums: {
         fetchStatus: FetchStatus.None,
         data: []
-      },
-      currentPage: CdsCurrentPage.Single
+      }
     };
 
     const mockAction: cdsActions = {

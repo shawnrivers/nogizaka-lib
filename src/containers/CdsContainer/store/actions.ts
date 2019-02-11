@@ -24,20 +24,9 @@ export type cdsActions =
   | {
       type: cdsActionTypes.FETCH_ALBUMS_FULFILLED;
       payload: IAlbum[];
-    }
-  | {
-      type: cdsActionTypes.SWITCH_CDS_PAGE;
-      payload: CdsCurrentPage;
     };
 
 // Action Creators
-
-export const switchCdsPage = (page: CdsCurrentPage): cdsActions => {
-  return {
-    type: cdsActionTypes.SWITCH_CDS_PAGE,
-    payload: page
-  };
-};
 
 export const fetchSingles = () => (dispatch: Dispatch<any>): Promise<void> => {
   dispatch({ type: cdsActionTypes.FETCH_SINGLES_PENDING });

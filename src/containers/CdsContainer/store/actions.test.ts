@@ -1,25 +1,14 @@
 import thunk from "redux-thunk";
 import configureMockStore from "redux-mock-store";
-import { CdsCurrentPage, FetchStatus } from "../../../utils/constants";
-import { switchCdsPage, fetchSingles, fetchAlbums } from "./actions";
+import { FetchStatus } from "../../../utils/constants";
+import { fetchSingles, fetchAlbums } from "./actions";
 import { cdsActionTypes } from "./actionTypes";
 import fetchMock from "fetch-mock";
-import { AnyAction } from "redux";
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
 describe("cd actions", () => {
-  describe("synchronous actions", () => {
-    it("should create an action to switch current page", () => {
-      const payload = CdsCurrentPage.Single;
-      expect(switchCdsPage(payload)).toStrictEqual({
-        type: cdsActionTypes.SWITCH_CDS_PAGE,
-        payload
-      });
-    });
-  });
-
   describe("async actions", () => {
     afterEach(() => {
       fetchMock.restore();

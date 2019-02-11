@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { Cds } from "../../components/templates/Cds";
-import { switchCdsPage, fetchSingles, fetchAlbums } from "./store/actions";
+import { fetchSingles, fetchAlbums } from "./store/actions";
 import { CdsCurrentPage, FetchStatus } from "../../utils/constants";
 import { ISingle } from "../../models/ISingle";
 import { IAlbum } from "../../models/IAlbum";
@@ -70,7 +70,6 @@ const mapStateToProps = (state: any) => ({
 });
 
 const mapDispatchToProps = (dispatch: Dispatch<any>) => ({
-  switchCdsPage: (page: CdsCurrentPage) => dispatch(switchCdsPage(page)),
   fetchSingles: () => dispatch(fetchSingles()),
   fetchAlbums: () => dispatch(fetchAlbums())
 });
