@@ -43,19 +43,4 @@
   margin-block-end: 0;
   padding: 8px 0;
   position: fixed;
-  animation-name: fadeInOut;
-  animation-duration: 0.4s;
-  animation-fill-mode: both;
-  animation-timing-function: ease-in-out;
-}
-
-@keyframes fadeInOut {
-  from {
-    opacity: 0;
-    transform: translateY(-15px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
