@@ -1,3 +1,6 @@
+@import "../../../styles/layout.scss";
+
 .container {
-  margin-top: 12px
+  @extend %grid-two-columns;
+  margin: 16px 0;
 }
