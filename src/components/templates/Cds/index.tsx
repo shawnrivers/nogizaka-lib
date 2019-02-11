@@ -6,7 +6,6 @@ import { CdCardList } from "../../organisms/CdCardList";
 import { TopLeftBackground } from "../../atoms/Background/TopLeftBackground";
 import { TabMenu } from "../../molecules/TabMenu";
 import { CdsCurrentPage } from "../../../utils/constants";
-import { Link } from "react-router-dom";
 
 type ICdsProps = {
   cds: (ISingle | IAlbum)[];
