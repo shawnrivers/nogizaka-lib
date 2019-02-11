@@ -23,6 +23,6 @@ export const Cds = (props: ICdsProps) => (
       items={pages}
       currentPage={props.currentPage}
     />
-    <CdCardList cds={props.cds} />
+    <CdCardList cds={props.cds} currentPage={props.currentPage} />
   </div>
 );

@@ -6,12 +6,8 @@ import { IAlbum } from "../../../models/IAlbum";
 import { toOrdinalNumber } from "../../../utils/functions";
 
 const Card = posed.div({
-  enter: { 
-    y: 0, 
-    opacity: 1,
-    delay: 100
-  },
-  exit: { y: 50, opacity: 0, delay: 200 }
+  enter: { y: 0, opacity: 1 },
+  exit: { y: 50, opacity: 0 }
 });
 
 type ICdProps = {
