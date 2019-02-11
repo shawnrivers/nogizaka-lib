@@ -61,7 +61,7 @@ export const TabMenu = (props: ITabMenuProps) => {
         {isDropdownOpen && (
           <DropDownMenu key="drop-down-menu" className={styles.dropdown}>
             {props.items.map((item: CdsCurrentPage) => (
-              <li>
+              <li key={item}>
                 <TabButton
                   handleHideDropdown={handleToggleDropdown}
                 >

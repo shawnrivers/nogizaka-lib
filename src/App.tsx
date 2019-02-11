@@ -11,11 +11,11 @@ const App = () => {
   console.log(process.env.PUBLIC_URL);
   return (
     <Provider store={store}>
-      <BrowserRouter>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
         <div className="app">
           <Switch>
-            <Route exact path={process.env.PUBLIC_URL + "/cds/:type"} component={CdsContianer} />
-            <Redirect from={process.env.PUBLIC_URL + "/"} to={process.env.PUBLIC_URL + "/cds/singles"} />
+            <Route exact path="/cds/:type" component={CdsContianer} />
+            <Redirect from="/" to="/cds/singles" />
           </Switch>
         </div>
       </BrowserRouter>
