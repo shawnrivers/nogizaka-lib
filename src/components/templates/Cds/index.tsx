@@ -3,6 +3,7 @@ import styles from "./Cds.module.scss";
 import { ISingle } from "../../../models/ISingle";
 import { IAlbum } from "../../../models/IAlbum";
 import { CdCardList } from "../../organisms/CdCardList";
+import { TopLeftBackground } from "../../atoms/Background/TopLeftBackground";
 
 type ICdsProps = {
   cds: (ISingle | IAlbum)[];
@@ -17,5 +18,6 @@ export const Cds = (props: ICdsProps) => (
     <button onClick={() => props.handleClickSwitch("singles")}>Singles</button>
     <button onClick={() => props.handleClickSwitch("albums")}>Albums</button>
     <CdCardList cds={props.cds} />
+    <TopLeftBackground />
   </div>
 );

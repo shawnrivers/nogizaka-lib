@@ -1,0 +1,23 @@
+$background-size: 500px;
+
+%top-left-background {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.pattern-one {
+  @extend %top-left-background;
+  background: linear-gradient(0deg, #ffffba, #ffcbfa), rgba(0, 0, 0, 0.2);
+  width: $background-size;
+  height: $background-size;
+  z-index: -2;
+}
+
+.triangle-cut {
+  @extend %top-left-background;
+  border-style: solid;
+  border-width: 0 0 $background-size $background-size;
+  border-color: transparent transparent #fff transparent;
+  z-index: -1;
+}
