@@ -1,0 +1,39 @@
+@import "../../../styles/elevations.scss";
+@import "../../../styles/layout.scss";
+@import "../../../styles/typography.scss";
+@import "../../../styles/colors.scss";
+
+.container {
+  background-color: #ffffff;
+  box-shadow: $elevation-2;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: auto;
+}
+
+.artwork {
+  border-radius: 6px 6px 0 0;
+  width: 100%;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  margin: 4px 8px;
+}
+
+.number {
+  color: $gray-1;
+  font-weight: $font-bold;
+  font-size: 13px;
+}
+
+.title {
+  @extend %flex-vertical-center;
+  color: $gray-1;
+  font-weight: $font-light;
+  font-size: 11px;
+  height: 30px;
+}
