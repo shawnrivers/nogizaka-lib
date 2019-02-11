@@ -1,6 +1,5 @@
 import React from "react";
-import posed, { PoseGroup } from "react-pose";
-import { Route, Redirect, Switch } from "react-router";
+import { Route, Switch } from "react-router";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 
@@ -15,7 +14,6 @@ const App = () => {
         <div className="app">
           <Switch>
             <Route exact path="/cds/:type" component={CdsContianer} />
-            <Redirect from="/" to="/cds/singles" />
           </Switch>
         </div>
       </BrowserRouter>
