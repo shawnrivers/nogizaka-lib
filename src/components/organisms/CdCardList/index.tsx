@@ -8,7 +8,7 @@ import { CdsCurrentPage } from "../../../utils/constants";
 
 const CardListContainer = posed.div({
   enter: { staggerChildren: 50, beforeChildren: true },
-  exit: { afterChildren: true }
+  exit: { staggerChildren: 25, afterChildren: true }
 });
 
 type ICdCardProps = {
@@ -18,7 +18,7 @@ type ICdCardProps = {
 
 export const CdCardList = (props: ICdCardProps) => (
   <PoseGroup>
-    {props.cds.length !== 0 && props.currentPage === CdsCurrentPage.Single ? (
+    {props.cds.length !== 0 && (props.currentPage === CdsCurrentPage.Single ? (
       <CardListContainer key="single-cards" className={styles.container}>
         {props.cds.map((cd: ISingle | IAlbum) => (
           <CdCard key={props.currentPage + cd.number.toString()} cd={cd} />
@@ -30,6 +30,6 @@ export const CdCardList = (props: ICdCardProps) => (
           <CdCard key={props.currentPage + cd.number.toString()} cd={cd} />
         ))}
       </CardListContainer>
-    )}
+    ))}
   </PoseGroup>
 );
