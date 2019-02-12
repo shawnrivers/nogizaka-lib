@@ -4,19 +4,19 @@ self.__precacheManifest = [
     "url": "/nogizaka-lib/static/js/runtime~main.0cfb2b99.js"
   },
   {
-    "revision": "7866bc51aa54c64f09a3",
-    "url": "/nogizaka-lib/static/js/main.7866bc51.chunk.js"
+    "revision": "f15819ceab569e620c2c",
+    "url": "/nogizaka-lib/static/js/main.f15819ce.chunk.js"
   },
   {
     "revision": "ea91493b226344974e7b",
     "url": "/nogizaka-lib/static/js/1.ea91493b.chunk.js"
   },
   {
-    "revision": "7866bc51aa54c64f09a3",
-    "url": "/nogizaka-lib/static/css/main.21e5c2a7.chunk.css"
+    "revision": "f15819ceab569e620c2c",
+    "url": "/nogizaka-lib/static/css/main.7270978e.chunk.css"
   },
   {
-    "revision": "4060f77c0f1d8e9e3fd5da566adeb150",
+    "revision": "2a7391bdfd7135417e8701fa6afd4207",
     "url": "/nogizaka-lib/index.html"
   }
 ];
