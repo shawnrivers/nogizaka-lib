@@ -27,13 +27,13 @@
 .number {
   color: $gray-1;
   font-weight: $font-bold;
-  font-size: 13px;
+  font-size: 14px;
 }
 
 .title {
   @extend %flex-vertical-center;
   color: $gray-1;
   font-weight: $font-light;
-  font-size: 11px;
+  font-size: 12px;
   height: 30px;
 }
