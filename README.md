@@ -16,6 +16,8 @@ This is a React web application aiming at showing the information about [Nogizak
 * Test
   * jest
   * enzyme
+* Animation
+  * react-pose / react-spring
 
 ## File Structures
 
@@ -45,3 +47,7 @@ The components in this application is based on [Atomic Design](http://atomicdesi
   * make initial settings for store
 * utils/
   * declare functions which will be used commonly across the app
+* models/
+  * declare data types of JSON data from the API
+* styles/
+  * declare scss variables and tempaltes
