@@ -8,7 +8,6 @@ import "./App.scss";
 import { store } from "./stores/appStore";
 
 const App = () => {
-  console.log(process.env.PUBLIC_URL);
   return (
     <Provider store={store}>
       <BrowserRouter basename={process.env.PUBLIC_URL}>
