@@ -92,7 +92,7 @@ describe("cd reducers", () => {
           number: 2,
           title: "title12"
         }
-      ] as ISingle[]
+      ] as IAlbum[]
     };
 
     expect(
