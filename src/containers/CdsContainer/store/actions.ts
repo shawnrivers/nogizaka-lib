@@ -1,4 +1,3 @@
-import { CdsCurrentPage } from "../../../utils/constants";
 import { cdsActionTypes } from "./actionTypes";
 import { ISingle } from "../../../models/ISingle";
 import { IAlbum } from "../../../models/IAlbum";
