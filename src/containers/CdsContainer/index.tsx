@@ -29,16 +29,18 @@ export type ICdsContainerProps = RouteComponentProps<MatchParams> & {
   fetchAlbums(): void;
 };
 
+let counter = 0;
+
 const CdsContainer = (props: ICdsContainerProps) => {
   useEffect(() => {
     if (
-      props.cds.singles.fetchStatus !== FetchStatus.Fulfilled ||
-      props.cds.albums.fetchStatus !== FetchStatus.Fulfilled
+      props.cds.singles.fetchStatus === FetchStatus.None ||
+      props.cds.albums.fetchStatus === FetchStatus.None
     ) {
       props.fetchSingles();
       props.fetchAlbums();
     }
-  }, []);
+  }, [props.cds.singles.fetchStatus, props.cds.albums.fetchStatus]);
 
   const currentPage = props.match.params.type;
 
