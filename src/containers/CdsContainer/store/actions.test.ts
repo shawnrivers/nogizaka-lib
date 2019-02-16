@@ -9,11 +9,11 @@ const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
 describe("cd actions", () => {
-  describe("async actions", () => {
-    afterEach(() => {
-      fetchMock.restore();
-    });
+  afterEach(() => {
+    fetchMock.restore();
+  });
 
+  describe("fetchSingles", () => {
     it("should create FETCH_SINGLES_FULFILLED after sucessfully received singles data response", () => {
       fetchMock.getOnce(
         "https://raw.githubusercontent.com/shawnrivers/nogizaka-data/master/src/json/singles.json",
@@ -38,7 +38,7 @@ describe("cd actions", () => {
           }
         }
       };
-      
+
       const store = mockStore(initialState);
 
       store.dispatch(fetchSingles() as any).then(() => {
@@ -58,7 +58,9 @@ describe("cd actions", () => {
         ]);
       });
     });
+  });
 
+  describe("fetchAlbums", () => {
     it("should create FETCH_ALBUMS_FULFILLED after sucessfully received albums data response", () => {
       fetchMock.getOnce(
         "https://raw.githubusercontent.com/shawnrivers/nogizaka-data/master/src/json/albums.json",
@@ -74,7 +76,7 @@ describe("cd actions", () => {
           }
         }
       );
-  
+
       const initialState = {
         cds: {
           albums: {
@@ -83,9 +85,9 @@ describe("cd actions", () => {
           }
         }
       };
-  
+
       const store = mockStore(initialState);
-  
+
       store.dispatch(fetchAlbums() as any).then(() => {
         expect(store.getActions()).toStrictEqual([
           {
@@ -104,5 +106,4 @@ describe("cd actions", () => {
       });
     });
   });
-
 });
