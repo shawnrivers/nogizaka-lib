@@ -29,8 +29,6 @@ export type ICdsContainerProps = RouteComponentProps<MatchParams> & {
   fetchAlbums(): void;
 };
 
-let counter = 0;
-
 const CdsContainer = (props: ICdsContainerProps) => {
   useEffect(() => {
     if (
