@@ -1,8 +1,8 @@
-import { cdsActions } from "./actions";
-import { cdsActionTypes } from "./actionTypes";
-import { FetchStatus } from "../../../utils/constants";
-import { ISingle } from "../../../models/ISingle";
-import { IAlbum } from "../../../models/IAlbum";
+import { cdsActions } from './actions';
+import { cdsActionTypes } from './actionTypes';
+import { FetchStatus } from '../../../utils/constants';
+import { ISingle } from '../../../models/ISingle';
+import { IAlbum } from '../../../models/IAlbum';
 
 export type ICdsState = {
   singles: {
@@ -18,72 +18,63 @@ export type ICdsState = {
 export const initialCdsState: ICdsState = {
   singles: {
     fetchStatus: FetchStatus.None,
-    data: []
+    data: [],
   },
   albums: {
     fetchStatus: FetchStatus.None,
-    data: []
-  }
+    data: [],
+  },
 };
 
-export const cdsReducer = (
-  state: ICdsState = initialCdsState,
-  action: cdsActions
-) => {
+export const cdsReducer = (state: ICdsState = initialCdsState, action: cdsActions) => {
   switch (action.type) {
     case cdsActionTypes.FETCH_SINGLES_PENDING:
       return {
         ...state,
         singles: {
           fetchStatus: FetchStatus.Pending,
-          data: state.singles.data
-        }
+          data: state.singles.data,
+        },
       };
     case cdsActionTypes.FETCH_SINGLES_REJECTED:
       return {
         ...state,
         singles: {
           fetchStatus: FetchStatus.Rejected,
-          data: state.singles.data
-        }
+          data: state.singles.data,
+        },
       };
     case cdsActionTypes.FETCH_SINGLES_FULFILLED:
       return {
         ...state,
         singles: {
           fetchStatus: FetchStatus.Fulfilled,
-          data: action.payload
-            .slice()
-            .sort(
-              (itemA: ISingle, itemB: ISingle) => itemB.number - itemA.number
-            )
-        }
+          data: action.payload.slice().sort((itemA: ISingle, itemB: ISingle) => itemB.number - itemA.number),
+        },
       };
     case cdsActionTypes.FETCH_ALBUMS_PENDING:
       return {
         ...state,
         albums: {
           fetchStatus: FetchStatus.Pending,
-          data: state.albums.data
-        }
+          data: state.albums.data,
+        },
       };
     case cdsActionTypes.FETCH_ALBUMS_REJECTED:
       return {
         ...state,
         albums: {
           fetchStatus: FetchStatus.Rejected,
-          data: state.albums.data
-        }
+          data: state.albums.data,
+        },
       };
     case cdsActionTypes.FETCH_ALBUMS_FULFILLED:
       return {
         ...state,
         albums: {
           fetchStatus: FetchStatus.Fulfilled,
-          data: action.payload
-            .slice()
-            .sort((itemA: IAlbum, itemB: IAlbum) => itemB.number - itemA.number)
-        }
+          data: action.payload.slice().sort((itemA: IAlbum, itemB: IAlbum) => itemB.number - itemA.number),
+        },
       };
     default:
       return state;

@@ -1,12 +1,12 @@
-import React, { useEffect } from "react";
-import { connect } from "react-redux";
-import { Cds } from "../../components/templates/Cds";
-import { fetchSingles, fetchAlbums } from "./store/actions";
-import { CdsCurrentPage, FetchStatus } from "../../utils/constants";
-import { ISingle } from "../../models/ISingle";
-import { IAlbum } from "../../models/IAlbum";
-import { Dispatch } from "redux";
-import { RouteComponentProps } from "react-router";
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import { Cds } from '../../components/templates/Cds';
+import { fetchSingles, fetchAlbums } from './store/actions';
+import { CdsCurrentPage, FetchStatus } from '../../utils/constants';
+import { ISingle } from '../../models/ISingle';
+import { IAlbum } from '../../models/IAlbum';
+import { Dispatch } from 'redux';
+import { RouteComponentProps } from 'react-router';
 
 type MatchParams = {
   type: CdsCurrentPage;
@@ -31,10 +31,7 @@ export type ICdsContainerProps = RouteComponentProps<MatchParams> & {
 
 const CdsContainer = (props: ICdsContainerProps) => {
   useEffect(() => {
-    if (
-      props.cds.singles.fetchStatus === FetchStatus.None ||
-      props.cds.albums.fetchStatus === FetchStatus.None
-    ) {
+    if (props.cds.singles.fetchStatus === FetchStatus.None || props.cds.albums.fetchStatus === FetchStatus.None) {
       props.fetchSingles();
       props.fetchAlbums();
     }
@@ -55,26 +52,20 @@ const CdsContainer = (props: ICdsContainerProps) => {
       break;
   }
 
-  return (
-    <Cds
-      cds={cdsContents}
-      currentPage={currentPage}
-      handleClickSwitch={props.switchCdsPage}
-    />
-  );
+  return <Cds cds={cdsContents} currentPage={currentPage} handleClickSwitch={props.switchCdsPage} />;
 };
 
 const mapStateToProps = (state: any) => ({
   cds: state.cds,
-  currentPage: state.cds.currentPage
+  currentPage: state.cds.currentPage,
 });
 
 const mapDispatchToProps = (dispatch: Dispatch<any>) => ({
   fetchSingles: () => dispatch(fetchSingles()),
-  fetchAlbums: () => dispatch(fetchAlbums())
+  fetchAlbums: () => dispatch(fetchAlbums()),
 });
 
 export const CdsContianer = connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(CdsContainer);

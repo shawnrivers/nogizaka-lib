@@ -1,3 +1,3 @@
-import { ICd } from "./ICd";
+import { ICd } from './ICd';
 
 export type IAlbum = ICd;

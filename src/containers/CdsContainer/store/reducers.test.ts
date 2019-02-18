@@ -1,38 +1,36 @@
-import { cdsReducer } from "./reducers";
-import { FetchStatus, CdsCurrentPage } from "../../../utils/constants";
-import { cdsActions } from "./actions";
-import { cdsActionTypes } from "./actionTypes";
-import { ISingle } from "../../../models/ISingle";
-import { IAlbum } from "../../../models/IAlbum";
+import { cdsReducer } from './reducers';
+import { FetchStatus } from '../../../utils/constants';
+import { cdsActions } from './actions';
+import { cdsActionTypes } from './actionTypes';
+import { ISingle } from '../../../models/ISingle';
+import { IAlbum } from '../../../models/IAlbum';
 
-describe("cd reducers", () => {
-  it("should return the initial state", () => {
+describe('cd reducers', () => {
+  it('should return the initial state', () => {
     const mockInitialState = {
       singles: {
         fetchStatus: FetchStatus.None,
-        data: []
+        data: [],
       },
       albums: {
         fetchStatus: FetchStatus.None,
-        data: []
-      }
+        data: [],
+      },
     };
 
-    expect(cdsReducer(undefined, {} as cdsActions)).toStrictEqual(
-      mockInitialState
-    );
+    expect(cdsReducer(undefined, {} as any)).toStrictEqual(mockInitialState);
   });
 
-  it("should sort singles in descending order", () => {
+  it('should sort singles in descending order', () => {
     const mockInitialState = {
       singles: {
         fetchStatus: FetchStatus.None,
-        data: []
+        data: [],
       },
       albums: {
         fetchStatus: FetchStatus.None,
-        data: []
-      }
+        data: [],
+      },
     };
 
     const mockAction: cdsActions = {
@@ -40,45 +38,43 @@ describe("cd reducers", () => {
       payload: [
         {
           number: 1,
-          title: "title1"
+          title: 'title1',
         },
         {
           number: 2,
-          title: "title12"
-        }
-      ] as ISingle[]
+          title: 'title12',
+        },
+      ] as ISingle[],
     };
 
-    expect(
-      cdsReducer(mockInitialState, mockAction)
-    ).toStrictEqual({
+    expect(cdsReducer(mockInitialState, mockAction)).toStrictEqual({
       ...mockInitialState,
       singles: {
         fetchStatus: FetchStatus.Fulfilled,
         data: [
           {
             number: 2,
-            title: "title12"
+            title: 'title12',
           },
           {
             number: 1,
-            title: "title1"
-          }
-        ]
-      }
+            title: 'title1',
+          },
+        ],
+      },
     });
   });
 
-  it("should sort albums in descending order", () => {
+  it('should sort albums in descending order', () => {
     const mockInitialState = {
       singles: {
         fetchStatus: FetchStatus.None,
-        data: []
+        data: [],
       },
       albums: {
         fetchStatus: FetchStatus.None,
-        data: []
-      }
+        data: [],
+      },
     };
 
     const mockAction: cdsActions = {
@@ -86,32 +82,30 @@ describe("cd reducers", () => {
       payload: [
         {
           number: 1,
-          title: "title1"
+          title: 'title1',
         },
         {
           number: 2,
-          title: "title12"
-        }
-      ] as IAlbum[]
+          title: 'title12',
+        },
+      ] as IAlbum[],
     };
 
-    expect(
-      cdsReducer(mockInitialState, mockAction)
-    ).toStrictEqual({
+    expect(cdsReducer(mockInitialState, mockAction)).toStrictEqual({
       ...mockInitialState,
       albums: {
         fetchStatus: FetchStatus.Fulfilled,
         data: [
           {
             number: 2,
-            title: "title12"
+            title: 'title12',
           },
           {
             number: 1,
-            title: "title1"
-          }
-        ]
-      }
+            title: 'title1',
+          },
+        ],
+      },
     });
   });
 });

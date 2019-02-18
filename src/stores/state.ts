@@ -1,5 +1,5 @@
-import { ICdsState } from "../containers/CdsContainer/store/reducers";
+import { ICdsState } from '../containers/CdsContainer/store/reducers';
 
-export type IRootState = {
+export interface IRootState {
   cds: ICdsState;
-};
+}

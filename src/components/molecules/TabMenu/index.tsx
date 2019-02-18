@@ -1,14 +1,14 @@
-import React, { useState } from "react";
-import posed, { PoseGroup } from "react-pose";
-import styles from "./TabMenu.module.scss";
-import { TabButton } from "../../atoms/Buttons/TabButton";
-import { CdsCurrentPage } from "../../../utils/constants";
-import { MenuDownIcon } from "../../atoms/Icons/MenuDownIcon";
-import { MenuUpIcon } from "../../atoms/Icons/MenuUpIcon";
+import React, { useState } from 'react';
+import posed, { PoseGroup } from 'react-pose';
+import styles from './TabMenu.module.scss';
+import { TabButton } from '../../atoms/Buttons/TabButton';
+import { CdsCurrentPage } from '../../../utils/constants';
+import { MenuDownIcon } from '../../atoms/Icons/MenuDownIcon';
+import { MenuUpIcon } from '../../atoms/Icons/MenuUpIcon';
 
 const MenuIcon = posed.div({
   enter: { opacity: 1 },
-  exit: { opacity: 0 }
+  exit: { opacity: 0 },
 });
 
 const DropDownMenu = posed.div({
@@ -18,8 +18,8 @@ const DropDownMenu = posed.div({
   },
   exit: {
     opacity: 0,
-    y: -20
-  }
+    y: -20,
+  },
 });
 
 type ITabMenuProps = {
@@ -36,14 +36,9 @@ export const TabMenu = (props: ITabMenuProps) => {
 
   return (
     <div className={styles.menu}>
-      <button
-        className={styles["toggle-button"]}
-        onClick={handleToggleDropdown}
-      >
-        <span className={styles["toggle-button-text"]}>
-          {props.currentPage}
-        </span>
-        <div className={styles["toggle-button-icon"]}>
+      <button className={styles['toggle-button']} onClick={handleToggleDropdown}>
+        <span className={styles['toggle-button-text']}>{props.currentPage}</span>
+        <div className={styles['toggle-button-icon']}>
           <PoseGroup>
             {isDropdownOpen ? (
               <MenuIcon key="menu-up">
@@ -62,11 +57,7 @@ export const TabMenu = (props: ITabMenuProps) => {
           <DropDownMenu key="drop-down-menu" className={styles.dropdown}>
             {props.items.map((item: CdsCurrentPage) => (
               <li key={item}>
-                <TabButton
-                  handleHideDropdown={handleToggleDropdown}
-                >
-                  {item}
-                </TabButton>
+                <TabButton handleHideDropdown={handleToggleDropdown}>{item}</TabButton>
               </li>
             ))}
           </DropDownMenu>
