@@ -7,11 +7,11 @@ import { TopLeftBackground } from '../../atoms/Background/TopLeftBackground';
 import { TabMenu } from '../../molecules/TabMenu';
 import { CdsCurrentPage } from '../../../utils/constants';
 
-type ICdsProps = {
+interface ICdsProps {
   cds: (ISingle | IAlbum)[];
   currentPage: CdsCurrentPage;
   handleClickSwitch(choice: string): void;
-};
+}
 
 const pages: CdsCurrentPage[] = [CdsCurrentPage.Single, CdsCurrentPage.Album];
 

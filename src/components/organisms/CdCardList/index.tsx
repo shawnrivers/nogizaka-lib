@@ -11,10 +11,10 @@ const CardListContainer = posed.div({
   exit: { staggerChildren: 25, afterChildren: true },
 });
 
-type ICdCardProps = {
+interface ICdCardProps {
   cds: (ISingle | IAlbum)[];
   currentPage: CdsCurrentPage;
-};
+}
 
 export const CdCardList = (props: ICdCardProps) => (
   <PoseGroup>

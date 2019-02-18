@@ -22,10 +22,10 @@ const DropDownMenu = posed.div({
   },
 });
 
-type ITabMenuProps = {
+interface ITabMenuProps {
   items: CdsCurrentPage[];
   currentPage: CdsCurrentPage;
-};
+}
 
 export const TabMenu = (props: ITabMenuProps) => {
   const [isDropdownOpen, toggleDropDown] = useState(false);

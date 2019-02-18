@@ -12,7 +12,7 @@ type MatchParams = {
   type: CdsCurrentPage;
 };
 
-export type ICdsContainerProps = RouteComponentProps<MatchParams> & {
+export interface ICdsContainerProps extends RouteComponentProps<MatchParams> {
   cds: {
     singles: {
       data: ISingle[];
@@ -27,7 +27,7 @@ export type ICdsContainerProps = RouteComponentProps<MatchParams> & {
   switchCdsPage(page: CdsCurrentPage): void;
   fetchSingles(): void;
   fetchAlbums(): void;
-};
+}
 
 const CdsContainer = (props: ICdsContainerProps) => {
   useEffect(() => {
