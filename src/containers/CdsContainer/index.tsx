@@ -8,31 +8,44 @@ import { IAlbum } from '../../models/IAlbum';
 import { Dispatch } from 'redux';
 import { RouteComponentProps } from 'react-router';
 
-type MatchParams = {
+type IMatchParams = {
   type: CdsCurrentPage;
 };
 
-export interface ICdsContainerProps extends RouteComponentProps<MatchParams> {
-  cds: {
-    singles: {
-      data: ISingle[];
-      fetchStatus: FetchStatus;
-    };
-    albums: {
-      data: IAlbum[];
-      fetchStatus: FetchStatus;
-    };
+type ICds = {
+  singles: {
+    data: ISingle[];
+    fetchStatus: FetchStatus;
   };
+  albums: {
+    data: IAlbum[];
+    fetchStatus: FetchStatus;
+  };
+};
+
+export interface ICdsContainerProps extends RouteComponentProps<IMatchParams> {
+  cds: ICds;
   currentPage: CdsCurrentPage;
   fetchSingles(): void;
   fetchAlbums(): void;
 }
 
+const getCurrentPageCds = (cdsCurrentPage: CdsCurrentPage, cds: ICds): (ISingle | IAlbum)[] => {
+  switch (cdsCurrentPage) {
+    case CdsCurrentPage.Single:
+      return cds.singles.data;
+    case CdsCurrentPage.Album:
+      return cds.albums.data;
+    default:
+      return [];
+  }
+};
+
 const CdsContainer = (props: ICdsContainerProps) => {
   const useFetchSingles = () => {
-  useEffect(() => {
+    useEffect(() => {
       if (props.cds.singles.fetchStatus === FetchStatus.None) {
-      props.fetchSingles();
+        props.fetchSingles();
       }
     }, [props.cds.singles.fetchStatus]);
   };
@@ -40,8 +53,8 @@ const CdsContainer = (props: ICdsContainerProps) => {
   const useFetchAlbums = () => {
     useEffect(() => {
       if (props.cds.albums.fetchStatus === FetchStatus.None) {
-      props.fetchAlbums();
-    }
+        props.fetchAlbums();
+      }
     }, [props.cds.albums.fetchStatus]);
   };
 
@@ -49,19 +62,7 @@ const CdsContainer = (props: ICdsContainerProps) => {
   useFetchAlbums();
 
   const currentPage = props.match.params.type;
-
-  let cdsContents: ISingle[] | IAlbum[];
-  switch (currentPage) {
-    case CdsCurrentPage.Single:
-      cdsContents = props.cds.singles.data;
-      break;
-    case CdsCurrentPage.Album:
-      cdsContents = props.cds.albums.data;
-      break;
-    default:
-      cdsContents = [];
-      break;
-  }
+  const cdsContents = getCurrentPageCds(currentPage, props.cds);
 
   return <Cds cds={cdsContents} currentPage={currentPage} />;
 };
