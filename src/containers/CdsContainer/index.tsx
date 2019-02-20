@@ -29,12 +29,24 @@ export interface ICdsContainerProps extends RouteComponentProps<MatchParams> {
 }
 
 const CdsContainer = (props: ICdsContainerProps) => {
+  const useFetchSingles = () => {
   useEffect(() => {
-    if (props.cds.singles.fetchStatus === FetchStatus.None || props.cds.albums.fetchStatus === FetchStatus.None) {
+      if (props.cds.singles.fetchStatus === FetchStatus.None) {
       props.fetchSingles();
+      }
+    }, [props.cds.singles.fetchStatus]);
+  };
+
+  const useFetchAlbums = () => {
+    useEffect(() => {
+      if (props.cds.albums.fetchStatus === FetchStatus.None) {
       props.fetchAlbums();
     }
-  }, [props.cds.singles.fetchStatus, props.cds.albums.fetchStatus]);
+    }, [props.cds.albums.fetchStatus]);
+  };
+
+  useFetchSingles();
+  useFetchAlbums();
 
   const currentPage = props.match.params.type;
 
