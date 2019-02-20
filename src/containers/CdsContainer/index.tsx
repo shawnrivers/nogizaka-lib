@@ -24,7 +24,6 @@ export interface ICdsContainerProps extends RouteComponentProps<MatchParams> {
     };
   };
   currentPage: CdsCurrentPage;
-  switchCdsPage(page: CdsCurrentPage): void;
   fetchSingles(): void;
   fetchAlbums(): void;
 }
@@ -52,7 +51,7 @@ const CdsContainer = (props: ICdsContainerProps) => {
       break;
   }
 
-  return <Cds cds={cdsContents} currentPage={currentPage} handleClickSwitch={props.switchCdsPage} />;
+  return <Cds cds={cdsContents} currentPage={currentPage} />;
 };
 
 const mapStateToProps = (state: any) => ({

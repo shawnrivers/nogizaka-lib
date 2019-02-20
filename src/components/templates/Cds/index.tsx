@@ -10,7 +10,6 @@ import { CdsCurrentPage } from '../../../utils/constants';
 interface ICdsProps {
   cds: (ISingle | IAlbum)[];
   currentPage: CdsCurrentPage;
-  handleClickSwitch(choice: string): void;
 }
 
 const pages: CdsCurrentPage[] = [CdsCurrentPage.Single, CdsCurrentPage.Album];
