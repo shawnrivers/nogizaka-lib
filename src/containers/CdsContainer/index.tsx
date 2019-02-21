@@ -47,7 +47,7 @@ const CdsContainer = (props: ICdsContainerProps) => {
       if (props.cds.singles.fetchStatus === FetchStatus.None) {
         props.fetchSingles();
       }
-    }, [props.cds.singles.fetchStatus]);
+    }, []);
   };
 
   const useFetchAlbums = () => {
@@ -55,7 +55,7 @@ const CdsContainer = (props: ICdsContainerProps) => {
       if (props.cds.albums.fetchStatus === FetchStatus.None) {
         props.fetchAlbums();
       }
-    }, [props.cds.albums.fetchStatus]);
+    }, []);
   };
 
   useFetchSingles();
