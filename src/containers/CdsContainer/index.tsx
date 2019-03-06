@@ -55,7 +55,7 @@ const CdsContainer = (props: ICdsContainerProps) => {
     }, []);
 
   const currentPage = props.match.params.type;
-  const cdsContents = getCurrentPageCds(currentPage, props.cds);
+  const cdsContents = React.useMemo(() => getCurrentPageCds(currentPage, props.cds), [currentPage, props.cds]);
 
   return <Cds cds={cdsContents} currentPage={currentPage} />;
 };
