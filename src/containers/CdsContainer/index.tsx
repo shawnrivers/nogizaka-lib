@@ -7,6 +7,7 @@ import { ISingle } from '../../models/ISingle';
 import { IAlbum } from '../../models/IAlbum';
 import { Dispatch } from 'redux';
 import { RouteComponentProps } from 'react-router';
+import { IRootState } from '../../stores/state';
 
 type IMatchParams = {
   type: CdsCurrentPage;
@@ -43,16 +44,16 @@ const getCurrentPageCds = (cdsCurrentPage: CdsCurrentPage, cds: ICds): (ISingle 
 
 const CdsContainer = (props: ICdsContainerProps) => {
   React.useEffect(() => {
-      if (props.cds.singles.fetchStatus === FetchStatus.None) {
-        props.fetchSingles();
-      }
-    }, []);
+    if (props.cds.singles.fetchStatus === FetchStatus.None) {
+      props.fetchSingles();
+    }
+  }, []);
 
   React.useEffect(() => {
-      if (props.cds.albums.fetchStatus === FetchStatus.None) {
-        props.fetchAlbums();
-      }
-    }, []);
+    if (props.cds.albums.fetchStatus === FetchStatus.None) {
+      props.fetchAlbums();
+    }
+  }, []);
 
   const currentPage = props.match.params.type;
   const cdsContents = React.useMemo(() => getCurrentPageCds(currentPage, props.cds), [currentPage, props.cds]);
@@ -60,9 +61,8 @@ const CdsContainer = (props: ICdsContainerProps) => {
   return <Cds cds={cdsContents} currentPage={currentPage} />;
 };
 
-const mapStateToProps = (state: any) => ({
+const mapStateToProps = (state: IRootState) => ({
   cds: state.cds,
-  currentPage: state.cds.currentPage,
 });
 
 const mapDispatchToProps = (dispatch: Dispatch<any>) => ({
