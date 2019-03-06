@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import * as React from 'react';
 import posed, { PoseGroup } from 'react-pose';
 import styles from './TabMenu.module.scss';
 import { TabButton } from '../../atoms/Buttons/TabButton';
@@ -28,11 +28,11 @@ interface ITabMenuProps {
 }
 
 export const TabMenu = (props: ITabMenuProps) => {
-  const [isDropdownOpen, toggleDropDown] = useState(false);
+  const [isDropdownOpen, toggleDropDown] = React.useState(false);
 
-  const handleToggleDropdown = () => {
+  const handleToggleDropdown = React.useCallback(() => {
     toggleDropDown(!isDropdownOpen);
-  };
+  }, [toggleDropDown, isDropdownOpen]);
 
   return (
     <div className={styles.menu}>
