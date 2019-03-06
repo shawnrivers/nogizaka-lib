@@ -61,16 +61,12 @@ const CdsContainer = (props: ICdsContainerProps) => {
   return <Cds cds={cdsContents} currentPage={currentPage} />;
 };
 
-const mapStateToProps = (state: IRootState) => ({
-  cds: state.cds,
-});
-
-const mapDispatchToProps = (dispatch: Dispatch<any>) => ({
-  fetchSingles: () => dispatch(fetchSingles()),
-  fetchAlbums: () => dispatch(fetchAlbums()),
-});
-
 export const CdsContianer = connect(
-  mapStateToProps,
-  mapDispatchToProps,
+  (state: IRootState) => ({
+    cds: state.cds,
+  }),
+  (dispatch: Dispatch<any>) => ({
+    fetchSingles: () => dispatch(fetchSingles()),
+    fetchAlbums: () => dispatch(fetchAlbums()),
+  }),
 )(CdsContainer);
