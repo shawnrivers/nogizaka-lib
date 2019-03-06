@@ -12,7 +12,7 @@ interface ICdsProps {
   currentPage: CdsCurrentPage;
 }
 
-const pages: CdsCurrentPage[] = [CdsCurrentPage.Single, CdsCurrentPage.Album];
+const pages = [CdsCurrentPage.Single, CdsCurrentPage.Album];
 
 export const Cds = (props: ICdsProps) => (
   <div className={styles.container}>
