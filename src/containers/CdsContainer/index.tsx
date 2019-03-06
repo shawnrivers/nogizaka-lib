@@ -42,24 +42,17 @@ const getCurrentPageCds = (cdsCurrentPage: CdsCurrentPage, cds: ICds): (ISingle 
 };
 
 const CdsContainer = (props: ICdsContainerProps) => {
-  const useFetchSingles = () => {
-    useEffect(() => {
+  React.useEffect(() => {
       if (props.cds.singles.fetchStatus === FetchStatus.None) {
         props.fetchSingles();
       }
     }, []);
-  };
 
-  const useFetchAlbums = () => {
-    useEffect(() => {
+  React.useEffect(() => {
       if (props.cds.albums.fetchStatus === FetchStatus.None) {
         props.fetchAlbums();
       }
     }, []);
-  };
-
-  useFetchSingles();
-  useFetchAlbums();
 
   const currentPage = props.match.params.type;
   const cdsContents = getCurrentPageCds(currentPage, props.cds);
