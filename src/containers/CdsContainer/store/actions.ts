@@ -27,38 +27,44 @@ export type cdsActions =
 
 // Action Creators
 
-export const fetchSingles = () => (dispatch: Dispatch<any>): Promise<void> => {
+export const fetchSingles = () => async (dispatch: Dispatch<any>) => {
   dispatch({ type: cdsActionTypes.FETCH_SINGLES_PENDING });
-  return fetch('https://raw.githubusercontent.com/shawnrivers/nogizaka-data/master/src/json/singles.json')
-    .then(res => res.json())
-    .then(data => {
+
+  try {
+    const response = await fetch(
+      'https://raw.githubusercontent.com/shawnrivers/nogizaka-data/master/src/json/singles.json',
+    );
+    const data = await response.json();
+
       dispatch({
         type: cdsActionTypes.FETCH_SINGLES_FULFILLED,
         payload: data,
       });
-    })
-    .catch(err => {
+  } catch (err) {
       dispatch({
         type: cdsActionTypes.FETCH_SINGLES_REJECTED,
       });
-      console.log(err);
-    });
+
+    console.log('Error:', err);
+  }
 };
 
-export const fetchAlbums = () => (dispatch: Dispatch<any>): Promise<void> => {
+export const fetchAlbums = () => async (dispatch: Dispatch<any>) => {
   dispatch({ type: cdsActionTypes.FETCH_ALBUMS_PENDING });
-  return fetch('https://raw.githubusercontent.com/shawnrivers/nogizaka-data/master/src/json/albums.json')
-    .then(res => res.json())
-    .then(data => {
+  try {
+    const response = await fetch(
+      'https://raw.githubusercontent.com/shawnrivers/nogizaka-data/master/src/json/albums.json',
+    );
+    const data = await response.json();
+
       dispatch({
         type: cdsActionTypes.FETCH_ALBUMS_FULFILLED,
         payload: data,
       });
-    })
-    .catch(err => {
+  } catch (err) {
       dispatch({
         type: cdsActionTypes.FETCH_ALBUMS_REJECTED,
       });
       console.log(err);
-    });
+  }
 };
