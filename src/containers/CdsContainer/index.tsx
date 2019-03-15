@@ -24,7 +24,7 @@ type ICds = {
   };
 };
 
-export interface ICdsContainerProps extends RouteComponentProps<IMatchParams> {
+interface ICdsContainerProps extends RouteComponentProps<IMatchParams> {
   cds: ICds;
   currentPage: CdsCurrentPage;
   fetchSingles(): void;
