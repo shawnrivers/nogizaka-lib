@@ -1,9 +1,5 @@
 import { cdsReducer } from './reducers';
 import { FetchStatus } from '../../../utils/constants';
-import { cdsActions } from './actions';
-import { cdsActionTypes } from './actionTypes';
-import { ISingle } from '../../../models/ISingle';
-import { IAlbum } from '../../../models/IAlbum';
 
 describe('cd reducers', () => {
   it('should return the initial state', () => {
