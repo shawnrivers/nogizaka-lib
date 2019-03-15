@@ -49,7 +49,7 @@ export const cdsReducer = (state: ICdsState = initialCdsState, action: cdsAction
         ...state,
         singles: {
           fetchStatus: FetchStatus.Fulfilled,
-          data: action.payload.slice().sort((itemA: ISingle, itemB: ISingle) => itemB.number - itemA.number),
+          data: action.payload,
         },
       };
     case cdsActionTypes.FETCH_ALBUMS_PENDING:
@@ -73,7 +73,7 @@ export const cdsReducer = (state: ICdsState = initialCdsState, action: cdsAction
         ...state,
         albums: {
           fetchStatus: FetchStatus.Fulfilled,
-          data: action.payload.slice().sort((itemA: IAlbum, itemB: IAlbum) => itemB.number - itemA.number),
+          data: action.payload,
         },
       };
     default:
