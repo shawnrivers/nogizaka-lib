@@ -14,11 +14,26 @@ describe('cd actions', () => {
   });
 
   describe('fetchSingles', () => {
-    it('should create FETCH_SINGLES_FULFILLED after sucessfully received singles data response', () => {
+    const initialState = {
+      cds: {
+        singles: {
+          fetchStatus: FetchStatus.None,
+          data: [],
+        },
+      },
+    };
+
+    const store = mockStore(initialState);
+
+    beforeEach(async () => {
       fetchMock.getOnce('https://raw.githubusercontent.com/shawnrivers/nogizaka-data/master/src/json/singles.json', {
         body: [
           {
             number: 1,
+            title: 'title2',
+          },
+          {
+            number: 2,
             title: 'title1',
           },
         ],
@@ -27,42 +42,55 @@ describe('cd actions', () => {
         },
       });
 
-      const initialState = {
-        cds: {
-          singles: {
-            fetchStatus: FetchStatus.None,
-            data: [],
-          },
+      const fetchSinglesAction = fetchSingles() as any;
+
+      await store.dispatch(fetchSinglesAction);
+    });
+
+    it('should create FETCH_SINGLES_FULFILLED after sucessfully received singles data response', () => {
+      const pendingAction = store.getActions()[0];
+      const fulfilledAction = store.getActions()[1];
+
+      expect(pendingAction.type).toBe(cdsActionTypes.FETCH_SINGLES_PENDING);
+      expect(fulfilledAction.type).toBe(cdsActionTypes.FETCH_SINGLES_FULFILLED);
+    });
+
+    it('should sort singles data in descending order', () => {
+      const fulfilledAction = store.getActions()[1];
+      expect(fulfilledAction.payload).toStrictEqual([
+        {
+          number: 2,
+          title: 'title1',
         },
-      };
-
-      const store = mockStore(initialState);
-
-      store.dispatch(fetchSingles() as any).then(() => {
-        expect(store.getActions()).toStrictEqual([
-          {
-            type: cdsActionTypes.FETCH_SINGLES_PENDING,
-          },
-          {
-            type: cdsActionTypes.FETCH_SINGLES_FULFILLED,
-            payload: [
-              {
-                number: 1,
-                title: 'title1',
-              },
-            ],
-          },
-        ]);
-      });
+        {
+          number: 1,
+          title: 'title2',
+        },
+      ]);
     });
   });
 
   describe('fetchAlbums', () => {
-    it('should create FETCH_ALBUMS_FULFILLED after sucessfully received albums data response', () => {
+    const initialState = {
+      cds: {
+        albums: {
+          fetchStatus: FetchStatus.None,
+          data: [],
+        },
+      },
+    };
+
+    const store = mockStore(initialState);
+
+    beforeEach(async () => {
       fetchMock.getOnce('https://raw.githubusercontent.com/shawnrivers/nogizaka-data/master/src/json/albums.json', {
         body: [
           {
             number: 1,
+            title: 'title2',
+          },
+          {
+            number: 2,
             title: 'title1',
           },
         ],
@@ -71,33 +99,31 @@ describe('cd actions', () => {
         },
       });
 
-      const initialState = {
-        cds: {
-          albums: {
-            fetchStatus: FetchStatus.None,
-            data: [],
-          },
+      const fetchAlbumsAction = fetchAlbums() as any;
+
+      await store.dispatch(fetchAlbumsAction);
+    });
+
+    it('should create FETCH_ALBUMS_FULFILLED after sucessfully received albums data response', () => {
+      const pendingAction = store.getActions()[0];
+      const fulfilledAction = store.getActions()[1];
+
+      expect(pendingAction.type).toBe(cdsActionTypes.FETCH_ALBUMS_PENDING);
+      expect(fulfilledAction.type).toBe(cdsActionTypes.FETCH_ALBUMS_FULFILLED);
+    });
+
+    it('should sort albums data in descending order', () => {
+      const fulfilledAction = store.getActions()[1];
+      expect(fulfilledAction.payload).toStrictEqual([
+        {
+          number: 2,
+          title: 'title1',
         },
-      };
-
-      const store = mockStore(initialState);
-
-      store.dispatch(fetchAlbums() as any).then(() => {
-        expect(store.getActions()).toStrictEqual([
-          {
-            type: cdsActionTypes.FETCH_ALBUMS_PENDING,
-          },
-          {
-            type: cdsActionTypes.FETCH_ALBUMS_FULFILLED,
-            payload: [
-              {
-                number: 1,
-                title: 'title1',
-              },
-            ],
-          },
-        ]);
-      });
+        {
+          number: 1,
+          title: 'title2',
+        },
+      ]);
     });
   });
 });
