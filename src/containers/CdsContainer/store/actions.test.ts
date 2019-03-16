@@ -30,11 +30,11 @@ describe('cd actions', () => {
         body: [
           {
             number: 1,
-            title: 'title2',
+            title: 'title1',
           },
           {
             number: 2,
-            title: 'title1',
+            title: 'title2',
           },
         ],
         headers: {
@@ -60,11 +60,11 @@ describe('cd actions', () => {
       expect(fulfilledAction.payload).toStrictEqual([
         {
           number: 2,
-          title: 'title1',
+          title: 'title2',
         },
         {
           number: 1,
-          title: 'title2',
+          title: 'title1',
         },
       ]);
     });
@@ -87,11 +87,11 @@ describe('cd actions', () => {
         body: [
           {
             number: 1,
-            title: 'title2',
+            title: 'title1',
           },
           {
             number: 2,
-            title: 'title1',
+            title: 'title2',
           },
         ],
         headers: {
@@ -117,11 +117,11 @@ describe('cd actions', () => {
       expect(fulfilledAction.payload).toStrictEqual([
         {
           number: 2,
-          title: 'title1',
+          title: 'title2',
         },
         {
           number: 1,
-          title: 'title2',
+          title: 'title1',
         },
       ]);
     });
