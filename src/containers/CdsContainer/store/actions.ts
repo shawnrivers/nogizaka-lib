@@ -2,6 +2,7 @@ import { cdsActionTypes } from './actionTypes';
 import { ISingle } from '../../../models/ISingle';
 import { IAlbum } from '../../../models/IAlbum';
 import { Dispatch } from 'react';
+import { fetchGet } from '../../../utils/fetch';
 
 export type cdsActions =
   | {
@@ -31,9 +32,9 @@ export const fetchSingles = () => async (dispatch: Dispatch<any>) => {
   dispatch({ type: cdsActionTypes.FETCH_SINGLES_PENDING });
 
   try {
-    const data = await (await fetch(
+    const data = await fetchGet(
       'https://raw.githubusercontent.com/shawnrivers/nogizaka-data/master/src/json/singles.json',
-    )).json();
+    );
 
     const sortedData = data.slice().sort((itemA: ISingle, itemB: ISingle) => itemB.number - itemA.number);
 
@@ -53,9 +54,9 @@ export const fetchSingles = () => async (dispatch: Dispatch<any>) => {
 export const fetchAlbums = () => async (dispatch: Dispatch<any>) => {
   dispatch({ type: cdsActionTypes.FETCH_ALBUMS_PENDING });
   try {
-    const data = await (await fetch(
+    const data = await fetchGet(
       'https://raw.githubusercontent.com/shawnrivers/nogizaka-data/master/src/json/albums.json',
-    )).json();
+    );
 
     const sortedData = data.slice().sort((itemA: IAlbum, itemB: IAlbum) => itemB.number - itemA.number);
 
