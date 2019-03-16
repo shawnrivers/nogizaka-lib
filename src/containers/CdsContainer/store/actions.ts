@@ -67,6 +67,7 @@ export const fetchAlbums = () => async (dispatch: Dispatch<any>) => {
     dispatch({
       type: cdsActionTypes.FETCH_ALBUMS_REJECTED,
     });
-    console.log(err);
+
+    console.log('Error:', err);
   }
 };
