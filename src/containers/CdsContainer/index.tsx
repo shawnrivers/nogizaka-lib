@@ -8,30 +8,20 @@ import { IAlbum } from '../../models/IAlbum';
 import { Dispatch } from 'redux';
 import { RouteComponentProps } from 'react-router';
 import { IRootState } from '../../stores/state';
+import { ICdsState } from './store/reducers';
 
 type IMatchParams = {
   type: CdsCurrentPage;
 };
 
-type ICds = {
-  singles: {
-    data: ISingle[];
-    fetchStatus: FetchStatus;
-  };
-  albums: {
-    data: IAlbum[];
-    fetchStatus: FetchStatus;
-  };
-};
-
 interface ICdsContainerProps extends RouteComponentProps<IMatchParams> {
-  cds: ICds;
+  cds: ICdsState;
   currentPage: CdsCurrentPage;
   fetchSingles(): void;
   fetchAlbums(): void;
 }
 
-const getCurrentPageCds = (cdsCurrentPage: CdsCurrentPage, cds: ICds): (ISingle | IAlbum)[] => {
+const getCurrentPageCds = (cdsCurrentPage: CdsCurrentPage, cds: ICdsState): (ISingle | IAlbum)[] => {
   switch (cdsCurrentPage) {
     case CdsCurrentPage.Single:
       return cds.singles.data;
@@ -47,9 +37,6 @@ const CdsContainer = (props: ICdsContainerProps) => {
     if (props.cds.singles.fetchStatus === FetchStatus.None) {
       props.fetchSingles();
     }
-  }, []);
-
-  React.useEffect(() => {
     if (props.cds.albums.fetchStatus === FetchStatus.None) {
       props.fetchAlbums();
     }
