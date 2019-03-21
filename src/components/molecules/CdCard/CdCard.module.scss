@@ -19,21 +19,20 @@
 }
 
 .text {
-  display: flex;
-  flex-direction: column;
+  height: 48px;
   margin: 4px 8px;
+  @extend %flex-vertical-center;
 }
 
 .number {
+  @extend %body-bold;
   color: $gray-1;
-  font-weight: $font-bold;
-  font-size: 14px;
+  margin-right: 4px;
+  position: relative;
+  top: 1px;
 }
 
 .title {
-  @extend %flex-vertical-center;
-  color: $gray-1;
-  font-weight: $font-light;
-  font-size: 12px;
-  height: 30px;
+  @extend %caption-regular;
+  color: $gray-2;
 }
