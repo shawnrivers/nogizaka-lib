@@ -1,3 +1,23 @@
 $font-light: 300;
 $font-regular: 500;
 $font-bold: 700;
+
+%body-regular {
+  font-size: 14px;
+  font-weight: $font-regular;
+}
+
+%body-bold {
+  font-size: 14px;
+  font-weight: $font-regular;
+}
+
+%caption-regular {
+  font-size: 12px;
+  font-weight: $font-regular;
+}
+
+%caption-bold {
+  font-size: 12px;
+  font-weight: $font-bold;
+}
