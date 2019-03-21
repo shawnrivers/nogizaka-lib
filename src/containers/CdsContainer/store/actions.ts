@@ -26,8 +26,6 @@ export type cdsActions =
       payload: IAlbum[];
     };
 
-// Action Creators
-
 export const fetchSingles = () => async (dispatch: Dispatch<any>) => {
   dispatch({ type: cdsActionTypes.FETCH_SINGLES_PENDING });
 
