@@ -2,5 +2,29 @@
 
 .container {
   @extend %grid-two-columns;
-  margin: 16px 0;
+  margin: 0 32px;
+  position: absolute;
+  box-sizing: border-box;
+}
+
+.enter {
+  opacity: 0;
+  transform: translateY(100px);
+}
+
+.enter-active {
+  opacity: 1;
+  transform: translateY(0px);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.exit {
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+.exit-active {
+  opacity: 0;
+  transform: translateY(100px);
+  transition: opacity 300ms, transform 300ms;
 }
