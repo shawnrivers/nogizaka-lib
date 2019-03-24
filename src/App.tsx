@@ -1,7 +1,6 @@
 import React from 'react';
-import { Route, Redirect, Switch } from 'react-router';
 import { Provider } from 'react-redux';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 import { CdsContainer } from './containers/CdsContainer';
 import './App.scss';
 import { store } from './stores/appStore';
