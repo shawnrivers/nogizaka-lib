@@ -12,12 +12,12 @@ This is a React web application aiming at showing the information about [Nogizak
   * TypeScript
 * CSS
   * Sass
-  * CSS modues
+  * CSS modules
 * Test
   * jest
   * enzyme
 * Animation
-  * react-pose / react-spring
+  * react-transition-group
 
 ## File Structures
 
@@ -50,4 +50,4 @@ The components in this application is based on [Atomic Design](http://atomicdesi
 * models/
   * declare data types of JSON data from the API
 * styles/
-  * declare scss variables and tempaltes
+  * declare scss variables and templates
