@@ -17,7 +17,9 @@ export const CdCard = (props: ICdProps) => {
   return (
     <div className={styles.container}>
       <LazyLoad placeholder={<ImagePlaceholder />} offset={100}>
+        <div className={styles['artwork-container']}>
           <img className={styles.artwork} src={props.cd.artworks[0].urls.medium} alt={props.cd.title} />
+        </div>
       </LazyLoad>
       <div className={styles.text}>
         <span>
