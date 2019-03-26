@@ -26,7 +26,7 @@ type IFocusPerformers = {
 
 export type ICd = {
   title: string;
-  number: number;
+  number: string;
   release: string;
   artworks: ICdArtworks[];
   shopping: ISite[];
