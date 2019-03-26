@@ -34,7 +34,9 @@ export const fetchSingles = () => async (dispatch: Dispatch<any>) => {
       'https://raw.githubusercontent.com/shawnrivers/nogizaka-data/master/src/json/singles.json',
     );
 
-    const sortedData = data.slice().sort((itemA: ISingle, itemB: ISingle) => itemB.number - itemA.number);
+    const sortedData = data
+      .slice()
+      .sort((itemA: ISingle, itemB: ISingle) => new Date(itemB.release).getTime() - new Date(itemA.release).getTime());
 
     dispatch({
       type: cdsActionTypes.FETCH_SINGLES_FULFILLED,
@@ -56,7 +58,9 @@ export const fetchAlbums = () => async (dispatch: Dispatch<any>) => {
       'https://raw.githubusercontent.com/shawnrivers/nogizaka-data/master/src/json/albums.json',
     );
 
-    const sortedData = data.slice().sort((itemA: IAlbum, itemB: IAlbum) => itemB.number - itemA.number);
+    const sortedData = data
+      .slice()
+      .sort((itemA: IAlbum, itemB: IAlbum) => new Date(itemB.release).getTime() - new Date(itemA.release).getTime());
 
     dispatch({
       type: cdsActionTypes.FETCH_ALBUMS_FULFILLED,
