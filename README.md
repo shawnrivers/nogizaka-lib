@@ -2,6 +2,20 @@
 
 This is a React web application aiming at showing the information about [Nogizaka46](http://www.nogizaka46.com/) in a user-friendly way.
 
+## Installation
+
+Install necessary packages:
+
+```bash
+npm install
+```
+
+Start the app:
+
+```bash
+npm start
+```
+
 ## Technologies
 
 - SPA framework: `React`
