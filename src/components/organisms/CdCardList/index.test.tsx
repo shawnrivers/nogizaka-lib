@@ -11,12 +11,12 @@ describe('<CdCardList />', () => {
   let wrapper: ShallowWrapper;
 
   beforeEach(() => {
-    wrapper = shallow(<CdCardList cds={[]} currentPage={CdsCurrentPage.Single} />);
+    wrapper = shallow(<CdCardList singles={[]} albums={[]} currentPage={CdsCurrentPage.Single} />);
   });
 
-  it('should render CdCard based on the length of props.cds', () => {
+  it('When in singles page, should render CdCard based on the length of props.singles', () => {
     wrapper.setProps({
-      cds: [
+      singles: [
         {
           number: 1,
           title: 'Item 1',
@@ -30,8 +30,24 @@ describe('<CdCardList />', () => {
     expect(wrapper.find(CdCard)).toHaveLength(2);
   });
 
-  it('should render nothing when the the lengh of props.cds is 0', () => {
-    wrapper.setProps({ cds: [] });
+  it('When in albums page, should render CdCard based on the length of props.albums', () => {
+    wrapper.setProps({
+      albums: [
+        {
+          number: 1,
+          title: 'Item 1',
+        },
+        {
+          number: 2,
+          title: 'Item 2',
+        },
+      ],
+    });
+    expect(wrapper.find(CdCard)).toHaveLength(2);
+  });
+
+  it('should render nothing when the the lengths of both props.singles and props.albums are 0', () => {
+    wrapper.setProps({ singles: [], albums: [] });
     expect(wrapper.find(CdCard)).toHaveLength(0);
   });
 });
