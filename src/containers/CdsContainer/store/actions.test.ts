@@ -31,14 +31,16 @@ describe('cd actions', () => {
           {
             number: 1,
             title: 'title1',
+            release: '2018-10-01',
           },
           {
             number: 2,
             title: 'title2',
+            release: '2019-01-01',
           },
         ],
         headers: {
-          'content-type': 'applicatopn/json',
+          'content-type': 'application/json',
         },
       });
 
@@ -47,7 +49,7 @@ describe('cd actions', () => {
       await store.dispatch(fetchSinglesAction);
     });
 
-    it('should create FETCH_SINGLES_FULFILLED after sucessfully received singles data response', () => {
+    it('should create FETCH_SINGLES_FULFILLED after successfully received singles data response', () => {
       const pendingAction = store.getActions()[0];
       const fulfilledAction = store.getActions()[1];
 
@@ -55,16 +57,18 @@ describe('cd actions', () => {
       expect(fulfilledAction.type).toBe(cdsActionTypes.FETCH_SINGLES_FULFILLED);
     });
 
-    it('should sort singles data in descending order', () => {
+    it('should sort singles data in descending order of release data', () => {
       const fulfilledAction = store.getActions()[1];
       expect(fulfilledAction.payload).toStrictEqual([
         {
           number: 2,
           title: 'title2',
+          release: '2019-01-01',
         },
         {
           number: 1,
           title: 'title1',
+          release: '2018-10-01',
         },
       ]);
     });
@@ -88,14 +92,16 @@ describe('cd actions', () => {
           {
             number: 1,
             title: 'title1',
+            release: '2018-10-01',
           },
           {
             number: 2,
             title: 'title2',
+            release: '2019-01-01',
           },
         ],
         headers: {
-          'content-type': 'applicatopn/json',
+          'content-type': 'application/json',
         },
       });
 
@@ -104,7 +110,7 @@ describe('cd actions', () => {
       await store.dispatch(fetchAlbumsAction);
     });
 
-    it('should create FETCH_ALBUMS_FULFILLED after sucessfully received albums data response', () => {
+    it('should create FETCH_ALBUMS_FULFILLED after successfully received albums data response', () => {
       const pendingAction = store.getActions()[0];
       const fulfilledAction = store.getActions()[1];
 
@@ -112,16 +118,18 @@ describe('cd actions', () => {
       expect(fulfilledAction.type).toBe(cdsActionTypes.FETCH_ALBUMS_FULFILLED);
     });
 
-    it('should sort albums data in descending order', () => {
+    it('should sort albums data in descending order of release date', () => {
       const fulfilledAction = store.getActions()[1];
       expect(fulfilledAction.payload).toStrictEqual([
         {
           number: 2,
           title: 'title2',
+          release: '2019-01-01',
         },
         {
           number: 1,
           title: 'title1',
+          release: '2018-10-01',
         },
       ]);
     });
