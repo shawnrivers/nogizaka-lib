@@ -40,18 +40,18 @@ Main source code.
   - Data like icons
 - `components/`
   - `atoms/`
-    > smallest components unit, usually basic HTML elements
+    - > smallest components unit, usually basic HTML elements
     - e.g. button
   - `molecules/`
-    > relatively simple groups of UI elements functioning together as a unit
+    - > relatively simple groups of UI elements functioning together as a unit
     - e.g. search bar with a input field and button
   - `organisms/`
-    > relatively complex UI components composed of groups of molecules and/or atoms and/or other organisms
+    - > relatively complex UI components composed of groups of molecules and/or atoms and/or other organisms
     - e.g. header
   - `templates/`
-    > page-level objects that place components into a layout and articulate the design’s underlying content structure
+    - > page-level objects that place components into a layout and articulate the design’s underlying content structure
 - `containers/`
-  > specific instances of templates that show what a UI looks like with real representative content in place
+  - > specific instances of templates that show what a UI looks like with real representative content in place
   - each actual page with data processing and side effects
   - `reducers.ts` and `actions.ts` for each actual page also goes here
 - `stores/`
