@@ -1,9 +1,10 @@
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
 import { FetchStatus } from '../../../utils/constants';
-import { fetchSingles, fetchAlbums } from './actions';
+import { getSingles, fetchAlbums } from './actions';
 import { cdsActionTypes } from './actionTypes';
 import fetchMock from 'fetch-mock';
+import { ISingle } from '../../../models/ISingle';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -25,16 +26,31 @@ describe('cd actions', () => {
 
     const store = mockStore(initialState);
 
+    const mockSingleData: ISingle = {
+      number: '',
+      title: '',
+      release: '',
+      artworks: [],
+      shopping: [],
+      songs: [],
+      behindPerformers: {
+        trainees: [],
+        skips: [],
+      },
+    };
+
     beforeEach(async () => {
       fetchMock.getOnce('https://raw.githubusercontent.com/shawnrivers/nogizaka-data/master/src/json/singles.json', {
         body: [
           {
-            number: 1,
+            ...mockSingleData,
+            number: '1',
             title: 'title1',
             release: '2018-10-01',
           },
           {
-            number: 2,
+            ...mockSingleData,
+            number: '2',
             title: 'title2',
             release: '2019-01-01',
           },
@@ -44,7 +60,7 @@ describe('cd actions', () => {
         },
       });
 
-      const fetchSinglesAction = fetchSingles() as any;
+      const fetchSinglesAction = getSingles() as any;
 
       await store.dispatch(fetchSinglesAction);
     });
@@ -61,12 +77,14 @@ describe('cd actions', () => {
       const fulfilledAction = store.getActions()[1];
       expect(fulfilledAction.payload).toStrictEqual([
         {
-          number: 2,
+          ...mockSingleData,
+          number: '2',
           title: 'title2',
           release: '2019-01-01',
         },
         {
-          number: 1,
+          ...mockSingleData,
+          number: '1',
           title: 'title1',
           release: '2018-10-01',
         },
