@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP:300,500,700');
-
 body {
   margin: 0;
   padding: 0;
@@ -10,4 +8,11 @@ body {
 a {
   color: inherit;
   text-decoration: inherit;
+}
+
+
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-display: swap;
+  src: local('Noto Sans JP'), url('https://fonts.googleapis.com/css?family=Noto+Sans+JP:300,500,700') format('woff2');
 }
