@@ -1,10 +1,11 @@
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
 import { FetchStatus } from '../../../utils/constants';
-import { getSingles, fetchAlbums } from './actions';
+import { getSingles, getAlbums } from './actions';
 import { cdsActionTypes } from './actionTypes';
 import fetchMock from 'fetch-mock';
 import { ISingle } from '../../../models/ISingle';
+import { IAlbum } from '../../../models/IAlbum';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -92,7 +93,7 @@ describe('cd actions', () => {
     });
   });
 
-  describe('fetchAlbums', () => {
+  describe('getAlbums', () => {
     const initialState = {
       cds: {
         albums: {
@@ -104,16 +105,27 @@ describe('cd actions', () => {
 
     const store = mockStore(initialState);
 
+    const mockAlbumData: IAlbum = {
+      number: '',
+      title: '',
+      release: '',
+      artworks: [],
+      shopping: [],
+      songs: [],
+    };
+
     beforeEach(async () => {
       fetchMock.getOnce('https://raw.githubusercontent.com/shawnrivers/nogizaka-data/master/src/json/albums.json', {
         body: [
           {
-            number: 1,
+            ...mockAlbumData,
+            number: '1',
             title: 'title1',
             release: '2018-10-01',
           },
           {
-            number: 2,
+            ...mockAlbumData,
+            number: '2',
             title: 'title2',
             release: '2019-01-01',
           },
@@ -123,7 +135,7 @@ describe('cd actions', () => {
         },
       });
 
-      const fetchAlbumsAction = fetchAlbums() as any;
+      const fetchAlbumsAction = getAlbums() as any;
 
       await store.dispatch(fetchAlbumsAction);
     });
@@ -140,12 +152,14 @@ describe('cd actions', () => {
       const fulfilledAction = store.getActions()[1];
       expect(fulfilledAction.payload).toStrictEqual([
         {
-          number: 2,
+          ...mockAlbumData,
+          number: '2',
           title: 'title2',
           release: '2019-01-01',
         },
         {
-          number: 1,
+          ...mockAlbumData,
+          number: '1',
           title: 'title1',
           release: '2018-10-01',
         },
