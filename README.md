@@ -36,6 +36,9 @@ The components structure used in this application is based on [Atomic Design](ht
 
 Main source code.
 
+- `apis/`
+  - API clients
+  - Transform API responses to the data type the client needs
 - `assets/`
   - Data like icons
 - `components/`
