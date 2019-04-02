@@ -11,14 +11,14 @@ type IMatchParams = {
 };
 interface ICdsProps extends RouteComponentProps<IMatchParams> {
   cds: ICdsState;
-  fetchSingles(): void;
+  getSingles(): void;
   fetchAlbums(): void;
 }
 
 export const Cds = (props: ICdsProps) => {
   React.useEffect(() => {
     if (props.cds.singles.fetchStatus === FetchStatus.None) {
-      props.fetchSingles();
+      props.getSingles();
     }
     if (props.cds.albums.fetchStatus === FetchStatus.None) {
       props.fetchAlbums();

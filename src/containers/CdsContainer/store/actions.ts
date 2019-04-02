@@ -3,6 +3,7 @@ import { ISingle } from '../../../models/ISingle';
 import { IAlbum } from '../../../models/IAlbum';
 import { Dispatch } from 'react';
 import { fetchGet } from '../../../utils/fetch';
+import { fetchSingles } from '../../../apis/SinglesAPI';
 
 export type cdsActions =
   | {
@@ -26,21 +27,19 @@ export type cdsActions =
       payload: IAlbum[];
     };
 
-export const fetchSingles = () => async (dispatch: Dispatch<any>) => {
+export const getSingles = () => async (dispatch: Dispatch<any>) => {
   dispatch({ type: cdsActionTypes.FETCH_SINGLES_PENDING });
 
   try {
-    const data = await fetchGet(
-      'https://raw.githubusercontent.com/shawnrivers/nogizaka-data/master/src/json/singles.json',
-    );
+    const singles = await fetchSingles();
 
-    const sortedData = data
+    const sortedSingles = singles
       .slice()
       .sort((itemA: ISingle, itemB: ISingle) => new Date(itemB.release).getTime() - new Date(itemA.release).getTime());
 
     dispatch({
       type: cdsActionTypes.FETCH_SINGLES_FULFILLED,
-      payload: sortedData,
+      payload: sortedSingles,
     });
   } catch (err) {
     dispatch({
