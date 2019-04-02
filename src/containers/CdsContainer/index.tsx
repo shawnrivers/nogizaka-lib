@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { Cds } from '../../components/templates/Cds';
-import { getSingles, fetchAlbums } from './store/actions';
+import { getSingles, getAlbums } from './store/actions';
 import { Dispatch } from 'redux';
 import { IRootState } from '../../stores/state';
 
@@ -10,6 +10,6 @@ export const CdsContainer = connect(
   }),
   (dispatch: Dispatch<any>) => ({
     getSingles: () => dispatch(getSingles()),
-    fetchAlbums: () => dispatch(fetchAlbums()),
+    getAlbums: () => dispatch(getAlbums()),
   }),
 )(Cds);

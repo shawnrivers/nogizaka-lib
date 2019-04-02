@@ -12,7 +12,7 @@ type IMatchParams = {
 interface ICdsProps extends RouteComponentProps<IMatchParams> {
   cds: ICdsState;
   getSingles(): void;
-  fetchAlbums(): void;
+  getAlbums(): void;
 }
 
 export const Cds = (props: ICdsProps) => {
@@ -21,7 +21,7 @@ export const Cds = (props: ICdsProps) => {
       props.getSingles();
     }
     if (props.cds.albums.fetchStatus === FetchStatus.None) {
-      props.fetchAlbums();
+      props.getAlbums();
     }
   }, []);
 

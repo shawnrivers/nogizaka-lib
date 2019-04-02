@@ -2,8 +2,8 @@ import { cdsActionTypes } from './actionTypes';
 import { ISingle } from '../../../models/ISingle';
 import { IAlbum } from '../../../models/IAlbum';
 import { Dispatch } from 'react';
-import { fetchGet } from '../../../utils/fetch';
 import { fetchSingles } from '../../../apis/SinglesAPI';
+import { fetchAlbums } from '../../../apis/AlbumsAPI';
 
 export type cdsActions =
   | {
@@ -50,12 +50,10 @@ export const getSingles = () => async (dispatch: Dispatch<any>) => {
   }
 };
 
-export const fetchAlbums = () => async (dispatch: Dispatch<any>) => {
+export const getAlbums = () => async (dispatch: Dispatch<any>) => {
   dispatch({ type: cdsActionTypes.FETCH_ALBUMS_PENDING });
   try {
-    const data = await fetchGet(
-      'https://raw.githubusercontent.com/shawnrivers/nogizaka-data/master/src/json/albums.json',
-    );
+    const data = await fetchAlbums();
 
     const sortedData = data
       .slice()
