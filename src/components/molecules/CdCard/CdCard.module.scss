@@ -4,14 +4,14 @@
 @import '../../../styles/colors.scss';
 
 .container {
-  background-color: #ffffff;
-  box-shadow: $elevation-2;
-  border-radius: 6px;
+  position: relative;
   display: flex;
+  width: auto;
   flex-direction: column;
   justify-content: space-between;
-  width: auto;
-  position: relative;
+  background-color: #ffffff;
+  border-radius: 6px;
+  box-shadow: $elevation-2;
 }
 
 .artwork-container {
@@ -20,19 +20,19 @@
 }
 
 .artwork-container::before {
-  content: '';
   display: grid;
-  height: 0;
   width: 0;
+  height: 0;
   padding-bottom: 100%;
+  content: '';
 }
 
 .artwork {
-  border-radius: 6px 6px 0 0;
-  width: 100%;
-  height: 100%;
   position: absolute;
   top: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 6px 6px 0 0;
   object-fit: cover;
 }
 
@@ -44,10 +44,10 @@
 
 .number {
   @extend %body-bold;
-  color: $gray-1;
-  margin-right: 4px;
   position: relative;
   top: 1px;
+  margin-right: 4px;
+  color: $gray-1;
 }
 
 .title {

@@ -1,8 +1,8 @@
 body {
-  margin: 0;
   padding: 0;
-  font-family: 'Noto Sans JP', sans-serif;
+  margin: 0;
   background-color: #fff;
+  font-family: 'Noto Sans JP', sans-serif;
 }
 
 a {
@@ -10,9 +10,8 @@ a {
   text-decoration: inherit;
 }
 
-
 @font-face {
-  font-family: 'Noto Sans JP';
   font-display: swap;
+  font-family: 'Noto Sans JP';
   src: local('Noto Sans JP'), url('https://fonts.googleapis.com/css?family=Noto+Sans+JP:300,500,700') format('woff2');
 }

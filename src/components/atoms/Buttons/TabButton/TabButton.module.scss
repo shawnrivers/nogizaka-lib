@@ -2,16 +2,16 @@
 @import '../../../../styles/typography.scss';
 
 .button {
+  display: inline-block;
+  padding: 8px 40px 8px 16px;
+  border: none;
+  background: #fff;
+  border-radius: 6px;
   color: $gray-1;
+  cursor: pointer;
   font-size: 14px;
   font-weight: $font-regular;
-  border: none;
-  border-radius: 6px;
-  background: #fff;
-  display: inline-block;
-  cursor: pointer;
   outline: inherit;
-  padding: 8px 40px 8px 16px;
   text-align: left;
 }
 
