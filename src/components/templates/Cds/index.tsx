@@ -9,6 +9,7 @@ import { RouteComponentProps } from 'react-router-dom';
 type IMatchParams = {
   type: CdsCurrentPage;
 };
+
 interface ICdsProps extends RouteComponentProps<IMatchParams> {
   cds: ICdsState;
   getSingles(): void;
