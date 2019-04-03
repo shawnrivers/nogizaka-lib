@@ -27,7 +27,7 @@ export type cdsActions =
       payload: IAlbum[];
     };
 
-export const getSingles = () => async (dispatch: Dispatch<any>) => {
+export const getSingles = () => async (dispatch: Dispatch<any>): Promise<void> => {
   dispatch({ type: cdsActionTypes.FETCH_SINGLES_PENDING });
 
   try {
@@ -50,8 +50,9 @@ export const getSingles = () => async (dispatch: Dispatch<any>) => {
   }
 };
 
-export const getAlbums = () => async (dispatch: Dispatch<any>) => {
+export const getAlbums = () => async (dispatch: Dispatch<any>): Promise<void> => {
   dispatch({ type: cdsActionTypes.FETCH_ALBUMS_PENDING });
+
   try {
     const data = await fetchAlbums();
 

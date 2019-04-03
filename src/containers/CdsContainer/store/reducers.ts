@@ -26,7 +26,7 @@ export const initialCdsState: ICdsState = {
   },
 };
 
-export const cdsReducer = (state: ICdsState = initialCdsState, action: cdsActions) => {
+export const cdsReducer = (state: ICdsState = initialCdsState, action: cdsActions): ICdsState => {
   switch (action.type) {
     case cdsActionTypes.FETCH_SINGLES_PENDING:
       return {
