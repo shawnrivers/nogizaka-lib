@@ -6,11 +6,11 @@ import { TabMenu } from '../../molecules/TabMenu';
 import { CdsCurrentPage, FetchStatus } from '../../../utils/constants';
 import { RouteComponentProps } from 'react-router-dom';
 
-type IMatchParams = {
+type MatchParams = {
   type: CdsCurrentPage;
 };
 
-interface ICdsProps extends RouteComponentProps<IMatchParams> {
+interface ICdsProps extends RouteComponentProps<MatchParams> {
   cds: ICdsState;
   getSingles(): void;
   getAlbums(): void;
