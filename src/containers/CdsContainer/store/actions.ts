@@ -1,9 +1,19 @@
-import { cdsActionTypes } from './actionTypes';
 import { ISingle } from '../../../models/ISingle';
 import { IAlbum } from '../../../models/IAlbum';
 import { Dispatch } from 'react';
 import { fetchSingles } from '../../../apis/SinglesAPI';
 import { fetchAlbums } from '../../../apis/AlbumsAPI';
+
+export enum cdsActionTypes {
+  FETCH_SINGLES = 'FETCH_SINGLES',
+  FETCH_SINGLES_PENDING = 'FETCH_SINGLES_PENDING',
+  FETCH_SINGLES_REJECTED = 'FETCH_SINGLES_REJECTED',
+  FETCH_SINGLES_FULFILLED = 'FETCH_SINGLES_FULFILLED',
+  FETCH_ALBUMS = 'FETCH_ALBUMS',
+  FETCH_ALBUMS_PENDING = 'FETCH_ALBUMS_PENDING',
+  FETCH_ALBUMS_REJECTED = 'FETCH_ALBUMS_REJECTED',
+  FETCH_ALBUMS_FULFILLED = 'FETCH_ALBUMS_FULFILLED',
+}
 
 export type cdsActions =
   | {

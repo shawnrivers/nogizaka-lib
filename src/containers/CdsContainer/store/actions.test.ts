@@ -1,8 +1,7 @@
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
 import { FetchStatus } from '../../../utils/constants';
-import { getSingles, getAlbums } from './actions';
-import { cdsActionTypes } from './actionTypes';
+import { cdsActionTypes, getSingles, getAlbums } from './actions';
 import fetchMock from 'fetch-mock';
 import { ISingle } from '../../../models/ISingle';
 import { IAlbum } from '../../../models/IAlbum';

@@ -1,5 +1,4 @@
-import { cdsActions } from './actions';
-import { cdsActionTypes } from './actionTypes';
+import { cdsActions, cdsActionTypes } from './actions';
 import { FetchStatus } from '../../../utils/constants';
 import { ISingle } from '../../../models/ISingle';
 import { IAlbum } from '../../../models/IAlbum';
