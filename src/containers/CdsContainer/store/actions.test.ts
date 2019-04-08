@@ -1,7 +1,7 @@
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
 import { FetchStatus } from '../../../utils/constants';
-import { cdsActionTypes, getSingles, getAlbums } from './actions';
+import { CdsActionTypes, getSingles, getAlbums } from './actions';
 import fetchMock from 'fetch-mock';
 import { ISingle } from '../../../models/ISingle';
 import { IAlbum } from '../../../models/IAlbum';
@@ -69,8 +69,8 @@ describe('cd actions', () => {
       const pendingAction = store.getActions()[0];
       const fulfilledAction = store.getActions()[1];
 
-      expect(pendingAction.type).toBe(cdsActionTypes.FETCH_SINGLES_PENDING);
-      expect(fulfilledAction.type).toBe(cdsActionTypes.FETCH_SINGLES_FULFILLED);
+      expect(pendingAction.type).toBe(CdsActionTypes.FETCH_SINGLES_PENDING);
+      expect(fulfilledAction.type).toBe(CdsActionTypes.FETCH_SINGLES_FULFILLED);
     });
 
     it('should sort singles data in descending order of release data', () => {
@@ -143,8 +143,8 @@ describe('cd actions', () => {
       const pendingAction = store.getActions()[0];
       const fulfilledAction = store.getActions()[1];
 
-      expect(pendingAction.type).toBe(cdsActionTypes.FETCH_ALBUMS_PENDING);
-      expect(fulfilledAction.type).toBe(cdsActionTypes.FETCH_ALBUMS_FULFILLED);
+      expect(pendingAction.type).toBe(CdsActionTypes.FETCH_ALBUMS_PENDING);
+      expect(fulfilledAction.type).toBe(CdsActionTypes.FETCH_ALBUMS_FULFILLED);
     });
 
     it('should sort albums data in descending order of release date', () => {

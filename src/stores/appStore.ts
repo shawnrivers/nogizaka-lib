@@ -1,11 +1,11 @@
 import { createStore, combineReducers, applyMiddleware, compose, Reducer } from 'redux';
 import thunk from 'redux-thunk';
-import { cdsReducer } from '../containers/CdsContainer/store/reducers';
+import { CdsReducer } from '../containers/CdsContainer/store/reducers';
 import { IRootState } from './state';
 import promise from 'redux-promise-middleware';
 
 const rootReducer: Reducer<IRootState> = combineReducers({
-  cds: cdsReducer,
+  cds: CdsReducer,
 });
 
 // For Redux devtool in Chrome.

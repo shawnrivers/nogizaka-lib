@@ -1,4 +1,4 @@
-import { cdsReducer } from './reducers';
+import { CdsReducer } from './reducers';
 import { FetchStatus } from '../../../utils/constants';
 
 describe('cd reducers', () => {
@@ -14,6 +14,6 @@ describe('cd reducers', () => {
       },
     };
 
-    expect(cdsReducer(undefined, {} as any)).toStrictEqual(mockInitialState);
+    expect(CdsReducer(undefined, {} as any)).toStrictEqual(mockInitialState);
   });
 });

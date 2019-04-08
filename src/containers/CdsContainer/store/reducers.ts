@@ -1,4 +1,4 @@
-import { cdsActions, cdsActionTypes } from './actions';
+import { CdsActions, CdsActionTypes } from './actions';
 import { FetchStatus } from '../../../utils/constants';
 import { ISingle } from '../../../models/ISingle';
 import { IAlbum } from '../../../models/IAlbum';
@@ -25,9 +25,9 @@ export const initialCdsState: ICdsState = {
   },
 };
 
-export const cdsReducer = (state: ICdsState = initialCdsState, action: cdsActions): ICdsState => {
+export const CdsReducer = (state: ICdsState = initialCdsState, action: CdsActions): ICdsState => {
   switch (action.type) {
-    case cdsActionTypes.FETCH_SINGLES_PENDING:
+    case CdsActionTypes.FETCH_SINGLES_PENDING:
       return {
         ...state,
         singles: {
@@ -35,7 +35,7 @@ export const cdsReducer = (state: ICdsState = initialCdsState, action: cdsAction
           data: state.singles.data,
         },
       };
-    case cdsActionTypes.FETCH_SINGLES_REJECTED:
+    case CdsActionTypes.FETCH_SINGLES_REJECTED:
       return {
         ...state,
         singles: {
@@ -43,7 +43,7 @@ export const cdsReducer = (state: ICdsState = initialCdsState, action: cdsAction
           data: state.singles.data,
         },
       };
-    case cdsActionTypes.FETCH_SINGLES_FULFILLED:
+    case CdsActionTypes.FETCH_SINGLES_FULFILLED:
       return {
         ...state,
         singles: {
@@ -51,7 +51,7 @@ export const cdsReducer = (state: ICdsState = initialCdsState, action: cdsAction
           data: action.payload,
         },
       };
-    case cdsActionTypes.FETCH_ALBUMS_PENDING:
+    case CdsActionTypes.FETCH_ALBUMS_PENDING:
       return {
         ...state,
         albums: {
@@ -59,7 +59,7 @@ export const cdsReducer = (state: ICdsState = initialCdsState, action: cdsAction
           data: state.albums.data,
         },
       };
-    case cdsActionTypes.FETCH_ALBUMS_REJECTED:
+    case CdsActionTypes.FETCH_ALBUMS_REJECTED:
       return {
         ...state,
         albums: {
@@ -67,7 +67,7 @@ export const cdsReducer = (state: ICdsState = initialCdsState, action: cdsAction
           data: state.albums.data,
         },
       };
-    case cdsActionTypes.FETCH_ALBUMS_FULFILLED:
+    case CdsActionTypes.FETCH_ALBUMS_FULFILLED:
       return {
         ...state,
         albums: {
