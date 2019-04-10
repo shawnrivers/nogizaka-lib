@@ -16,6 +16,8 @@ interface ICdsProps extends RouteComponentProps<MatchParams> {
   getAlbums(): void;
 }
 
+const pages = [CdsCurrentPage.Single, CdsCurrentPage.Album];
+
 export const Cds = (props: ICdsProps) => {
   React.useEffect(() => {
     if (props.cds.singles.fetchStatus === FetchStatus.None) {
@@ -26,14 +28,15 @@ export const Cds = (props: ICdsProps) => {
     }
   }, []);
 
-  const pages = [CdsCurrentPage.Single, CdsCurrentPage.Album];
-  const currentPage = props.match.params.type;
-
   return (
     <div>
       <TopLeftBackground />
-      <TabMenu items={pages} currentPage={currentPage} />
-      <CdCardList singles={props.cds.singles.data} albums={props.cds.albums.data} currentPage={currentPage} />
+      <TabMenu items={pages} currentPage={props.match.params.type} />
+      <CdCardList
+        singles={props.cds.singles.data}
+        albums={props.cds.albums.data}
+        currentPage={props.match.params.type}
+      />
     </div>
   );
 };
