@@ -5,6 +5,7 @@ import { TabButton } from '../../atoms/Buttons/TabButton';
 import { CdsCurrentPage } from '../../../utils/constants';
 import { MenuDownIcon } from '../../atoms/Icons/MenuDownIcon';
 import { MenuUpIcon } from '../../atoms/Icons/MenuUpIcon';
+import { useOnClickOutside } from '../../../utils/hooks';
 interface ITabMenuProps {
   items: CdsCurrentPage[];
   currentPage: CdsCurrentPage;
@@ -17,8 +18,14 @@ export const TabMenu = (props: ITabMenuProps) => {
     toggleDropDown(!isDropdownOpen);
   }, [toggleDropDown, isDropdownOpen]);
 
+  const dropdownRef = React.useRef(null);
+
+  useOnClickOutside(dropdownRef, () => {
+    toggleDropDown(false);
+  });
+
   return (
-    <div className={styles.menu}>
+    <div className={styles.menu} ref={dropdownRef}>
       <button className={styles['toggle-button']} onClick={handleToggleDropdown}>
         <span className={styles['toggle-button-text']}>{props.currentPage}</span>
         <div className={styles['toggle-button-icon']}>
