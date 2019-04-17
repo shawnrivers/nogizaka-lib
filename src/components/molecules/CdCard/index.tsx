@@ -14,11 +14,22 @@ export const CdCard = (props: ICdProps) => {
     forceCheck();
   });
 
+  const artworks = {
+    small: props.cd.artworks[0].urls.small,
+    medium: props.cd.artworks[0].urls.medium,
+    large: props.cd.artworks[0].urls.large,
+  };
+
   return (
     <div className={styles.container}>
       <LazyLoad placeholder={<ImagePlaceholder />} offset={100}>
         <div className={styles['artwork-container']}>
-          <img className={styles.artwork} src={props.cd.artworks[0].urls.medium} alt={props.cd.title} />
+          <img
+            className={styles.artwork}
+            src={artworks.medium}
+            srcSet={`${artworks.small} 400w, ${artworks.medium} 600w, ${artworks.large} 900w`}
+            alt={props.cd.title}
+          />
         </div>
       </LazyLoad>
       <div className={styles.text}>
