@@ -5,6 +5,10 @@ import { IAlbum } from '../../../models/IAlbum';
 import LazyLoad, { forceCheck } from 'react-lazyload';
 import { ImagePlaceholder } from '../../atoms/ImagePlaceholder';
 
+const SMALL_IMAGE_WIDTH = 200;
+const MEDIUM_IMAGE_WIDTH = 300;
+const LARGE_IMAGE_WIDTH = 450;
+
 interface ICdProps {
   cd: ISingle | IAlbum;
 }
@@ -27,7 +31,9 @@ export const CdCard = (props: ICdProps) => {
           <img
             className={styles.artwork}
             src={artworks.medium}
-            srcSet={`${artworks.small} 400w, ${artworks.medium} 600w, ${artworks.large} 900w`}
+            srcSet={`${artworks.small} ${SMALL_IMAGE_WIDTH * 2}w, ${artworks.medium} ${MEDIUM_IMAGE_WIDTH * 2}w, ${
+              artworks.large
+            } ${LARGE_IMAGE_WIDTH * 2}w`}
             alt={props.cd.title}
           />
         </div>
