@@ -39,10 +39,7 @@ export const CdCard = (props: ICdProps) => {
         </div>
       </LazyLoad>
       <div className={styles.text}>
-        <span>
-          <span className={styles.number}>{props.cd.number}.</span>
-          <span className={styles.title}>{props.cd.title}</span>
-        </span>
+        {props.cd.number}. {props.cd.title}
       </div>
     </div>
   );
