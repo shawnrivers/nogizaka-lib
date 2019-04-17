@@ -46,4 +46,4 @@ export type SingleResponse = CdResponse & {
   behindPerformers: SingleBehindPerformers;
 };
 
-export type AlbumResponse = CdsResponse;
+export type AlbumResponse = CdResponse;
