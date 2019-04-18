@@ -4,6 +4,7 @@
 @import '../../../styles/colors.scss';
 
 .container {
+  @extend %elevation-2;
   position: relative;
   display: flex;
   width: auto;
@@ -11,7 +12,6 @@
   justify-content: space-between;
   background-color: #ffffff;
   border-radius: 6px;
-  box-shadow: $elevation-2;
 }
 
 .artwork-container {
