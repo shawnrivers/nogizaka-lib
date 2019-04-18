@@ -5,6 +5,7 @@ import { TopLeftBackground } from '../../atoms/Background/TopLeftBackground';
 import { TabMenu } from '../../molecules/TabMenu';
 import { CdsCurrentPage, FetchStatus } from '../../../utils/constants';
 import { RouteComponentProps } from 'react-router-dom';
+import { NavigationBar } from '../../molecules/NavigationBar';
 
 type MatchParams = {
   type: CdsCurrentPage;
@@ -37,6 +38,7 @@ export const Cds = (props: ICdsProps) => {
         albums={props.cds.albums.data}
         currentPage={props.match.params.type}
       />
+      <NavigationBar />
     </div>
   );
 };
