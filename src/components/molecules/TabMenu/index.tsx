@@ -2,13 +2,20 @@ import * as React from 'react';
 import { CSSTransition } from 'react-transition-group';
 import styles from './TabMenu.module.scss';
 import { TabButton } from '../../atoms/Buttons/TabButton';
-import { CdsCurrentPage } from '../../../utils/constants';
 import { MenuDownIcon } from '../../atoms/Icons/MenuDownIcon';
 import { MenuUpIcon } from '../../atoms/Icons/MenuUpIcon';
 import { useOnClickOutside } from '../../../utils/hooks';
+import { MembersCurrentPage, CdsCurrentPage } from '../../../utils/constants';
+
+export type TabMenuItem = {
+  link: string;
+  page: CdsCurrentPage | MembersCurrentPage;
+  name: string;
+};
+
 interface ITabMenuProps {
-  items: CdsCurrentPage[];
-  currentPage: CdsCurrentPage;
+  items: TabMenuItem[];
+  selectedItem: CdsCurrentPage | MembersCurrentPage;
 }
 
 export const TabMenu = (props: ITabMenuProps) => {
@@ -17,6 +24,16 @@ export const TabMenu = (props: ITabMenuProps) => {
   const handleToggleDropdown = React.useCallback(() => {
     toggleDropDown(!isDropdownOpen);
   }, [toggleDropDown, isDropdownOpen]);
+
+  const selectedItemName = React.useMemo(() => {
+    for (const item of props.items) {
+      if (item.page === props.selectedItem) {
+        return item.name;
+      }
+    }
+
+    return 'Please select';
+  }, [props.items, props.selectedItem]);
 
   const dropdownRef = React.useRef(null);
 
@@ -27,8 +44,7 @@ export const TabMenu = (props: ITabMenuProps) => {
   return (
     <div className={styles.menu} ref={dropdownRef}>
       <button className={styles['toggle-button']} onClick={handleToggleDropdown}>
-        <span className={styles['toggle-button-text']}>{props.currentPage}</span>
-        <div className={styles['toggle-button-icon']}>
+        <span className={styles['toggle-button-text']}>{selectedItemName}</span>
           {isDropdownOpen ? (
             <div key="menu-up">
               <MenuUpIcon />
@@ -38,7 +54,6 @@ export const TabMenu = (props: ITabMenuProps) => {
               <MenuDownIcon />
             </div>
           )}
-        </div>
       </button>
       <CSSTransition
         in={isDropdownOpen}
@@ -52,9 +67,11 @@ export const TabMenu = (props: ITabMenuProps) => {
         unmountOnExit
       >
         <div className={styles.dropdown}>
-          {props.items.map((item: CdsCurrentPage) => (
-            <li key={item}>
-              <TabButton handleHideDropdown={handleToggleDropdown}>{item}</TabButton>
+          {props.items.map(item => (
+            <li key={item.link}>
+              <TabButton link={item.link} handleHideDropdown={handleToggleDropdown}>
+                {item.name}
+              </TabButton>
             </li>
           ))}
         </div>

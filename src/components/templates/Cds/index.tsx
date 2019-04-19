@@ -17,7 +17,18 @@ interface ICdsProps extends RouteComponentProps<MatchParams> {
   getAlbums(): void;
 }
 
-const pages = [CdsCurrentPage.Single, CdsCurrentPage.Album];
+const cdsTabMenuItems: TabMenuItem[] = [
+  {
+    link: `/cds/${CdsCurrentPage.Single}`,
+    page: CdsCurrentPage.Single,
+    name: 'Singles',
+  },
+  {
+    link: `/cds/${CdsCurrentPage.Album}`,
+    page: CdsCurrentPage.Album,
+    name: 'Albums',
+  },
+];
 
 export const Cds = (props: ICdsProps) => {
   React.useEffect(() => {
@@ -32,6 +43,7 @@ export const Cds = (props: ICdsProps) => {
   return (
     <div>
       <TriangleBackground pattern="1" position="top" />
+      <TabMenu items={cdsTabMenuItems} selectedItem={props.match.params.type} />
       <CdCardList
         singles={props.cds.singles.data}
         albums={props.cds.albums.data}
