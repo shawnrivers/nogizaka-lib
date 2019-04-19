@@ -10,6 +10,14 @@ a {
   text-decoration: inherit;
 }
 
+button {
+  padding-left: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  outline: inherit;
+}
+
 @font-face {
   font-display: swap;
   font-family: 'Noto Sans JP';
