@@ -10,12 +10,7 @@
 }
 
 .toggle-button {
-  @extend %flex-vertical-center;
-  padding-left: 0;
-  border: none;
-  background: none;
-  cursor: pointer;
-  outline: inherit;
+  @extend %flex, %flex-horizontal-center;
 }
 
 .toggle-button-text {
@@ -28,10 +23,10 @@
 }
 
 .toggle-button-icon {
+  @extend %flex, %flex-horizontal-center;
   width: 20px;
   height: 20px;
   fill: $gray-1;
-  @extend %flex-vertical-center;
 }
 
 .dropdown {

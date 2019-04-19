@@ -4,12 +4,22 @@
   grid-template-columns: repeat(2, 1fr);
 }
 
-%flex-vertical-center {
+%flex {
   display: flex;
+}
+
+%flex-horizontal-center {
   align-items: center;
 }
 
+%flex-vertical-center {
+  justify-content: center;
+}
+
 %flex-column {
-  display: flex;
   flex-direction: column;
+}
+
+%flex-row {
+  flex-direction: row;
 }

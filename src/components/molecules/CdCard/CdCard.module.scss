@@ -37,9 +37,8 @@
 }
 
 .text {
+  @extend %flex, %flex-horizontal-center, %caption-regular;
   height: 48px;
   margin: 4px 8px;
-  @extend %flex-vertical-center;
-  @extend %caption-regular;
   color: $gray-2;
 }

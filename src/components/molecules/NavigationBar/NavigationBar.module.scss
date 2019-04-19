@@ -2,7 +2,7 @@
 @import '../../../styles/colors.scss';
 
 .navigation {
-  @extend %elevation-3-up;
+  @extend %flex, %flex-row, %elevation-3-up;
   position: fixed;
   bottom: 0;
   width: 100%;
