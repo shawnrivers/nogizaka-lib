@@ -1,3 +1,10 @@
+export enum FetchStatus {
+  None,
+  Rejected,
+  Pending,
+  Fulfilled,
+}
+
 export enum CdsCurrentPage {
   Single = 'singles',
   Album = 'albums',
@@ -39,9 +46,39 @@ export enum FocusPerformersType {
   None = '',
 }
 
-export enum FetchStatus {
-  None,
-  Rejected,
-  Pending,
-  Fulfilled,
+export enum BloodType {
+  A = 'a',
+  B = 'b',
+  O = 'o',
+  AB = 'ab',
+  Unknown = 'unknown',
+}
+
+export enum PhotoAlbumType {
+  PhotoAlbum = 'photo album',
+  PhotoBook = 'photo book',
+  PhotoMagazine = 'photo magazine',
+}
+
+export enum UnitType {
+  Unit = 'unit',
+  Corp = 'corp',
+}
+
+export enum JoinedGeneration {
+  First = '1st',
+  Second = '2nd',
+  Third = '3rd',
+  Fourth = '4th',
+  Exchange = 'exchange',
+}
+
+export enum PositionType {
+  Center = 'center',
+  Fukujin = 'fukujin',
+  Selected = 'selected',
+  Under = 'under',
+  Trainee = 'trainee',
+  Skip = 'skip',
+  None = 'none',
 }
