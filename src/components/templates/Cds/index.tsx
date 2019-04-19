@@ -38,7 +38,7 @@ export const Cds = (props: ICdsProps) => {
         albums={props.cds.albums.data}
         currentPage={props.match.params.type}
       />
-      <NavigationBar />
+      <NavigationBar currentTab="cds" />
     </div>
   );
 };

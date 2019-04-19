@@ -1,5 +1,12 @@
 @import '../../../styles/elevations.scss';
 @import '../../../styles/colors.scss';
+@import '../../../styles/layout.scss';
+@import '../../../styles/typography.scss';
+
+%navigation-bar-icon {
+  width: 32px;
+  height: 32px;
+}
 
 .navigation {
   @extend %flex, %flex-row, %elevation-3-up;
@@ -7,5 +14,21 @@
   bottom: 0;
   width: 100%;
   height: 48px;
+  justify-content: space-evenly;
   background-color: $white;
+}
+
+.button {
+  @extend %flex, %flex-column, %flex-horizontal-center, %flex-vertical-center;
+  width: 48px;
+}
+
+.cd-icon-active {
+  @extend %navigation-bar-icon;
+  fill: $purple-1;
+}
+
+.cd-icon-inactive {
+  @extend %navigation-bar-icon;
+  fill: $gray-2;
 }
