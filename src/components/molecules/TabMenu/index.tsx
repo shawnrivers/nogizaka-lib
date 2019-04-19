@@ -45,15 +45,15 @@ export const TabMenu = (props: ITabMenuProps) => {
     <div className={styles.menu} ref={dropdownRef}>
       <button className={styles['toggle-button']} onClick={handleToggleDropdown}>
         <span className={styles['toggle-button-text']}>{selectedItemName}</span>
-          {isDropdownOpen ? (
-            <div key="menu-up">
-              <MenuUpIcon />
-            </div>
-          ) : (
-            <div key="menu-down">
-              <MenuDownIcon />
-            </div>
-          )}
+        {isDropdownOpen ? (
+          <div key="menu-up">
+            <MenuUpIcon className={styles['toggle-button-icon']} />
+          </div>
+        ) : (
+          <div key="menu-down">
+            <MenuDownIcon className={styles['toggle-button-icon']} />
+          </div>
+        )}
       </button>
       <CSSTransition
         in={isDropdownOpen}
