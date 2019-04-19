@@ -21,6 +21,7 @@
 .button {
   @extend %flex, %flex-column, %flex-horizontal-center, %flex-vertical-center;
   width: 48px;
+  height: 48px;
 }
 
 .cd-icon-active {
