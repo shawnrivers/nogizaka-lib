@@ -31,8 +31,7 @@ export const Cds = (props: ICdsProps) => {
 
   return (
     <div>
-      <TopLeftBackground />
-      <TabMenu items={pages} currentPage={props.match.params.type} />
+      <TriangleBackground pattern="1" position="top" />
       <CdCardList
         singles={props.cds.singles.data}
         albums={props.cds.albums.data}

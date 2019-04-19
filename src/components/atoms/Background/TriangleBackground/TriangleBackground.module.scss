@@ -1,0 +1,57 @@
+%top-left-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+%bottom-right-background {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+%pattern-one {
+  z-index: -2;
+  width: 100vw;
+  height: 560px;
+  background: linear-gradient(0deg, #ffffba, #ffcbfa), rgba(0, 0, 0, 0.2);
+}
+
+%pattern-two {
+  z-index: -2;
+  width: 100vw;
+  height: 560px;
+  background: linear-gradient(0deg, #ffcbfa, #ffffba), rgba(0, 0, 0, 0.2);
+}
+
+%triangle-cut {
+  z-index: -1;
+  top: 60px;
+  border-width: 0 0 500px 100vw;
+  border-style: solid;
+  border-color: transparent transparent #fff transparent;
+}
+
+.pattern-one-top {
+  @extend %top-left-background, %pattern-one;
+}
+
+.pattern-two-top {
+  @extend %top-left-background, %pattern-two;
+}
+
+.triangle-cut-top {
+  @extend %top-left-background, %triangle-cut;
+}
+
+.pattern-one-bottom {
+  @extend %bottom-right-background, %pattern-one;
+}
+
+.pattern-two-bottom {
+  @extend %bottom-right-background, %pattern-two;
+}
+
+.triangle-cut-bottom {
+  @extend %bottom-right-background, %triangle-cut;
+}
