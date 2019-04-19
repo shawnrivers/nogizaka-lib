@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 import { CdsContainer } from './containers/CdsContainer';
 import './App.scss';
 import { store } from './stores/appStore';
+import { MembersContainer } from './containers/MembersContainer';
 
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
         <div className="app">
           <Switch>
             <Route exact path="/cds/:type" component={CdsContainer} />
+            <Route exact path="/members/:generation" component={MembersContainer} />
             <Redirect from="/" to="/cds/singles" />
           </Switch>
         </div>

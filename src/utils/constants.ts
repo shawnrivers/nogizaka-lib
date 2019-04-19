@@ -3,6 +3,14 @@ export enum CdsCurrentPage {
   Album = 'albums',
 }
 
+export enum MembersCurrentPage {
+  First = 'first',
+  Second = 'second',
+  Third = 'third',
+  Fourth = 'fourth',
+  Graduate = 'graduate',
+}
+
 export enum CdType {
   A = 'A',
   B = 'B',
