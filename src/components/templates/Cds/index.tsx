@@ -32,10 +32,10 @@ const cdsTabMenuItems: TabMenuItem[] = [
 
 export const Cds = (props: ICdsProps) => {
   React.useEffect(() => {
-    if (props.cds.singles.fetchStatus === FetchStatus.None) {
+    if (props.cds.singles.fetchStatus === FetchStatus.None || props.cds.singles.fetchStatus === FetchStatus.Rejected) {
       props.getSingles();
     }
-    if (props.cds.albums.fetchStatus === FetchStatus.None) {
+    if (props.cds.albums.fetchStatus === FetchStatus.None || props.cds.albums.fetchStatus === FetchStatus.Rejected) {
       props.getAlbums();
     }
   }, []);

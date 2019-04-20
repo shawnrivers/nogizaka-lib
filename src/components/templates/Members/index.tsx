@@ -51,8 +51,10 @@ const membersTabMenuItems: TabMenuItem[] = [
 ];
 
 export const Members = (props: IMembersProps) => {
+  const { fetchStatus, membersByType } = props;
+
   React.useEffect(() => {
-    if (props.members.fetchStatus === FetchStatus.None) {
+    if (fetchStatus === FetchStatus.None || fetchStatus === FetchStatus.Rejected) {
       props.getMembers();
     }
   }, []);
