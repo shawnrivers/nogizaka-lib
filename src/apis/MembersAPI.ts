@@ -17,7 +17,7 @@ const convertMemberResponse = (memberResponse: MemberResponse): IMember => {
     units,
     positionsHistory,
     positionsCounter,
-    graduation
+    graduation,
   } = memberResponse;
 
   return {
@@ -34,8 +34,8 @@ const convertMemberResponse = (memberResponse: MemberResponse): IMember => {
     units,
     positionsHistory,
     positionsCounter,
-    graduation
-  }
+    graduation,
+  };
 };
 
 export const fetchMembers = async (): Promise<IMember[]> => {

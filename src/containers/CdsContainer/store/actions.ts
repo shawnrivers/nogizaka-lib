@@ -1,6 +1,6 @@
 import { ISingle } from '../../../models/ISingle';
 import { IAlbum } from '../../../models/IAlbum';
-import { Dispatch } from 'react';
+import { Dispatch } from 'redux';
 import { fetchSingles } from '../../../apis/SinglesAPI';
 import { fetchAlbums } from '../../../apis/AlbumsAPI';
 
