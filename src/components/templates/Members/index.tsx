@@ -2,7 +2,7 @@ import * as React from 'react';
 import { NavigationBar } from '../../molecules/NavigationBar';
 import { TriangleBackground } from '../../atoms/Background/TriangleBackground';
 import { TabMenu, TabMenuItem } from '../../molecules/TabMenu';
-import { MembersCurrentPage } from '../../../utils/constants';
+import { MembersCurrentPage, MemberGenerationType } from '../../../utils/constants';
 import { RouteComponentProps } from 'react-router-dom';
 
 type MatchParams = {
@@ -15,27 +15,27 @@ const membersTabMenuItems: TabMenuItem[] = [
   {
     link: `/members/${MembersCurrentPage.First}`,
     page: MembersCurrentPage.First,
-    name: '1期生',
+    name: MemberGenerationType.First,
   },
   {
     link: `/members/${MembersCurrentPage.Second}`,
     page: MembersCurrentPage.Second,
-    name: '2期生',
+    name: MemberGenerationType.Second,
   },
   {
     link: `/members/${MembersCurrentPage.Third}`,
     page: MembersCurrentPage.Third,
-    name: '3期生',
+    name: MemberGenerationType.Third,
   },
   {
     link: `/members/${MembersCurrentPage.Fourth}`,
     page: MembersCurrentPage.Fourth,
-    name: '4期生',
+    name: MemberGenerationType.Fourth,
   },
   {
     link: `/members/${MembersCurrentPage.Graduate}`,
     page: MembersCurrentPage.Graduate,
-    name: '卒業生',
+    name: MemberGenerationType.Graduate,
   },
 ];
 

@@ -18,6 +18,14 @@ export enum MembersCurrentPage {
   Graduate = 'graduate',
 }
 
+export enum MemberGenerationType {
+  First = '1期生',
+  Second = '2期生',
+  Third = '3期生',
+  Fourth = '4期生',
+  Graduate = '卒業生',
+}
+
 export enum CdType {
   A = 'A',
   B = 'B',
