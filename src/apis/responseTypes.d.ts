@@ -75,7 +75,7 @@ export type MemberResponse = {
     title: string;
     release: string;
     type: PhotoAlbumType;
-    shopping: ISite[];
+    shopping: SiteResponse[];
   }[];
   units: {
     name: string;
