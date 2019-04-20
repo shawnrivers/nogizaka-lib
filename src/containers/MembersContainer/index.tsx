@@ -1,15 +1,17 @@
 import { connect } from 'react-redux';
-import { Members } from '../../components/templates/Members';
+import { Members, IMemberFunctionProps, IMemberVariableProps } from '../../components/templates/Members';
 import { IRootState } from '../../stores/state';
-import { IMembersState } from './store/reducers';
 import { Dispatch } from 'redux';
 import { getMembers } from './store/actions';
+import { selectMembers, selectMembersByType, selectMembersFetchStatus } from './store/selectors';
 
-const mapStateToProps = (state: IRootState): { members: IMembersState } => ({
-  members: state.members,
+const mapStateToProps = (state: IRootState): IMemberVariableProps => ({
+  members: selectMembers(state),
+  fetchStatus: selectMembersFetchStatus(state),
+  membersByType: selectMembersByType(state),
 });
 
-const mapDispatchToProps = (dispatch: Dispatch<any>) => ({
+const mapDispatchToProps = (dispatch: Dispatch<any>): IMemberFunctionProps => ({
   getMembers: () => dispatch(getMembers()),
 });
 
