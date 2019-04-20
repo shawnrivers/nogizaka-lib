@@ -2,14 +2,18 @@ import * as React from 'react';
 import { NavigationBar } from '../../molecules/NavigationBar';
 import { TriangleBackground } from '../../atoms/Background/TriangleBackground';
 import { TabMenu, TabMenuItem } from '../../molecules/TabMenu';
-import { MembersCurrentPage, MemberGenerationType } from '../../../utils/constants';
+import { MembersCurrentPage, MemberGenerationType, FetchStatus } from '../../../utils/constants';
 import { RouteComponentProps } from 'react-router-dom';
+import { IMembersState } from '../../../containers/MembersContainer/store/reducers';
 
 type MatchParams = {
   generation: MembersCurrentPage;
 };
 
-interface IMembersProps extends RouteComponentProps<MatchParams> {}
+interface IMembersProps extends RouteComponentProps<MatchParams> {
+  members: IMembersState;
+  getMembers(): void;
+}
 
 const membersTabMenuItems: TabMenuItem[] = [
   {
@@ -40,6 +44,12 @@ const membersTabMenuItems: TabMenuItem[] = [
 ];
 
 export const Members = (props: IMembersProps) => {
+  React.useEffect(() => {
+    if (props.members.fetchStatus === FetchStatus.None) {
+      props.getMembers();
+    }
+  }, []);
+
   return (
     <div>
       <TriangleBackground pattern="2" position="top" />
