@@ -1,0 +1,35 @@
+import { IMembers } from '../../../models/IMember';
+import { FetchStatus } from '../../../utils/constants';
+import { MembersActions, MembersActionTypes } from './actions';
+
+export type IMembersState = {
+  members: IMembers;
+  fetchStatus: FetchStatus;
+};
+
+export const initialMembersState: IMembersState = {
+  members: {},
+  fetchStatus: FetchStatus.None,
+};
+
+export const MembersReducers = (state: IMembersState = initialMembersState, action: MembersActions): IMembersState => {
+  switch (action.type) {
+    case MembersActionTypes.FETCH_MEMBERS_PENDING:
+      return {
+        ...state,
+        fetchStatus: FetchStatus.Pending,
+      };
+    case MembersActionTypes.FETCH_MEMBERS_REJECTED:
+      return {
+        ...state,
+        fetchStatus: FetchStatus.Rejected,
+      };
+    case MembersActionTypes.FETCH_MEMBERS_FULFILLED:
+      return {
+        members: action.payload,
+        fetchStatus: FetchStatus.Pending,
+      };
+    default:
+      return state;
+  }
+};

@@ -49,3 +49,7 @@ export type IMember = {
     graduatedDate: string;
   };
 };
+
+export type IMembers = {
+  [name: string]: IMember;
+};
