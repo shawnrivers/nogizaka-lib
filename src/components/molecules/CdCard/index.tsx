@@ -16,7 +16,7 @@ interface ICdProps {
 export const CdCard = (props: ICdProps) => {
   React.useEffect(() => {
     forceCheck();
-  });
+  }, []);
 
   const artworks = {
     small: props.cd.artworks[0].urls.small,

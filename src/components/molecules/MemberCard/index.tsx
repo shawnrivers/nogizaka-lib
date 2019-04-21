@@ -15,7 +15,7 @@ interface IMemberCardProps {
 export const MemberCard = (props: IMemberCardProps) => {
   React.useEffect(() => {
     forceCheck();
-  });
+  }, []);
 
   return (
     <div className={styles.container}>
