@@ -3,9 +3,9 @@
 .container {
   @extend %grid-three-columns;
   position: absolute;
+  width: 100%;
   box-sizing: border-box;
   padding: 0 32px 80px;
-  width: 100%;
 }
 
 .enter {
@@ -29,4 +29,3 @@
   transform: translateY(100px);
   transition: opacity 300ms, transform 300ms;
 }
-
