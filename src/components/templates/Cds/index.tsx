@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { ICdsState } from '../../../containers/CdsContainer/store/reducers';
 import { CdCardList } from '../../organisms/CdCardList';
-import { TopLeftBackground } from '../../atoms/Background/TopLeftBackground';
-import { TabMenu } from '../../molecules/TabMenu';
+import { TriangleBackground } from '../../atoms/Background/TriangleBackground';
+import { TabMenu, TabMenuItem } from '../../molecules/TabMenu';
 import { CdsCurrentPage, FetchStatus } from '../../../utils/constants';
 import { RouteComponentProps } from 'react-router-dom';
 import { NavigationBar } from '../../molecules/NavigationBar';
@@ -17,22 +17,33 @@ interface ICdsProps extends RouteComponentProps<MatchParams> {
   getAlbums(): void;
 }
 
-const pages = [CdsCurrentPage.Single, CdsCurrentPage.Album];
+const cdsTabMenuItems: TabMenuItem[] = [
+  {
+    link: `/cds/${CdsCurrentPage.Single}`,
+    page: CdsCurrentPage.Single,
+    name: 'Singles',
+  },
+  {
+    link: `/cds/${CdsCurrentPage.Album}`,
+    page: CdsCurrentPage.Album,
+    name: 'Albums',
+  },
+];
 
 export const Cds = (props: ICdsProps) => {
   React.useEffect(() => {
-    if (props.cds.singles.fetchStatus === FetchStatus.None) {
+    if (props.cds.singles.fetchStatus === FetchStatus.None || props.cds.singles.fetchStatus === FetchStatus.Rejected) {
       props.getSingles();
     }
-    if (props.cds.albums.fetchStatus === FetchStatus.None) {
+    if (props.cds.albums.fetchStatus === FetchStatus.None || props.cds.albums.fetchStatus === FetchStatus.Rejected) {
       props.getAlbums();
     }
   }, []);
 
   return (
     <div>
-      <TopLeftBackground />
-      <TabMenu items={pages} currentPage={props.match.params.type} />
+      <TriangleBackground pattern="1" position="top" />
+      <TabMenu items={cdsTabMenuItems} selectedItem={props.match.params.type} />
       <CdCardList
         singles={props.cds.singles.data}
         albums={props.cds.albums.data}

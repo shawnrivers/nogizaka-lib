@@ -3,8 +3,9 @@ import { Cds } from '../../components/templates/Cds';
 import { getSingles, getAlbums } from './store/actions';
 import { Dispatch } from 'redux';
 import { IRootState } from '../../stores/state';
+import { ICdsState } from './store/reducers';
 
-const mapStateToProps = (state: IRootState) => ({
+const mapStateToProps = (state: IRootState): { cds: ICdsState } => ({
   cds: state.cds,
 });
 

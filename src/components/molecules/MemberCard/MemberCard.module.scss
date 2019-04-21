@@ -1,7 +1,7 @@
 @import '../../../styles/elevations.scss';
+@import '../../../styles/colors.scss';
 @import '../../../styles/layout.scss';
 @import '../../../styles/typography.scss';
-@import '../../../styles/colors.scss';
 
 .container {
   @extend %elevation-2;
@@ -9,36 +9,34 @@
   display: flex;
   width: auto;
   flex-direction: column;
-  justify-content: space-between;
   background-color: $white;
   border-radius: 6px;
 }
 
-.artwork-container {
+.profile-image-container {
   position: relative;
-  box-sizing: border-box;
 }
 
-.artwork-container::before {
+.profile-image-container::before {
   display: grid;
   width: 0;
   height: 0;
-  padding-bottom: 100%;
+  padding-bottom: 120%;
   content: '';
 }
 
-.artwork {
+.profile-image {
   position: absolute;
   top: 0;
   width: 100%;
-  height: 100%;
-  border-radius: 6px 6px 0 0;
+  box-sizing: border-box;
+  padding: 6px;
+  border-radius: 6px;
   object-fit: cover;
 }
 
 .text {
-  @extend %flex, %flex-horizontal-center, %caption-regular;
-  height: 48px;
-  margin: 4px 8px;
+  @extend %flex, %flex-horizontal-center, %flex-vertical-center, %caption-regular;
+  padding: 0 8px 8px;
   color: $gray-2;
 }

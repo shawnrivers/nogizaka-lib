@@ -1,15 +1,15 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './TabButton.module.scss';
-import { CdsCurrentPage } from '../../../../utils/constants';
 
 interface ITabButtonProps {
-  children: CdsCurrentPage;
+  link: string;
+  children: string;
   handleHideDropdown(): void;
 }
 
 export const TabButton = (props: ITabButtonProps) => (
-  <Link to={`/cds/${props.children}`}>
+  <Link to={props.link}>
     <button className={styles.button} onClick={props.handleHideDropdown}>
       {props.children}
     </button>

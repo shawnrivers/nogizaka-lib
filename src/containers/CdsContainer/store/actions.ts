@@ -1,16 +1,16 @@
 import { ISingle } from '../../../models/ISingle';
 import { IAlbum } from '../../../models/IAlbum';
-import { Dispatch } from 'react';
+import { Dispatch } from 'redux';
 import { fetchSingles } from '../../../apis/SinglesAPI';
 import { fetchAlbums } from '../../../apis/AlbumsAPI';
 
 export enum CdsActionTypes {
-  FETCH_SINGLES_PENDING = 'FETCH_SINGLES_PENDING',
-  FETCH_SINGLES_REJECTED = 'FETCH_SINGLES_REJECTED',
-  FETCH_SINGLES_FULFILLED = 'FETCH_SINGLES_FULFILLED',
-  FETCH_ALBUMS_PENDING = 'FETCH_ALBUMS_PENDING',
-  FETCH_ALBUMS_REJECTED = 'FETCH_ALBUMS_REJECTED',
-  FETCH_ALBUMS_FULFILLED = 'FETCH_ALBUMS_FULFILLED',
+  FETCH_SINGLES_PENDING = '@nogizaka-lib/cds/FETCH_SINGLES_PENDING',
+  FETCH_SINGLES_REJECTED = '@nogizaka-lib/cds/FETCH_SINGLES_REJECTED',
+  FETCH_SINGLES_FULFILLED = '@nogizaka-lib/cds/FETCH_SINGLES_FULFILLED',
+  FETCH_ALBUMS_PENDING = '@nogizaka-lib/cds/FETCH_ALBUMS_PENDING',
+  FETCH_ALBUMS_REJECTED = '@nogizaka-lib/cds/FETCH_ALBUMS_REJECTED',
+  FETCH_ALBUMS_FULFILLED = '@nogizaka-lib/cds/FETCH_ALBUMS_FULFILLED',
 }
 
 export type CdsActions =
