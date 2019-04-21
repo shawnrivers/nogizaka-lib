@@ -1,47 +1,45 @@
 import { IRootState } from '../../../stores/state';
-import { IMembers } from '../../../models/IMember';
+import { IMembers, IMember } from '../../../models/IMember';
 import { FetchStatus, JoinedGeneration } from '../../../utils/constants';
 import { MembersByType } from '../../../components/organisms/MemberCardList';
 
 export const selectMembers = (state: IRootState): IMembers => state.members.members;
 
+export const selectMemberArray = (state: IRootState): IMember[] => Object.values(state.members.members);
+
 export const selectMembersFetchStatus = (state: IRootState): FetchStatus => state.members.fetchStatus;
 
-export const selectMembersByType = (state: IRootState): MembersByType => {
-  const members = selectMembers(state);
+export const selectFirstGeneration = (state: IRootState): IMember[] => {
+  const members = selectMemberArray(state);
 
-  let memberListByType: MembersByType = {
-    first: [],
-    second: [],
-    third: [],
-    fourth: [],
-    graduate: [],
-  };
+  return members.filter(member => member.join === JoinedGeneration.First && !member.graduation.isGraduated);
+};
 
-  for (const key of Object.keys(members)) {
-    const member = members[key];
+export const selectSecondGeneration = (state: IRootState): IMember[] => {
+  const members = selectMemberArray(state);
 
-    if (member.graduation.isGraduated) {
-      memberListByType.graduate.push(member);
-    } else {
-      switch (member.join) {
-        case JoinedGeneration.First:
-          memberListByType.first.push(member);
-          break;
-        case JoinedGeneration.Second:
-          memberListByType.second.push(member);
-          break;
-        case JoinedGeneration.Third:
-          memberListByType.third.push(member);
-          break;
-        case JoinedGeneration.Fourth:
-          memberListByType.fourth.push(member);
-          break;
-        default:
-          break;
-      }
-    }
-  }
+  return members.filter(member => member.join === JoinedGeneration.Second && !member.graduation.isGraduated);
+};
 
-  return memberListByType;
+export const selectThirdGeneration = (state: IRootState): IMember[] => {
+  const members = selectMemberArray(state);
+
+  return members.filter(member => member.join === JoinedGeneration.Third && !member.graduation.isGraduated);
+};
+
+export const selectFourthGeneration = (state: IRootState): IMember[] => {
+  const members = selectMemberArray(state);
+
+  return members.filter(member => member.join === JoinedGeneration.Fourth && !member.graduation.isGraduated);
+};
+
+export const selectGraduates = (state: IRootState): IMember[] => {
+  const members = selectMemberArray(state);
+
+  return members
+    .filter(member => member.graduation.isGraduated)
+    .sort(
+      (memberA, memberB) =>
+        new Date(memberB.graduation.graduatedDate).getTime() - new Date(memberA.graduation.graduatedDate).getTime(),
+    );
 };

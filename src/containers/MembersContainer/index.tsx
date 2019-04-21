@@ -3,12 +3,18 @@ import { Members, IMemberFunctionProps, IMemberVariableProps } from '../../compo
 import { IRootState } from '../../stores/state';
 import { Dispatch } from 'redux';
 import { getMembers } from './store/actions';
-import { selectMembers, selectMembersByType, selectMembersFetchStatus } from './store/selectors';
+import * as MembersSelectors from './store/selectors';
 
 const mapStateToProps = (state: IRootState): IMemberVariableProps => ({
-  members: selectMembers(state),
-  fetchStatus: selectMembersFetchStatus(state),
-  membersByType: selectMembersByType(state),
+  members: MembersSelectors.selectMembers(state),
+  fetchStatus: MembersSelectors.selectMembersFetchStatus(state),
+  membersByType: {
+    first: MembersSelectors.selectFirstGeneration(state),
+    second: MembersSelectors.selectSecondGeneration(state),
+    third: MembersSelectors.selectThirdGeneration(state),
+    fourth: MembersSelectors.selectFourthGeneration(state),
+    graduate: MembersSelectors.selectGraduates(state),
+  },
 });
 
 const mapDispatchToProps = (dispatch: Dispatch<any>): IMemberFunctionProps => ({
