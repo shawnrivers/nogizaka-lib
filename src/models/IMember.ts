@@ -1,6 +1,11 @@
 import { JoinedGeneration, BloodType, PhotoAlbumType, UnitType, PositionType } from '../utils/constants';
 import { ISite } from './ISite';
 
+export type ProfileImage = {
+  large: string;
+  small: string;
+};
+
 export type IMember = {
   name: string;
   nameNotations: {
@@ -11,14 +16,10 @@ export type IMember = {
     firstNameEn: string;
     lastNameEn: string;
   };
-  profileImage: {
-    large: string;
-    small: string;
-  };
+  profileImage: ProfileImage;
   singleImages: {
-    singleNumber: number;
-    image: string;
-  }[];
+    [singleNumber: string]: ProfileImage;
+  };
   join: JoinedGeneration;
   birthday: string;
   height: number;
@@ -35,9 +36,8 @@ export type IMember = {
     type: UnitType;
   }[];
   positionsHistory: {
-    singleNumber: string;
-    position: PositionType;
-  }[];
+    [singleNumber: string]: PositionType;
+  };
   positionsCounter: {
     center: number;
     fukujin: number;

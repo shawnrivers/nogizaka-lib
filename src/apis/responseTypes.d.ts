@@ -63,9 +63,11 @@ export type MemberResponse = {
     small: string;
   };
   singleImages: {
-    singleNumber: number;
-    image: string;
-  }[];
+    [singleNumber: string]: {
+      large: string;
+      small: string;
+    };
+  };
   join: JoinedGeneration;
   birthday: string;
   height: number;
@@ -82,9 +84,8 @@ export type MemberResponse = {
     type: UnitType;
   }[];
   positionsHistory: {
-    singleNumber: string;
-    position: PositionType;
-  }[];
+    [singleNumber: string]: PositionType;
+  };
   positionsCounter: {
     center: number;
     fukujin: number;
