@@ -1,0 +1,32 @@
+@import '../../../styles/layout.scss';
+
+.container {
+  @extend %grid-three-columns;
+  position: absolute;
+  box-sizing: border-box;
+  padding: 0 32px 80px;
+  width: 100%;
+}
+
+.enter {
+  opacity: 0;
+  transform: translateY(100px);
+}
+
+.enter-active {
+  opacity: 1;
+  transform: translateY(0px);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.exit {
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+.exit-active {
+  opacity: 0;
+  transform: translateY(100px);
+  transition: opacity 300ms, transform 300ms;
+}
+

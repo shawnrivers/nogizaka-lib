@@ -64,6 +64,7 @@ export const Members = (props: IMembersProps) => {
     <div>
       <TriangleBackground pattern="2" position="top" />
       <TabMenu items={membersTabMenuItems} selectedItem={props.match.params.generation} />
+      <MemberCardList members={membersByType} currentPage={props.match.params.generation} />
       <NavigationBar currentTab="members" />
     </div>
   );
