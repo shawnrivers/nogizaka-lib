@@ -1,0 +1,42 @@
+@import '../../../styles/elevations.scss';
+@import '../../../styles/colors.scss';
+@import '../../../styles/layout.scss';
+@import '../../../styles/typography.scss';
+
+.container {
+  @extend %elevation-2;
+  position: relative;
+  display: flex;
+  width: auto;
+  flex-direction: column;
+  background-color: $white;
+  border-radius: 6px;
+}
+
+.profile-image-container {
+  position: relative;
+}
+
+.profile-image-container::before {
+  display: grid;
+  width: 0;
+  height: 0;
+  padding-bottom: 120%;
+  content: '';
+}
+
+.profile-image {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  border-radius: 6px;
+  padding: 6px;
+  box-sizing: border-box;
+  object-fit: cover;
+}
+
+.text {
+  @extend %flex, %flex-horizontal-center, %flex-vertical-center, %caption-regular;
+  padding: 0 8px 8px;
+  color: $gray-2;
+}
