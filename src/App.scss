@@ -2,7 +2,8 @@ body {
   padding: 0;
   margin: 0;
   background-color: #fff;
-  font-family: 'Noto Sans JP', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, “Segoe UI”, “Roboto”, “Oxygen”, “Ubuntu”, “Cantarell”, “Fira Sans”,
+    “Droid Sans”, “Helvetica Neue”, sans-serif;
 }
 
 a {
@@ -16,10 +17,4 @@ button {
   background: none;
   cursor: pointer;
   outline: inherit;
-}
-
-@font-face {
-  font-display: swap;
-  font-family: 'Noto Sans JP';
-  src: local('Noto Sans JP'), url('https://fonts.googleapis.com/css?family=Noto+Sans+JP:300,500,700') format('woff2');
 }
