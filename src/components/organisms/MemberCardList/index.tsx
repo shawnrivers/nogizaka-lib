@@ -28,7 +28,7 @@ export const MemberCardList = (props: IMemberCardListProps) => {
     0 ? (
     <>
       <CSSTransition
-        in={props.currentPage === MembersCurrentPage.First}
+        in={currentPage === MembersCurrentPage.First}
         timeout={300}
         classNames={{
           enter: styles['enter'],
@@ -39,7 +39,7 @@ export const MemberCardList = (props: IMemberCardListProps) => {
         unmountOnExit
       >
         <div className={styles.container}>
-          {props.members.first.map(member => (
+          {members.first.map(member => (
             <MemberCard
               key={member.name}
               profileImage={member.profileImage}
@@ -49,7 +49,7 @@ export const MemberCardList = (props: IMemberCardListProps) => {
         </div>
       </CSSTransition>
       <CSSTransition
-        in={props.currentPage === MembersCurrentPage.Second}
+        in={currentPage === MembersCurrentPage.Second}
         timeout={300}
         classNames={{
           enter: styles['enter'],
@@ -60,7 +60,7 @@ export const MemberCardList = (props: IMemberCardListProps) => {
         unmountOnExit
       >
         <div className={styles.container}>
-          {props.members.second.map(member => (
+          {members.second.map(member => (
             <MemberCard
               key={member.name}
               profileImage={member.profileImage}
@@ -70,7 +70,7 @@ export const MemberCardList = (props: IMemberCardListProps) => {
         </div>
       </CSSTransition>
       <CSSTransition
-        in={props.currentPage === MembersCurrentPage.Third}
+        in={currentPage === MembersCurrentPage.Third}
         timeout={300}
         classNames={{
           enter: styles['enter'],
@@ -81,7 +81,7 @@ export const MemberCardList = (props: IMemberCardListProps) => {
         unmountOnExit
       >
         <div className={styles.container}>
-          {props.members.third.map(member => (
+          {members.third.map(member => (
             <MemberCard
               key={member.name}
               profileImage={member.profileImage}
@@ -91,7 +91,7 @@ export const MemberCardList = (props: IMemberCardListProps) => {
         </div>
       </CSSTransition>
       <CSSTransition
-        in={props.currentPage === MembersCurrentPage.Fourth}
+        in={currentPage === MembersCurrentPage.Fourth}
         timeout={300}
         classNames={{
           enter: styles['enter'],
@@ -102,7 +102,7 @@ export const MemberCardList = (props: IMemberCardListProps) => {
         unmountOnExit
       >
         <div className={styles.container}>
-          {props.members.fourth.map(member => (
+          {members.fourth.map(member => (
             <MemberCard
               key={member.name}
               profileImage={member.profileImage}
@@ -112,7 +112,7 @@ export const MemberCardList = (props: IMemberCardListProps) => {
         </div>
       </CSSTransition>
       <CSSTransition
-        in={props.currentPage === MembersCurrentPage.Graduate}
+        in={currentPage === MembersCurrentPage.Graduate}
         timeout={300}
         classNames={{
           enter: styles['enter'],
@@ -123,7 +123,7 @@ export const MemberCardList = (props: IMemberCardListProps) => {
         unmountOnExit
       >
         <div className={styles.container}>
-          {props.members.graduate.map(member => (
+          {members.graduate.map(member => (
             <MemberCard
               key={member.name}
               profileImage={member.profileImage}
