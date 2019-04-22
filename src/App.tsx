@@ -12,8 +12,8 @@ const App = () => {
       <BrowserRouter basename={process.env.PUBLIC_URL}>
         <div className="app">
           <Switch>
-            <Route exact path="/cds/:type" component={CdsContainer} />
-            <Route exact path="/members/:generation" component={MembersContainer} />
+            <Route exact path="/cds/:type" component={CdsContainer} aria-label="cds" />
+            <Route exact path="/members/:generation" component={MembersContainer} aria-label="members" />
             <Redirect from="/" to="/cds/singles" />
           </Switch>
         </div>
