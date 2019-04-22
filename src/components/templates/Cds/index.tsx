@@ -12,11 +12,16 @@ type MatchParams = {
   type: CdsCurrentPage;
 };
 
-interface ICdsProps extends RouteComponentProps<MatchParams> {
-  cds: ICdsState;
+export type ICdsVariableProps = {
+  cds: ICdsState
+}
+
+export type ICdsFunctionProps = {
   getSingles(): void;
   getAlbums(): void;
 }
+
+interface ICdsProps extends RouteComponentProps<MatchParams>, ICdsVariableProps, ICdsFunctionProps {}
 
 const cdsTabMenuItems: TabMenuItem[] = [
   {

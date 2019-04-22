@@ -1,15 +1,15 @@
 import { connect } from 'react-redux';
-import { Cds } from '../../components/templates/Cds';
+import { Cds, ICdsVariableProps, ICdsFunctionProps } from '../../components/templates/Cds';
 import { getSingles, getAlbums } from './store/actions';
 import { Dispatch } from 'redux';
 import { IRootState } from '../../stores/state';
 import { ICdsState } from './store/reducers';
 
-const mapStateToProps = (state: IRootState): { cds: ICdsState } => ({
+const mapStateToProps = (state: IRootState): ICdsVariableProps=> ({
   cds: state.cds,
 });
 
-const mapDispatchToProps = (dispatch: Dispatch<any>) => ({
+const mapDispatchToProps = (dispatch: Dispatch<any>): ICdsFunctionProps => ({
   getSingles: () => dispatch(getSingles()),
   getAlbums: () => dispatch(getAlbums()),
 });
