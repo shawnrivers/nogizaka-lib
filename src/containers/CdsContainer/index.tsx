@@ -3,7 +3,6 @@ import { Cds, ICdsVariableProps, ICdsFunctionProps } from '../../components/temp
 import { getSingles, getAlbums } from './store/actions';
 import { Dispatch } from 'redux';
 import { IRootState } from '../../stores/state';
-import { ICdsState } from './store/reducers';
 
 const mapStateToProps = (state: IRootState): ICdsVariableProps=> ({
   cds: state.cds,

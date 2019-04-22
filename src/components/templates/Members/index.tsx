@@ -2,7 +2,7 @@ import * as React from 'react';
 import { NavigationBar } from '../../molecules/NavigationBar';
 import { TriangleBackground } from '../../atoms/Background/TriangleBackground';
 import { TabMenu, TabMenuItem } from '../../molecules/TabMenu';
-import { MembersCurrentPage, MemberGenerationType, FetchStatus, JoinedGeneration } from '../../../utils/constants';
+import { MembersCurrentPage, MemberGenerationType, FetchStatus } from '../../../utils/constants';
 import { RouteComponentProps } from 'react-router-dom';
 import { MemberCardList, MembersByType } from '../../organisms/MemberCardList';
 import { IMembers } from '../../../models/IMember';
