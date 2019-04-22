@@ -3,12 +3,12 @@ import { FetchStatus } from '../../../utils/constants';
 import { MembersActions, MembersActionTypes } from './actions';
 
 export type IMembersState = {
-  members: IMembers;
+  data: IMembers;
   fetchStatus: FetchStatus;
 };
 
 export const initialMembersState: IMembersState = {
-  members: {},
+  data: {},
   fetchStatus: FetchStatus.None,
 };
 
@@ -26,7 +26,7 @@ export const MembersReducers = (state: IMembersState = initialMembersState, acti
       };
     case MembersActionTypes.FETCH_MEMBERS_FULFILLED:
       return {
-        members: action.payload,
+        data: action.payload,
         fetchStatus: FetchStatus.Pending,
       };
     default:

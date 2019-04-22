@@ -3,9 +3,9 @@ import { IMembers, IMember } from '../../../models/IMember';
 import { FetchStatus, JoinedGeneration } from '../../../utils/constants';
 import { MembersByType } from '../../../components/organisms/MemberCardList';
 
-export const selectMembers = (state: IRootState): IMembers => state.members.members;
+export const selectMembers = (state: IRootState): IMembers => state.members.data;
 
-export const selectMemberArray = (state: IRootState): IMember[] => Object.values(state.members.members);
+export const selectMemberArray = (state: IRootState): IMember[] => Object.values(state.members.data);
 
 export const selectMembersFetchStatus = (state: IRootState): FetchStatus => state.members.fetchStatus;
 
