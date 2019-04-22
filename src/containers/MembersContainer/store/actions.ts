@@ -26,7 +26,7 @@ export const getMembers = () => async (dispatch: Dispatch<MembersActions>): Prom
   try {
     const members = await fetchMembers();
 
-    const normalizedMembers = members.reduce((acc: IMembers, curr) => {
+    const normalizedMembers: IMembers = members.reduce((acc: IMembers, curr) => {
       acc[curr.name] = curr;
       return acc;
     }, {});
