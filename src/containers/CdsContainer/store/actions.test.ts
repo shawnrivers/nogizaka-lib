@@ -38,55 +38,58 @@ describe('cd actions', () => {
       },
     };
 
-    beforeEach(async () => {
-      fetchMock.getOnce('https://raw.githubusercontent.com/shawnrivers/nogizaka-data/master/src/json/singles.json', {
-        body: [
-          {
-            ...mockSingleData,
-            number: '1',
-            title: 'title1',
-            release: '2018-10-01',
+    describe('When GET succeeded', () => {
+      beforeEach(async () => {
+        fetchMock.getOnce('https://raw.githubusercontent.com/shawnrivers/nogizaka-data/master/src/json/singles.json', {
+          body: [
+            {
+              ...mockSingleData,
+              number: '1',
+              title: 'title1',
+              release: '2018-10-01',
+            },
+            {
+              ...mockSingleData,
+              number: '2',
+              title: 'title2',
+              release: '2019-01-01',
+            },
+          ],
+          headers: {
+            'content-type': 'application/json',
           },
+        });
+
+        const fetchSinglesAction = getSingles() as any;
+
+        await store.dispatch(fetchSinglesAction);
+      });
+
+      it('It should create FETCH_SINGLES_FULFILLED after successfully received singles data response', () => {
+        const [pendingAction, fulfilledAction] = store.getActions();
+
+        expect(pendingAction.type).toBe(CdsActionTypes.FETCH_SINGLES_PENDING);
+        expect(fulfilledAction.type).toBe(CdsActionTypes.FETCH_SINGLES_FULFILLED);
+      });
+
+      it('It should sort singles data in descending order of release data', () => {
+        const fulfilledAction = store.getActions()[1];
+
+        expect(fulfilledAction.payload).toStrictEqual([
           {
             ...mockSingleData,
             number: '2',
             title: 'title2',
             release: '2019-01-01',
           },
-        ],
-        headers: {
-          'content-type': 'application/json',
-        },
+          {
+            ...mockSingleData,
+            number: '1',
+            title: 'title1',
+            release: '2018-10-01',
+          },
+        ]);
       });
-
-      const fetchSinglesAction = getSingles() as any;
-
-      await store.dispatch(fetchSinglesAction);
-    });
-
-    it('should create FETCH_SINGLES_FULFILLED after successfully received singles data response', () => {
-      const [pendingAction, fulfilledAction] = store.getActions();
-
-      expect(pendingAction.type).toBe(CdsActionTypes.FETCH_SINGLES_PENDING);
-      expect(fulfilledAction.type).toBe(CdsActionTypes.FETCH_SINGLES_FULFILLED);
-    });
-
-    it('should sort singles data in descending order of release data', () => {
-      const fulfilledAction = store.getActions()[1];
-      expect(fulfilledAction.payload).toStrictEqual([
-        {
-          ...mockSingleData,
-          number: '2',
-          title: 'title2',
-          release: '2019-01-01',
-        },
-        {
-          ...mockSingleData,
-          number: '1',
-          title: 'title1',
-          release: '2018-10-01',
-        },
-      ]);
     });
   });
 
