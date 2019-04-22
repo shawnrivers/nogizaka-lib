@@ -3,8 +3,7 @@ import configureMockStore from 'redux-mock-store';
 import { FetchStatus } from '../../../utils/constants';
 import { CdsActionTypes, getSingles, getAlbums } from './actions';
 import fetchMock from 'fetch-mock';
-import { ISingle } from '../../../models/ISingle';
-import { IAlbum } from '../../../models/IAlbum';
+import { SingleResponse, AlbumResponse } from '../../../apis/responseTypes';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -26,7 +25,7 @@ describe('cd actions', () => {
 
     const store = mockStore(initialState);
 
-    const mockSingleData: ISingle = {
+    const mockSingleData: SingleResponse = {
       number: '',
       title: '',
       release: '',
@@ -66,8 +65,7 @@ describe('cd actions', () => {
     });
 
     it('should create FETCH_SINGLES_FULFILLED after successfully received singles data response', () => {
-      const pendingAction = store.getActions()[0];
-      const fulfilledAction = store.getActions()[1];
+      const [pendingAction, fulfilledAction] = store.getActions();
 
       expect(pendingAction.type).toBe(CdsActionTypes.FETCH_SINGLES_PENDING);
       expect(fulfilledAction.type).toBe(CdsActionTypes.FETCH_SINGLES_FULFILLED);
@@ -104,7 +102,7 @@ describe('cd actions', () => {
 
     const store = mockStore(initialState);
 
-    const mockAlbumData: IAlbum = {
+    const mockAlbumData: AlbumResponse = {
       number: '',
       title: '',
       release: '',
@@ -140,8 +138,7 @@ describe('cd actions', () => {
     });
 
     it('should create FETCH_ALBUMS_FULFILLED after successfully received albums data response', () => {
-      const pendingAction = store.getActions()[0];
-      const fulfilledAction = store.getActions()[1];
+      const [pendingAction, fulfilledAction] = store.getActions();
 
       expect(pendingAction.type).toBe(CdsActionTypes.FETCH_ALBUMS_PENDING);
       expect(fulfilledAction.type).toBe(CdsActionTypes.FETCH_ALBUMS_FULFILLED);
