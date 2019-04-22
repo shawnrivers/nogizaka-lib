@@ -10,7 +10,7 @@ interface ITabButtonProps {
 
 export const TabButton = (props: ITabButtonProps) => (
   <Link to={props.link}>
-    <button className={styles.button} onClick={props.handleHideDropdown}>
+    <button aria-label={props.children} className={styles.button} onClick={props.handleHideDropdown}>
       {props.children}
     </button>
   </Link>

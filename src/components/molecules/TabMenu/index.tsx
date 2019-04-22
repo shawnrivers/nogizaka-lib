@@ -43,7 +43,7 @@ export const TabMenu = (props: ITabMenuProps) => {
 
   return (
     <div className={styles.menu} ref={dropdownRef}>
-      <button className={styles['toggle-button']} onClick={handleToggleDropdown}>
+      <button aria-label="Dropdown button" className={styles['toggle-button']} onClick={handleToggleDropdown}>
         <span className={styles['toggle-button-text']}>{selectedItemName}</span>
         {isDropdownOpen ? (
           <div key="menu-up">

@@ -13,7 +13,7 @@ export const NavigationBar = (props: INavigationBarProps) => {
   return (
     <div className={styles.navigation}>
       <Link to="/cds/singles">
-        <button className={styles['button']}>
+        <button aria-label="cds" className={styles['button']}>
           {props.currentTab === 'cds' ? (
             <CdIcon className={styles['cd-icon-active']} isActive={true} />
           ) : (
@@ -22,7 +22,7 @@ export const NavigationBar = (props: INavigationBarProps) => {
         </button>
       </Link>
       <Link to="/members/first">
-        <button className={styles['button']}>
+        <button aria-label="members" className={styles['button']}>
           {props.currentTab === 'members' ? (
             <MembersIcon className={styles['cd-icon-active']} isActive={true} />
           ) : (
@@ -30,7 +30,7 @@ export const NavigationBar = (props: INavigationBarProps) => {
           )}
         </button>
       </Link>
-      <button className={styles['button']}>
+      <button aria-label="search" className={styles['button']}>
         {props.currentTab === 'search' ? (
           <SearchIcon className={styles['cd-icon-active']} />
         ) : (
