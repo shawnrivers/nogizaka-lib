@@ -6,6 +6,7 @@ import { TabMenu, TabMenuItem } from '../../molecules/TabMenu';
 import { CdsCurrentPage, FetchStatus } from '../../../utils/constants';
 import { RouteComponentProps } from 'react-router-dom';
 import { NavigationBar } from '../../molecules/NavigationBar';
+import styles from './Cds.module.scss';
 
 type MatchParams = {
   type: CdsCurrentPage;
@@ -41,15 +42,17 @@ export const Cds = (props: ICdsProps) => {
   }, []);
 
   return (
-    <div>
-      <TriangleBackground pattern="1" position="top" />
-      <TabMenu items={cdsTabMenuItems} selectedItem={props.match.params.type} />
-      <CdCardList
-        singles={props.cds.singles.data}
-        albums={props.cds.albums.data}
-        currentPage={props.match.params.type}
-      />
+    <>
+      <div className={styles.container}>
+        <TriangleBackground pattern="1" position="top" />
+        <TabMenu items={cdsTabMenuItems} selectedItem={props.match.params.type} />
+        <CdCardList
+          singles={props.cds.singles.data}
+          albums={props.cds.albums.data}
+          currentPage={props.match.params.type}
+        />
+      </div>
       <NavigationBar currentTab="cds" />
-    </div>
+    </>
   );
 };

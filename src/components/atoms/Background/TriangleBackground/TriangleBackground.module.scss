@@ -13,20 +13,20 @@
 %pattern-one {
   z-index: -2;
   width: 100vw;
-  height: 560px;
+  height: 548px;
   background: linear-gradient(0deg, #ffffba, #ffcbfa), rgba(0, 0, 0, 0.2);
 }
 
 %pattern-two {
   z-index: -2;
   width: 100vw;
-  height: 560px;
+  height: 548px;
   background: linear-gradient(0deg, #ffcbfa, #ffffba), rgba(0, 0, 0, 0.2);
 }
 
 %triangle-cut {
   z-index: -1;
-  top: 60px;
+  top: 48px;
   border-width: 0 0 500px 100vw;
   border-style: solid;
   border-color: transparent transparent #fff transparent;

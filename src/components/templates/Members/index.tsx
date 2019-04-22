@@ -6,6 +6,7 @@ import { MembersCurrentPage, MemberGenerationType, FetchStatus, JoinedGeneration
 import { RouteComponentProps } from 'react-router-dom';
 import { MemberCardList, MembersByType } from '../../organisms/MemberCardList';
 import { IMembers } from '../../../models/IMember';
+import styles from './Members.module.scss';
 
 type MatchParams = {
   generation: MembersCurrentPage;
@@ -61,11 +62,13 @@ export const Members = (props: IMembersProps) => {
   }, []);
 
   return (
-    <div>
-      <TriangleBackground pattern="2" position="top" />
-      <TabMenu items={membersTabMenuItems} selectedItem={props.match.params.generation} />
-      <MemberCardList members={membersByType} currentPage={props.match.params.generation} />
+    <>
+      <div className={styles.container}>
+        <TriangleBackground pattern="2" position="top" />
+        <TabMenu items={membersTabMenuItems} selectedItem={props.match.params.generation} />
+        <MemberCardList members={membersByType} currentPage={props.match.params.generation} />
+      </div>
       <NavigationBar currentTab="members" />
-    </div>
+    </>
   );
 };
