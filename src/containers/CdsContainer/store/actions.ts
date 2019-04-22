@@ -43,7 +43,7 @@ export const getSingles = () => async (dispatch: Dispatch<CdsActions>): Promise<
 
     const sortedSingles = singles
       .slice()
-      .sort((itemA: ISingle, itemB: ISingle) => new Date(itemB.release).getTime() - new Date(itemA.release).getTime());
+      .sort((itemA, itemB) => new Date(itemB.release).getTime() - new Date(itemA.release).getTime());
 
     dispatch({
       type: CdsActionTypes.FETCH_SINGLES_FULFILLED,
@@ -66,7 +66,7 @@ export const getAlbums = () => async (dispatch: Dispatch<CdsActions>): Promise<v
 
     const sortedData = data
       .slice()
-      .sort((itemA: IAlbum, itemB: IAlbum) => new Date(itemB.release).getTime() - new Date(itemA.release).getTime());
+      .sort((itemA, itemB) => new Date(itemB.release).getTime() - new Date(itemA.release).getTime());
 
     dispatch({
       type: CdsActionTypes.FETCH_ALBUMS_FULFILLED,
