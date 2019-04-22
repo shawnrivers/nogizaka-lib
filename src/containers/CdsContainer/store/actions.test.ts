@@ -13,7 +13,7 @@ describe('cd actions', () => {
     fetchMock.restore();
   });
 
-  describe('fetchSingles', () => {
+  describe('getSingles', () => {
     const initialState = {
       cds: {
         singles: {
