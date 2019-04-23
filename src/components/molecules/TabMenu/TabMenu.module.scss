@@ -4,8 +4,10 @@
 @import '../../../styles/typography.scss';
 
 .menu {
-  display: block;
+  display: flex;
   width: fit-content;
+  height: 72px;
+  box-sizing: border-box;
   padding: 16px 32px;
 }
 
@@ -34,7 +36,7 @@
   position: absolute;
   display: inline-block;
   padding: 8px 0;
-  background-color: #fff;
+  background-color: $white;
   border-radius: 4px;
   list-style-type: none;
   margin-block-end: 0;
