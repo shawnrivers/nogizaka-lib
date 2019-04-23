@@ -18,11 +18,11 @@ export const CdCard = (props: ICdProps) => {
     forceCheck();
   }, []);
 
-  const artworks = {
-    small: props.cd.artworks[0].urls.small,
-    medium: props.cd.artworks[0].urls.medium,
-    large: props.cd.artworks[0].urls.large,
-  };
+  const artwork = React.useMemo(() => {
+    const artworks = props.cd.artworks;
+    const keys = Object.keys(artworks);
+    return artworks[keys[0]];
+  }, [props.cd.artworks]);
 
   return (
     <div className={styles.container}>
@@ -30,9 +30,9 @@ export const CdCard = (props: ICdProps) => {
         <div className={styles['artwork-container']}>
           <img
             className={styles.artwork}
-            src={artworks.medium}
-            srcSet={`${artworks.small} ${SMALL_IMAGE_WIDTH * 2}w, ${artworks.medium} ${MEDIUM_IMAGE_WIDTH * 2}w, ${
-              artworks.large
+            src={artwork.medium}
+            srcSet={`${artwork.small} ${SMALL_IMAGE_WIDTH * 2}w, ${artwork.medium} ${MEDIUM_IMAGE_WIDTH * 2}w, ${
+              artwork.large
             } ${LARGE_IMAGE_WIDTH * 2}w`}
             alt={props.cd.title}
           />

@@ -18,13 +18,12 @@ type CdResponse = {
   number: string;
   release: string;
   artworks: {
-    type: CdType;
-    urls: {
+    [type: string]: {
       large: string;
       medium: string;
       small: string;
     };
-  }[];
+  };
   shopping: SiteResponse[];
   songs: {
     number: number;
