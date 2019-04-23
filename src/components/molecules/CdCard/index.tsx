@@ -18,11 +18,7 @@ export const CdCard = (props: ICdProps) => {
     forceCheck();
   }, []);
 
-  const artwork = React.useMemo(() => {
-    const artworks = props.cd.artworks;
-    const keys = Object.keys(artworks);
-    return artworks[keys[0]];
-  }, [props.cd.artworks]);
+  const artwork = Object.values(props.cd.artworks)[0];
 
   return (
     <div className={styles.container}>
