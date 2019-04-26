@@ -1,8 +1,9 @@
 import React from 'react';
-import { Provider } from 'react-redux';
 import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
-import { CdsContainer } from './containers/Cds/CdsContainer';
+import { Provider } from 'react-redux';
 import { store } from './stores/appStore';
+import { CdsContainer } from './containers/Cds/CdsContainer';
+import { CdContainer } from './containers/Cds/CdContainer';
 import { MembersContainer } from './containers/Members/MembersContainer';
 import './App.scss';
 
@@ -13,6 +14,7 @@ const App = () => {
         <div className="app">
           <Switch>
             <Route exact path="/cds/:type" component={CdsContainer} aria-label="cds" />
+            <Route exact path="/cds/:type/:title" component={CdContainer} aria-label="cd" />
             <Route exact path="/members/:generation" component={MembersContainer} aria-label="members" />
             <Redirect from="/" to="/cds/singles" />
           </Switch>

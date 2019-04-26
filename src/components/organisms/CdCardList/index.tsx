@@ -28,7 +28,11 @@ export const CdCardList = (props: ICdCardProps) =>
       >
         <div className={styles.container}>
           {props.singles.map(single => (
-            <CdCard key={CdsCurrentPage.Single + single.number.toString()} cd={single} />
+            <CdCard
+              key={CdsCurrentPage.Single + single.number.toString()}
+              cd={single}
+              currentPage={props.currentPage}
+            />
           ))}
         </div>
       </CSSTransition>
@@ -45,7 +49,7 @@ export const CdCardList = (props: ICdCardProps) =>
       >
         <div className={styles.container}>
           {props.albums.map(album => (
-            <CdCard key={CdsCurrentPage.Album + album.number.toString()} cd={album} />
+            <CdCard key={CdsCurrentPage.Album + album.number.toString()} cd={album} currentPage={props.currentPage} />
           ))}
         </div>
       </CSSTransition>
