@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
-import { Members, IMemberFunctionProps, IMemberVariableProps } from '../../components/templates/Members';
-import { IRootState } from '../../stores/state';
+import { Members, IMemberFunctionProps, IMemberVariableProps } from '../../../components/templates/Members';
+import { IRootState } from '../../../stores/state';
 import { Dispatch } from 'redux';
-import { getMembers } from './store/actions';
-import * as MembersSelectors from './store/selectors';
+import { getMembers } from '../actions';
+import * as MembersSelectors from '../selectors';
 
 const mapStateToProps = (state: IRootState): IMemberVariableProps => ({
   members: MembersSelectors.selectMembers(state),

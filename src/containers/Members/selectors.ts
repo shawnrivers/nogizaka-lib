@@ -1,6 +1,6 @@
-import { IRootState } from '../../../stores/state';
-import { IMembers, IMember } from '../../../models/IMember';
-import { FetchStatus, JoinedGeneration } from '../../../utils/constants';
+import { IRootState } from '../../stores/state';
+import { IMembers, IMember } from '../../models/IMember';
+import { FetchStatus, JoinedGeneration } from '../../utils/constants';
 
 export const selectMembers = (state: IRootState): IMembers => state.members.data;
 

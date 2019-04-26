@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ICdsState } from '../../../containers/CdsContainer/store/reducers';
+import { ICdsState } from '../../../containers/Cds/reducers';
 import { CdCardList } from '../../organisms/CdCardList';
 import { TriangleBackground } from '../../atoms/Background/TriangleBackground';
 import { TabMenu, TabMenuItem } from '../../molecules/TabMenu';

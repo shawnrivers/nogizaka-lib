@@ -1,9 +1,9 @@
 import { createStore, combineReducers, applyMiddleware, compose, Reducer } from 'redux';
 import thunk from 'redux-thunk';
-import { CdsReducers } from '../containers/CdsContainer/store/reducers';
+import { CdsReducers } from '../containers/Cds/reducers';
 import { IRootState } from './state';
 import promise from 'redux-promise-middleware';
-import { MembersReducers } from '../containers/MembersContainer/store/reducers';
+import { MembersReducers } from '../containers/Members/reducers';
 
 const rootReducer: Reducer<IRootState> = combineReducers({
   cds: CdsReducers,

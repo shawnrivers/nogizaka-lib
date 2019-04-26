@@ -1,5 +1,5 @@
-import { IMembers } from '../../../models/IMember';
-import { FetchStatus } from '../../../utils/constants';
+import { IMembers } from '../../models/IMember';
+import { FetchStatus } from '../../utils/constants';
 import { MembersActions, MembersActionTypes } from './actions';
 
 export type IMembersState = {

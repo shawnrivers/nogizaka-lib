@@ -1,5 +1,5 @@
-import { ICdsState } from '../containers/CdsContainer/store/reducers';
-import { IMembersState } from '../containers/MembersContainer/store/reducers';
+import { ICdsState } from '../containers/Cds/reducers';
+import { IMembersState } from '../containers/Members/reducers';
 
 export interface IRootState {
   cds: ICdsState;

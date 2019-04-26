@@ -1,10 +1,10 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
-import { CdsContainer } from './containers/CdsContainer';
-import './App.scss';
+import { CdsContainer } from './containers/Cds/CdsContainer';
 import { store } from './stores/appStore';
-import { MembersContainer } from './containers/MembersContainer';
+import { MembersContainer } from './containers/Members/MembersContainer';
+import './App.scss';
 
 const App = () => {
   return (

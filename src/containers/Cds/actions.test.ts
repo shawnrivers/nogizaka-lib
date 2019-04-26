@@ -1,9 +1,9 @@
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
-import { FetchStatus } from '../../../utils/constants';
+import { FetchStatus } from '../../utils/constants';
 import { CdsActionTypes, getSingles, getAlbums } from './actions';
 import fetchMock from 'fetch-mock';
-import { SingleResponse, AlbumResponse } from '../../../apis/responseTypes';
+import { SingleResponse, AlbumResponse } from '../../apis/responseTypes';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -29,7 +29,7 @@ describe('cd actions', () => {
       number: '',
       title: '',
       release: '',
-      artworks: [],
+      artworks: {},
       shopping: [],
       songs: [],
       behindPerformers: {
@@ -109,7 +109,7 @@ describe('cd actions', () => {
       number: '',
       title: '',
       release: '',
-      artworks: [],
+      artworks: {},
       shopping: [],
       songs: [],
     };
