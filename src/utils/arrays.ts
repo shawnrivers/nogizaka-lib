@@ -6,6 +6,6 @@ export const sortByDate = <T>(array: T[], keyField: keyof T, order: 'asc' | 'des
     .slice()
     .sort((itemA, itemB) =>
       order === 'asc'
-        ? new Date(String(itemA[keyField])).getTime() - new Date(itemB[keyField] as any).getTime()
+        ? new Date(itemA[keyField] as any).getTime() - new Date(itemB[keyField] as any).getTime()
         : new Date(itemB[keyField] as any).getTime() - new Date(itemA[keyField] as any).getTime(),
     );
