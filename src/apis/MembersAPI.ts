@@ -34,7 +34,8 @@ const convertMemberResponse = (memberResponse: MemberResponse): IMember => {
     units,
     positionsHistory,
     positionsCounter,
-    graduation,
+    isGraduated: graduation.isGraduated,
+    graduatedDate: graduation.graduatedDate,
   };
 };
 

@@ -44,10 +44,8 @@ export type IMember = {
     selected: number;
     under: number;
   };
-  graduation: {
-    isGraduated: boolean;
-    graduatedDate: string;
-  };
+  isGraduated: boolean;
+  graduatedDate: string;
 };
 
 export type IMembers = {
