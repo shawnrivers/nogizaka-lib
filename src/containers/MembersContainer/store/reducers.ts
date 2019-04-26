@@ -27,7 +27,7 @@ export const MembersReducers = (state: IMembersState = initialMembersState, acti
     case MembersActionTypes.FETCH_MEMBERS_FULFILLED:
       return {
         data: action.payload,
-        fetchStatus: FetchStatus.Pending,
+        fetchStatus: FetchStatus.Fulfilled,
       };
     default:
       return state;
