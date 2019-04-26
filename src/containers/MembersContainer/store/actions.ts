@@ -27,11 +27,9 @@ export const getMembers = () => async (dispatch: Dispatch<MembersActions>): Prom
   try {
     const members = await fetchMembers();
 
-    const membersObject = arrayToObject(members, 'name');
-
     dispatch({
       type: MembersActionTypes.FETCH_MEMBERS_FULFILLED,
-      payload: membersObject,
+      payload: arrayToObject(members, 'name'),
     });
   } catch (err) {
     dispatch({ type: MembersActionTypes.FETCH_MEMBERS_REJECTED });
