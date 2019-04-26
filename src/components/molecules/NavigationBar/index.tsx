@@ -11,7 +11,7 @@ interface INavigationBarProps {
 
 export const NavigationBar = (props: INavigationBarProps) => {
   return (
-    <div className={styles.navigation}>
+    <nav className={styles.navigation}>
       <Link to="/cds/singles">
         <button aria-label="cds" className={styles['button']}>
           {props.currentTab === 'cds' ? (
@@ -37,6 +37,6 @@ export const NavigationBar = (props: INavigationBarProps) => {
           <SearchIcon className={styles['cd-icon-inactive']} />
         )}
       </button>
-    </div>
+    </nav>
   );
 };

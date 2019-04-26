@@ -56,11 +56,11 @@ export const Cds = (props: ICdsProps) => {
 
   return (
     <>
-      <div className={styles.container}>
+      <main className={styles.container}>
         <TriangleBackground pattern="1" position="top" />
         <TabMenu items={cdsTabMenuItems} selectedItem={props.match.params.type} />
         <CdCardList singles={props.singles.data} albums={props.albums.data} currentPage={props.match.params.type} />
-      </div>
+      </main>
       <NavigationBar currentTab="cds" />
     </>
   );

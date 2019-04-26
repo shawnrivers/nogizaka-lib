@@ -63,11 +63,11 @@ export const Members = (props: IMembersProps) => {
 
   return (
     <>
-      <div className={styles.container}>
+      <main className={styles.container}>
         <TriangleBackground pattern="2" position="top" />
         <TabMenu items={membersTabMenuItems} selectedItem={props.match.params.generation} />
         <MemberCardList members={membersByType} currentPage={props.match.params.generation} />
-      </div>
+      </main>
       <NavigationBar currentTab="members" />
     </>
   );
