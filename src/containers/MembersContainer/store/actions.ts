@@ -1,6 +1,7 @@
 import { IMembers } from '../../../models/IMember';
 import { Dispatch } from 'redux';
 import { fetchMembers } from '../../../apis/MembersAPI';
+import { arrayToObject } from '../../../utils/arrays';
 
 export enum MembersActionTypes {
   FETCH_MEMBERS_PENDING = '@nogizaka-lib/cds/FETCH_MEMBERS_PENDING',
@@ -26,14 +27,11 @@ export const getMembers = () => async (dispatch: Dispatch<MembersActions>): Prom
   try {
     const members = await fetchMembers();
 
-    const normalizedMembers: IMembers = members.reduce((acc: IMembers, curr) => {
-      acc[curr.name] = curr;
-      return acc;
-    }, {});
+    const membersObject = arrayToObject(members, 'name');
 
     dispatch({
       type: MembersActionTypes.FETCH_MEMBERS_FULFILLED,
-      payload: normalizedMembers,
+      payload: membersObject,
     });
   } catch (err) {
     dispatch({ type: MembersActionTypes.FETCH_MEMBERS_REJECTED });
