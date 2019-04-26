@@ -1,9 +1,9 @@
-import { ISingle } from '../../models/ISingle';
-import { IAlbum } from '../../models/IAlbum';
+import { ISingle, ISingles } from '../../models/ISingle';
+import { IAlbum, IAlbums } from '../../models/IAlbum';
 import { Dispatch } from 'redux';
 import { fetchSingles } from '../../apis/SinglesAPI';
 import { fetchAlbums } from '../../apis/AlbumsAPI';
-import { sortByDate } from '../../utils/arrays';
+import { sortByDate, arrayToObject } from '../../utils/arrays';
 
 export enum CdsActionTypes {
   FETCH_SINGLES_PENDING = '@nogizaka-lib/cds/FETCH_SINGLES_PENDING',
@@ -23,7 +23,7 @@ export type CdsActions =
     }
   | {
       type: CdsActionTypes.FETCH_SINGLES_FULFILLED;
-      payload: ISingle[];
+      payload: ISingles;
     }
   | {
       type: CdsActionTypes.FETCH_ALBUMS_PENDING;
@@ -33,7 +33,7 @@ export type CdsActions =
     }
   | {
       type: CdsActionTypes.FETCH_ALBUMS_FULFILLED;
-      payload: IAlbum[];
+      payload: IAlbums;
     };
 
 export const getSingles = () => async (dispatch: Dispatch<CdsActions>): Promise<void> => {
@@ -44,7 +44,7 @@ export const getSingles = () => async (dispatch: Dispatch<CdsActions>): Promise<
 
     dispatch({
       type: CdsActionTypes.FETCH_SINGLES_FULFILLED,
-      payload: sortByDate(singles, 'release', 'desc'),
+      payload: arrayToObject(sortByDate(singles, 'release', 'desc'), 'title'),
     });
   } catch (err) {
     dispatch({
@@ -61,7 +61,7 @@ export const getAlbums = () => async (dispatch: Dispatch<CdsActions>): Promise<v
 
     dispatch({
       type: CdsActionTypes.FETCH_ALBUMS_FULFILLED,
-      payload: sortByDate(albums, 'release', 'desc'),
+      payload: arrayToObject(sortByDate(albums, 'release', 'desc'), 'title'),
     });
   } catch (err) {
     dispatch({

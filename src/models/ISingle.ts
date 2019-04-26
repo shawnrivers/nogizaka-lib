@@ -8,3 +8,7 @@ type ISingleBehindPerformers = {
 export type ISingle = ICd & {
   behindPerformers: ISingleBehindPerformers;
 };
+
+export type ISingles = {
+  [title: string]: ISingle;
+};

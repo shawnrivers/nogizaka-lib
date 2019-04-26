@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { ICdsState } from '../../../containers/Cds/reducers';
+import { ISingle } from '../../../models/ISingle';
+import { IAlbum } from '../../../models/IAlbum';
 import { CdCardList } from '../../organisms/CdCardList';
 import { TriangleBackground } from '../../atoms/Background/TriangleBackground';
 import { TabMenu, TabMenuItem } from '../../molecules/TabMenu';
@@ -13,13 +14,20 @@ type MatchParams = {
 };
 
 export type ICdsVariableProps = {
-  cds: ICdsState
-}
+  singles: {
+    data: ISingle[];
+    fetchStatus: FetchStatus;
+  };
+  albums: {
+    data: IAlbum[];
+    fetchStatus: FetchStatus;
+  };
+};
 
 export type ICdsFunctionProps = {
   getSingles(): void;
   getAlbums(): void;
-}
+};
 
 interface ICdsProps extends RouteComponentProps<MatchParams>, ICdsVariableProps, ICdsFunctionProps {}
 
@@ -38,10 +46,10 @@ const cdsTabMenuItems: TabMenuItem[] = [
 
 export const Cds = (props: ICdsProps) => {
   React.useEffect(() => {
-    if (props.cds.singles.fetchStatus === FetchStatus.None || props.cds.singles.fetchStatus === FetchStatus.Rejected) {
+    if (props.singles.fetchStatus === FetchStatus.None || props.singles.fetchStatus === FetchStatus.Rejected) {
       props.getSingles();
     }
-    if (props.cds.albums.fetchStatus === FetchStatus.None || props.cds.albums.fetchStatus === FetchStatus.Rejected) {
+    if (props.albums.fetchStatus === FetchStatus.None || props.albums.fetchStatus === FetchStatus.Rejected) {
       props.getAlbums();
     }
   }, []);
@@ -51,11 +59,7 @@ export const Cds = (props: ICdsProps) => {
       <div className={styles.container}>
         <TriangleBackground pattern="1" position="top" />
         <TabMenu items={cdsTabMenuItems} selectedItem={props.match.params.type} />
-        <CdCardList
-          singles={props.cds.singles.data}
-          albums={props.cds.albums.data}
-          currentPage={props.match.params.type}
-        />
+        <CdCardList singles={props.singles.data} albums={props.albums.data} currentPage={props.match.params.type} />
       </div>
       <NavigationBar currentTab="cds" />
     </>
