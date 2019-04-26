@@ -50,8 +50,6 @@ export const getSingles = () => async (dispatch: Dispatch<CdsActions>): Promise<
     dispatch({
       type: CdsActionTypes.FETCH_SINGLES_REJECTED,
     });
-
-    console.log('Error:', err);
   }
 };
 
@@ -69,7 +67,5 @@ export const getAlbums = () => async (dispatch: Dispatch<CdsActions>): Promise<v
     dispatch({
       type: CdsActionTypes.FETCH_ALBUMS_REJECTED,
     });
-
-    console.log('Error:', err);
   }
 };

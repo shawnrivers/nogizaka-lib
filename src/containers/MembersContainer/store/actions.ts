@@ -33,6 +33,5 @@ export const getMembers = () => async (dispatch: Dispatch<MembersActions>): Prom
     });
   } catch (err) {
     dispatch({ type: MembersActionTypes.FETCH_MEMBERS_REJECTED });
-    console.log(err);
   }
 };
