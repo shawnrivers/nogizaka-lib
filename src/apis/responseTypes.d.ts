@@ -30,7 +30,11 @@ type CdResponse = {
     title: string;
     inCdType: CdType[];
     type: SongType;
-    artwork: string;
+    artwork: {
+      large: string;
+      medium: string;
+      small: string;
+    };
     focusPerformers: {
       type: FocusPerformersType;
       name: string[];
