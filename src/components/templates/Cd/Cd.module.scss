@@ -1,0 +1,33 @@
+@import '../../../styles/colors.scss';
+@import '../../../styles/layout.scss';
+@import '../../../styles/typography.scss';
+
+.heading {
+  @extend %flex, %flex-column;
+  margin-bottom: 24px;
+  color: $gray-1;
+}
+
+.title {
+  @extend %title-regular;
+  margin-bottom: 8px;
+}
+
+.release {
+  @extend %caption-light;
+}
+
+.song-rows {
+  margin-right: 8px;
+}
+
+.song-row {
+  @extend %flex, %flex-row, %flex-horizontal-center;
+  margin: 16px 0;
+}
+
+.number {
+  @extend %heading-regular;
+  margin-right: 12px;
+  color: $gray-3;
+}

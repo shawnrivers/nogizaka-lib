@@ -45,6 +45,20 @@ export enum SongType {
   FirstGeneration = 'first generation',
   SecondGeneration = 'second generation',
   ThirdGeneration = 'third generation',
+  FourthGeneration = 'fourth generation',
+}
+
+export enum DisplaySongType {
+  None = '',
+  Title = '表題曲',
+  Coupling = 'Coupling',
+  Under = 'Under',
+  Unit = 'Unit',
+  Solo = 'Solo',
+  FirstGeneration = '1期生',
+  SecondGeneration = '2期生',
+  ThirdGeneration = '3期生',
+  FourthGeneration = '4期生',
 }
 
 export enum FocusPerformersType {

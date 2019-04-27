@@ -5,6 +5,8 @@ import { TitleBar } from '../../molecules/TitleBar';
 import { FetchStatus } from '../../../utils/constants';
 import { ArtworkCarousel } from '../../molecules/ArtworkCarousel';
 import styles from './Cd.module.scss';
+import { DetailsCard } from '../../molecules/DetailsCard';
+import { SongCard } from '../../molecules/SongCard';
 
 export type ICdVariableProps = {
   cd: ISingle | IAlbum;
@@ -33,23 +35,25 @@ export const Cd = (props: ICdProps) => {
     <div>
       <TitleBar title={props.cd.title} />
       <ArtworkCarousel artworks={largeArtworks} />
-      <div>
-        <div>
-          <span>{props.cd.title}</span>
-          <span>{props.cd.release}</span>
+      <DetailsCard>
+        <div className={styles.heading}>
+          <span className={styles.title}>{props.cd.title}</span>
+          <span className={styles.release}>Release: {props.cd.release}</span>
         </div>
-        <div>
+        <div className={styles['song-rows']}>
           {props.cd.songs.map(song => (
-            <div key={song.number}>
-              <span>{song.number}</span>
-              <span>{song.title}</span>
-              <img src={song.artwork} />
-              <span>{song.type}</span>
-              <span>{song.focusPerformers.name}</span>
+            <div className={styles['song-row']} key={song.number}>
+              <span className={styles.number}>{song.number}.</span>
+              <SongCard
+                artwork={song.artwork.small}
+                title={song.title}
+                type={song.type}
+                focusPerformers={song.focusPerformers}
+              />
             </div>
           ))}
         </div>
-      </div>
+      </DetailsCard>
     </div>
   ) : null;
 };

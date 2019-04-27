@@ -1,0 +1,38 @@
+@import '../../../styles/colors.scss';
+@import '../../../styles/elevations.scss';
+@import '../../../styles/layout.scss';
+@import '../../../styles/typography.scss';
+
+.container {
+  @extend %flex, %flex-row, %flex-horizontal-center, %elevation-2;
+  z-index: 4;
+  width: 100%;
+  border-radius: 6px;
+  color: $gray-1;
+}
+
+.artwork {
+  width: 100px;
+  height: 100px;
+  border-radius: 6px 0 0 6px;
+  object-fit: cover;
+}
+
+.text {
+  @extend %flex, %flex-column, %flex-vertical-center;
+  margin: 12px;
+}
+
+.title {
+  @extend %heading-regular;
+  margin-bottom: 8px;
+}
+
+.description {
+  @extend %caption-light;
+  color: $gray-2;
+}
+
+.type {
+  margin-right: 8px;
+}

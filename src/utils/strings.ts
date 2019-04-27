@@ -1,3 +1,6 @@
+import { SongType, DisplaySongType, FocusPerformersType } from './constants';
+import { IFocusPerformers } from '../models/ICd';
+
 export const toOrdinalNumber = (num: number) => {
   const remainderByTen = num % 10;
   const remainderByHundred = num % 100;
@@ -11,5 +14,40 @@ export const toOrdinalNumber = (num: number) => {
     return num + 'rd';
   } else {
     return num + 'th';
+  }
+};
+
+export const convertSongType = (type: SongType): DisplaySongType => {
+  switch (type) {
+    case SongType.None:
+      return DisplaySongType.None;
+    case SongType.Title:
+      return DisplaySongType.Title;
+    case SongType.Coupling:
+      return DisplaySongType.Coupling;
+    case SongType.Under:
+      return DisplaySongType.Under;
+    case SongType.Unit:
+      return DisplaySongType.Unit;
+    case SongType.Solo:
+      return DisplaySongType.Solo;
+    case SongType.FirstGeneration:
+      return DisplaySongType.FirstGeneration;
+    case SongType.SecondGeneration:
+      return DisplaySongType.SecondGeneration;
+    case SongType.ThirdGeneration:
+      return DisplaySongType.ThirdGeneration;
+    case SongType.FourthGeneration:
+      return DisplaySongType.FourthGeneration;
+  }
+};
+
+export const getFocusPerformersText = (focusPerformers: IFocusPerformers): string => {
+  if (focusPerformers.name.length > 0) {
+    return focusPerformers.type === FocusPerformersType.Center
+      ? 'C: ' + focusPerformers.name.reduce((acc, curr) => acc + ', ' + curr)
+      : focusPerformers.name.reduce((acc, curr) => acc + ', ' + curr);
+  } else {
+    return '';
   }
 };
