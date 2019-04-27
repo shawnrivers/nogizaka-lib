@@ -3,6 +3,7 @@ import { IAlbum } from '../../../models/IAlbum';
 import { ISingle } from '../../../models/ISingle';
 import { TitleBar } from '../../molecules/TitleBar';
 import { FetchStatus } from '../../../utils/constants';
+import { ArtworkCarousel } from '../../molecules/ArtworkCarousel';
 import styles from './Cd.module.scss';
 
 export type ICdVariableProps = {
@@ -20,7 +21,7 @@ export const Cd = (props: ICdProps) => {
   React.useEffect(() => {
     if (props.fetchStatus !== FetchStatus.Fulfilled) {
       props.getCds();
-}
+    }
   }, []);
 
   const largeArtworks =
@@ -31,6 +32,24 @@ export const Cd = (props: ICdProps) => {
   return props.cd !== undefined ? (
     <div>
       <TitleBar title={props.cd.title} />
+      <ArtworkCarousel artworks={largeArtworks} />
+      <div>
+        <div>
+          <span>{props.cd.title}</span>
+          <span>{props.cd.release}</span>
+        </div>
+        <div>
+          {props.cd.songs.map(song => (
+            <div key={song.number}>
+              <span>{song.number}</span>
+              <span>{song.title}</span>
+              <img src={song.artwork} />
+              <span>{song.type}</span>
+              <span>{song.focusPerformers.name}</span>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   ) : null;
 };
