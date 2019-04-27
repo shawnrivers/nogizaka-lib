@@ -1,0 +1,23 @@
+@import '../../../styles/colors.scss';
+@import '../../../styles/elevations.scss';
+@import '../../../styles/layout.scss';
+@import '../../../styles/typography.scss';
+
+.container {
+  @extend %flex, %flex-row, %flex-horizontal-center, %elevation-3;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 48px;
+  background-color: $white;
+}
+
+.button {
+  width: 48px;
+  height: 48px;
+}
+
+.title {
+  @extend %title-regular;
+  line-height: 1;
+}
