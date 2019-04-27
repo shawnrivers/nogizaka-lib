@@ -41,9 +41,6 @@ export const ArtworkCarousel = (props: IArtworkCarouselProps) => {
         </div>
       </Swipeable>
       <CarouselIndicator count={props.artworks.length} activeIndex={artworkIndex} handleClick={setArtworkIndex} />
-      <button onClick={() => setArtworkIndex(artworkIndex <= props.artworks.length - 2 ? artworkIndex + 1 : 0)}>
-        Change Artwork
-      </button>
     </>
   );
 };
