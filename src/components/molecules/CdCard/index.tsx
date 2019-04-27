@@ -24,7 +24,7 @@ export const CdCard = (props: ICdProps) => {
   const artwork = Object.values(props.cd.artworks)[0];
 
   return (
-    <Link to={`/cds/${props.currentPage}/${props.cd.title}`}>
+    <Link to={`/cds/${props.currentPage}/${props.cd.number}`}>
       <div className={styles.container}>
         <LazyLoad placeholder={<ImagePlaceholder />} offset={100}>
           <div className={styles['artwork-container']}>

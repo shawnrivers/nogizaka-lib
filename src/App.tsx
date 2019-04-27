@@ -14,7 +14,7 @@ const App = () => {
         <div className="app">
           <Switch>
             <Route exact path="/cds/:type" component={CdsContainer} aria-label="cds" />
-            <Route exact path="/cds/:type/:title" component={CdContainer} aria-label="cd" />
+            <Route exact path="/cds/:type/:number" component={CdContainer} aria-label="cd" />
             <Route exact path="/members/:generation" component={MembersContainer} aria-label="members" />
             <Redirect from="/" to="/cds/singles" />
           </Switch>

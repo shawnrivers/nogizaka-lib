@@ -9,14 +9,14 @@ import { CdsCurrentPage } from '../../../utils/constants';
 
 type MatchParams = {
   type: string;
-  title: string;
+  number: string;
 };
 
 const mapStateToProps = (state: IRootState, ownProps: RouteComponentProps<MatchParams>): ICdVariableProps => ({
   cd:
     ownProps.match.params.type === CdsCurrentPage.Single
-      ? CdsSelectors.selectSingleByTitle(state, ownProps.match.params.title)
-      : CdsSelectors.selectAlbumByTitle(state, ownProps.match.params.title),
+      ? CdsSelectors.selectSingleByNumber(state, ownProps.match.params.number)
+      : CdsSelectors.selectAlbumByNumber(state, ownProps.match.params.number),
   fetchStatus:
     ownProps.match.params.type === CdsCurrentPage.Single
       ? CdsSelectors.selectSinglesFetchStatus(state)
