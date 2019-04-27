@@ -8,7 +8,7 @@
   height: 32px;
 }
 
-.navigation {
+.container {
   @extend %flex, %flex-row, %elevation-3;
   position: fixed;
   top: 0;

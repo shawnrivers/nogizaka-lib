@@ -11,7 +11,7 @@ interface INavigationBarProps {
 
 export const NavigationBar = (props: INavigationBarProps) => {
   return (
-    <nav className={styles.navigation}>
+    <nav className={styles.container}>
       <Link to="/cds/singles">
         <button aria-label="cds" className={styles['button']}>
           {props.currentTab === 'cds' ? (
