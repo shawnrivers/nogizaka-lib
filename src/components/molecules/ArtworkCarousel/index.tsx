@@ -1,7 +1,9 @@
 import * as React from 'react';
-import { CSSTransition } from 'react-transition-group';
-import styles from './ArtworkCarousel.module.scss';
+import { Swipeable } from 'react-swipeable';
+import LazyLoad from 'react-lazyload';
 import { CarouselIndicator } from '../../atoms/CarouselIndicator';
+import { ImagePlaceholder } from '../../atoms/ImagePlaceholder';
+import styles from './ArtworkCarousel.module.scss';
 
 interface IArtworkCarouselProps {
   artworks: string[];
@@ -10,30 +12,35 @@ interface IArtworkCarouselProps {
 export const ArtworkCarousel = (props: IArtworkCarouselProps) => {
   const [artworkIndex, setArtworkIndex] = React.useState(0);
 
+  const goToDirection = (direction: 'left' | 'right') =>
+    direction === 'right'
+      ? setArtworkIndex(artworkIndex <= props.artworks.length - 2 ? artworkIndex + 1 : artworkIndex)
+      : setArtworkIndex(artworkIndex >= 1 ? artworkIndex - 1 : artworkIndex);
+
   return (
     <>
-      <div className={styles.container}>
-        {props.artworks.map((artwork, index) => (
-          <CSSTransition
-            in={index === artworkIndex}
-            timeout={300}
-            classNames={{
-              enter: styles['enter'],
-              enterActive: styles['enter-active'],
-              exit: styles['exit'],
-              exitActive: styles['exit-active'],
+      <Swipeable
+        onSwipedRight={() => goToDirection('left')}
+        onSwipedLeft={() => goToDirection('right')}
+        preventDefaultTouchmoveEvent={true}
+      >
+        <div className={styles.wrapper}>
+          <div
+            className={styles.container}
+            style={{
+              transition: 'transform 0.5s ease',
+              transform: `translateX(${-100 * artworkIndex}vw)`,
             }}
-            unmountOnExit
-            key={index}
           >
-            <>
-              <img className={styles.artwork} src={artwork} />
-              <CarouselIndicator count={props.artworks.length} activeIndex={index} />
-            </>
-          </CSSTransition>
-        ))}
-      </div>
-
+            {props.artworks.map((artwork, index) => (
+              <LazyLoad placeholder={<ImagePlaceholder />} offset={100} key={index}>
+                <img className={styles.artwork} src={artwork} />
+              </LazyLoad>
+            ))}
+          </div>
+        </div>
+      </Swipeable>
+      <CarouselIndicator count={props.artworks.length} activeIndex={artworkIndex} handleClick={setArtworkIndex} />
       <button onClick={() => setArtworkIndex(artworkIndex <= props.artworks.length - 2 ? artworkIndex + 1 : 0)}>
         Change Artwork
       </button>

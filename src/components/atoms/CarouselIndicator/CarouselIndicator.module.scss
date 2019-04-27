@@ -3,9 +3,8 @@
 
 .container {
   @extend %flex, %flex-vertical-center, %flex-horizontal-center;
-  position: absolute;
-  bottom: 12px;
   width: 100%;
+  margin: 12px 0;
 }
 
 %dot {
@@ -13,7 +12,6 @@
   height: 12px;
   margin: 0 4px 0;
   filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.2));
-  opacity: 0.8;
 }
 
 .active {
