@@ -1,6 +1,11 @@
 import { ISite } from './ISite';
 import { CdType, SongType, FocusPerformersType } from '../utils/constants';
 
+type IFocusPerformers = {
+  type: FocusPerformersType;
+  name: string[];
+};
+
 export type ICdSong = {
   number: number;
   title: string;
@@ -8,11 +13,6 @@ export type ICdSong = {
   type: SongType;
   artwork: string;
   focusPerformers: IFocusPerformers;
-};
-
-type IFocusPerformers = {
-  type: FocusPerformersType;
-  name: string[];
 };
 
 export type ICd = {
