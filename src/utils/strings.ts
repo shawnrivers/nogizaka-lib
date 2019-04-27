@@ -25,6 +25,8 @@ export const convertSongType = (type: SongType): DisplaySongType => {
       return DisplaySongType.Title;
     case SongType.Coupling:
       return DisplaySongType.Coupling;
+    case SongType.Lead:
+      return DisplaySongType.Lead;
     case SongType.Under:
       return DisplaySongType.Under;
     case SongType.Unit:
