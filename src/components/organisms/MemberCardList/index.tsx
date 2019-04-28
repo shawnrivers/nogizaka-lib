@@ -42,8 +42,9 @@ export const MemberCardList = (props: IMemberCardListProps) => {
           {members.first.map(member => (
             <MemberCard
               key={member.name}
+              name={member.name}
               profileImage={member.profileImage}
-              name={`${member.nameNotations.lastName} ${member.nameNotations.firstName}`}
+              displayName={`${member.nameNotations.lastName} ${member.nameNotations.firstName}`}
             />
           ))}
         </div>
@@ -63,8 +64,9 @@ export const MemberCardList = (props: IMemberCardListProps) => {
           {members.second.map(member => (
             <MemberCard
               key={member.name}
+              name={member.name}
               profileImage={member.profileImage}
-              name={`${member.nameNotations.lastName} ${member.nameNotations.firstName}`}
+              displayName={`${member.nameNotations.lastName} ${member.nameNotations.firstName}`}
             />
           ))}
         </div>
@@ -84,8 +86,9 @@ export const MemberCardList = (props: IMemberCardListProps) => {
           {members.third.map(member => (
             <MemberCard
               key={member.name}
+              name={member.name}
               profileImage={member.profileImage}
-              name={`${member.nameNotations.lastName} ${member.nameNotations.firstName}`}
+              displayName={`${member.nameNotations.lastName} ${member.nameNotations.firstName}`}
             />
           ))}
         </div>
@@ -105,8 +108,9 @@ export const MemberCardList = (props: IMemberCardListProps) => {
           {members.fourth.map(member => (
             <MemberCard
               key={member.name}
+              name={member.name}
               profileImage={member.profileImage}
-              name={`${member.nameNotations.lastName} ${member.nameNotations.firstName}`}
+              displayName={`${member.nameNotations.lastName} ${member.nameNotations.firstName}`}
             />
           ))}
         </div>
@@ -126,8 +130,9 @@ export const MemberCardList = (props: IMemberCardListProps) => {
           {members.graduate.map(member => (
             <MemberCard
               key={member.name}
+              name={member.name}
               profileImage={member.profileImage}
-              name={`${member.nameNotations.lastName} ${member.nameNotations.firstName}`}
+              displayName={`${member.nameNotations.lastName} ${member.nameNotations.firstName}`}
             />
           ))}
         </div>
