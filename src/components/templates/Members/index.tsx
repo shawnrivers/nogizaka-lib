@@ -12,17 +12,17 @@ type MatchParams = {
   generation: MembersCurrentPage;
 };
 
-export type IMemberVariableProps = {
+export type IMembersVariableProps = {
   members: IMembers;
   fetchStatus: FetchStatus;
   membersByType: MembersByType;
 };
 
-export type IMemberFunctionProps = {
+export type IMembersFunctionProps = {
   getMembers(): void;
 };
 
-interface IMembersProps extends RouteComponentProps<MatchParams>, IMemberVariableProps, IMemberFunctionProps {}
+interface IMembersProps extends RouteComponentProps<MatchParams>, IMembersVariableProps, IMembersFunctionProps {}
 
 const membersTabMenuItems: TabMenuItem[] = [
   {
