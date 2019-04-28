@@ -1,4 +1,4 @@
-# Nogizaka Lib
+# [Nogizaka Lib](https://shawnrivers.github.io/nogizaka-lib/)
 
 This is a React web application aiming at showing the information about [Nogizaka46](http://www.nogizaka46.com/) in a user-friendly way.
 
