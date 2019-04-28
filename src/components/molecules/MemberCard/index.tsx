@@ -19,7 +19,7 @@ export const MemberCard = (props: IMemberCardProps) => {
 
   return (
     <div className={styles.container}>
-      <LazyLoad placeholder={<ImagePlaceholder />} offset={100}>
+      <LazyLoad placeholder={<ImagePlaceholder />}>
         <div className={styles['profile-image-container']}>
           <img
             className={styles['profile-image']}

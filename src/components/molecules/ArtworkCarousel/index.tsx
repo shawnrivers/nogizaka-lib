@@ -33,7 +33,7 @@ export const ArtworkCarousel = (props: IArtworkCarouselProps) => {
             }}
           >
             {props.artworks.map((artwork, index) => (
-              <LazyLoad placeholder={<ImagePlaceholder />} offset={100} key={index}>
+              <LazyLoad placeholder={<ImagePlaceholder />} key={index}>
                 <img className={styles.artwork} src={artwork} />
               </LazyLoad>
             ))}
