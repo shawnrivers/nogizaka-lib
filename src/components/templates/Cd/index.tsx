@@ -32,28 +32,30 @@ export const Cd = (props: ICdProps) => {
       : [];
 
   return props.cd !== undefined ? (
-    <div>
+    <>
       <TitleBar title={props.cd.title} />
-      <ArtworkCarousel artworks={largeArtworks} />
-      <DetailsCard>
-        <div className={styles.heading}>
-          <span className={styles.title}>{props.cd.title}</span>
-          <span className={styles.release}>Release: {props.cd.release}</span>
-        </div>
-        <div className={styles['song-rows']}>
-          {props.cd.songs.map(song => (
-            <div className={styles['song-row']} key={song.number}>
-              <span className={styles.number}>{song.number}.</span>
-              <SongCard
-                artwork={song.artwork}
-                title={song.title}
-                type={song.type}
-                focusPerformers={song.focusPerformers}
-              />
-            </div>
-          ))}
-        </div>
-      </DetailsCard>
-    </div>
+      <main>
+        <ArtworkCarousel artworks={largeArtworks} />
+        <DetailsCard>
+          <div className={styles.heading}>
+            <span className={styles.title}>{props.cd.title}</span>
+            <span className={styles.release}>Release: {props.cd.release}</span>
+          </div>
+          <div className={styles['song-rows']}>
+            {props.cd.songs.map(song => (
+              <div className={styles['song-row']} key={song.number}>
+                <span className={styles.number}>{song.number}.</span>
+                <SongCard
+                  artwork={song.artwork}
+                  title={song.title}
+                  type={song.type}
+                  focusPerformers={song.focusPerformers}
+                />
+              </div>
+            ))}
+          </div>
+        </DetailsCard>
+      </main>
+    </>
   ) : null;
 };
