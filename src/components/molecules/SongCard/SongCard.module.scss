@@ -4,7 +4,7 @@
 @import '../../../styles/typography.scss';
 
 .container {
-  @extend %flex, %flex-row, %flex-horizontal-center, %elevation-2;
+  @extend %elevation-2;
   z-index: 4;
   width: 100%;
   border-radius: 6px;
@@ -15,11 +15,13 @@
   width: 100px;
   height: 100px;
   border-radius: 6px 0 0 6px;
+  float: left;
   object-fit: cover;
 }
 
 .text {
   @extend %flex, %flex-column, %flex-vertical-center;
+  overflow: hidden;
   height: 100px;
   box-sizing: border-box;
   padding: 12px;
