@@ -28,6 +28,7 @@
 
 .number {
   @extend %heading-regular;
+  width: 24px;
   margin-right: 12px;
   color: $gray-3;
 }
