@@ -23,3 +23,5 @@ export const selectFourthGeneration = (state: IRootState): IMember[] =>
 
 export const selectGraduates = (state: IRootState): IMember[] =>
   sortByDate(selectMemberArray(state).filter(member => member.isGraduated), 'graduatedDate', 'desc');
+
+export const selectMemberByName = (state: IRootState, name: string): IMember => selectMembers(state)[name];
