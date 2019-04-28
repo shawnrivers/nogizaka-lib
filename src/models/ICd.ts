@@ -9,6 +9,7 @@ export type IFocusPerformers = {
 export type ICdSong = {
   number: number;
   title: string;
+  key: string;
   inCdType: CdType[];
   type: SongType;
   artwork: {

@@ -28,6 +28,7 @@ type CdResponse = {
   songs: {
     number: number;
     title: string;
+    key: string;
     inCdType: CdType[];
     type: SongType;
     artwork: {
