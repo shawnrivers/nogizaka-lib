@@ -9,6 +9,7 @@ import { toOrdinalNumber } from '../../../utils/strings';
 import { PositionBadge } from '../../atoms/PositionBadge';
 import styles from './Member.module.scss';
 import { PositionCounterBar } from '../../atoms/PositionCounterBar';
+import { ImagePlaceholder } from '../../atoms/ImagePlaceholder';
 
 export type IMemberVariableProps = {
   member: IMemberDisplay | undefined;
@@ -146,7 +147,7 @@ export const Member = (props: IMemberProps) => {
               <span className={styles['sub-heading']}>Gallery</span>
               <div className={styles['gallery']}>
                 {props.member.profileImages.map((image, index) => (
-                  <LazyLoad key={index}>
+                  <LazyLoad key={index} placeholder={<ImagePlaceholder aspectRadio={1.206896552} />}>
                     <img className={styles['gallery-image']} src={image.small} />
                   </LazyLoad>
                 ))}

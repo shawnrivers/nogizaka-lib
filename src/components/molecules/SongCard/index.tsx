@@ -19,7 +19,7 @@ interface ISongCardProps {
 
 export const SongCard = (props: ISongCardProps) => (
   <div className={styles.container}>
-    <LazyLoad placeholder={<ImagePlaceholder width={100} height={100} />}>
+    <LazyLoad placeholder={<ImagePlaceholder className={styles.artwork} />}>
       <img
         className={styles.artwork}
         src={props.artwork.small}
