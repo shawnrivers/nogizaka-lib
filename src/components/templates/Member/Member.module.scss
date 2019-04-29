@@ -1,5 +1,7 @@
 @import '../../../styles/colors.scss';
 @import '../../../styles/elevations.scss';
+@import '../../../styles/typography.scss';
+@import '../../../styles/layout.scss';
 
 .background {
   top: 0;
@@ -19,3 +21,64 @@
   margin-top: -180px;
   border-radius: 12px;
 }
+
+.card {
+  margin-top: -64px;
+}
+
+.first-container {
+  @extend %flex, %flex-column, %flex-align-center;
+  margin-top: 64px;
+}
+
+.name {
+  @extend %heading-bold;
+  margin-bottom: 4px;
+}
+
+.name-caption {
+  @extend %body-light;
+  margin-bottom: 4px;
+  color: $gray-3;
+  text-transform: capitalize;
+}
+
+.sites {
+  a {
+    @extend %body-light;
+    margin-right: 4px;
+    margin-left: 4px;
+    color: $purple-1;
+    text-decoration: underline;
+  }
+  margin-bottom: 4px;
+}
+
+
+.photo-albums-container {
+  margin-bottom: 64px;
+}
+
+.sub-heading {
+  @extend %heading-bold;
+  display: block;
+  margin-bottom: 16px;
+  color: $gray-2;
+}
+
+.photo-album-list {
+  list-style-position: inside;
+  margin-block-end: 0;
+  margin-block-start: 0;
+  padding-inline-start: 0;
+}
+
+.photo-album {
+  @extend %body-regular;
+  padding-bottom: 6px;
+  color: $gray-3;
+  .photo-album-release {
+    @extend %body-light;
+  }
+}
+
