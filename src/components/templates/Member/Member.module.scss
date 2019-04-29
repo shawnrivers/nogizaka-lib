@@ -55,12 +55,14 @@
 }
 
 .second-container {
-  @extend %flex, %flex-row, %flex-justify-center;
+  @extend %flex, %flex-row;
   flex-wrap: wrap;
+  justify-content: start;
 }
 
 .info-item {
-  @extend %flex, %flex-column, %flex-align-center;
+  @extend %flex, %flex-column;
+  align-items: flex-start;
   justify-content: space-between;
   margin: 12px;
 }
