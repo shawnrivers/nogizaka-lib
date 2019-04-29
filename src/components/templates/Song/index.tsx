@@ -5,20 +5,24 @@ import styles from './Song.module.scss';
 
 export type ISongVariableProps = {
   song: ISongDisplay | undefined;
-  song: ISong;
-  fetchStatus: FetchStatus;
+  songsFetchStatus: FetchStatus;
+  membersFetchStatus: FetchStatus;
 };
 
 export type ISongFunctionProps = {
   getSongs(): void;
+  getMembers(): void;
 };
 
 interface ISongProps extends ISongVariableProps, ISongFunctionProps {}
 
 export const Song = (props: ISongProps) => {
   React.useEffect(() => {
-    if (props.fetchStatus !== FetchStatus.Fulfilled) {
+    if (props.songsFetchStatus !== FetchStatus.Fulfilled) {
       props.getSongs();
+    }
+    if (props.membersFetchStatus !== FetchStatus.Fulfilled) {
+      props.getMembers();
     }
   }, []);
 
