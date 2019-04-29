@@ -1,0 +1,61 @@
+@import '../../../styles/colors.scss';
+@import '../../../styles/elevations.scss';
+@import '../../../styles/layout.scss';
+@import '../../../styles/typography.scss';
+
+.container {
+  width: 28px;
+  height: 28px;
+}
+
+%badge {
+  @extend %elevation-1;
+  display: block;
+  border-radius: 50%;
+}
+
+.position-badge {
+  @extend %badge;
+  width: 24px;
+  height: 24px;
+  border-width: 2px;
+  border-style: solid;
+  line-height: 24px;
+  text-align: center;
+}
+
+.center-badge {
+  border-color: $white;
+  background-color: $purple-1;
+  color: $white;
+  font-weight: $font-bold;
+}
+
+.fukujin-badge {
+  border-color: $white;
+  background-color: $gray-1;
+  color: $white;
+  font-weight: $font-regular;
+}
+
+.selected-badge {
+  border-color: $white;
+  background-color: $gray-3;
+  color: $white;
+  font-weight: $font-light;
+}
+
+.under-badge {
+  border-color: $gray-3;
+  background-color: $white;
+  color: $gray-3;
+  font-weight: $font-light;
+}
+
+.none-position-badge {
+  @extend %badge;
+  width: 12px;
+  height: 12px;
+  margin: 8px;
+  background-color: $white;
+}
