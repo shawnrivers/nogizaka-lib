@@ -3,7 +3,7 @@ import { IAlbum } from '../../../models/IAlbum';
 import { ISingle } from '../../../models/ISingle';
 import { TitleBar } from '../../molecules/TitleBar';
 import { FetchStatus } from '../../../utils/constants';
-import { ArtworkCarousel } from '../../molecules/ArtworkCarousel';
+import { SwipeableArtworkCarousel } from '../../molecules/SwipeableArtworkCarousel';
 import { DetailsCard } from '../../molecules/DetailsCard';
 import { SongCard } from '../../molecules/SongCard';
 import { useScrollRestoration } from '../../../utils/hooks';
@@ -38,7 +38,7 @@ export const Cd = (props: ICdProps) => {
     <>
       <TitleBar title={props.cd.title} />
       <main>
-        <ArtworkCarousel artworks={largeArtworks} />
+        <SwipeableArtworkCarousel artworks={largeArtworks} />
         <DetailsCard>
           <div className={styles.heading}>
             <span className={styles.title}>{props.cd.title}</span>
@@ -51,6 +51,7 @@ export const Cd = (props: ICdProps) => {
                 <SongCard
                   artwork={song.artwork}
                   title={song.title}
+                  titleKey={song.key}
                   type={song.type}
                   focusPerformers={song.focusPerformers}
                 />
