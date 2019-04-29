@@ -8,7 +8,7 @@
 
 .heading {
   @extend %flex, %flex-column;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
   color: $gray-1;
 }
 
@@ -83,15 +83,15 @@
 
 .row-indicator {
   @extend %flex, %flex-row, %flex-align-center;
-  margin-left: -12px;
+  margin-left: -10px;
 }
 
 .indicator {
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
   box-sizing: border-box;
   margin-right: 16px;
-  border: 8px solid $gray-3;
+  border: 6px solid $gray-3;
   border-radius: 50%;
   color: $white;
 }
