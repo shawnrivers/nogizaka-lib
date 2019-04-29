@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
 import { SongType } from '../../../utils/constants';
 import { IFocusPerformers } from '../../../models/ICd';
 import { convertSongType, getFocusPerformersText } from '../../../utils/strings';
@@ -13,25 +14,28 @@ interface ISongCardProps {
     small: string;
   };
   title: string;
+  titleKey: string;
   type: SongType;
   focusPerformers: IFocusPerformers;
 }
 
 export const SongCard = (props: ISongCardProps) => (
   <div className={styles.container}>
-    <LazyLoad placeholder={<ImagePlaceholder className={styles.artwork} />}>
-      <img
-        className={styles.artwork}
-        src={props.artwork.small}
-        srcSet={`${props.artwork.small} 2x, ${props.artwork.medium} 3x`}
-      />
-    </LazyLoad>
-    <div className={styles.text}>
-      <span className={styles.title}>{props.title}</span>
-      <div className={styles.description}>
-        <span className={styles.type}>#{convertSongType(props.type)}</span>
-        <span>{getFocusPerformersText(props.focusPerformers)}</span>
+    <Link to={`/song/${props.titleKey}`}>
+      <LazyLoad placeholder={<ImagePlaceholder className={styles.artwork} />}>
+        <img
+          className={styles.artwork}
+          src={props.artwork.small}
+          srcSet={`${props.artwork.small} 2x, ${props.artwork.medium} 3x`}
+        />
+      </LazyLoad>
+      <div className={styles.text}>
+        <span className={styles.title}>{props.title}</span>
+        <div className={styles.description}>
+          <span className={styles.type}>#{convertSongType(props.type)}</span>
+          <span>{getFocusPerformersText(props.focusPerformers)}</span>
+        </div>
       </div>
-    </div>
+    </Link>
   </div>
 );
