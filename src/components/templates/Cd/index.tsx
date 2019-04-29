@@ -4,9 +4,10 @@ import { ISingle } from '../../../models/ISingle';
 import { TitleBar } from '../../molecules/TitleBar';
 import { FetchStatus } from '../../../utils/constants';
 import { ArtworkCarousel } from '../../molecules/ArtworkCarousel';
-import styles from './Cd.module.scss';
 import { DetailsCard } from '../../molecules/DetailsCard';
 import { SongCard } from '../../molecules/SongCard';
+import { useScrollRestoration } from '../../../utils/hooks';
+import styles from './Cd.module.scss';
 
 export type ICdVariableProps = {
   cd: ISingle | IAlbum;
@@ -30,6 +31,8 @@ export const Cd = (props: ICdProps) => {
     props.fetchStatus === FetchStatus.Fulfilled
       ? [...Object.values(props.cd.artworks).map(artwork => artwork.large)]
       : [];
+
+  useScrollRestoration();
 
   return props.cd !== undefined ? (
     <>

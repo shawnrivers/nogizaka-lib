@@ -1,15 +1,16 @@
 import * as React from 'react';
 import LazyLoad from 'react-lazyload';
-import { ProfileImage, IMemberDisplay } from '../../../models/IMember';
+import { IMemberDisplay } from '../../../models/IMember';
 import { FetchStatus, PositionType } from '../../../utils/constants';
 import { TitleBar } from '../../molecules/TitleBar';
 import { DetailsCard } from '../../molecules/DetailsCard';
 import { Divider } from '../../atoms/Divider';
 import { toOrdinalNumber } from '../../../utils/strings';
 import { PositionBadge } from '../../atoms/PositionBadge';
-import styles from './Member.module.scss';
 import { PositionCounterBar } from '../../atoms/PositionCounterBar';
 import { ImagePlaceholder } from '../../atoms/ImagePlaceholder';
+import { useScrollRestoration } from '../../../utils/hooks';
+import styles from './Member.module.scss';
 
 export type IMemberVariableProps = {
   member: IMemberDisplay | undefined;
@@ -28,6 +29,8 @@ export const Member = (props: IMemberProps) => {
       props.getMembers();
     }
   }, []);
+
+  useScrollRestoration();
 
   return props.member !== undefined ? (
     <>
