@@ -110,41 +110,49 @@ export const Member = (props: IMemberProps) => {
               </ol>
             </div>
           ) : null}
-          <div className={styles['position-history-container']}>
-            <span className={styles['sub-heading']}>Position History</span>
-            <div className={styles['position-history']}>
-              {Object.values(props.member.positionsHistory).map((position, index) => (
-                <div className={styles['position-record']} key={index}>
-                  <span className={styles['single-number']}>{toOrdinalNumber(index + 1)}</span>
-                  <PositionBadge position={position} />
+          {props.member.positionsHistory.length > 0 ? (
+            <div className={styles['position-history-container']}>
+              <span className={styles['sub-heading']}>Position History</span>
+              <div className={styles['position-history']}>
+                {props.member.positionsHistory.map((positionRecord, index) => (
+                  <div className={styles['position-record']} key={index}>
+                    <span className={styles['single-number']}>{toOrdinalNumber(positionRecord.singleNumber)}</span>
+                    <PositionBadge position={positionRecord.position} />
+                  </div>
+                ))}
+              </div>
+            </div>
+          ) : null}
+          {props.member.positionsCounter.center +
+            props.member.positionsCounter.fukujin +
+            props.member.positionsCounter.selected +
+            props.member.positionsCounter.under >
+          0 ? (
+            <div className={styles['position-counter-container']}>
+              <span className={styles['sub-heading']}>Position Counter</span>
+              <div className={styles['position-indicators']}>
+                <div className={styles['position-indicator']}>
+                  <PositionBadge position={PositionType.Center} />
+                  <span className={styles['position-indicator-caption']}>Center</span>
                 </div>
-              ))}
+                <div className={styles['position-indicator']}>
+                  <PositionBadge position={PositionType.Fukujin} />
+                  <span className={styles['position-indicator-caption']}>福神</span>
+                </div>
+                <div className={styles['position-indicator']}>
+                  <PositionBadge position={PositionType.Selected} />
+                  <span className={styles['position-indicator-caption']}>選抜</span>
+                </div>
+                <div className={styles['position-indicator']}>
+                  <PositionBadge position={PositionType.Under} />
+                  <span className={styles['position-indicator-caption']}>Under</span>
+                </div>
+              </div>
+              {props.member.positionsCounter.selected + props.member.positionsCounter.under > 0 ? (
+                <PositionCounterBar {...props.member.positionsCounter} />
+              ) : null}
             </div>
-          </div>
-          <div className={styles['position-counter-container']}>
-            <span className={styles['sub-heading']}>Position Counter</span>
-            <div className={styles['position-indicators']}>
-              <div className={styles['position-indicator']}>
-                <PositionBadge position={PositionType.Center} />
-                <span className={styles['position-indicator-caption']}>Center</span>
-              </div>
-              <div className={styles['position-indicator']}>
-                <PositionBadge position={PositionType.Fukujin} />
-                <span className={styles['position-indicator-caption']}>福神</span>
-              </div>
-              <div className={styles['position-indicator']}>
-                <PositionBadge position={PositionType.Selected} />
-                <span className={styles['position-indicator-caption']}>選抜</span>
-              </div>
-              <div className={styles['position-indicator']}>
-                <PositionBadge position={PositionType.Under} />
-                <span className={styles['position-indicator-caption']}>Under</span>
-              </div>
-            </div>
-            {props.member.positionsCounter.selected + props.member.positionsCounter.under > 0 ? (
-              <PositionCounterBar {...props.member.positionsCounter} />
-            ) : null}
-          </div>
+          ) : null}
           {props.member.profileImages !== undefined ? (
             <div className={styles['gallery-container']}>
               <span className={styles['sub-heading']}>Gallery</span>

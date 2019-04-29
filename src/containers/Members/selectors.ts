@@ -1,6 +1,6 @@
 import { IRootState } from '../../stores/state';
 import { IMembers, IMember, IMemberDisplay, ProfileImage } from '../../models/IMember';
-import { FetchStatus, JoinedGeneration, UnitType } from '../../utils/constants';
+import { FetchStatus, JoinedGeneration, UnitType, PositionType } from '../../utils/constants';
 import { sortByDate } from '../../utils/arrays';
 
 export const selectMembers = (state: IRootState): IMembers => state.members.data;
@@ -103,6 +103,32 @@ const convertUnitsForDisplay = (
   };
 };
 
+const convertPositionHistoryForDisplay = (positionsHistory: {
+  [singleNumber: string]: PositionType;
+}): {
+  singleNumber: number;
+  position: PositionType;
+}[] => {
+  let historyList: {
+    singleNumber: number;
+    position: PositionType;
+  }[] = [];
+
+  const numbers = Object.keys(positionsHistory);
+  const positions = Object.values(positionsHistory);
+
+  for (let i = 0; i < numbers.length; i++) {
+    historyList.push({
+      singleNumber: Number(numbers[i]),
+      position: positions[i],
+    });
+  }
+
+  const filteredHistory = historyList.filter(history => history.position !== PositionType.None);
+
+  return filteredHistory;
+};
+
 export const selectMemberByNameForDisplay = (state: IRootState, name: string): IMemberDisplay | undefined => {
   const member = selectMembers(state)[name];
 
@@ -122,7 +148,7 @@ export const selectMemberByNameForDisplay = (state: IRootState, name: string): I
       photoAlbums: member.photoAlbums,
       units,
       corps,
-      positionsHistory: member.positionsHistory,
+      positionsHistory: convertPositionHistoryForDisplay(member.positionsHistory),
       positionsCounter: member.positionsCounter,
     };
   }
