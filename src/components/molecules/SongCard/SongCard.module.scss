@@ -20,7 +20,7 @@
 }
 
 .text {
-  @extend %flex, %flex-column, %flex-vertical-center;
+  @extend %flex, %flex-column, %flex-justify-center;
   overflow: hidden;
   height: 100px;
   box-sizing: border-box;
