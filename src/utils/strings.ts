@@ -17,32 +17,32 @@ export const toOrdinalNumber = (num: number) => {
   }
 };
 
-export const convertSongType = (type: SongType): DisplaySongType => {
+export const convertSongType = (type: SongType): string => {
   switch (type) {
     case SongType.None:
-      return DisplaySongType.None;
+      return '';
     case SongType.Title:
-      return DisplaySongType.Title;
+      return '表題曲';
     case SongType.Coupling:
-      return DisplaySongType.Coupling;
+      return 'Coupling';
     case SongType.Lead:
-      return DisplaySongType.Lead;
+      return 'Lead';
     case SongType.Special:
-      return DisplaySongType.Special;
+      return 'Special';
     case SongType.Under:
-      return DisplaySongType.Under;
+      return 'Under';
     case SongType.Unit:
-      return DisplaySongType.Unit;
+      return 'Unit';
     case SongType.Solo:
-      return DisplaySongType.Solo;
+      return 'Solo';
     case SongType.FirstGeneration:
-      return DisplaySongType.FirstGeneration;
+      return '1期生';
     case SongType.SecondGeneration:
-      return DisplaySongType.SecondGeneration;
+      return '2期生';
     case SongType.ThirdGeneration:
-      return DisplaySongType.ThirdGeneration;
+      return '3期生';
     case SongType.FourthGeneration:
-      return DisplaySongType.FourthGeneration;
+      return '3期生';
   }
 };
 
