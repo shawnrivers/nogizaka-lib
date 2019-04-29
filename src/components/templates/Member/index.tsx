@@ -1,6 +1,5 @@
 import * as React from 'react';
-import { IMember } from '../../../models/IMember';
-import { FetchStatus } from '../../../utils/constants';
+import LazyLoad from 'react-lazyload';
 import { TitleBar } from '../../molecules/TitleBar';
 
 export type IMemberVariableProps = {
@@ -24,6 +23,16 @@ export const Member = (props: IMemberProps) => {
   return props.member !== undefined ? (
     <>
       <TitleBar title={props.member.nameNotations.lastName + props.member.nameNotations.firstName} />
+      <main>
+        <div className={styles.background} />
+        <LazyLoad>
+          <img
+            className={styles['profile-image']}
+            src={props.member.profileImage.small}
+            srcSet={`${props.member.profileImage.small}, ${props.member.profileImage.large} 2x`}
+          />
+        </LazyLoad>
+      </main>
     </>
   ) : null;
 };
