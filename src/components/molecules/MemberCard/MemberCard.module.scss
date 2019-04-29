@@ -3,6 +3,34 @@
 @import '../../../styles/layout.scss';
 @import '../../../styles/typography.scss';
 
+%badge {
+  @extend %elevation-0;
+  position: absolute;
+  top: -2%;
+  right: -2%;
+  width: 24px;
+  height: 24px;
+  border-width: 3px;
+  border-style: solid;
+  border-radius: 4px 4px 4px 16px;
+  line-height: 24px;
+  text-align: center;
+}
+
+.center-badge {
+  @extend %badge, %caption-bold;
+  border-color: $white;
+  background-color: $purple-1;
+  color: $white;
+}
+
+.fukujin-badge {
+  @extend %badge, %caption-regular;
+  border-color: $white;
+  background-color: $gray-1;
+  color: $white;
+}
+
 .container {
   @extend %elevation-2;
   position: relative;
