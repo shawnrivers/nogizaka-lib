@@ -54,7 +54,7 @@ const convertFormationsForDisplay = (song: ISong, state: IRootState): IFormation
           ? {
               name,
               displayName: member.nameNotations.lastName + ' ' + member.nameNotations.firstName,
-              profileImage: member.profileImage,
+              profileImage: song.single.number !== '' ? member.singleImages[song.single.number] : member.profileImage,
               position: calculatePositionTag(song, member.name),
             }
           : {
