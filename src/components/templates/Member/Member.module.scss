@@ -82,3 +82,44 @@
   }
 }
 
+.position-history-container {
+  margin-bottom: 32px;
+}
+
+.position-history {
+  @extend %flex, %flex-row;
+  flex-wrap: wrap;
+}
+
+.position-record {
+  @extend %flex, %flex-column, %flex-align-center;
+  margin: 6px;
+}
+
+.single-number {
+  @extend %caption-light;
+  margin-bottom: 4px;
+  color: $gray-2;
+}
+
+.position-counter-container {
+  margin-bottom: 64px;
+}
+
+.position-indicators {
+  @extend %flex, %flex-row, %flex-justify-center, %flex-align-center;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+.position-indicator {
+  @extend %flex, %flex-row, %flex-justify-center, %flex-align-center;
+  margin: 6px;
+}
+
+.position-indicator-caption {
+  @extend %caption-regular;
+  margin-left: 4px;
+  color: $gray-3;
+}
+
