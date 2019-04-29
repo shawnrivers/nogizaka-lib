@@ -1,13 +1,15 @@
 import { createStore, combineReducers, applyMiddleware, compose, Reducer } from 'redux';
 import thunk from 'redux-thunk';
-import { CdsReducers } from '../containers/Cds/reducers';
-import { IRootState } from './state';
 import promise from 'redux-promise-middleware';
+import { IRootState } from './state';
+import { CdsReducers } from '../containers/Cds/reducers';
 import { MembersReducers } from '../containers/Members/reducers';
+import { SongsReducers } from '../containers/Songs/reducers';
 
 const rootReducer: Reducer<IRootState> = combineReducers({
   cds: CdsReducers,
   members: MembersReducers,
+  songs: SongsReducers,
 });
 
 // For Redux devtool in Chrome.
