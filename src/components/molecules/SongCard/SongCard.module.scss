@@ -34,7 +34,10 @@
 
 .description {
   @extend %caption-light;
+  overflow: hidden;
   color: $gray-2;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .type {
