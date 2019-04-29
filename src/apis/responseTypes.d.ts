@@ -6,6 +6,7 @@ import {
   PhotoAlbumType,
   UnitType,
   JoinedGeneration,
+  FukujinType,
 } from '../utils/constants';
 
 type SiteResponse = {
@@ -99,5 +100,37 @@ export type MemberResponse = {
   graduation: {
     isGraduated: boolean;
     graduatedDate: string;
+  };
+};
+
+export type SongResponse = {
+  title: string;
+  key: string;
+  single: string;
+  albums: string[];
+  artwork: {
+    large: string;
+    medium: string;
+    small: string;
+  };
+  musicVideo: string;
+  type: SongType;
+  creators: {
+    lyrics: string[];
+    compose: string[];
+    arrange: string[];
+    direct: string[];
+  };
+  performers: {
+    center: string[];
+    fukujin: FukujinType | string[];
+    solo: string;
+    unit: string;
+  };
+  formations: {
+    firstRow: string[];
+    secondRow: string[];
+    thirdRow: string[];
+    fourthRow: string[];
   };
 };
