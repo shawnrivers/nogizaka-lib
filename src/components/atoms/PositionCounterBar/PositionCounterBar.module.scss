@@ -17,12 +17,12 @@
 
 .under {
   @extend %counter-bar, %elevation-1;
-  margin-top: 1.5px;
+  margin-top: 2px;
   border-width: 2px;
   border-color: $gray-3;
   background-color: $white;
   color: $gray-3;
-  line-height: 26.5px;
+  line-height: 26px;
   text-align: center;
 }
 
