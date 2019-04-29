@@ -3,8 +3,14 @@ import { SongType, FukujinType } from '../utils/constants';
 export type ISong = {
   title: string;
   key: string;
-  single: string;
-  albums: string[];
+  single: {
+    title: string;
+    number: string;
+  };
+  albums: {
+    title: string;
+    number: string;
+  }[];
   artwork: {
     large: string;
     medium: string;

@@ -106,8 +106,14 @@ export type MemberResponse = {
 export type SongResponse = {
   title: string;
   key: string;
-  single: string;
-  albums: string[];
+  single: {
+    title: string;
+    number: string;
+  };
+  albums: {
+    title: string;
+    number: string;
+  }[];
   artwork: {
     large: string;
     medium: string;
