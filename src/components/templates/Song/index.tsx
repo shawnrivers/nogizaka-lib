@@ -4,6 +4,7 @@ import { FetchStatus } from '../../../utils/constants';
 import styles from './Song.module.scss';
 
 export type ISongVariableProps = {
+  song: ISongDisplay | undefined;
   song: ISong;
   fetchStatus: FetchStatus;
 };

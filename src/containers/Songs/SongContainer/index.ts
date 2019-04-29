@@ -11,8 +11,7 @@ type MatchParams = {
 };
 
 const mapStateToProps = (state: IRootState, ownProps: RouteComponentProps<MatchParams>): ISongVariableProps => ({
-  song: SongsSelectors.selectSongByKey(state, ownProps.match.params.key),
-  fetchStatus: SongsSelectors.selectSongsFetchStatus(state),
+  song: SongsSelectors.SelectSongByKeyForDisplay(state, ownProps.match.params.key),
 });
 
 const mapDispatchToProps = (dispatch: Dispatch<any>): ISongFunctionProps => ({
