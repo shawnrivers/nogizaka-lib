@@ -7,7 +7,7 @@ export type IMembersState = {
   fetchStatus: FetchStatus;
 };
 
-export const initialMembersState: IMembersState = {
+const initialMembersState: IMembersState = {
   data: {},
   fetchStatus: FetchStatus.None,
 };

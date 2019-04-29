@@ -14,7 +14,7 @@ export type ICdsState = {
   };
 };
 
-export const initialCdsState: ICdsState = {
+const initialCdsState: ICdsState = {
   singles: {
     data: {},
     fetchStatus: FetchStatus.None,
