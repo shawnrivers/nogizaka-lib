@@ -22,7 +22,7 @@
 }
 
 .song-row {
-  @extend %flex, %flex-row, %flex-horizontal-center;
+  @extend %flex, %flex-row, %flex-align-center;
   margin: 16px 0;
 }
 

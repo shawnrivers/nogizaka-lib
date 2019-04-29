@@ -4,7 +4,7 @@
 @import '../../../styles/typography.scss';
 
 .container {
-  @extend %flex, %flex-row, %flex-horizontal-center, %elevation-3;
+  @extend %flex, %flex-row, %flex-align-center, %elevation-3;
   position: fixed;
   z-index: 10;
   top: 0;

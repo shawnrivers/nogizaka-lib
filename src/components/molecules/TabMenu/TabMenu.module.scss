@@ -12,7 +12,7 @@
 }
 
 .toggle-button {
-  @extend %flex, %flex-horizontal-center;
+  @extend %flex, %flex-align-center;
 }
 
 .toggle-button-text {
@@ -25,7 +25,7 @@
 }
 
 .toggle-button-icon {
-  @extend %flex, %flex-horizontal-center;
+  @extend %flex, %flex-align-center;
   width: 20px;
   height: 20px;
   fill: $gray-1;

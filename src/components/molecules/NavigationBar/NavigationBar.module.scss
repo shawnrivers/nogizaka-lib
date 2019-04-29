@@ -19,7 +19,7 @@
 }
 
 .button {
-  @extend %flex, %flex-column, %flex-horizontal-center, %flex-vertical-center;
+  @extend %flex, %flex-column, %flex-align-center, %flex-justify-center;
   width: 48px;
   height: 48px;
 }
