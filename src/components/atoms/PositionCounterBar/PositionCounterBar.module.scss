@@ -1,0 +1,68 @@
+@import '../../../styles/colors.scss';
+@import '../../../styles/elevations.scss';
+@import '../../../styles/layout.scss';
+@import '../../../styles/typography.scss';
+
+.container {
+  @extend %flex, %flex-row, %caption-regular;
+  width: 100%;
+  height: 32px;
+}
+
+%counter-bar {
+  box-sizing: border-box;
+  border-style: solid;
+  border-radius: 0;
+}
+
+.under {
+  @extend %counter-bar, %elevation-1;
+  margin-top: 1.5px;
+  border-width: 2px;
+  border-color: $gray-3;
+  background-color: $white;
+  color: $gray-3;
+  line-height: 26.5px;
+  text-align: center;
+}
+
+.selected-container {
+  @extend %counter-bar, %flex, %flex-row, %elevation-1;
+  border-width: 1px;
+  border-color: $white;
+  line-height: 28px;
+}
+
+%bar-portion {
+  box-sizing: border-box;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 0;
+}
+
+.selected {
+  @extend %bar-portion;
+  z-index: 3;
+  border-color: $white;
+  background-color: $gray-3;
+  color: $white;
+  text-align: center;
+}
+
+.fukujin {
+  @extend %bar-portion;
+  z-index: 3;
+  border-color: $white;
+  background-color: $gray-1;
+  color: $white;
+  text-align: center;
+}
+
+.center {
+  @extend %bar-portion;
+  z-index: 4;
+  border-color: $white;
+  background-color: $purple-1;
+  color: $white;
+  text-align: center;
+}
