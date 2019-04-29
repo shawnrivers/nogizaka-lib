@@ -54,6 +54,31 @@
   margin-bottom: 4px;
 }
 
+.second-container {
+  @extend %flex, %flex-row, %flex-justify-center;
+  flex-wrap: wrap;
+}
+
+.info-item {
+  @extend %flex, %flex-column, %flex-align-center;
+  justify-content: space-between;
+  margin: 12px;
+}
+
+.info-item-title {
+  @extend %body-light;
+  margin-bottom: 4px;
+  color: $gray-3;
+}
+
+.info-item-content {
+  @extend %body-regular;
+  color: $gray-2;
+}
+
+.blood-type {
+  text-transform: capitalize;
+}
 
 .photo-albums-container {
   margin-bottom: 64px;

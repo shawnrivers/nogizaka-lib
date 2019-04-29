@@ -51,3 +51,39 @@ export type IMember = {
 export type IMembers = {
   [name: string]: IMember;
 };
+
+export type IMemberDisplay = {
+  name: string;
+  nameNotations: {
+    firstName: string;
+    lastName: string;
+    firstNameFurigana: string;
+    lastNameFurigana: string;
+    firstNameEn: string;
+    lastNameEn: string;
+  };
+  mainImage: ProfileImage;
+  profileImages: ProfileImage[];
+  join: string;
+  birthday: string;
+  height: number;
+  bloodType: BloodType;
+  sites: ISite[];
+  photoAlbums: {
+    title: string;
+    release: string;
+    type: PhotoAlbumType;
+    shopping: ISite[];
+  }[];
+  units: string[];
+  corps: string[];
+  positionsHistory: {
+    [singleNumber: string]: PositionType;
+  };
+  positionsCounter: {
+    center: number;
+    fukujin: number;
+    selected: number;
+    under: number;
+  };
+};

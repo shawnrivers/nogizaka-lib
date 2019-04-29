@@ -1,9 +1,17 @@
 import * as React from 'react';
 import LazyLoad from 'react-lazyload';
+import { ProfileImage, IMemberDisplay } from '../../../models/IMember';
+import { FetchStatus, PositionType } from '../../../utils/constants';
 import { TitleBar } from '../../molecules/TitleBar';
+import { DetailsCard } from '../../molecules/DetailsCard';
+import { Divider } from '../../atoms/Divider';
+import { toOrdinalNumber } from '../../../utils/strings';
+import { PositionBadge } from '../../atoms/PositionBadge';
+import styles from './Member.module.scss';
+import { PositionCounterBar } from '../../atoms/PositionCounterBar';
 
 export type IMemberVariableProps = {
-  member: IMember;
+  member: IMemberDisplay | undefined;
   fetchStatus: FetchStatus;
 };
 
@@ -20,33 +28,6 @@ export const Member = (props: IMemberProps) => {
     }
   }, []);
 
-  const profileImageList = React.useMemo(() => {
-    if (props.member !== undefined) {
-      const list = Object.values(props.member.singleImages)
-        .reverse()
-        .filter(value => value.large !== '');
-
-      let noDuplicateList: ProfileImage[] = [];
-
-      for (const item of list) {
-        let isSeen = false;
-
-        for (const seenItem of noDuplicateList) {
-          if (seenItem.large === item.large) {
-            isSeen = true;
-            break;
-          }
-        }
-
-        if (!isSeen) {
-          noDuplicateList.push(item);
-        }
-      }
-
-      return noDuplicateList;
-    }
-  }, [props.member]);
-
   return props.member !== undefined ? (
     <>
       <TitleBar title={props.member.nameNotations.lastName + props.member.nameNotations.firstName} />
@@ -55,8 +36,8 @@ export const Member = (props: IMemberProps) => {
         <LazyLoad>
           <img
             className={styles['profile-image']}
-            src={props.member.profileImage.small}
-            srcSet={`${props.member.profileImage.small}, ${props.member.profileImage.large} 2x`}
+            src={props.member.mainImage.small}
+            srcSet={`${props.member.mainImage.small}, ${props.member.mainImage.large} 2x`}
           />
         </LazyLoad>
         <DetailsCard className={styles.card}>
@@ -75,6 +56,41 @@ export const Member = (props: IMemberProps) => {
                 </a>
               ))}
             </span>
+          </div>
+          <Divider />
+          <div className={styles['second-container']}>
+            <div className={styles['info-item']}>
+              <span className={styles['info-item-title']}>加入</span>
+              <span className={styles['info-item-content']}>{props.member.join}</span>
+            </div>
+            <div className={styles['info-item']}>
+              <span className={styles['info-item-title']}>誕生日</span>
+              <span className={styles['info-item-content']}>{props.member.birthday}</span>
+            </div>
+            <div className={styles['info-item']}>
+              <span className={styles['info-item-title']}>身長</span>
+              <span className={styles['info-item-content']}>{props.member.height}cm</span>
+            </div>
+            <div className={styles['info-item']}>
+              <span className={styles['info-item-title']}>血液型</span>
+              <span className={`${styles['info-item-content']} ${styles['blood-type']}`}>{props.member.bloodType}</span>
+            </div>
+            {props.member.units.length > 0 ? (
+              <div className={styles['info-item']}>
+                <span className={styles['info-item-title']}>Units</span>
+                <span className={`${styles['info-item-content']} ${styles['blood-type']}`}>
+                  {props.member.units.join(', ')}
+                </span>
+              </div>
+            ) : null}
+            {props.member.corps.length > 0 ? (
+              <div className={styles['info-item']}>
+                <span className={styles['info-item-title']}>軍団</span>
+                <span className={`${styles['info-item-content']} ${styles['blood-type']}`}>
+                  {props.member.corps.join(', ')}
+                </span>
+              </div>
+            ) : null}
           </div>
           <Divider />
           {props.member.photoAlbums.length > 0 ? (
@@ -125,11 +141,11 @@ export const Member = (props: IMemberProps) => {
               <PositionCounterBar {...props.member.positionsCounter} />
             ) : null}
           </div>
-          {profileImageList !== undefined ? (
+          {props.member.profileImages !== undefined ? (
             <div className={styles['gallery-container']}>
               <span className={styles['sub-heading']}>Gallery</span>
               <div className={styles['gallery']}>
-                {profileImageList.map((image, index) => (
+                {props.member.profileImages.map((image, index) => (
                   <LazyLoad key={index}>
                     <img className={styles['gallery-image']} src={image.small} />
                   </LazyLoad>

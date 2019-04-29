@@ -11,7 +11,7 @@ type MatchParams = {
 };
 
 const mapStateToProps = (state: IRootState, ownProps: RouteComponentProps<MatchParams>): IMemberVariableProps => ({
-  member: MembersSelectors.selectMemberByName(state, ownProps.match.params.name),
+  member: MembersSelectors.selectMemberByNameForDisplay(state, ownProps.match.params.name),
   fetchStatus: MembersSelectors.selectMembersFetchStatus(state),
 });
 
