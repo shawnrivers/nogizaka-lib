@@ -6,6 +6,7 @@ import { CdsContainer } from './containers/Cds/CdsContainer';
 import { CdContainer } from './containers/Cds/CdContainer';
 import { MembersContainer } from './containers/Members/MembersContainer';
 import { MemberContainer } from './containers/Members/MemberContainer';
+import { SongContainer } from './containers/Songs/SongContainer';
 import './App.scss';
 
 const App = () => {
@@ -18,6 +19,7 @@ const App = () => {
             <Route exact path="/cds/:type/:number" component={CdContainer} aria-label="cd" />
             <Route exact path="/members/:generation" component={MembersContainer} aria-label="members" />
             <Route exact path="/member/:name" component={MemberContainer} aria-label="member" />
+            <Route exact path="/song/:key" component={SongContainer} aria-label="song" />
             <Redirect from="/" to="/cds/singles" />
           </Switch>
         </div>
