@@ -19,3 +19,9 @@ export const useOnClickOutside = (ref: React.MutableRefObject<any>, handler: (ev
     };
   }, [ref, handler]);
 };
+
+export const useScrollRestoration = () => {
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+};
