@@ -56,3 +56,63 @@
   @extend %body-regular;
   color: $gray-2;
 }
+
+.performers-container {
+  margin-bottom: 32px;
+}
+
+.sub-heading {
+  @extend %flex, %flex-row, %flex-align-center;
+  flex-wrap: wrap;
+}
+
+.sub-heading-text {
+  @extend %heading-bold;
+  margin-right: 16px;
+  color: $gray-2;
+}
+
+.performers-tag {
+  @extend %body-light;
+  color: $purple-1;
+}
+
+.row-with-indicator {
+  margin-top: 32px;
+}
+
+.row-indicator {
+  @extend %flex, %flex-row, %flex-align-center;
+  margin-left: -12px;
+}
+
+.indicator {
+  width: 24px;
+  height: 24px;
+  box-sizing: border-box;
+  margin-right: 16px;
+  border: 8px solid $gray-3;
+  border-radius: 50%;
+  color: $white;
+}
+
+.row-number {
+  @extend %body-light;
+  color: $gray-2;
+}
+
+.row {
+  @extend %grid-three-columns;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 16px 0 24px 12px;
+  border-left: 1px solid $gray-5;
+}
+
+.row-no-indicator {
+  @extend %grid-three-columns;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 16px 0 24px;
+  margin-top: 16px;
+}

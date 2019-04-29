@@ -6,6 +6,7 @@ import { TitleBar } from '../../molecules/TitleBar';
 import { ArtworkCarousel } from '../../molecules/ArtworkCarousel';
 import { DetailsCard } from '../../molecules/DetailsCard';
 import { Divider } from '../../atoms/Divider';
+import { MemberCard } from '../../molecules/MemberCard';
 import styles from './Song.module.scss';
 
 export type ISongVariableProps = {
@@ -83,6 +84,54 @@ export const Song = (props: ISongProps) => {
             ) : null}
           </div>
           <Divider />
+          <div className={styles['performers-container']}>
+            <div className={styles['sub-heading']}>
+              <span className={styles['sub-heading-text']}>Performers</span>
+              {props.song.performersTag !== '' ? (
+                <span className={styles['performers-tag']}>#{props.song.performersTag}</span>
+              ) : null}
+            </div>
+            <div className={styles.performers}>
+              {props.song.formations.length > 1 ? (
+                <div className={styles['row-with-indicator']}>
+                  {props.song.formations.map((formation, index) => (
+                    <div key={index}>
+                      <div className={styles['row-indicator']}>
+                        <div className={styles.indicator} />
+                        <div className={styles['row-number']}>{index + 1}列目</div>
+                      </div>
+                      <div className={styles.row}>
+                        {formation.map(member => (
+                          <MemberCard
+                            name={member.name}
+                            displayName={member.displayName}
+                            profileImage={member.profileImage}
+                            position={member.position}
+                            key={member.name}
+                          />
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                  <div className={styles['row-indicator']}>
+                    <div className={styles.indicator} />
+                  </div>
+                </div>
+              ) : (
+                <div className={styles['row-no-indicator']}>
+                  {props.song.formations[0].map(member => (
+                    <MemberCard
+                      name={member.name}
+                      displayName={member.displayName}
+                      profileImage={member.profileImage}
+                      position={member.position}
+                      key={member.name}
+                    />
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
         </DetailsCard>
       </main>
     </>
