@@ -2,6 +2,7 @@ import { IRootState } from '../../stores/state';
 import { IMembers, IMember, IMemberDisplay, ProfileImage } from '../../models/IMember';
 import { FetchStatus, JoinedGeneration, UnitType, PositionType } from '../../utils/constants';
 import { sortByDate } from '../../utils/arrays';
+import { convertJoinForDisplay } from '../../utils/strings';
 
 export const selectMembers = (state: IRootState): IMembers => state.members.data;
 
@@ -49,32 +50,6 @@ const convertSingleImagesForDisplay = (singleImages: { [singleNumber: string]: P
   }
 
   return noDuplicateList;
-};
-
-const convertJoinForDisplay = (join: JoinedGeneration, isGraduated: boolean): string => {
-  let convertedJoin = '';
-
-  switch (join) {
-    case JoinedGeneration.First:
-      convertedJoin = '1期生';
-      break;
-    case JoinedGeneration.Second:
-      convertedJoin = '2期生';
-      break;
-    case JoinedGeneration.Third:
-      convertedJoin = '3期生';
-      break;
-    case JoinedGeneration.Fourth:
-      convertedJoin = '4期生';
-      break;
-    case JoinedGeneration.Exchange:
-      convertedJoin = '交換留学生';
-      break;
-    default:
-      break;
-  }
-
-  return isGraduated ? convertedJoin + ' (卒業)' : convertedJoin;
 };
 
 const convertUnitsForDisplay = (

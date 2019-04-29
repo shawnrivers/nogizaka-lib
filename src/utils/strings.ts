@@ -1,4 +1,4 @@
-import { SongType, DisplaySongType, FocusPerformersType } from './constants';
+import { SongType, FocusPerformersType, JoinedGeneration } from './constants';
 import { IFocusPerformers } from '../models/ICd';
 
 export const toOrdinalNumber = (num: number) => {
@@ -54,4 +54,38 @@ export const getFocusPerformersText = (focusPerformers: IFocusPerformers): strin
   } else {
     return '';
   }
+};
+
+export const convertJoinForDisplay = (join: JoinedGeneration, isGraduated: boolean): string => {
+  let convertedJoin = '';
+
+  switch (join) {
+    case JoinedGeneration.First:
+      convertedJoin = '1期生';
+      break;
+    case JoinedGeneration.Second:
+      convertedJoin = '2期生';
+      break;
+    case JoinedGeneration.Third:
+      convertedJoin = '3期生';
+      break;
+    case JoinedGeneration.Fourth:
+      convertedJoin = '4期生';
+      break;
+    case JoinedGeneration.Exchange:
+      convertedJoin = '交換留学生';
+      break;
+    default:
+      break;
+  }
+
+  return isGraduated ? convertedJoin + ' (卒業)' : convertedJoin;
+};
+
+export const convertInCd = (cdNumber: string): string => {
+  if (cdNumber === 'U') {
+    return 'Under';
+  }
+
+  return toOrdinalNumber(Number(cdNumber)) + '.';
 };
