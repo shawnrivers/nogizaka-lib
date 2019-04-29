@@ -1,7 +1,7 @@
 @import '../../../styles/colors.scss';
 @import '../../../styles/elevations.scss';
-@import '../../../styles/typography.scss';
 @import '../../../styles/layout.scss';
+@import '../../../styles/typography.scss';
 
 .background {
   top: 0;
@@ -123,3 +123,17 @@
   color: $gray-3;
 }
 
+.gallery-container {
+  margin-bottom: 32px;
+}
+
+.gallery {
+  @extend %grid-three-columns;
+}
+
+.gallery-image {
+  @extend %elevation-1;
+  width: 100%;
+  margin-top: 16px;
+  border-radius: 8px;
+}

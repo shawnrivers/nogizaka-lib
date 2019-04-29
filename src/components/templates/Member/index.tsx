@@ -20,6 +20,33 @@ export const Member = (props: IMemberProps) => {
     }
   }, []);
 
+  const profileImageList = React.useMemo(() => {
+    if (props.member !== undefined) {
+      const list = Object.values(props.member.singleImages)
+        .reverse()
+        .filter(value => value.large !== '');
+
+      let noDuplicateList: ProfileImage[] = [];
+
+      for (const item of list) {
+        let isSeen = false;
+
+        for (const seenItem of noDuplicateList) {
+          if (seenItem.large === item.large) {
+            isSeen = true;
+            break;
+          }
+        }
+
+        if (!isSeen) {
+          noDuplicateList.push(item);
+        }
+      }
+
+      return noDuplicateList;
+    }
+  }, [props.member]);
+
   return props.member !== undefined ? (
     <>
       <TitleBar title={props.member.nameNotations.lastName + props.member.nameNotations.firstName} />
@@ -98,6 +125,18 @@ export const Member = (props: IMemberProps) => {
               <PositionCounterBar {...props.member.positionsCounter} />
             ) : null}
           </div>
+          {profileImageList !== undefined ? (
+            <div className={styles['gallery-container']}>
+              <span className={styles['sub-heading']}>Gallery</span>
+              <div className={styles['gallery']}>
+                {profileImageList.map((image, index) => (
+                  <LazyLoad key={index}>
+                    <img className={styles['gallery-image']} src={image.small} />
+                  </LazyLoad>
+                ))}
+              </div>
+            </div>
+          ) : null}
         </DetailsCard>
       </main>
     </>
