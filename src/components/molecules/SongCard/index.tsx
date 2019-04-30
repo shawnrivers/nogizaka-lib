@@ -21,21 +21,40 @@ interface ISongCardProps {
 
 export const SongCard = (props: ISongCardProps) => (
   <div className={styles.container}>
-    <Link to={`/song/${props.titleKey}`}>
-      <LazyLoad placeholder={<ImagePlaceholder className={styles.artwork} />}>
-        <img
-          className={styles.artwork}
-          src={props.artwork.small}
-          srcSet={`${props.artwork.small} 2x, ${props.artwork.medium} 3x`}
-        />
-      </LazyLoad>
-      <div className={styles.text}>
-        <span className={styles.title}>{props.title}</span>
-        <div className={styles.description}>
-          <span className={styles.type}>#{convertSongType(props.type)}</span>
-          <span>{getFocusPerformersText(props.focusPerformers)}</span>
+    {props.titleKey !== 'OVERTURE' ? (
+      <Link to={`/song/${props.titleKey}`}>
+        <LazyLoad placeholder={<ImagePlaceholder className={styles.artwork} />}>
+          <img
+            className={styles.artwork}
+            src={props.artwork.small}
+            srcSet={`${props.artwork.small} 2x, ${props.artwork.medium} 3x`}
+          />
+        </LazyLoad>
+        <div className={styles.text}>
+          <span className={styles.title}>{props.title}</span>
+          <div className={styles.description}>
+            <span className={styles.type}>#{convertSongType(props.type)}</span>
+            <span>{getFocusPerformersText(props.focusPerformers)}</span>
+          </div>
         </div>
-      </div>
-    </Link>
+      </Link>
+    ) : (
+      <>
+        <LazyLoad placeholder={<ImagePlaceholder className={styles.artwork} />}>
+          <img
+            className={styles.artwork}
+            src={props.artwork.small}
+            srcSet={`${props.artwork.small} 2x, ${props.artwork.medium} 3x`}
+          />
+        </LazyLoad>
+        <div className={styles.text}>
+          <span className={styles.title}>{props.title}</span>
+          <div className={styles.description}>
+            <span className={styles.type}>#{convertSongType(props.type)}</span>
+            <span>{getFocusPerformersText(props.focusPerformers)}</span>
+          </div>
+        </div>
+      </>
+    )}
   </div>
 );
