@@ -180,19 +180,12 @@ const convertGlowStickColors = (colors: {
 }): {
   left: GlowStickColors | GlowStickColorsLight;
   right: GlowStickColors | GlowStickColorsLight;
-} => {
-  if (colors.left !== colors.right) {
-    return {
+} => ({
       left: convertGlowStickColorNormal(colors.left),
-      right: convertGlowStickColorNormal(colors.right),
-    };
-  } else {
-    return {
-      left: convertGlowStickColorNormal(colors.left),
-      right: convertGlowStickColorLight(colors.right),
-    };
-  }
-};
+  right:
+    colors.left !== colors.right ? convertGlowStickColorNormal(colors.right) : convertGlowStickColorLight(colors.right),
+});
+
 
 export const selectMemberByNameForDisplay = (state: IRootState, name: string): IMemberDisplay | undefined => {
   const member = selectMembers(state)[name];
