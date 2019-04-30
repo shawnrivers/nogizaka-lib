@@ -8,6 +8,7 @@ import {
   GlowStickColors,
   GlowStickColorType,
   GlowStickColorsLight,
+  BloodType,
 } from '../../utils/constants';
 import { sortByDate } from '../../utils/arrays';
 import { convertJoinForDisplay } from '../../utils/strings';
@@ -181,11 +182,12 @@ const convertGlowStickColors = (colors: {
   left: GlowStickColors | GlowStickColorsLight;
   right: GlowStickColors | GlowStickColorsLight;
 } => ({
-      left: convertGlowStickColorNormal(colors.left),
+  left: convertGlowStickColorNormal(colors.left),
   right:
     colors.left !== colors.right ? convertGlowStickColorNormal(colors.right) : convertGlowStickColorLight(colors.right),
 });
 
+const convertBloodType = (bloodType: BloodType): string => (bloodType === BloodType.Unknown ? '不明' : bloodType);
 
 export const selectMemberByNameForDisplay = (state: IRootState, name: string): IMemberDisplay | undefined => {
   const member = selectMembers(state)[name];
@@ -202,7 +204,7 @@ export const selectMemberByNameForDisplay = (state: IRootState, name: string): I
       join: convertJoinForDisplay(member.join, member.isGraduated),
       birthday: member.birthday,
       height: member.height,
-      bloodType: member.bloodType,
+      bloodType: convertBloodType(member.bloodType),
       sites: member.sites,
       photoAlbums: member.photoAlbums,
       units,

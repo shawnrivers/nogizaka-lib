@@ -75,7 +75,7 @@ export type IMemberDisplay = {
   join: string;
   birthday: string;
   height: number;
-  bloodType: BloodType;
+  bloodType: string;
   sites: ISite[];
   photoAlbums: {
     title: string;
