@@ -78,6 +78,27 @@ const convertPerformersTagForDisplay = (song: ISong): string => {
     return convertInCd(song.single.number) + 'Single 選抜';
   }
   if (song.type === SongType.Under) {
+    // Workaround: Hard coding for corresponding single in album under.
+    // TODO: Generate performers tag in songs.json from server side.
+    if (song.single.number === '') {
+      if (song.albums.length > 0) {
+        switch (song.albums[0].number) {
+          case '1':
+            return convertInCd('10') + 'Single Under';
+          case '2':
+            return convertInCd('14') + 'Single Under';
+          case '3':
+            return convertInCd('17') + 'Single Under';
+          case 'U':
+            return convertInCd('19') + 'Single Under';
+          case '4':
+            return convertInCd('22') + 'Single Under';
+        }
+      }
+
+      return '';
+    }
+
     return convertInCd(song.single.number) + 'Single Under';
   }
   if (song.type === SongType.FirstGeneration) {
