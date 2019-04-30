@@ -40,6 +40,10 @@ export type ISong = {
     direct: string[];
   };
   performers: IPerformers;
+  performersTag: {
+    name: string;
+    singleNumber: string;
+  };
   formations: IFormations;
 };
 

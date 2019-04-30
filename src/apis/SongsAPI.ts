@@ -12,6 +12,7 @@ const convertSongResponse = (songResponse: SongResponse): ISong => ({
   type: songResponse.type,
   creators: songResponse.creators,
   performers: songResponse.performers,
+  performersTag: songResponse.performersTag,
   formations: songResponse.formations,
 });
 

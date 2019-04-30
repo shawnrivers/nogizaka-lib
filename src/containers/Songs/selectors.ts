@@ -1,7 +1,7 @@
 import { IRootState } from '../../stores/state';
 import { ISongs, ISong, IMemberCard, ISongDisplay, IFormationsDisplay } from '../../models/ISong';
 import { FetchStatus, SongType, PositionType, FukujinType } from '../../utils/constants';
-import { convertInCd, convertSongType, convertAlbumNumbersToSingleNumber } from '../../utils/strings';
+import { convertInCd, convertSongType } from '../../utils/strings';
 import { selectMemberByName } from '../Members/selectors';
 
 const selectSongs = (state: IRootState): ISongs => state.songs.data;
@@ -78,39 +78,23 @@ const convertFormationsForDisplay = (song: ISong, state: IRootState): IFormation
   return convertedFormations;
 };
 
-const convertPerformersTagForDisplay = (song: ISong): string => {
-  if (song.type === SongType.Title) {
-    return convertInCd(song.single.number) + 'Single 選抜';
-  }
-  if (song.type === SongType.Under) {
-    // Workaround: Hard coding for corresponding single in album under.
-    // TODO: Generate performers tag in songs.json from server side.
-    if (song.single.number === '') {
-      if (song.albums.length > 0) {
-        return convertInCd(convertAlbumNumbersToSingleNumber(song.albums)) + 'Single Under';
-      }
-
-      return '';
-    }
-
-    return convertInCd(song.single.number) + 'Single Under';
-  }
-  if (song.type === SongType.FirstGeneration) {
+const convertPerformersTagForDisplay = (performersTag: { name: string; singleNumber: string }): string => {
+  switch (performersTag.name) {
+    case 'first generation':
     return '1期生';
-  }
-  if (song.type === SongType.SecondGeneration) {
+    case 'second generation':
     return '2期生';
-  }
-  if (song.type === SongType.ThirdGeneration) {
+    case 'third generation':
     return '3期生';
-  }
-  if (song.type === SongType.FourthGeneration) {
+    case 'fourth generation':
     return '4期生';
+    case 'selected':
+      return convertInCd(performersTag.singleNumber) + 'Single 選抜';
+    case 'under':
+      return convertInCd(performersTag.singleNumber) + 'Single Under';
+    default:
+      return '';
   }
-  if (song.type === SongType.Unit) {
-    return song.performers.unit;
-  }
-  return '';
 };
 
 export const SelectSongByKeyForDisplay = (state: IRootState, key: string): ISongDisplay | undefined => {
@@ -130,7 +114,7 @@ export const SelectSongByKeyForDisplay = (state: IRootState, key: string): ISong
       type: convertSongType(song.type),
       creators: song.creators,
       formations: convertFormationsForDisplay(song, state),
-      performersTag: convertPerformersTagForDisplay(song),
+      performersTag: convertPerformersTagForDisplay(song.performersTag),
     };
   }
 

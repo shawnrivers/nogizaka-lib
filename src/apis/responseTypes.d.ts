@@ -137,6 +137,10 @@ export type SongResponse = {
     solo: string;
     unit: string;
   };
+  performersTag: {
+    name: string;
+    singleNumber: string;
+  };
   formations: {
     firstRow: string[];
     secondRow: string[];
