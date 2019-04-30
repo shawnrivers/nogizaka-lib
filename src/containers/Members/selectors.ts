@@ -1,6 +1,14 @@
 import { IRootState } from '../../stores/state';
 import { IMembers, IMember, IMemberDisplay, ProfileImage } from '../../models/IMember';
-import { FetchStatus, JoinedGeneration, UnitType, PositionType } from '../../utils/constants';
+import {
+  FetchStatus,
+  JoinedGeneration,
+  UnitType,
+  PositionType,
+  GlowStickColors,
+  GlowStickColorType,
+  GlowStickColorsLight,
+} from '../../utils/constants';
 import { sortByDate } from '../../utils/arrays';
 import { convertJoinForDisplay } from '../../utils/strings';
 
@@ -104,6 +112,88 @@ const convertPositionHistoryForDisplay = (positionsHistory: {
   return filteredHistory;
 };
 
+const convertGlowStickColorNormal = (color: string): GlowStickColors => {
+  switch (color) {
+    case GlowStickColorType.Red:
+      return GlowStickColors.Red;
+    case GlowStickColorType.Yellow:
+      return GlowStickColors.Yellow;
+    case GlowStickColorType.White:
+      return GlowStickColors.White;
+    case GlowStickColorType.Blue:
+      return GlowStickColors.Blue;
+    case GlowStickColorType.Green:
+      return GlowStickColors.Green;
+    case GlowStickColorType.Purple:
+      return GlowStickColors.Purple;
+    case GlowStickColorType.Black:
+      return GlowStickColors.Black;
+    case GlowStickColorType.Pink:
+      return GlowStickColors.Pink;
+    case GlowStickColorType.Orange:
+      return GlowStickColors.Orange;
+    case GlowStickColorType.LightBlue:
+      return GlowStickColors.LightBlue;
+    case GlowStickColorType.YellowGreen:
+      return GlowStickColors.YellowGreen;
+    case GlowStickColorType.None:
+      return GlowStickColors.None;
+    default:
+      return GlowStickColors.None;
+  }
+};
+
+const convertGlowStickColorLight = (color: string): GlowStickColorsLight => {
+  switch (color) {
+    case GlowStickColorType.Red:
+      return GlowStickColorsLight.Red;
+    case GlowStickColorType.Yellow:
+      return GlowStickColorsLight.Yellow;
+    case GlowStickColorType.White:
+      return GlowStickColorsLight.White;
+    case GlowStickColorType.Blue:
+      return GlowStickColorsLight.Blue;
+    case GlowStickColorType.Green:
+      return GlowStickColorsLight.Green;
+    case GlowStickColorType.Purple:
+      return GlowStickColorsLight.Purple;
+    case GlowStickColorType.Black:
+      return GlowStickColorsLight.Black;
+    case GlowStickColorType.Pink:
+      return GlowStickColorsLight.Pink;
+    case GlowStickColorType.Orange:
+      return GlowStickColorsLight.Orange;
+    case GlowStickColorType.LightBlue:
+      return GlowStickColorsLight.LightBlue;
+    case GlowStickColorType.YellowGreen:
+      return GlowStickColorsLight.YellowGreen;
+    case GlowStickColorType.None:
+      return GlowStickColorsLight.None;
+    default:
+      return GlowStickColorsLight.None;
+  }
+};
+
+const convertGlowStickColors = (colors: {
+  left: string;
+  right: string;
+}): {
+  left: GlowStickColors | GlowStickColorsLight;
+  right: GlowStickColors | GlowStickColorsLight;
+} => {
+  if (colors.left !== colors.right) {
+    return {
+      left: convertGlowStickColorNormal(colors.left),
+      right: convertGlowStickColorNormal(colors.right),
+    };
+  } else {
+    return {
+      left: convertGlowStickColorNormal(colors.left),
+      right: convertGlowStickColorLight(colors.right),
+    };
+  }
+};
+
 export const selectMemberByNameForDisplay = (state: IRootState, name: string): IMemberDisplay | undefined => {
   const member = selectMembers(state)[name];
 
@@ -113,6 +203,7 @@ export const selectMemberByNameForDisplay = (state: IRootState, name: string): I
     return {
       name: member.name,
       nameNotations: member.nameNotations,
+      glowStickColor: convertGlowStickColors(member.glowStickColor),
       mainImage: member.profileImage,
       profileImages: convertSingleImagesForDisplay(member.singleImages),
       join: convertJoinForDisplay(member.join, member.isGraduated),

@@ -63,6 +63,10 @@ export type MemberResponse = {
     firstNameEn: string;
     lastNameEn: string;
   };
+  glowStickColor: {
+    left: string;
+    right: string;
+  };
   profileImage: {
     large: string;
     small: string;

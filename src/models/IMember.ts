@@ -16,6 +16,10 @@ export type IMember = {
     firstNameEn: string;
     lastNameEn: string;
   };
+  glowStickColor: {
+    left: string;
+    right: string;
+  };
   profileImage: ProfileImage;
   singleImages: {
     [singleNumber: string]: ProfileImage;
@@ -61,6 +65,10 @@ export type IMemberDisplay = {
     lastNameFurigana: string;
     firstNameEn: string;
     lastNameEn: string;
+  };
+  glowStickColor: {
+    left: string;
+    right: string;
   };
   mainImage: ProfileImage;
   profileImages: ProfileImage[];

@@ -98,3 +98,48 @@ export enum FukujinType {
   RowOne = 'row-1',
   RowOneTwo = 'row-1-2',
 }
+
+export enum GlowStickColorType {
+  Red = 'red',
+  Yellow = 'yellow',
+  White = 'white',
+  Blue = 'blue',
+  Green = 'green',
+  Purple = 'purple',
+  Black = 'black',
+  Pink = 'pink',
+  Orange = 'orange',
+  LightBlue = 'light blue',
+  YellowGreen = 'yellow green',
+  None = '',
+}
+
+export enum GlowStickColors {
+  Red = '#fb9090',
+  Yellow = '#f7dd7f',
+  White = '#f6f6f6',
+  Blue = '#7fbaf7',
+  Green = '#a3ffaa',
+  Purple = '#dc9af7',
+  Black = '#c7c7c7',
+  Pink = '#ff90d4',
+  Orange = '#ffba75',
+  LightBlue = '#4bded7',
+  YellowGreen = '#d2ff87',
+  None = '#f6f6f6',
+}
+
+export enum GlowStickColorsLight {
+  Red = '#fbcece',
+  Yellow = '#fff4cd',
+  White = '#ffffff',
+  Blue = '#cbe4ff',
+  Green = '#dcfdde',
+  Purple = '#f1d2fd',
+  Black = '#e8e8e8',
+  Pink = '#ffd1ed',
+  Orange = '#f7e0c8',
+  LightBlue = '#d0fffd',
+  YellowGreen = '#f3ffe0',
+  None = '#ffffff',
+}
