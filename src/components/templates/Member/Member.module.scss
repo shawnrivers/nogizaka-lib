@@ -69,13 +69,15 @@
 
 .info-item-title {
   @extend %body-light;
-  margin-bottom: 4px;
+  margin-bottom: 8px;
   color: $gray-3;
+  line-height: $size-body;
 }
 
 .info-item-content {
   @extend %body-regular;
   color: $gray-2;
+  line-height: $size-body;
 }
 
 .blood-type {

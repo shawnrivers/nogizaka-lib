@@ -13,7 +13,7 @@
 }
 
 .title {
-  @extend %title-regular;
+  @extend %title-bold;
   margin-bottom: 8px;
 }
 
@@ -24,7 +24,7 @@
 }
 
 .hashtag {
-  @extend %caption-light;
+  @extend %caption-regular;
   padding: 4px;
   margin: 4px 8px 4px 0;
   border: 1px solid $gray-2;
@@ -48,13 +48,15 @@
 
 .creator-title {
   @extend %body-light;
-  margin-bottom: 4px;
+  margin-bottom: 8px;
   color: $gray-3;
+  line-height: $size-body;
 }
 
 .creator-content {
   @extend %body-regular;
   color: $gray-2;
+  line-height: $size-body;
 }
 
 .performers-container {
@@ -73,7 +75,7 @@
 }
 
 .performers-tag {
-  @extend %body-light;
+  @extend %body-regular;
   color: $purple-1;
 }
 
@@ -97,7 +99,7 @@
 }
 
 .row-number {
-  @extend %body-light;
+  @extend %body-regular;
   color: $gray-2;
 }
 

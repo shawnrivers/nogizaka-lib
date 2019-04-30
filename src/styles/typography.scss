@@ -1,58 +1,63 @@
-$font-light: 300;
-$font-regular: 500;
-$font-bold: 700;
+$weight-light: 300;
+$weight-regular: 500;
+$weight-bold: 700;
+
+$size-title: 18px;
+$size-heading: 16px;
+$size-body: 14px;
+$size-caption: 12px;
 
 %title-regular {
-  font-size: 18px;
-  font-weight: $font-regular;
+  font-size: $size-title;
+  font-weight: $weight-regular;
 }
 
 %title-bold {
-  font-size: 18px;
-  font-weight: $font-bold;
+  font-size: $size-title;
+  font-weight: $weight-bold;
 }
 
 %heading-regular {
-  font-size: 16px;
-  font-weight: $font-regular;
+  font-size: $size-heading;
+  font-weight: $weight-regular;
 }
 
 %heading-bold {
-  font-size: 16px;
-  font-weight: $font-bold;
+  font-size: $size-heading;
+  font-weight: $weight-bold;
 }
 
 %heading-light {
-  font-size: 16px;
-  font-weight: $font-light;
+  font-size: $size-heading;
+  font-weight: $weight-light;
 }
 
 %body-regular {
-  font-size: 14px;
-  font-weight: $font-regular;
+  font-size: $size-body;
+  font-weight: $weight-regular;
 }
 
 %body-bold {
-  font-size: 14px;
-  font-weight: $font-bold;
+  font-size: $size-body;
+  font-weight: $weight-bold;
 }
 
 %body-light {
-  font-size: 14px;
-  font-weight: $font-light;
+  font-size: $size-body;
+  font-weight: $weight-light;
 }
 
 %caption-regular {
-  font-size: 12px;
-  font-weight: $font-regular;
+  font-size: $size-caption;
+  font-weight: $weight-regular;
 }
 
 %caption-bold {
-  font-size: 12px;
-  font-weight: $font-bold;
+  font-size: $size-caption;
+  font-weight: $weight-bold;
 }
 
 %caption-light {
-  font-size: 12px;
-  font-weight: $font-light;
+  font-size: $size-caption;
+  font-weight: $weight-light;
 }
