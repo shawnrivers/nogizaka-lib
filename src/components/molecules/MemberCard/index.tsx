@@ -44,7 +44,7 @@ export const MemberCard = (props: IMemberCardProps) => {
     forceCheck();
   }, []);
 
-  return (
+  return props.name !== 'kojimaharuna' ? (
     <Link to={`/member/${props.name}`}>
       <div className={styles.container}>
         {props.position !== undefined ? <Badge position={props.position} /> : null}
@@ -63,5 +63,22 @@ export const MemberCard = (props: IMemberCardProps) => {
         <div className={styles.text}>{props.displayName}</div>
       </div>
     </Link>
+  ) : (
+    <div className={styles.container}>
+      {props.position !== undefined ? <Badge position={props.position} /> : null}
+      <LazyLoad placeholder={<ImagePlaceholder />}>
+        <div className={styles['profile-image-container']}>
+          <img
+            className={styles['profile-image']}
+            src={props.profileImage.large}
+            srcSet={`${props.profileImage.small} ${SMALL_PROFILE_IMAGE_WIDTH * 3}w, ${
+              props.profileImage.large
+            } ${LARGE_PROFILE_IMAGE_WIDTH * 3}w`}
+            alt={props.displayName}
+          />
+        </div>
+      </LazyLoad>
+      <div className={styles.text}>{props.displayName}</div>
+    </div>
   );
 };

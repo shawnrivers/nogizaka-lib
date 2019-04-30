@@ -50,26 +50,36 @@ const convertFormationsForDisplay = (song: ISong, state: IRootState): IFormation
     for (const name of formation) {
       const member = selectMemberByName(state, name);
       const convertedFormation =
-        member !== undefined
-          ? {
-              name,
-              displayName: member.nameNotations.lastName + ' ' + member.nameNotations.firstName,
-              profileImage:
-                song.single.number !== ''
-                  ? member.singleImages[song.single.number]
-                  : song.albums.length > 0
-                  ? member.singleImages[convertAlbumNumbersToSingleNumber(song.albums)]
-                  : member.profileImage,
-              position: calculatePositionTag(song, member.name),
-            }
+        name !== 'kojimaharuna'
+          ? member !== undefined
+            ? {
+                name,
+                displayName: member.nameNotations.lastName + ' ' + member.nameNotations.firstName,
+                profileImage:
+                  song.performersTag.singleNumber !== ''
+                    ? member.singleImages[song.performersTag.singleNumber]
+                    : member.profileImage,
+                position: calculatePositionTag(song, member.name),
+              }
+            : {
+                name,
+                displayName: '',
+                profileImage: {
+                  large: '',
+                  small: '',
+                },
+                position: calculatePositionTag(song, member),
+              }
           : {
-              name,
-              displayName: '',
+              name: 'kojimaharuna',
+              displayName: '小嶋 陽菜',
               profileImage: {
-                large: '',
-                small: '',
+                large:
+                  'https://raw.githubusercontent.com/shawnrivers/nogizaka-data/master/src/images/members/others/kojimaharuna_large.jpg',
+                small:
+                  'https://raw.githubusercontent.com/shawnrivers/nogizaka-data/master/src/images/members/others/kojimaharuna_small.jpg',
               },
-              position: calculatePositionTag(song, member),
+              position: PositionType.Center,
             };
       convertedFormations[i].push(convertedFormation);
     }
@@ -81,13 +91,13 @@ const convertFormationsForDisplay = (song: ISong, state: IRootState): IFormation
 const convertPerformersTagForDisplay = (performersTag: { name: string; singleNumber: string }): string => {
   switch (performersTag.name) {
     case 'first generation':
-    return '1期生';
+      return '1期生';
     case 'second generation':
-    return '2期生';
+      return '2期生';
     case 'third generation':
-    return '3期生';
+      return '3期生';
     case 'fourth generation':
-    return '4期生';
+      return '4期生';
     case 'selected':
       return convertInCd(performersTag.singleNumber) + 'Single 選抜';
     case 'under':
