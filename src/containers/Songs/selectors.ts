@@ -1,7 +1,7 @@
 import { IRootState } from '../../stores/state';
 import { ISongs, ISong, IMemberCard, ISongDisplay, IFormationsDisplay } from '../../models/ISong';
 import { FetchStatus, SongType, PositionType, FukujinType } from '../../utils/constants';
-import { convertInCd, convertSongType } from '../../utils/strings';
+import { convertInCd, convertSongType, convertAlbumNumbersToSingleNumber } from '../../utils/strings';
 import { selectMemberByName } from '../Members/selectors';
 
 const selectSongs = (state: IRootState): ISongs => state.songs.data;
@@ -82,18 +82,7 @@ const convertPerformersTagForDisplay = (song: ISong): string => {
     // TODO: Generate performers tag in songs.json from server side.
     if (song.single.number === '') {
       if (song.albums.length > 0) {
-        switch (song.albums[0].number) {
-          case '1':
-            return convertInCd('10') + 'Single Under';
-          case '2':
-            return convertInCd('14') + 'Single Under';
-          case '3':
-            return convertInCd('17') + 'Single Under';
-          case 'U':
-            return convertInCd('19') + 'Single Under';
-          case '4':
-            return convertInCd('22') + 'Single Under';
-        }
+        return convertInCd(convertAlbumNumbersToSingleNumber(song.albums)) + 'Single Under';
       }
 
       return '';

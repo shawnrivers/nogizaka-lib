@@ -89,3 +89,27 @@ export const convertInCd = (cdNumber: string): string => {
 
   return toOrdinalNumber(Number(cdNumber)) + '.';
 };
+
+// Workaround: Hard coding for corresponding single in album under.
+// TODO: Generate performers tag in songs.json from server side.
+export const convertAlbumNumbersToSingleNumber = (
+  albums: {
+    title: string;
+    number: string;
+  }[],
+): string => {
+  switch (albums[0].number) {
+    case '1':
+      return '10';
+    case '2':
+      return '14';
+    case '3':
+      return '17';
+    case 'U':
+      return '19';
+    case '4':
+      return '22';
+    default:
+      return '23';
+  }
+};
