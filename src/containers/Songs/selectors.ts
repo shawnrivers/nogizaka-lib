@@ -103,7 +103,7 @@ const convertPerformersTagForDisplay = (performersTag: { name: string; singleNum
     case 'under':
       return convertInCd(performersTag.singleNumber) + 'Single Under';
     default:
-      return '';
+      return performersTag.name;
   }
 };
 
