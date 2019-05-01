@@ -54,6 +54,7 @@ export const Cd = (props: ICdProps) => {
                   titleKey={song.key}
                   type={song.type}
                   focusPerformers={song.focusPerformers}
+                  className={styles['song-card']}
                 />
               </div>
             ))}

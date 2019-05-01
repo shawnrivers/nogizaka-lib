@@ -17,10 +17,11 @@ interface ISongCardProps {
   titleKey: string;
   type: SongType;
   focusPerformers: IFocusPerformers;
+  className?: string;
 }
 
 export const SongCard = (props: ISongCardProps) => (
-  <div className={styles.container}>
+  <div className={`${styles.container} ${props.className}`}>
     {props.titleKey !== 'OVERTURE' ? (
       <Link to={`/song/${props.titleKey}`}>
         <LazyLoad placeholder={<ImagePlaceholder className={styles.artwork} />}>

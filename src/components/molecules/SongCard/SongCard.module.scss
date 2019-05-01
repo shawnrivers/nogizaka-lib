@@ -6,7 +6,6 @@
 .container {
   @extend %elevation-2;
   z-index: 4;
-  width: 100%;
   border-radius: 6px;
   color: $gray-1;
 }
