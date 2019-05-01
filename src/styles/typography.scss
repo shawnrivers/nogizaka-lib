@@ -2,15 +2,11 @@ $weight-light: 300;
 $weight-regular: 500;
 $weight-bold: 700;
 
-$size-title: 18px;
-$size-heading: 16px;
+$size-title: 20px;
+$size-heading: 18px;
+$size-sub-heading: 16px;
 $size-body: 14px;
 $size-caption: 12px;
-
-%title-regular {
-  font-size: $size-title;
-  font-weight: $weight-regular;
-}
 
 %title-bold {
   font-size: $size-title;
@@ -27,8 +23,18 @@ $size-caption: 12px;
   font-weight: $weight-bold;
 }
 
-%heading-light {
-  font-size: $size-heading;
+%sub-heading-regular {
+  font-size: $size-sub-heading;
+  font-weight: $weight-regular;
+}
+
+%sub-heading-bold {
+  font-size: $size-sub-heading;
+  font-weight: $weight-bold;
+}
+
+%sub-heading-light {
+  font-size: $size-sub-heading;
   font-weight: $weight-light;
 }
 

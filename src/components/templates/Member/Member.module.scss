@@ -31,7 +31,7 @@
 }
 
 .name {
-  @extend %heading-bold;
+  @extend %sub-heading-bold;
   margin-bottom: 4px;
 }
 
@@ -88,7 +88,7 @@
 }
 
 .sub-heading {
-  @extend %heading-bold;
+  @extend %sub-heading-bold;
   display: block;
   margin-bottom: 16px;
   color: $gray-2;

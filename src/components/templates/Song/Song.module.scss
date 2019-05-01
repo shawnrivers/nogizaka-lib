@@ -14,7 +14,7 @@
 
 .title {
   @extend %title-bold;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
 }
 
 .hashtags {
@@ -69,7 +69,7 @@
 }
 
 .sub-heading-text {
-  @extend %heading-bold;
+  @extend %sub-heading-bold;
   margin-right: 16px;
   color: $gray-2;
 }

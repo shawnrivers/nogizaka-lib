@@ -37,8 +37,11 @@
 }
 
 .text {
-  @extend %flex, %flex-align-center, %caption-regular;
+  @extend %flex, %flex-align-center;
+  overflow: hidden;
   height: 48px;
   margin: 4px 8px;
   color: $gray-2;
+  font-size: 13px;
+  font-weight: $weight-regular;
 }

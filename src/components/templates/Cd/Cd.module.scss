@@ -9,8 +9,8 @@
 }
 
 .title {
-  @extend %title-regular;
-  margin-bottom: 8px;
+  @extend %title-bold;
+  margin-bottom: 12px;
 }
 
 .release {
@@ -27,7 +27,7 @@
 }
 
 .number {
-  @extend %heading-regular;
+  @extend %sub-heading-regular;
   width: 24px;
   margin-right: 12px;
   color: $gray-3;
