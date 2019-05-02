@@ -9,7 +9,7 @@ interface ITitleBarProps {
 export const TitleBar = (props: ITitleBarProps) => (
   <nav className={styles.container}>
     <button className={styles.button} onClick={() => window.history.back()}>
-      <BackIcon />
+      <BackIcon className={styles.icon} />
     </button>
     <span className={styles.title}>{props.title}</span>
   </nav>

@@ -18,7 +18,12 @@
   height: 48px;
 }
 
+.icon {
+  fill: $gray-1;
+}
+
 .title {
   @extend %sub-heading-regular;
-  line-height: 1;
+  color: $gray-1;
+  line-height: $size-sub-heading;
 }
