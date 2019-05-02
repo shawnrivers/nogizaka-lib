@@ -81,6 +81,7 @@ export type MemberResponse = {
   birthday: string;
   height: number;
   bloodType: BloodType;
+  origin: string;
   sites: SiteResponse[];
   photoAlbums: {
     title: string;

@@ -28,6 +28,7 @@ export type IMember = {
   birthday: string;
   height: number;
   bloodType: BloodType;
+  origin: string;
   sites: ISite[];
   photoAlbums: {
     title: string;
@@ -76,6 +77,7 @@ export type IMemberDisplay = {
   birthday: string;
   height: number;
   bloodType: string;
+  origin: string;
   sites: ISite[];
   photoAlbums: {
     title: string;

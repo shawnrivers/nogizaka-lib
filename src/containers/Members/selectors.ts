@@ -205,6 +205,7 @@ export const selectMemberByNameForDisplay = (state: IRootState, name: string): I
       birthday: member.birthday,
       height: member.height,
       bloodType: convertBloodType(member.bloodType),
+      origin: member.origin,
       sites: member.sites,
       photoAlbums: member.photoAlbums,
       units,

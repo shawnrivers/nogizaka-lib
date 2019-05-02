@@ -95,6 +95,10 @@ export const Member = (props: IMemberProps) => {
               <span className={styles['info-item-title']}>血液型</span>
               <span className={`${styles['info-item-content']} ${styles['blood-type']}`}>{props.member.bloodType}</span>
             </div>
+            <div className={styles['info-item']}>
+              <span className={styles['info-item-title']}>出身</span>
+              <span className={styles['info-item-content']}>{props.member.origin}</span>
+            </div>
             {props.member.units.length > 0 ? (
               <div className={styles['info-item']}>
                 <span className={styles['info-item-title']}>Units</span>

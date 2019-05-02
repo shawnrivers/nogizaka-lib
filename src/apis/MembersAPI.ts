@@ -11,6 +11,7 @@ const convertMemberResponse = (memberResponse: MemberResponse): IMember => ({
   join: memberResponse.join,
   birthday: memberResponse.birthday,
   height: memberResponse.height,
+  origin: memberResponse.origin,
   bloodType: memberResponse.bloodType,
   sites: memberResponse.sites,
   photoAlbums: memberResponse.photoAlbums,
