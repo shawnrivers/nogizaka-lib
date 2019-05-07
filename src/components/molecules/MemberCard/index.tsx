@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styles from './MemberCard.module.scss';
-import LazyLoad, { forceCheck } from 'react-lazyload';
+import LazyLoad from 'react-lazyload';
 import { ImagePlaceholder } from '../../atoms/ImagePlaceholder';
 import { ProfileImage } from '../../../models/IMember';
 import { Link } from 'react-router-dom';
@@ -40,10 +40,6 @@ interface IMemberCardProps {
 }
 
 export const MemberCard = (props: IMemberCardProps) => {
-  React.useEffect(() => {
-    forceCheck();
-  }, []);
-
   return props.name !== 'kojimaharuna' ? (
     <Link to={`/member/${props.name}`}>
       <div className={styles.container}>

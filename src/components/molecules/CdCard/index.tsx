@@ -2,7 +2,7 @@ import * as React from 'react';
 import styles from './CdCard.module.scss';
 import { ISingle } from '../../../models/ISingle';
 import { IAlbum } from '../../../models/IAlbum';
-import LazyLoad, { forceCheck } from 'react-lazyload';
+import LazyLoad from 'react-lazyload';
 import { ImagePlaceholder } from '../../atoms/ImagePlaceholder';
 import { Link } from 'react-router-dom';
 import { CdsCurrentPage } from '../../../utils/constants';
@@ -17,10 +17,6 @@ interface ICdProps {
 }
 
 export const CdCard = (props: ICdProps) => {
-  React.useEffect(() => {
-    forceCheck();
-  }, []);
-
   const artwork = Object.values(props.cd.artworks)[0];
 
   return (
