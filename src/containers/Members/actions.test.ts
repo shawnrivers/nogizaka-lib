@@ -4,6 +4,7 @@ import fetchMock from 'fetch-mock';
 import { FetchStatus, JoinedGeneration, BloodType, PositionType } from '../../utils/constants';
 import { MemberResponse } from '../../apis/responseTypes';
 import { getMembers, MembersActionTypes } from './actions';
+import { IMember } from '../../models/IMember';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -43,10 +44,15 @@ describe('Members Actions', () => {
           small: '',
         },
       },
+      glowStickColor: {
+        left: 'white',
+        right: 'white',
+      },
       join: JoinedGeneration.First,
       birthday: '',
       height: 0,
       bloodType: BloodType.A,
+      origin: '東京都',
       sites: [],
       photoAlbums: [],
       units: [],
@@ -63,6 +69,51 @@ describe('Members Actions', () => {
         isGraduated: false,
         graduatedDate: '',
       },
+    };
+
+    const mockConvertedMember: IMember = {
+      name: '',
+      nameNotations: {
+        firstName: '',
+        lastName: '',
+        firstNameFurigana: '',
+        lastNameFurigana: '',
+        firstNameEn: '',
+        lastNameEn: '',
+      },
+      profileImage: {
+        large: '',
+        small: '',
+      },
+      singleImages: {
+        '1': {
+          large: '',
+          small: '',
+        },
+      },
+      glowStickColor: {
+        left: 'white',
+        right: 'white',
+      },
+      join: JoinedGeneration.First,
+      birthday: '',
+      height: 0,
+      bloodType: BloodType.A,
+      origin: '東京都',
+      sites: [],
+      photoAlbums: [],
+      units: [],
+      positionsHistory: {
+        '1': PositionType.None,
+      },
+      positionsCounter: {
+        center: 0,
+        fukujin: 0,
+        selected: 0,
+        under: 0,
+      },
+      isGraduated: false,
+      graduatedDate: '',
     };
 
     describe('When GET succeeded', () => {
@@ -99,11 +150,11 @@ describe('Members Actions', () => {
 
         expect(fulfilledAction.payload).toStrictEqual({
           A: {
-            ...mockMemberResponse,
+            ...mockConvertedMember,
             name: 'A',
           },
           B: {
-            ...mockMemberResponse,
+            ...mockConvertedMember,
             name: 'B',
           },
         });

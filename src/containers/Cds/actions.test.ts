@@ -72,23 +72,23 @@ describe('cd actions', () => {
         expect(fulfilledAction.type).toBe(CdsActionTypes.FETCH_SINGLES_FULFILLED);
       });
 
-      it('It should sort singles data in descending order of release data', () => {
+      it('It should sort singles data in descending order of release data and transform it to object', () => {
         const fulfilledAction = store.getActions()[1];
 
-        expect(fulfilledAction.payload).toStrictEqual([
-          {
+        expect(fulfilledAction.payload).toStrictEqual({
+          title2: {
             ...mockSingleData,
             number: '2',
             title: 'title2',
             release: '2019-01-01',
           },
-          {
+          title1: {
             ...mockSingleData,
             number: '1',
             title: 'title1',
             release: '2018-10-01',
           },
-        ]);
+        });
       });
     });
   });
@@ -149,20 +149,20 @@ describe('cd actions', () => {
 
     it('should sort albums data in descending order of release date', () => {
       const fulfilledAction = store.getActions()[1];
-      expect(fulfilledAction.payload).toStrictEqual([
-        {
+      expect(fulfilledAction.payload).toStrictEqual({
+        title2: {
           ...mockAlbumData,
           number: '2',
           title: 'title2',
           release: '2019-01-01',
         },
-        {
+        title1: {
           ...mockAlbumData,
           number: '1',
           title: 'title1',
           release: '2018-10-01',
         },
-      ]);
+      });
     });
   });
 });
