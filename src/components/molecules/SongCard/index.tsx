@@ -7,7 +7,7 @@ import styles from './SongCard.module.scss';
 import LazyLoad from 'react-lazyload';
 import { ImagePlaceholder } from '../../atoms/ImagePlaceholder';
 
-interface ISongCardProps {
+export interface ISongCardProps {
   artwork: {
     large: string;
     medium: string;
