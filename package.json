@@ -16,7 +16,7 @@
     "identity-obj-proxy": "3.0.0",
     "mini-css-extract-plugin": "0.4.3",
     "node-fetch": "^2.3.0",
-    "node-sass": "^4.11.0",
+    "node-sass": "^4.12.0",
     "optimize-css-assets-webpack-plugin": "5.0.1",
     "pnp-webpack-plugin": "1.1.0",
     "react": "^16.8.6",
@@ -85,6 +85,7 @@
     "postcss-safe-parser": "4.0.1",
     "prettier": "^1.16.4",
     "prettier-stylelint": "^0.4.2",
+    "react-snap": "^1.23.0",
     "style-loader": "0.23.0",
     "stylelint-config-idiomatic-order": "^6.2.0",
     "typescript": "3.2.4",
@@ -96,6 +97,7 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
+    "postbuild": "react-snap",
     "test": "node scripts/test.js",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
