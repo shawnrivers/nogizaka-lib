@@ -85,7 +85,6 @@
     "postcss-safe-parser": "4.0.1",
     "prettier": "^1.16.4",
     "prettier-stylelint": "^0.4.2",
-    "react-snap": "^1.23.0",
     "style-loader": "0.23.0",
     "stylelint-config-idiomatic-order": "^6.2.0",
     "typescript": "3.2.4",
@@ -97,7 +96,6 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "postbuild": "react-snap",
     "test": "node scripts/test.js",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
