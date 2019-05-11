@@ -3,16 +3,12 @@ import { NavigationBar } from '../../molecules/NavigationBar';
 import { TriangleBackground } from '../../atoms/Background/TriangleBackground';
 import { TabMenu, TabMenuItem } from '../../molecules/TabMenu';
 import { MembersCurrentPage, MemberGenerationType, FetchStatus } from '../../../utils/constants';
-import { RouteComponentProps } from 'react-router-dom';
 import { MemberCardList, MembersByType } from '../../organisms/MemberCardList';
 import { IMembers } from '../../../models/IMember';
 import styles from './Members.module.scss';
 
-type MatchParams = {
-  generation: MembersCurrentPage;
-};
-
 export type IMembersVariableProps = {
+  currentLocation: MembersCurrentPage;
   members: IMembers;
   fetchStatus: FetchStatus;
   membersByType: MembersByType;
@@ -22,7 +18,7 @@ export type IMembersFunctionProps = {
   getMembers(): void;
 };
 
-interface IMembersProps extends RouteComponentProps<MatchParams>, IMembersVariableProps, IMembersFunctionProps {}
+interface IMembersProps extends IMembersVariableProps, IMembersFunctionProps {}
 
 const membersTabMenuItems: TabMenuItem[] = [
   {
@@ -66,8 +62,8 @@ export const Members = (props: IMembersProps) => {
       <NavigationBar currentTab="members" />
       <main className={styles.container}>
         <TriangleBackground pattern="2" position="top" />
-        <TabMenu items={membersTabMenuItems} selectedItem={props.match.params.generation} />
-        <MemberCardList members={membersByType} currentPage={props.match.params.generation} />
+        <TabMenu items={membersTabMenuItems} selectedItem={props.currentLocation} />
+        <MemberCardList members={membersByType} currentPage={props.currentLocation} />
       </main>
     </>
   );

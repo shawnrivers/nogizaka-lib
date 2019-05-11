@@ -5,15 +5,11 @@ import { CdCardList } from '../../organisms/CdCardList';
 import { TriangleBackground } from '../../atoms/Background/TriangleBackground';
 import { TabMenu, TabMenuItem } from '../../molecules/TabMenu';
 import { CdsCurrentPage, FetchStatus } from '../../../utils/constants';
-import { RouteComponentProps } from 'react-router-dom';
 import { NavigationBar } from '../../molecules/NavigationBar';
 import styles from './Cds.module.scss';
 
-type MatchParams = {
-  type: CdsCurrentPage;
-};
-
 export type ICdsVariableProps = {
+  currentLocation: CdsCurrentPage;
   singles: {
     data: ISingle[];
     fetchStatus: FetchStatus;
@@ -29,7 +25,7 @@ export type ICdsFunctionProps = {
   getAlbums(): void;
 };
 
-interface ICdsProps extends RouteComponentProps<MatchParams>, ICdsVariableProps, ICdsFunctionProps {}
+interface ICdsProps extends ICdsVariableProps, ICdsFunctionProps {}
 
 const cdsTabMenuItems: TabMenuItem[] = [
   {
@@ -59,8 +55,8 @@ export const Cds = (props: ICdsProps) => {
       <NavigationBar currentTab="cds" />
       <main className={styles.container}>
         <TriangleBackground pattern="1" position="top" />
-        <TabMenu items={cdsTabMenuItems} selectedItem={props.match.params.type} />
-        <CdCardList singles={props.singles.data} albums={props.albums.data} currentPage={props.match.params.type} />
+        <TabMenu items={cdsTabMenuItems} selectedItem={props.currentLocation} />
+        <CdCardList singles={props.singles.data} albums={props.albums.data} currentPage={props.currentLocation} />
       </main>
     </>
   );

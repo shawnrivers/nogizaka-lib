@@ -4,8 +4,15 @@ import { IRootState } from '../../../stores/state';
 import { Dispatch } from 'redux';
 import { getMembers } from '../actions';
 import * as MembersSelectors from '../selectors';
+import { RouteComponentProps } from 'react-router';
+import { MembersCurrentPage } from '../../../utils/constants';
 
-const mapStateToProps = (state: IRootState): IMembersVariableProps => ({
+type OwnProps = RouteComponentProps<{
+  generation: MembersCurrentPage;
+}>;
+
+const mapStateToProps = (state: IRootState, ownProps: OwnProps): IMembersVariableProps => ({
+  currentLocation: ownProps.match.params.generation,
   members: MembersSelectors.selectMembers(state),
   fetchStatus: MembersSelectors.selectMembersFetchStatus(state),
   membersByType: {

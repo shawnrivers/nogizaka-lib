@@ -4,8 +4,15 @@ import { Cds, ICdsVariableProps, ICdsFunctionProps } from '../../../components/t
 import { getSingles, getAlbums } from '../actions';
 import { Dispatch } from 'redux';
 import * as CdsSelectors from '../selectors';
+import { RouteComponentProps } from 'react-router';
+import { CdsCurrentPage } from '../../../utils/constants';
 
-const mapStateToProps = (state: IRootState): ICdsVariableProps => ({
+type OwnProps = RouteComponentProps<{
+  type: CdsCurrentPage;
+}>;
+
+const mapStateToProps = (state: IRootState, ownProps: OwnProps): ICdsVariableProps => ({
+  currentLocation: ownProps.match.params.type,
   singles: {
     data: CdsSelectors.selectSingleArray(state),
     fetchStatus: CdsSelectors.selectSinglesFetchStatus(state),
