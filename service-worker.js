@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/nogizaka-lib/precache-manifest.b4c5fee6001821312a7f86af4b546eca.js"
+  "/nogizaka-lib/precache-manifest.2ab70209b1dbbfab2056ec4f52f6e61e.js"
 );
 
 workbox.clientsClaim();
