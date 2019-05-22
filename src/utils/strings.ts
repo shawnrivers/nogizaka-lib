@@ -42,7 +42,7 @@ export const convertSongType = (type: SongType): string => {
     case SongType.ThirdGeneration:
       return '3期生';
     case SongType.FourthGeneration:
-      return '3期生';
+      return '4期生';
   }
 };
 
