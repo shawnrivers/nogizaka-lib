@@ -23,7 +23,7 @@ npm start
 - JavaScript: `TypeScript`
 - CSS: `Sass`, `CSS modules`
 - Bundler: `Webpack`
-- Transpiler: `Babel`
+- Compiler: `Babel`
 - Linter: `ESLint`
 - Test: `jest`, `enzyme`
 - Animation: `react-transition-group`
