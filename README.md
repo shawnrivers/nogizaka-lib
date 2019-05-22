@@ -46,7 +46,7 @@ npm start
 
 ### CD Page
 
-<img src="https://user-images.githubusercontent.com/23146992/58144263-abb9fc80-7c88-11e9-957c-64d50df3b306.png" alt="Cd Page" width="400" />
+<img src="https://user-images.githubusercontent.com/23146992/58144263-abb9fc80-7c88-11e9-957c-64d50df3b306.png" alt="Cd Page 1" width="400" /> <img src="https://user-images.githubusercontent.com/23146992/58147538-f130f680-7c95-11e9-9398-c57a4e349589.png" alt="Cd Page 2" width="400" />
 
 **CD Page** shows detailed information about each CD.
 
