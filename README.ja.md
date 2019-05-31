@@ -1,10 +1,10 @@
 # [Nogizaka Lib](https://shawnrivers.github.io/nogizaka-lib/)
 
-**[Nogizaka Lib](https://shawnrivers.github.io/nogizaka-lib/)** は[乃木坂46](http://www.nogizaka46.com/)の情報をわかりやすく提示する React ベースのウェブアプリである。
+**[Nogizaka Lib](https://shawnrivers.github.io/nogizaka-lib/)** は[乃木坂 46](http://www.nogizaka46.com/)の情報をわかりやすく提示する React ベースのウェブアプリである。
 
 本アプリのリンク: https://shawnrivers.github.io/nogizaka-lib/
 
-README: [English](https://github.com/shawnrivers/nogizaka-lib/blob/master/README.md), [日本語](https://github.com/shawnrivers/nogizaka-lib/blob/master/README.jp.md)
+README: [English](https://github.com/shawnrivers/nogizaka-lib/blob/master/README.md), [日本語](https://github.com/shawnrivers/nogizaka-lib/blob/master/README.ja.md)
 
 ## 開発環境構築
 
@@ -74,7 +74,7 @@ npm start
 
 <img src="https://user-images.githubusercontent.com/23146992/58145371-c8583380-7c8c-11e9-9606-306d065122e0.png" alt="Member List Page 1" width="400" /> <img src="https://user-images.githubusercontent.com/23146992/58145372-cb532400-7c8c-11e9-89dc-f8556e042489.png" alt="Member List Page 2" width="400" />
 
-メンバーリストページは、メンバーカードのグリッドを表示する（1期生から4期生、卒業生）。任意のメンバーカードをタップ・クリックすると、それと対応する **メンバーページ** に遷移できる。
+メンバーリストページは、メンバーカードのグリッドを表示する（1 期生から 4 期生、卒業生）。任意のメンバーカードをタップ・クリックすると、それと対応する **メンバーページ** に遷移できる。
 
 ### メンバーページ
 
@@ -90,14 +90,14 @@ npm start
 
 **Position History** では、今までのシングルの立ち位置が表示される。
 
-- `C`: *Center*（センター）
-- `F`: *Fukujin*（福神）
-- `S`: *Selected*（選抜）
-- `U`: *Under*（アンダー）
+- `C`: _Center_（センター）
+- `F`: _Fukujin_（福神）
+- `S`: _Selected_（選抜）
+- `U`: _Under_（アンダー）
 
 **Position Counter** では、上記のそれぞれの立ち位置にいた回数かがカウントされて表示されている。
 
-- *注：* 実際では、**「センター」** は **「福神」** と **「選抜」** 両方にカウントすべきで、**「福神」** は **「選抜」** にカウントすべきだが、ここでは表記の都合上、 **「福神」** を **「センター」** の回数を除き、**「選抜」** を **「福神」** の回数を除いた結果を表示している。つまり、厳密な **「福神」** の回数は表記の `C` + `F` の結果であり（ここでは、`4 + 7 = 11`）、**「選抜」** の回数は `C` + `F` + `S` である（ここでは、`4 + 7 + 5 = 16`）。
+- _注：_ 実際では、**「センター」** は **「福神」** と **「選抜」** 両方にカウントすべきで、**「福神」** は **「選抜」** にカウントすべきだが、ここでは表記の都合上、 **「福神」** を **「センター」** の回数を除き、**「選抜」** を **「福神」** の回数を除いた結果を表示している。つまり、厳密な **「福神」** の回数は表記の `C` + `F` の結果であり（ここでは、`4 + 7 = 11`）、**「選抜」** の回数は `C` + `F` + `S` である（ここでは、`4 + 7 + 5 = 16`）。
 
 **Gallery** では、メンバーの今までのプロフィール写真が表示される。
 
@@ -141,9 +141,8 @@ npm start
 - `styles/`
   - Sass の変数やテンプレート
 
-
 ## Data
 
 このアプリで使われているデータが全て [Nogizaka-lib Data](https://github.com/shawnrivers/nogizaka-data) のリポジトリーにホスティングされている。
 
-Profile images and CD artworks © 乃木坂LLC.
+Profile images and CD artworks © 乃木坂 LLC.

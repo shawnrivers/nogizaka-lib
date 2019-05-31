@@ -4,7 +4,7 @@ This is a React web application aiming at showing the information about [Nogizak
 
 App link: https://shawnrivers.github.io/nogizaka-lib/
 
-README: [English](https://github.com/shawnrivers/nogizaka-lib/blob/master/README.md), [日本語](https://github.com/shawnrivers/nogizaka-lib/blob/master/README.jp.md)
+README: [English](https://github.com/shawnrivers/nogizaka-lib/blob/master/README.md), [日本語](https://github.com/shawnrivers/nogizaka-lib/blob/master/README.ja.md)
 
 ## Set Up Dev Environment
 
@@ -86,18 +86,18 @@ The gradient background behind the profile image is generated based on her glow 
 
 Member's profile (e.g. name, sites / social networks, birthday, birthplace, etc.) is showed below the profile image.
 
-**写真集/Photo Books** part lists photo albums /photo books information. 
+**写真集/Photo Books** part lists photo albums /photo books information.
 
 **Position History** shows the records of members positions in each single.
 
-- `C`: *Center* (センター)
-- `F`: *Fukujin* (福神)
-- `S`: *Selected* (選抜)
-- `U`: *Under* (アンダー)
+- `C`: _Center_ (センター)
+- `F`: _Fukujin_ (福神)
+- `S`: _Selected_ (選抜)
+- `U`: _Under_ (アンダー)
 
 **Position Counter** shows how many times she has been in each position.
 
-- *NOTE:* Technically, *"Center"* should be counted as both *"Fukujin"* and *"Selected"*, *"Fukujin"* should be counted as *"Selected"*. Therefore the actual *"Fukujin"* times should be `C` + `F` (in this case, `4 + 7 = 11`), the actual *"Selected"* times should be `C` + `F` + `S` (in this case, `4 + 7 + 5 = 16`).
+- _NOTE:_ Technically, _"Center"_ should be counted as both _"Fukujin"_ and _"Selected"_, _"Fukujin"_ should be counted as _"Selected"_. Therefore the actual _"Fukujin"_ times should be `C` + `F` (in this case, `4 + 7 = 11`), the actual _"Selected"_ times should be `C` + `F` + `S` (in this case, `4 + 7 + 5 = 16`).
 
 **Gallery** shows the member's profile images from her first single to the latest one.
 
@@ -138,9 +138,8 @@ Main source code.
 - `styles/`
   - Sass variables and templates
 
-
 ## Data
 
 Data in this application is hosted in [Nogizaka-lib Data](https://github.com/shawnrivers/nogizaka-data) repository.
 
-Profile images and CD artworks © 乃木坂LLC.
+Profile images and CD artworks © 乃木坂 LLC.
