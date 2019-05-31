@@ -2,7 +2,11 @@
 
 This is a React web application aiming at showing the information about [Nogizaka46](http://www.nogizaka46.com/) in a user-friendly way.
 
-## Installation
+App link: https://shawnrivers.github.io/nogizaka-lib/
+
+README: [English](https://github.com/shawnrivers/nogizaka-lib/blob/master/README.md), [日本語](https://github.com/shawnrivers/nogizaka-lib/blob/master/README.jp.md)
+
+## Set Up Dev Environment
 
 Install necessary packages:
 
@@ -42,7 +46,7 @@ npm start
 
 <img src="https://user-images.githubusercontent.com/23146992/58144007-c2ac1f00-7c87-11e9-8bf4-0128d45763d0.png" alt="Cd List Page 1" width="400" /> <img src="https://user-images.githubusercontent.com/23146992/58145604-af03b700-7c8d-11e9-970c-513c322df2bb.png" alt="Cd List Page 2" width="400" />
 
-**CD List Page** shows released a grid of CD cards (singles and albums). By tapping on any CD card, it will navigate to the corresponding **CD page**.
+**CD List Page** shows released a grid of CD cards (singles and albums). By tapping/clicking on any CD card, it will navigate to the corresponding **CD page**.
 
 ### CD Page
 
@@ -52,7 +56,7 @@ npm start
 
 The artwork part on the top is swipeable so that you can see artworks in different types of this CD.
 
-A list of cards of songs included in this CD will also be displayed here. By tapping on any card, it will lead you to the **Song Page**.
+A list of cards of songs included in this CD will also be displayed here. By tapping/clicking on any card, it will lead you to the **Song Page**.
 
 ### Song Page
 
@@ -64,13 +68,13 @@ The artwork part on the top shows the artwork of the song's CD.
 
 Below the artwork is the type and the CDs of this song, along with the information about creators like songwriters and MV directors.
 
-A list of cards of members who perform this song will also be displayed here. By tapping on any card, it will lead you to the corresponding **Member Page**.
+A list of cards of members who perform this song will also be displayed here. By tapping/clicking on any card, it will lead you to the corresponding **Member Page**.
 
 ### Member List Page
 
 <img src="https://user-images.githubusercontent.com/23146992/58145371-c8583380-7c8c-11e9-9606-306d065122e0.png" alt="Member List Page 1" width="400" /> <img src="https://user-images.githubusercontent.com/23146992/58145372-cb532400-7c8c-11e9-89dc-f8556e042489.png" alt="Member List Page 2" width="400" />
 
-**Member List Page** shows a grid of member cards (1st. gen to 4th. gen, graduated). By tapping on any member card, it will navigate to the corresponding **Member page**.
+**Member List Page** shows a grid of member cards (1st. gen to 4th. gen, graduated). By tapping/clicking on any member card, it will navigate to the corresponding **Member page**.
 
 ### Member Page
 
@@ -107,9 +111,8 @@ Main source code.
 
 - `apis/`
   - API clients
+  - API response type defination
   - Transform API responses to the data type the client needs
-- `assets/`
-  - Data like icons
 - `components/`
   - `atoms/`
     - > smallest components unit, usually basic HTML elements
@@ -125,13 +128,13 @@ Main source code.
 - `containers/`
   - > specific instances of templates that show what a UI looks like with real representative content in place
   - each actual page with data processing and side effects
-  - `reducers.ts` and `actions.ts` for each actual page also goes here
+  - `reducers.ts`, `actions.ts` and `selectors.ts` for each actual page also goes here
 - `stores/`
   - Initial settings for store
 - `utils/`
   - Functions which are used commonly across the app
 - `models/`
-  - Data types of JSON data from the API
+  - Global state type defination
 - `styles/`
   - Sass variables and templates
 
