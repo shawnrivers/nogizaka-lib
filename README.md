@@ -1,10 +1,10 @@
 # [Nogizaka Lib](https://shawnrivers.github.io/nogizaka-lib/)
 
+README: [English](https://github.com/shawnrivers/nogizaka-lib/blob/master/README.md), [日本語](https://github.com/shawnrivers/nogizaka-lib/blob/master/README.ja.md)
+
 This is a React web application aiming at showing the information about [Nogizaka46](http://www.nogizaka46.com/) in a user-friendly way.
 
 App link: https://shawnrivers.github.io/nogizaka-lib/
-
-README: [English](https://github.com/shawnrivers/nogizaka-lib/blob/master/README.md), [日本語](https://github.com/shawnrivers/nogizaka-lib/blob/master/README.ja.md)
 
 ## Set Up Dev Environment
 
