@@ -1,6 +1,6 @@
 # [Nogizaka Lib](https://shawnrivers.github.io/nogizaka-lib/)
 
-**[Nogizaka Lib](https://shawnrivers.github.io/nogizaka-lib/)** は[乃木坂 46](http://www.nogizaka46.com/)の情報をわかりやすく提示する React ベースのウェブアプリである。
+**[Nogizaka Lib](https://shawnrivers.github.io/nogizaka-lib/)** は[乃木坂46](http://www.nogizaka46.com/)の情報をわかりやすく提示する React ベースのウェブアプリである。
 
 本アプリのリンク: https://shawnrivers.github.io/nogizaka-lib/
 
