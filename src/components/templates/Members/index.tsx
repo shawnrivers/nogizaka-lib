@@ -41,15 +41,15 @@ const membersTabMenuItems: TabMenuItem[] = [
 ];
 
 export const Members = (props: IMembersProps) => {
-  const { membersByType } = props;
+  const { membersByType, currentLocation } = props;
 
   return (
     <>
       <NavigationBar currentTab="members" />
       <main className={styles.container}>
         <TriangleBackground pattern="2" position="top" />
-        <TabMenu items={membersTabMenuItems} selectedItem={props.currentLocation} />
-        <MemberCardList members={membersByType} currentPage={props.currentLocation} />
+        <TabMenu items={membersTabMenuItems} selectedItem={currentLocation} />
+        <MemberCardList members={membersByType} currentPage={currentLocation} />
       </main>
     </>
   );
