@@ -9,28 +9,12 @@ import { SongCard } from '../../molecules/SongCard';
 import { useScrollRestoration } from '../../../utils/hooks';
 import styles from './Cd.module.scss';
 
-export type ICdVariableProps = {
+export interface ICdProps {
   cd: ISingle | IAlbum;
-  fetchStatus: FetchStatus;
-};
-
-export type ICdFunctionProps = {
-  getCds(): void;
-};
-
-export interface ICdProps extends ICdVariableProps, ICdFunctionProps {}
+}
 
 export const Cd = (props: ICdProps) => {
-  React.useEffect(() => {
-    if (props.fetchStatus !== FetchStatus.Fulfilled) {
-      props.getCds();
-    }
-  }, []);
-
-  const largeArtworks =
-    props.fetchStatus === FetchStatus.Fulfilled
-      ? [...Object.values(props.cd.artworks).map(artwork => artwork.large)]
-      : [];
+  const largeArtworks = props.cd ? [...Object.values(props.cd.artworks).map(artwork => artwork.large)] : [];
 
   useScrollRestoration();
 

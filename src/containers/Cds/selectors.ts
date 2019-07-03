@@ -4,6 +4,9 @@ import { IAlbums, IAlbum } from '../../models/IAlbum';
 import { FetchStatus } from '../../utils/constants';
 import { arrayToObject } from '../../utils/arrays';
 
+export const selectSinglesFetchStatus = (state: IRootState): FetchStatus => state.cds.singles.fetchStatus;
+export const selectAlbumsFetchStatus = (state: IRootState): FetchStatus => state.cds.albums.fetchStatus;
+
 export const selectSingles = (state: IRootState): ISingles => state.cds.singles.data;
 export const selectAlbums = (state: IRootState): IAlbums => state.cds.albums.data;
 
@@ -14,9 +17,6 @@ export const selectSinglesInNumberKeys = (state: IRootState): { [number: string]
   arrayToObject(selectSingleArray(state), 'number');
 export const selectAlbumsInNumberKeys = (state: IRootState): { [number: string]: IAlbum } =>
   arrayToObject(selectAlbumArray(state), 'number');
-
-export const selectSinglesFetchStatus = (state: IRootState): FetchStatus => state.cds.singles.fetchStatus;
-export const selectAlbumsFetchStatus = (state: IRootState): FetchStatus => state.cds.albums.fetchStatus;
 
 export const selectSingleByTitle = (state: IRootState, title: string): ISingle => selectSingles(state)[title];
 export const selectAlbumByTitle = (state: IRootState, title: string): IAlbum => selectAlbums(state)[title];

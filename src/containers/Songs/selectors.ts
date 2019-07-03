@@ -2,13 +2,11 @@ import { IRootState } from '../../stores/state';
 import { ISongs, ISong, IMemberCard, ISongDisplay, IFormationsDisplay } from '../../models/ISong';
 import { FetchStatus, SongType, PositionType, FukujinType } from '../../utils/constants';
 import { convertInCd, convertSongType } from '../../utils/strings';
-import { selectMemberByName } from '../Members/selectors';
+import { IMembers } from '../../models/IMember';
 
-const selectSongs = (state: IRootState): ISongs => state.songs.data;
+export const selectSongs = (state: IRootState): ISongs => state.songs.data;
 
 export const selectSongsFetchStatus = (state: IRootState): FetchStatus => state.songs.fetchStatus;
-
-export const selectSongByKey = (state: IRootState, key: string): ISong => selectSongs(state)[key];
 
 const calculatePositionTag = (song: ISong, memberName: string): PositionType => {
   if (song.performers.center.includes(memberName)) {
@@ -33,7 +31,7 @@ const calculatePositionTag = (song: ISong, memberName: string): PositionType => 
   return PositionType.None;
 };
 
-const convertFormationsForDisplay = (song: ISong, state: IRootState): IFormationsDisplay => {
+const convertFormationsForDisplay = (song: ISong, members: IMembers): IFormationsDisplay => {
   const formationArray = [
     song.formations.firstRow,
     song.formations.secondRow,
@@ -48,7 +46,7 @@ const convertFormationsForDisplay = (song: ISong, state: IRootState): IFormation
     const formation = formationArray[i];
 
     for (const name of formation) {
-      const member = selectMemberByName(state, name);
+      const member = members[name];
       const convertedFormation =
         name !== 'kojimaharuna'
           ? member !== undefined
@@ -107,9 +105,7 @@ const convertPerformersTagForDisplay = (performersTag: { name: string; singleNum
   }
 };
 
-export const SelectSongByKeyForDisplay = (state: IRootState, key: string): ISongDisplay | undefined => {
-  const song = selectSongByKey(state, key);
-
+export const convertSongForDisplay = (song: ISong, members: IMembers): ISongDisplay | undefined => {
   if (song !== undefined) {
     return {
       title: song.title,
@@ -123,7 +119,7 @@ export const SelectSongByKeyForDisplay = (state: IRootState, key: string): ISong
       musicVideo: song.musicVideo,
       type: convertSongType(song.type),
       creators: song.creators,
-      formations: convertFormationsForDisplay(song, state),
+      formations: convertFormationsForDisplay(song, members),
       performersTag: convertPerformersTagForDisplay(song.performersTag),
     };
   }

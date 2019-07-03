@@ -189,10 +189,8 @@ const convertGlowStickColors = (colors: {
 
 const convertBloodType = (bloodType: BloodType): string => (bloodType === BloodType.Unknown ? '不明' : bloodType);
 
-export const selectMemberByNameForDisplay = (state: IRootState, name: string): IMemberDisplay | undefined => {
-  const member = selectMembers(state)[name];
-
-  if (member !== undefined) {
+export const convertMemberForDisplay = (member: IMember): IMemberDisplay | undefined => {
+  if (member) {
     const { units, corps } = convertUnitsForDisplay(member.units);
 
     return {
@@ -216,4 +214,10 @@ export const selectMemberByNameForDisplay = (state: IRootState, name: string): I
   }
 
   return undefined;
+};
+
+export const selectMemberByNameForDisplay = (state: IRootState, name: string): IMemberDisplay | undefined => {
+  const member = selectMembers(state)[name];
+
+  return convertMemberForDisplay(member);
 };

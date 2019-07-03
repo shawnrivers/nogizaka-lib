@@ -28,24 +28,11 @@ const GlowStickColorBackground = (props: {
   );
 };
 
-export type IMemberVariableProps = {
+interface IMemberProps {
   member: IMemberDisplay | undefined;
-  fetchStatus: FetchStatus;
-};
-
-export type IMemberFunctionProps = {
-  getMembers(): void;
-};
-
-interface IMemberProps extends IMemberVariableProps, IMemberFunctionProps {}
+}
 
 export const Member = (props: IMemberProps) => {
-  React.useEffect(() => {
-    if (props.fetchStatus !== FetchStatus.Fulfilled) {
-      props.getMembers();
-    }
-  }, []);
-
   useScrollRestoration();
 
   return props.member !== undefined ? (

@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { ISongDisplay } from '../../../models/ISong';
-import { FetchStatus } from '../../../utils/constants';
 import { useScrollRestoration } from '../../../utils/hooks';
 import { TitleBar } from '../../molecules/TitleBar';
 import { ArtworkCarousel } from '../../molecules/ArtworkCarousel';
@@ -9,29 +8,11 @@ import { Divider } from '../../atoms/Divider';
 import { MemberCard } from '../../molecules/MemberCard';
 import styles from './Song.module.scss';
 
-export type ISongVariableProps = {
+interface ISongProps {
   song: ISongDisplay | undefined;
-  songsFetchStatus: FetchStatus;
-  membersFetchStatus: FetchStatus;
-};
-
-export type ISongFunctionProps = {
-  getSongs(): void;
-  getMembers(): void;
-};
-
-interface ISongProps extends ISongVariableProps, ISongFunctionProps {}
+}
 
 export const Song = (props: ISongProps) => {
-  React.useEffect(() => {
-    if (props.songsFetchStatus !== FetchStatus.Fulfilled) {
-      props.getSongs();
-    }
-    if (props.membersFetchStatus !== FetchStatus.Fulfilled) {
-      props.getMembers();
-    }
-  }, []);
-
   useScrollRestoration();
 
   return props.song !== undefined ? (

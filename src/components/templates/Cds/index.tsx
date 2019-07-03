@@ -8,24 +8,11 @@ import { CdsCurrentPage, FetchStatus } from '../../../utils/constants';
 import { NavigationBar } from '../../molecules/NavigationBar';
 import styles from './Cds.module.scss';
 
-export type ICdsVariableProps = {
+interface ICdsProps {
   currentLocation: CdsCurrentPage;
-  singles: {
-    data: ISingle[];
-    fetchStatus: FetchStatus;
-  };
-  albums: {
-    data: IAlbum[];
-    fetchStatus: FetchStatus;
-  };
-};
-
-export type ICdsFunctionProps = {
-  getSingles(): void;
-  getAlbums(): void;
-};
-
-interface ICdsProps extends ICdsVariableProps, ICdsFunctionProps {}
+  singles: ISingle[];
+  albums: IAlbum[];
+}
 
 const cdsTabMenuItems: TabMenuItem[] = [
   {
@@ -40,24 +27,13 @@ const cdsTabMenuItems: TabMenuItem[] = [
   },
 ];
 
-export const Cds = (props: ICdsProps) => {
-  React.useEffect(() => {
-    if (props.singles.fetchStatus !== FetchStatus.Fulfilled) {
-      props.getSingles();
-    }
-    if (props.albums.fetchStatus !== FetchStatus.Fulfilled) {
-      props.getAlbums();
-    }
-  }, []);
-
-  return (
-    <>
-      <NavigationBar currentTab="cds" />
-      <main className={styles.container}>
-        <TriangleBackground pattern="1" position="top" />
-        <TabMenu items={cdsTabMenuItems} selectedItem={props.currentLocation} />
-        <CdCardList singles={props.singles.data} albums={props.albums.data} currentPage={props.currentLocation} />
-      </main>
-    </>
-  );
-};
+export const Cds = (props: ICdsProps) => (
+  <>
+    <NavigationBar currentTab="cds" />
+    <main className={styles.container}>
+      <TriangleBackground pattern="1" position="top" />
+      <TabMenu items={cdsTabMenuItems} selectedItem={props.currentLocation} />
+      <CdCardList singles={props.singles} albums={props.albums} currentPage={props.currentLocation} />
+    </main>
+  </>
+);

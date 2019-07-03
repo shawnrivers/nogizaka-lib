@@ -6,19 +6,11 @@ import { MembersCurrentPage, MemberGenerationType, FetchStatus } from '../../../
 import { MemberCardList, MembersByType } from '../../organisms/MemberCardList';
 import { IMembers } from '../../../models/IMember';
 import styles from './Members.module.scss';
-
-export type IMembersVariableProps = {
+interface IMembersProps {
   currentLocation: MembersCurrentPage;
   members: IMembers;
-  fetchStatus: FetchStatus;
   membersByType: MembersByType;
-};
-
-export type IMembersFunctionProps = {
-  getMembers(): void;
-};
-
-interface IMembersProps extends IMembersVariableProps, IMembersFunctionProps {}
+}
 
 const membersTabMenuItems: TabMenuItem[] = [
   {
@@ -49,13 +41,7 @@ const membersTabMenuItems: TabMenuItem[] = [
 ];
 
 export const Members = (props: IMembersProps) => {
-  const { fetchStatus, membersByType } = props;
-
-  React.useEffect(() => {
-    if (fetchStatus === FetchStatus.None || fetchStatus === FetchStatus.Rejected) {
-      props.getMembers();
-    }
-  }, []);
+  const { membersByType } = props;
 
   return (
     <>
