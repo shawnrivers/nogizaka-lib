@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { ISongDisplay } from '../../../models/ISong';
-import { useScrollRestoration } from '../../../utils/hooks';
-import { TitleBar } from '../../molecules/TitleBar';
-import { ArtworkCarousel } from '../../molecules/ArtworkCarousel';
-import { DetailsCard } from '../../molecules/DetailsCard';
-import { Divider } from '../../atoms/Divider';
-import { MemberCard } from '../../molecules/MemberCard';
+import { ISongDisplay } from 'models/ISong';
+import { useScrollRestoration } from 'utils/hooks';
+import { TitleBar } from 'components/molecules/TitleBar';
+import { ArtworkCarousel } from 'components/molecules/ArtworkCarousel';
+import { DetailsCard } from 'components/molecules/DetailsCard';
+import { Divider } from 'components/atoms/Divider';
+import { MemberCard } from 'components/molecules/MemberCard';
 import styles from './Song.module.scss';
 
 interface ISongProps {

@@ -1,4 +1,4 @@
-import { JoinedGeneration, BloodType, PhotoAlbumType, UnitType, PositionType } from '../utils/constants';
+import { JoinedGeneration, BloodType, PhotoAlbumType, UnitType, PositionType } from 'utils/constants';
 import { ISite } from './ISite';
 
 export type ProfileImage = {

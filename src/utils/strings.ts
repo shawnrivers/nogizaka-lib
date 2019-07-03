@@ -1,5 +1,5 @@
 import { SongType, FocusPerformersType, JoinedGeneration } from './constants';
-import { IFocusPerformers } from '../models/ICd';
+import { IFocusPerformers } from 'models/ICd';
 
 export const toOrdinalNumber = (num: number) => {
   const remainderByTen = num % 10;

@@ -1,9 +1,9 @@
-import { ISingles } from '../../models/ISingle';
-import { IAlbums } from '../../models/IAlbum';
+import { ISingles } from 'models/ISingle';
+import { IAlbums } from 'models/IAlbum';
 import { Dispatch } from 'redux';
-import { fetchSingles } from '../../apis/SinglesAPI';
-import { fetchAlbums } from '../../apis/AlbumsAPI';
-import { sortByDate, arrayToObject } from '../../utils/arrays';
+import { fetchSingles } from 'apis/SinglesAPI';
+import { fetchAlbums } from 'apis/AlbumsAPI';
+import { sortByDate, arrayToObject } from 'utils/arrays';
 
 export enum CdsActionTypes {
   FETCH_SINGLES_PENDING = '@nogizaka-lib/cds/FETCH_SINGLES_PENDING',

@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { ISingle } from '../../../models/ISingle';
-import { IAlbum } from '../../../models/IAlbum';
-import { CdCardList } from '../../organisms/CdCardList';
-import { TriangleBackground } from '../../atoms/Background/TriangleBackground';
-import { TabMenu, TabMenuItem } from '../../molecules/TabMenu';
-import { CdsCurrentPage, FetchStatus } from '../../../utils/constants';
-import { NavigationBar } from '../../molecules/NavigationBar';
+import { ISingle } from 'models/ISingle';
+import { IAlbum } from 'models/IAlbum';
+import { CdCardList } from 'components/organisms/CdCardList';
+import { TriangleBackground } from 'components/atoms/Background/TriangleBackground';
+import { TabMenu, TabMenuItem } from 'components/molecules/TabMenu';
+import { CdsCurrentPage, FetchStatus } from 'utils/constants';
+import { NavigationBar } from 'components/molecules/NavigationBar';
 import styles from './Cds.module.scss';
 
 interface ICdsProps {

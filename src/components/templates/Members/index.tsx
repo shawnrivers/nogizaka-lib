@@ -1,10 +1,10 @@
 import * as React from 'react';
-import { NavigationBar } from '../../molecules/NavigationBar';
-import { TriangleBackground } from '../../atoms/Background/TriangleBackground';
-import { TabMenu, TabMenuItem } from '../../molecules/TabMenu';
-import { MembersCurrentPage, MemberGenerationType, FetchStatus } from '../../../utils/constants';
-import { MemberCardList, MembersByType } from '../../organisms/MemberCardList';
-import { IMembers } from '../../../models/IMember';
+import { NavigationBar } from 'components/molecules/NavigationBar';
+import { TriangleBackground } from 'components/atoms/Background/TriangleBackground';
+import { TabMenu, TabMenuItem } from 'components/molecules/TabMenu';
+import { MembersCurrentPage, MemberGenerationType, FetchStatus } from 'utils/constants';
+import { MemberCardList, MembersByType } from 'components/organisms/MemberCardList';
+import { IMembers } from 'models/IMember';
 import styles from './Members.module.scss';
 interface IMembersProps {
   currentLocation: MembersCurrentPage;

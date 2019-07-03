@@ -1,12 +1,12 @@
 import React from 'react';
 import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { store } from './stores/appStore';
-import { CdsContainer } from './containers/Cds/CdsContainer';
-import { CdContainer } from './containers/Cds/CdContainer';
-import { MembersContainer } from './containers/Members/MembersContainer';
-import { MemberContainer } from './containers/Members/MemberContainer';
-import { SongContainer } from './containers/Songs/SongContainer';
+import { store } from 'stores/appStore';
+import { CdsContainer } from 'containers/Cds/CdsContainer';
+import { CdContainer } from 'containers/Cds/CdContainer';
+import { MembersContainer } from 'containers/Members/MembersContainer';
+import { MemberContainer } from 'containers/Members/MemberContainer';
+import { SongContainer } from 'containers/Songs/SongContainer';
 import './App.scss';
 
 const App = () => {

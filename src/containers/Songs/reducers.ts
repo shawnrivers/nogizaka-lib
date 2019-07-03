@@ -1,5 +1,5 @@
-import { ISongs } from '../../models/ISong';
-import { FetchStatus } from '../../utils/constants';
+import { ISongs } from 'models/ISong';
+import { FetchStatus } from 'utils/constants';
 import { SongsActions, SongsActionTypes } from './actions';
 
 export type ISongsState = {

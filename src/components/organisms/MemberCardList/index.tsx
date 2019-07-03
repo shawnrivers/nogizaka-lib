@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { IMember } from '../../../models/IMember';
-import { MembersCurrentPage } from '../../../utils/constants';
-import { MemberCard } from '../../molecules/MemberCard';
+import { IMember } from 'models/IMember';
+import { MembersCurrentPage } from 'utils/constants';
+import { MemberCard } from 'components/molecules/MemberCard';
 import { CSSTransition } from 'react-transition-group';
 import styles from './MemberCardList.module.scss';
 

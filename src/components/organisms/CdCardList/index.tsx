@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { CSSTransition } from 'react-transition-group';
-import { ISingle } from '../../../models/ISingle';
-import { IAlbum } from '../../../models/IAlbum';
-import { CdCard } from '../../molecules/CdCard';
-import { CdsCurrentPage } from '../../../utils/constants';
+import { ISingle } from 'models/ISingle';
+import { IAlbum } from 'models/IAlbum';
+import { CdCard } from 'components/molecules/CdCard';
+import { CdsCurrentPage } from 'utils/constants';
 import styles from './CdCardList.module.scss';
 
 interface ICdCardProps {

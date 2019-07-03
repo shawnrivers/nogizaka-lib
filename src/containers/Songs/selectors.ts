@@ -1,8 +1,8 @@
-import { IRootState } from '../../stores/state';
-import { ISongs, ISong, IMemberCard, ISongDisplay, IFormationsDisplay } from '../../models/ISong';
-import { FetchStatus, SongType, PositionType, FukujinType } from '../../utils/constants';
-import { convertInCd, convertSongType } from '../../utils/strings';
-import { IMembers } from '../../models/IMember';
+import { IRootState } from 'stores/state';
+import { ISongs, ISong, IMemberCard, ISongDisplay, IFormationsDisplay } from 'models/ISong';
+import { FetchStatus, SongType, PositionType, FukujinType } from 'utils/constants';
+import { convertInCd, convertSongType } from 'utils/strings';
+import { IMembers } from 'models/IMember';
 
 export const selectSongs = (state: IRootState): ISongs => state.songs.data;
 

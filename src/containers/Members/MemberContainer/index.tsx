@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { RouteComponentProps } from 'react-router';
-import { IRootState } from '../../../stores/state';
+import { IRootState } from 'stores/state';
 import * as MembersSelectors from '../selectors';
 import { getMembers } from '../actions';
-import { Member } from '../../../components/templates/Member';
+import { Member } from 'components/templates/Member';
 import { FetchStatus } from 'utils/constants';
 
 type MatchParams = {

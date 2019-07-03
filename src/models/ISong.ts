@@ -1,4 +1,4 @@
-import { SongType, FukujinType, PositionType } from '../utils/constants';
+import { SongType, FukujinType, PositionType } from 'utils/constants';
 import { ProfileImage } from './IMember';
 
 export type IFormations = {

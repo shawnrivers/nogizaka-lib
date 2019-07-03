@@ -1,7 +1,7 @@
 import * as React from 'react';
 import LazyLoad from 'react-lazyload';
 import styles from './ArtworkCarousel.module.scss';
-import { ImagePlaceholder } from '../../atoms/ImagePlaceholder';
+import { ImagePlaceholder } from 'components/atoms/ImagePlaceholder';
 
 interface IArtworkCarouselProps {
   artwork: string;

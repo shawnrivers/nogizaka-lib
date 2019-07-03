@@ -1,7 +1,7 @@
-import { ISongs } from '../../models/ISong';
+import { ISongs } from 'models/ISong';
 import { Dispatch } from 'redux';
-import { fetchSongs } from '../../apis/SongsAPI';
-import { arrayToObject } from '../../utils/arrays';
+import { fetchSongs } from 'apis/SongsAPI';
+import { arrayToObject } from 'utils/arrays';
 
 export enum SongsActionTypes {
   FETCH_SONGS_PENDING = '@nogizaka-lib/songs/FETCH_SONGS_PENDING',

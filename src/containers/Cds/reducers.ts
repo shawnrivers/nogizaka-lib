@@ -1,7 +1,7 @@
 import { CdsActions, CdsActionTypes } from './actions';
-import { FetchStatus } from '../../utils/constants';
-import { ISingles } from '../../models/ISingle';
-import { IAlbums } from '../../models/IAlbum';
+import { FetchStatus } from 'utils/constants';
+import { ISingles } from 'models/ISingle';
+import { IAlbums } from 'models/IAlbum';
 
 export type ICdsState = {
   singles: {

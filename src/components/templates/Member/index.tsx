@@ -1,15 +1,15 @@
 import * as React from 'react';
 import LazyLoad from 'react-lazyload';
-import { IMemberDisplay } from '../../../models/IMember';
-import { FetchStatus, PositionType, GlowStickColorType, GlowStickColors } from '../../../utils/constants';
-import { TitleBar } from '../../molecules/TitleBar';
-import { DetailsCard } from '../../molecules/DetailsCard';
-import { Divider } from '../../atoms/Divider';
-import { toOrdinalNumber } from '../../../utils/strings';
-import { PositionBadge } from '../../atoms/PositionBadge';
-import { PositionCounterBar } from '../../atoms/PositionCounterBar';
-import { ImagePlaceholder } from '../../atoms/ImagePlaceholder';
-import { useScrollRestoration } from '../../../utils/hooks';
+import { IMemberDisplay } from 'models/IMember';
+import { FetchStatus, PositionType, GlowStickColorType, GlowStickColors } from 'utils/constants';
+import { TitleBar } from 'components/molecules/TitleBar';
+import { DetailsCard } from 'components/molecules/DetailsCard';
+import { Divider } from 'components/atoms/Divider';
+import { toOrdinalNumber } from 'utils/strings';
+import { PositionBadge } from 'components/atoms/PositionBadge';
+import { PositionCounterBar } from 'components/atoms/PositionCounterBar';
+import { ImagePlaceholder } from 'components/atoms/ImagePlaceholder';
+import { useScrollRestoration } from 'utils/hooks';
 import styles from './Member.module.scss';
 
 const GlowStickColorBackground = (props: {

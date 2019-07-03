@@ -1,10 +1,10 @@
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
 import fetchMock from 'fetch-mock';
-import { FetchStatus, JoinedGeneration, BloodType, PositionType } from '../../utils/constants';
-import { MemberResponse } from '../../apis/responseTypes';
+import { FetchStatus, JoinedGeneration, BloodType, PositionType } from 'utils/constants';
+import { MemberResponse } from 'apis/responseTypes';
 import { getMembers, MembersActionTypes } from './actions';
-import { IMember } from '../../models/IMember';
+import { IMember } from 'models/IMember';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);

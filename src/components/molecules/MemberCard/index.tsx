@@ -1,10 +1,10 @@
 import * as React from 'react';
 import styles from './MemberCard.module.scss';
 import LazyLoad from 'react-lazyload';
-import { ImagePlaceholder } from '../../atoms/ImagePlaceholder';
-import { ProfileImage } from '../../../models/IMember';
+import { ImagePlaceholder } from 'components/atoms/ImagePlaceholder';
+import { ProfileImage } from 'models/IMember';
 import { Link } from 'react-router-dom';
-import { PositionType } from '../../../utils/constants';
+import { PositionType } from 'utils/constants';
 
 const SMALL_PROFILE_IMAGE_WIDTH = 150;
 const LARGE_PROFILE_IMAGE_WIDTH = 250;

@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Cds } from '../../../components/templates/Cds';
+import { Cds } from 'components/templates/Cds';
 import { getSingles, getAlbums } from '../actions';
 import * as CdsSelectors from '../selectors';
 import { RouteComponentProps } from 'react-router';
-import { CdsCurrentPage, FetchStatus } from '../../../utils/constants';
+import { CdsCurrentPage, FetchStatus } from 'utils/constants';
 import { IRootState } from 'stores/state';
 
 type MatchParams = {

@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { CSSTransition } from 'react-transition-group';
 import styles from './TabMenu.module.scss';
-import { TabButton } from '../../atoms/Buttons/TabButton';
-import { MenuDownIcon } from '../../atoms/Icons/MenuDownIcon';
-import { MenuUpIcon } from '../../atoms/Icons/MenuUpIcon';
-import { useOnClickOutside } from '../../../utils/hooks';
-import { MembersCurrentPage, CdsCurrentPage } from '../../../utils/constants';
+import { TabButton } from 'components/atoms/Buttons/TabButton';
+import { MenuDownIcon } from 'components/atoms/Icons/MenuDownIcon';
+import { MenuUpIcon } from 'components/atoms/Icons/MenuUpIcon';
+import { useOnClickOutside } from 'utils/hooks';
+import { MembersCurrentPage, CdsCurrentPage } from 'utils/constants';
 
 export type TabMenuItem = {
   link: string;

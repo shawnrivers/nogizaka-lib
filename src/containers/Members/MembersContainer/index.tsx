@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Members } from '../../../components/templates/Members';
-import { IRootState } from '../../../stores/state';
+import { Members } from 'components/templates/Members';
+import { IRootState } from 'stores/state';
 import { getMembers } from '../actions';
 import * as MembersSelectors from '../selectors';
 import { RouteComponentProps } from 'react-router';
-import { MembersCurrentPage, FetchStatus } from '../../../utils/constants';
+import { MembersCurrentPage, FetchStatus } from 'utils/constants';
 
 type OwnProps = RouteComponentProps<{
   generation: MembersCurrentPage;

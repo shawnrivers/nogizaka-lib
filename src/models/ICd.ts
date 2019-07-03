@@ -1,5 +1,5 @@
 import { ISite } from './ISite';
-import { CdType, SongType, FocusPerformersType } from '../utils/constants';
+import { CdType, SongType, FocusPerformersType } from 'utils/constants';
 
 export type IFocusPerformers = {
   type: FocusPerformersType;

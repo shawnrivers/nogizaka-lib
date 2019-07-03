@@ -1,8 +1,8 @@
-import { IRootState } from '../../stores/state';
-import { ISingles, ISingle } from '../../models/ISingle';
-import { IAlbums, IAlbum } from '../../models/IAlbum';
-import { FetchStatus } from '../../utils/constants';
-import { arrayToObject } from '../../utils/arrays';
+import { IRootState } from 'stores/state';
+import { ISingles, ISingle } from 'models/ISingle';
+import { IAlbums, IAlbum } from 'models/IAlbum';
+import { FetchStatus } from 'utils/constants';
+import { arrayToObject } from 'utils/arrays';
 
 export const selectSinglesFetchStatus = (state: IRootState): FetchStatus => state.cds.singles.fetchStatus;
 export const selectAlbumsFetchStatus = (state: IRootState): FetchStatus => state.cds.albums.fetchStatus;

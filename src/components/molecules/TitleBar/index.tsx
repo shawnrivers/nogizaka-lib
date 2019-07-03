@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styles from './TitleBar.module.scss';
-import { BackIcon } from '../../atoms/Icons/BackIcon';
+import { BackIcon } from 'components/atoms/Icons/BackIcon';
 
 interface ITitleBarProps {
   title: string;

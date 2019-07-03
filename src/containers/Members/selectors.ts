@@ -1,5 +1,5 @@
-import { IRootState } from '../../stores/state';
-import { IMembers, IMember, IMemberDisplay, ProfileImage } from '../../models/IMember';
+import { IRootState } from 'stores/state';
+import { IMembers, IMember, IMemberDisplay, ProfileImage } from 'models/IMember';
 import {
   FetchStatus,
   JoinedGeneration,
@@ -9,9 +9,9 @@ import {
   GlowStickColorType,
   GlowStickColorsLight,
   BloodType,
-} from '../../utils/constants';
-import { sortByDate } from '../../utils/arrays';
-import { convertJoinForDisplay } from '../../utils/strings';
+} from 'utils/constants';
+import { sortByDate } from 'utils/arrays';
+import { convertJoinForDisplay } from 'utils/strings';
 
 export const selectMembers = (state: IRootState): IMembers => state.members.data;
 

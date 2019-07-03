@@ -1,12 +1,11 @@
 import * as React from 'react';
-import { IAlbum } from '../../../models/IAlbum';
-import { ISingle } from '../../../models/ISingle';
-import { TitleBar } from '../../molecules/TitleBar';
-import { FetchStatus } from '../../../utils/constants';
-import { SwipeableArtworkCarousel } from '../../molecules/SwipeableArtworkCarousel';
-import { DetailsCard } from '../../molecules/DetailsCard';
-import { SongCard } from '../../molecules/SongCard';
-import { useScrollRestoration } from '../../../utils/hooks';
+import { IAlbum } from 'models/IAlbum';
+import { ISingle } from 'models/ISingle';
+import { TitleBar } from 'components/molecules/TitleBar';
+import { SwipeableArtworkCarousel } from 'components/molecules/SwipeableArtworkCarousel';
+import { DetailsCard } from 'components/molecules/DetailsCard';
+import { SongCard } from 'components/molecules/SongCard';
+import { useScrollRestoration } from 'utils/hooks';
 import styles from './Cd.module.scss';
 
 export interface ICdProps {

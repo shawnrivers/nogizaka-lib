@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { Swipeable } from 'react-swipeable';
 import LazyLoad from 'react-lazyload';
-import { CarouselIndicator } from '../../atoms/CarouselIndicator';
-import { ImagePlaceholder } from '../../atoms/ImagePlaceholder';
+import { CarouselIndicator } from 'components/atoms/CarouselIndicator';
+import { ImagePlaceholder } from 'components/atoms/ImagePlaceholder';
 import styles from './SwipeableArtworkCarousel.module.scss';
 
 interface ISwipeableArtworkCarouselProps {

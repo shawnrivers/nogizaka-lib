@@ -1,7 +1,7 @@
-import { IMembers } from '../../models/IMember';
+import { IMembers } from 'models/IMember';
 import { Dispatch } from 'redux';
-import { fetchMembers } from '../../apis/MembersAPI';
-import { arrayToObject } from '../../utils/arrays';
+import { fetchMembers } from 'apis/MembersAPI';
+import { arrayToObject } from 'utils/arrays';
 
 export enum MembersActionTypes {
   FETCH_MEMBERS_PENDING = '@nogizaka-lib/cds/FETCH_MEMBERS_PENDING',

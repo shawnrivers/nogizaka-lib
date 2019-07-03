@@ -1,8 +1,8 @@
 import * as React from 'react';
 import styles from './NavigationBar.module.scss';
-import { CdIcon } from '../../atoms/Icons/CdIcon';
-import { MembersIcon } from '../../atoms/Icons/MembersIcon';
-import { SearchIcon } from '../../atoms/Icons/SearchIcon';
+import { CdIcon } from 'components/atoms/Icons/CdIcon';
+import { MembersIcon } from 'components/atoms/Icons/MembersIcon';
+import { SearchIcon } from 'components/atoms/Icons/SearchIcon';
 import { Link } from 'react-router-dom';
 
 interface INavigationBarProps {

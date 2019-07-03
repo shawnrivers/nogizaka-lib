@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
-import { SongType } from '../../../utils/constants';
-import { IFocusPerformers } from '../../../models/ICd';
-import { convertSongType, getFocusPerformersText } from '../../../utils/strings';
+import { SongType } from 'utils/constants';
+import { IFocusPerformers } from 'models/ICd';
+import { convertSongType, getFocusPerformersText } from 'utils/strings';
 import styles from './SongCard.module.scss';
 import LazyLoad from 'react-lazyload';
-import { ImagePlaceholder } from '../../atoms/ImagePlaceholder';
+import { ImagePlaceholder } from 'components/atoms/ImagePlaceholder';
 
 export interface ISongCardProps {
   artwork: {

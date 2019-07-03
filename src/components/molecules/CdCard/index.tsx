@@ -1,11 +1,11 @@
 import * as React from 'react';
 import styles from './CdCard.module.scss';
-import { ISingle } from '../../../models/ISingle';
-import { IAlbum } from '../../../models/IAlbum';
+import { ISingle } from 'models/ISingle';
+import { IAlbum } from 'models/IAlbum';
 import LazyLoad from 'react-lazyload';
-import { ImagePlaceholder } from '../../atoms/ImagePlaceholder';
+import { ImagePlaceholder } from 'components/atoms/ImagePlaceholder';
 import { Link } from 'react-router-dom';
-import { CdsCurrentPage } from '../../../utils/constants';
+import { CdsCurrentPage } from 'utils/constants';
 
 const SMALL_IMAGE_WIDTH = 200;
 const MEDIUM_IMAGE_WIDTH = 300;
