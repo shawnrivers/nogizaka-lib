@@ -34,8 +34,6 @@ export const selectFourthGeneration = (state: IRootState): IMember[] =>
 export const selectGraduates = (state: IRootState): IMember[] =>
   sortByDate(selectMemberArray(state).filter(member => member.isGraduated), 'graduatedDate', 'desc');
 
-export const selectMemberByName = (state: IRootState, name: string): IMember => selectMembers(state)[name];
-
 const convertSingleImagesForDisplay = (singleImages: { [singleNumber: string]: ProfileImage }): ProfileImage[] => {
   const list = Object.values(singleImages)
     .reverse()
@@ -214,10 +212,4 @@ export const convertMemberForDisplay = (member: IMember): IMemberDisplay | undef
   }
 
   return undefined;
-};
-
-export const selectMemberByNameForDisplay = (state: IRootState, name: string): IMemberDisplay | undefined => {
-  const member = selectMembers(state)[name];
-
-  return convertMemberForDisplay(member);
 };

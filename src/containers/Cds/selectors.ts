@@ -17,11 +17,3 @@ export const selectSinglesInNumberKeys = (state: IRootState): { [number: string]
   arrayToObject(selectSingleArray(state), 'number');
 export const selectAlbumsInNumberKeys = (state: IRootState): { [number: string]: IAlbum } =>
   arrayToObject(selectAlbumArray(state), 'number');
-
-export const selectSingleByTitle = (state: IRootState, title: string): ISingle => selectSingles(state)[title];
-export const selectAlbumByTitle = (state: IRootState, title: string): IAlbum => selectAlbums(state)[title];
-
-export const selectSingleByNumber = (state: IRootState, number: string): ISingle =>
-  selectSinglesInNumberKeys(state)[number];
-export const selectAlbumByNumber = (state: IRootState, number: string): IAlbum =>
-  selectAlbumsInNumberKeys(state)[number];

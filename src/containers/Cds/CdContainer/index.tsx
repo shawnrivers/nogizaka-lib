@@ -30,11 +30,13 @@ export const CdContainer = (ownProps: RouteComponentProps<MatchParams>) => {
     return arrayToObject(Object.values(cds), 'number')[number];
   }, [number, cds]);
 
-  const getCds = type === CdsCurrentPage.Single ? getSingles : getAlbums;
-
   React.useEffect(() => {
     if (fetchStatus !== FetchStatus.Fulfilled) {
-      dispatch(getCds());
+      if (type === CdsCurrentPage.Single) {
+        dispatch(getSingles());
+      } else {
+        dispatch(getAlbums());
+      }
     }
   }, []);
 
