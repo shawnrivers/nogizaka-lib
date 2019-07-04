@@ -13,15 +13,13 @@ export interface ICdProps {
 }
 
 export const Cd = (props: ICdProps) => {
-  const largeArtworks = props.cd ? [...Object.values(props.cd.artworks).map(artwork => artwork.large)] : [];
-
   useScrollRestoration();
 
   return props.cd !== undefined ? (
     <>
       <TitleBar title={props.cd.title} />
       <main>
-        <SwipeableArtworkCarousel artworks={largeArtworks} />
+        <SwipeableArtworkCarousel artworks={Object.values(props.cd.artworks)} />
         <DetailsCard>
           <div className={styles.heading}>
             <span className={styles.title}>{props.cd.title}</span>

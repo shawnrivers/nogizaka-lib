@@ -6,7 +6,11 @@ import { ImagePlaceholder } from 'components/atoms/ImagePlaceholder';
 import styles from './SwipeableArtworkCarousel.module.scss';
 
 interface ISwipeableArtworkCarouselProps {
-  artworks: string[];
+  artworks: {
+    large: string;
+    medium: string;
+    small: string;
+  }[];
 }
 
 export const SwipeableArtworkCarousel = (props: ISwipeableArtworkCarouselProps) => {
@@ -34,7 +38,11 @@ export const SwipeableArtworkCarousel = (props: ISwipeableArtworkCarouselProps) 
           >
             {props.artworks.map((artwork, index) => (
               <LazyLoad placeholder={<ImagePlaceholder className={styles.artwork} />} key={index}>
-                <img className={styles.artwork} src={artwork} />
+                <img
+                  className={styles.artwork}
+                  src={artwork.small}
+                  srcSet={`${artwork.medium} 300w, ${artwork.large} 450w`}
+                />
               </LazyLoad>
             ))}
           </div>
