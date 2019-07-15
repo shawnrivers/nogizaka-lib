@@ -9,7 +9,7 @@ import { arrayToObject } from 'utils/arrays';
 import { IRootState } from 'stores/state';
 
 type MatchParams = {
-  type: string;
+  type: CdsCurrentPage;
   number: string;
 };
 
@@ -40,5 +40,5 @@ export const CdContainer = (ownProps: RouteComponentProps<MatchParams>) => {
     }
   }, []);
 
-  return <Cd cd={cd} />;
+  return <Cd cd={cd} cdType={type} />;
 };

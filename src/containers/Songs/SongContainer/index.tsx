@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { RouteComponentProps } from 'react-router';
 import { IRootState } from 'stores/state';
-import { Song } from 'components/templates/Song';
+import { Song, ISongProps } from 'components/templates/Song';
 import * as SongsSelectors from '../selectors';
 import * as MembersSelectors from 'containers/Members/selectors';
 import { getSongs } from '../actions';
@@ -25,7 +25,10 @@ export const SongContainer = (ownProps: RouteComponentProps<MatchParams>) => {
     members: MembersSelectors.selectMembers(state),
   }));
 
-  const song = React.useMemo(() => SongsSelectors.convertSongForDisplay(songs[key], members), [songs, key, members]);
+  const songProps: ISongProps = React.useMemo(() => {
+    const { songCdNumber, songCdType } = SongsSelectors.selectSongCd(songs[key]);
+    return { song: SongsSelectors.convertSongForDisplay(songs[key], members), songCdNumber, songCdType };
+  }, [songs, key, members]);
 
   React.useEffect(() => {
     if (songsFetchStatus !== FetchStatus.Fulfilled) {
@@ -36,5 +39,5 @@ export const SongContainer = (ownProps: RouteComponentProps<MatchParams>) => {
     }
   }, []);
 
-  return <Song song={song} />;
+  return <Song {...songProps} />;
 };

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import LazyLoad from 'react-lazyload';
 import { IMemberDisplay } from 'models/IMember';
-import { FetchStatus, PositionType, GlowStickColorType, GlowStickColors } from 'utils/constants';
+import { PositionType, MembersCurrentPage } from 'utils/constants';
 import { TitleBar } from 'components/molecules/TitleBar';
 import { DetailsCard } from 'components/molecules/DetailsCard';
 import { Divider } from 'components/atoms/Divider';
@@ -28,8 +28,9 @@ const GlowStickColorBackground = (props: {
   );
 };
 
-interface IMemberProps {
+export interface IMemberProps {
   member: IMemberDisplay | undefined;
+  memberType: string | undefined;
 }
 
 export const Member = (props: IMemberProps) => {
@@ -37,7 +38,10 @@ export const Member = (props: IMemberProps) => {
 
   return props.member !== undefined ? (
     <>
-      <TitleBar title={props.member.nameNotations.lastName + props.member.nameNotations.firstName} />
+      <TitleBar
+        title={props.member.nameNotations.lastName + props.member.nameNotations.firstName}
+        backTo={`/members/${props.memberType}`}
+      />
       <main>
         <GlowStickColorBackground colors={props.member.glowStickColor} />
         <LazyLoad>

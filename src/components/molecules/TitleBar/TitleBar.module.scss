@@ -14,8 +14,10 @@
 }
 
 .button {
+  @extend %flex, %flex-align-center, %flex-justify-center;
   width: 48px;
   height: 48px;
+  cursor: pointer;
 }
 
 .icon {

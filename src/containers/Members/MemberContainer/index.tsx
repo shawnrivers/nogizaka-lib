@@ -4,7 +4,7 @@ import { RouteComponentProps } from 'react-router';
 import { IRootState } from 'stores/state';
 import * as MembersSelectors from '../selectors';
 import { getMembers } from '../actions';
-import { Member } from 'components/templates/Member';
+import { Member, IMemberProps } from 'components/templates/Member';
 import { FetchStatus } from 'utils/constants';
 
 type MatchParams = {
@@ -21,10 +21,13 @@ export const MemberContainer = (ownProps: RouteComponentProps<MatchParams>) => {
     fetchStatus: MembersSelectors.selectMembersFetchStatus(state),
   }));
 
-  const memberForDisplay = React.useMemo(() => MembersSelectors.convertMemberForDisplay(members[name]), [
-    name,
-    members,
-  ]);
+  const memberProps: IMemberProps = React.useMemo(
+    () => ({
+      member: MembersSelectors.convertMemberForDisplay(members[name]),
+      memberType: MembersSelectors.selectMemberType(members[name]),
+    }),
+    [name, members],
+  );
 
   React.useEffect(() => {
     if (fetchStatus !== FetchStatus.Fulfilled) {
@@ -32,5 +35,5 @@ export const MemberContainer = (ownProps: RouteComponentProps<MatchParams>) => {
     }
   }, []);
 
-  return <Member member={memberForDisplay} />;
+  return <Member {...memberProps} />;
 };

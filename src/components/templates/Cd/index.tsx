@@ -7,9 +7,11 @@ import { DetailsCard } from 'components/molecules/DetailsCard';
 import { SongCard } from 'components/molecules/SongCard';
 import { useScrollRestoration } from 'utils/hooks';
 import styles from './Cd.module.scss';
+import { CdsCurrentPage } from 'utils/constants';
 
 export interface ICdProps {
   cd: ISingle | IAlbum;
+  cdType: CdsCurrentPage;
 }
 
 export const Cd = (props: ICdProps) => {
@@ -17,7 +19,7 @@ export const Cd = (props: ICdProps) => {
 
   return props.cd !== undefined ? (
     <>
-      <TitleBar title={props.cd.title} />
+      <TitleBar title={props.cd.title} backTo={`/cds/${props.cdType}`} />
       <main>
         <SwipeableArtworkCarousel artworks={Object.values(props.cd.artworks)} />
         <DetailsCard>

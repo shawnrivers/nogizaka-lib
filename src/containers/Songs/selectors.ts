@@ -106,7 +106,7 @@ const convertPerformersTagForDisplay = (performersTag: { name: string; singleNum
 };
 
 export const convertSongForDisplay = (song: ISong, members: IMembers): ISongDisplay | undefined => {
-  if (song !== undefined) {
+  if (song) {
     return {
       title: song.title,
       key: song.key,
@@ -125,4 +125,28 @@ export const convertSongForDisplay = (song: ISong, members: IMembers): ISongDisp
   }
 
   return undefined;
+};
+
+export const selectSongCd = (
+  song: ISong,
+): {
+  songCdNumber: string | undefined;
+  songCdType: string | undefined;
+} => {
+  if (song) {
+    if (song.single.title !== '') {
+      return { songCdNumber: song.single.number, songCdType: 'singles' };
+    }
+    if (song.albums.length > 0) {
+      return {
+        songCdNumber: song.albums[0].number,
+        songCdType: 'albums',
+      };
+    }
+  }
+
+  return {
+    songCdNumber: undefined,
+    songCdType: undefined,
+  };
 };

@@ -8,8 +8,10 @@ import { Divider } from 'components/atoms/Divider';
 import { MemberCard } from 'components/molecules/MemberCard';
 import styles from './Song.module.scss';
 
-interface ISongProps {
+export interface ISongProps {
   song: ISongDisplay | undefined;
+  songCdNumber: string | undefined;
+  songCdType: string | undefined;
 }
 
 export const Song = (props: ISongProps) => {
@@ -17,7 +19,7 @@ export const Song = (props: ISongProps) => {
 
   return props.song !== undefined ? (
     <>
-      <TitleBar title={props.song.title} />
+      <TitleBar title={props.song.title} backTo={`/cds/${props.songCdType}/${props.songCdNumber}`} />
       <main>
         <ArtworkCarousel artwork={props.song.artwork.large} />
         <DetailsCard className={styles.card}>

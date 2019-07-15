@@ -9,6 +9,7 @@ import {
   GlowStickColorType,
   GlowStickColorsLight,
   BloodType,
+  MembersCurrentPage,
 } from 'utils/constants';
 import { sortByDate } from 'utils/arrays';
 import { convertJoinForDisplay } from 'utils/strings';
@@ -211,5 +212,15 @@ export const convertMemberForDisplay = (member: IMember): IMemberDisplay | undef
     };
   }
 
+  return undefined;
+};
+
+export const selectMemberType = (member: IMember): string | undefined => {
+  if (member) {
+    if (member.isGraduated) {
+      return MembersCurrentPage.Graduate;
+    }
+    return member.join;
+  }
   return undefined;
 };
