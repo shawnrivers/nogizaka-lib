@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { NavigationBar } from 'components/molecules/NavigationBar';
-import { TriangleBackground } from 'components/atoms/Background/TriangleBackground';
 import { TabMenu, TabMenuItem } from 'components/molecules/TabMenu';
-import { MembersCurrentPage, MemberGenerationType, FetchStatus } from 'utils/constants';
+import { MembersCurrentPage, MemberGenerationType } from 'utils/constants';
 import { MemberCardList, MembersByType } from 'components/organisms/MemberCardList';
 import { IMembers } from 'models/IMember';
+import { GradientBackground } from 'components/atoms/Background/GradientBackground';
 import styles from './Members.module.scss';
 interface IMembersProps {
   currentLocation: MembersCurrentPage;
@@ -47,7 +47,7 @@ export const Members = (props: IMembersProps) => {
     <>
       <NavigationBar currentTab="members" />
       <main className={styles.container}>
-        <TriangleBackground pattern="2" position="top" />
+        <GradientBackground type={2} />
         <TabMenu items={membersTabMenuItems} selectedItem={currentLocation} />
         <MemberCardList members={membersByType} currentPage={currentLocation} />
       </main>

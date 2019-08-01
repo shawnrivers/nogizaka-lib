@@ -2,10 +2,10 @@ import * as React from 'react';
 import { ISingle } from 'models/ISingle';
 import { IAlbum } from 'models/IAlbum';
 import { CdCardList } from 'components/organisms/CdCardList';
-import { TriangleBackground } from 'components/atoms/Background/TriangleBackground';
 import { TabMenu, TabMenuItem } from 'components/molecules/TabMenu';
-import { CdsCurrentPage, FetchStatus } from 'utils/constants';
+import { CdsCurrentPage } from 'utils/constants';
 import { NavigationBar } from 'components/molecules/NavigationBar';
+import { GradientBackground } from 'components/atoms/Background/GradientBackground';
 import styles from './Cds.module.scss';
 
 interface ICdsProps {
@@ -31,7 +31,7 @@ export const Cds = (props: ICdsProps) => (
   <>
     <NavigationBar currentTab="cds" />
     <main className={styles.container}>
-      <TriangleBackground pattern="1" position="top" />
+      <GradientBackground />
       <TabMenu items={cdsTabMenuItems} selectedItem={props.currentLocation} />
       <CdCardList singles={props.singles} albums={props.albums} currentPage={props.currentLocation} />
     </main>
