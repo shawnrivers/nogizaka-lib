@@ -15,28 +15,33 @@ export const NavigationBar = (props: INavigationBarProps) => {
       <Link to="/cds/singles">
         <button aria-label="cds" className={styles['button']}>
           {props.currentTab === 'cds' ? (
-            <CdIcon className={styles['cd-icon-active']} isActive={true} />
+            <>
+              <CdIcon className={styles['icon-active']} isActive={true} />
+              <span className={styles['text-active']}>CDs</span>
+            </>
           ) : (
-            <CdIcon className={styles['cd-icon-inactive']} isActive={false} />
+            <>
+              <CdIcon className={styles['icon-inactive']} isActive={false} />
+              <span className={styles['text-inactive']}>CDs</span>
+            </>
           )}
         </button>
       </Link>
       <Link to="/members/first">
         <button aria-label="members" className={styles['button']}>
           {props.currentTab === 'members' ? (
-            <MembersIcon className={styles['cd-icon-active']} isActive={true} />
+            <>
+              <MembersIcon className={styles['icon-active']} isActive={true} />
+              <span className={styles['text-active']}>Members</span>
+            </>
           ) : (
-            <MembersIcon className={styles['cd-icon-inactive']} isActive={false} />
+            <>
+              <MembersIcon className={styles['icon-inactive']} isActive={false} />
+              <span className={styles['text-inactive']}>Members</span>
+            </>
           )}
         </button>
       </Link>
-      <button aria-label="search" className={styles['button']}>
-        {props.currentTab === 'search' ? (
-          <SearchIcon className={styles['cd-icon-active']} />
-        ) : (
-          <SearchIcon className={styles['cd-icon-inactive']} />
-        )}
-      </button>
     </nav>
   );
 };
