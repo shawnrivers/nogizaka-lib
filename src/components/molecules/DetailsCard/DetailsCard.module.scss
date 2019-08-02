@@ -1,11 +1,21 @@
 @import '../../../styles/colors.scss';
 @import '../../../styles/elevations.scss';
 
-.container {
+%container {
   @extend %elevation-3-up;
   position: relative;
   padding: 16px 24px;
   background-color: $white;
   border-radius: 24px 24px 0 0;
   color: $gray-1;
+}
+
+.container-with-background {
+  @extend %container;
+  background-image: url('assets/images/gradient-bg-3.svg');
+  background-size: 100%;
+}
+
+.container-without-background {
+  @extend %container;
 }

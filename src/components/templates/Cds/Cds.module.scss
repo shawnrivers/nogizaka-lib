@@ -1,6 +1,7 @@
 .container {
+  min-height: 100vh;
   padding-top: 48px;
   background-image: url('assets/images/gradient-bg.svg');
-  background-position: 0 -148px;
+  background-position-y: -148px;
   background-size: 100%;
 }
