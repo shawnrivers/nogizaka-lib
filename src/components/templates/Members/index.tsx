@@ -4,7 +4,6 @@ import { TabMenu, TabMenuItem } from 'components/molecules/TabMenu';
 import { MembersCurrentPage, MemberGenerationType } from 'utils/constants';
 import { MemberCardList, MembersByType } from 'components/organisms/MemberCardList';
 import { IMembers } from 'models/IMember';
-import { GradientBackground } from 'components/atoms/Background/GradientBackground';
 import styles from './Members.module.scss';
 interface IMembersProps {
   currentLocation: MembersCurrentPage;
@@ -47,7 +46,6 @@ export const Members = (props: IMembersProps) => {
     <>
       <NavigationBar currentTab="members" />
       <main className={styles.container}>
-        <GradientBackground type={2} />
         <TabMenu items={membersTabMenuItems} selectedItem={currentLocation} />
         <MemberCardList members={membersByType} currentPage={currentLocation} />
       </main>

@@ -2,7 +2,6 @@ import * as React from 'react';
 import { IMember } from 'models/IMember';
 import { MembersCurrentPage } from 'utils/constants';
 import { MemberCard } from 'components/molecules/MemberCard';
-import { CSSTransition } from 'react-transition-group';
 import styles from './MemberCardList.module.scss';
 
 export type MembersByType = {
@@ -20,123 +19,42 @@ interface IMemberCardListProps {
 
 export const MemberCardList = (props: IMemberCardListProps) => {
   const { members, currentPage } = props;
-  return members.first.length +
-    members.second.length +
-    members.third.length +
-    members.fourth.length +
-    members.graduate.length >
-    0 ? (
-    <>
-      <CSSTransition
-        in={currentPage === MembersCurrentPage.First}
-        timeout={300}
-        classNames={{
-          enter: styles['enter'],
-          enterActive: styles['enter-active'],
-          exit: styles['exit'],
-          exitActive: styles['exit-active'],
-        }}
-        unmountOnExit
-      >
-        <div className={styles.container}>
-          {members.first.map(member => (
-            <MemberCard
-              key={member.name}
-              name={member.name}
-              profileImage={member.profileImage}
-              displayName={`${member.nameNotations.lastName} ${member.nameNotations.firstName}`}
-            />
-          ))}
-        </div>
-      </CSSTransition>
-      <CSSTransition
-        in={currentPage === MembersCurrentPage.Second}
-        timeout={300}
-        classNames={{
-          enter: styles['enter'],
-          enterActive: styles['enter-active'],
-          exit: styles['exit'],
-          exitActive: styles['exit-active'],
-        }}
-        unmountOnExit
-      >
-        <div className={styles.container}>
-          {members.second.map(member => (
-            <MemberCard
-              key={member.name}
-              name={member.name}
-              profileImage={member.profileImage}
-              displayName={`${member.nameNotations.lastName} ${member.nameNotations.firstName}`}
-            />
-          ))}
-        </div>
-      </CSSTransition>
-      <CSSTransition
-        in={currentPage === MembersCurrentPage.Third}
-        timeout={300}
-        classNames={{
-          enter: styles['enter'],
-          enterActive: styles['enter-active'],
-          exit: styles['exit'],
-          exitActive: styles['exit-active'],
-        }}
-        unmountOnExit
-      >
-        <div className={styles.container}>
-          {members.third.map(member => (
-            <MemberCard
-              key={member.name}
-              name={member.name}
-              profileImage={member.profileImage}
-              displayName={`${member.nameNotations.lastName} ${member.nameNotations.firstName}`}
-            />
-          ))}
-        </div>
-      </CSSTransition>
-      <CSSTransition
-        in={currentPage === MembersCurrentPage.Fourth}
-        timeout={300}
-        classNames={{
-          enter: styles['enter'],
-          enterActive: styles['enter-active'],
-          exit: styles['exit'],
-          exitActive: styles['exit-active'],
-        }}
-        unmountOnExit
-      >
-        <div className={styles.container}>
-          {members.fourth.map(member => (
-            <MemberCard
-              key={member.name}
-              name={member.name}
-              profileImage={member.profileImage}
-              displayName={`${member.nameNotations.lastName} ${member.nameNotations.firstName}`}
-            />
-          ))}
-        </div>
-      </CSSTransition>
-      <CSSTransition
-        in={currentPage === MembersCurrentPage.Graduate}
-        timeout={300}
-        classNames={{
-          enter: styles['enter'],
-          enterActive: styles['enter-active'],
-          exit: styles['exit'],
-          exitActive: styles['exit-active'],
-        }}
-        unmountOnExit
-      >
-        <div className={styles.container}>
-          {members.graduate.map(member => (
-            <MemberCard
-              key={member.name}
-              name={member.name}
-              profileImage={member.profileImage}
-              displayName={`${member.nameNotations.lastName} ${member.nameNotations.firstName}`}
-            />
-          ))}
-        </div>
-      </CSSTransition>
-    </>
+
+  const membersLength = React.useMemo(
+    () =>
+      members.first.length +
+      members.second.length +
+      members.third.length +
+      members.fourth.length +
+      members.graduate.length,
+    [members],
+  );
+
+  const currentTabMembers = React.useMemo(() => {
+    switch (currentPage) {
+      case MembersCurrentPage.First:
+        return members.first;
+      case MembersCurrentPage.Second:
+        return members.second;
+      case MembersCurrentPage.Third:
+        return members.third;
+      case MembersCurrentPage.Fourth:
+        return members.fourth;
+      case MembersCurrentPage.Graduate:
+        return members.graduate;
+    }
+  }, [members, currentPage]);
+
+  return membersLength > 0 ? (
+    <div className={styles.container}>
+      {currentTabMembers.map(member => (
+        <MemberCard
+          key={member.name}
+          name={member.name}
+          profileImage={member.profileImage}
+          displayName={`${member.nameNotations.lastName} ${member.nameNotations.firstName}`}
+        />
+      ))}
+    </div>
   ) : null;
 };
