@@ -6,6 +6,10 @@
 .container {
   @extend %elevation-2;
   z-index: 4;
+  display: block;
+  overflow: hidden;
+  height: 80px;
+  background-color: $white;
   border-radius: 6px;
   color: $gray-1;
 }
@@ -18,10 +22,25 @@
   object-fit: cover;
 }
 
+.number {
+  display: flex;
+  width: 24px;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  margin-left: 12px;
+  color: $gray-3;
+  float: left;
+
+  span {
+    font-size: $size-sub-heading;
+  }
+}
+
 .text {
   @extend %flex, %flex-column, %flex-justify-center;
   overflow: hidden;
-  height: 100px;
+  height: 80px;
   box-sizing: border-box;
   padding: 12px;
 }
