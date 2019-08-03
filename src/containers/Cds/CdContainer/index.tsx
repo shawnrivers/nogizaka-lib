@@ -7,6 +7,7 @@ import { getSingles, getAlbums } from '../actions';
 import { CdsCurrentPage, FetchStatus } from 'utils/constants';
 import { arrayToObject } from 'utils/arrays';
 import { IRootState } from 'stores/state';
+import { useScrollRestoration } from 'utils/hooks';
 
 type MatchParams = {
   type: CdsCurrentPage;
@@ -26,8 +27,13 @@ export const CdContainer = (ownProps: RouteComponentProps<MatchParams>) => {
     cds: type === CdsCurrentPage.Single ? CdsSelectors.selectSingles(state) : CdsSelectors.selectAlbums(state),
   }));
 
-  const cd = React.useMemo(() => {
-    return arrayToObject(Object.values(cds), 'number')[number];
+  const { cd, artworkList } = React.useMemo(() => {
+    const cd = arrayToObject(Object.values(cds), 'number')[number];
+
+    return {
+      cd,
+      artworkList: cd !== undefined ? Object.values(cd.artworks) : [],
+    };
   }, [number, cds]);
 
   React.useEffect(() => {
@@ -40,5 +46,7 @@ export const CdContainer = (ownProps: RouteComponentProps<MatchParams>) => {
     }
   }, []);
 
-  return <Cd cd={cd} cdType={type} />;
+  useScrollRestoration();
+
+  return <Cd cd={cd} cdType={type} artworkList={artworkList} />;
 };

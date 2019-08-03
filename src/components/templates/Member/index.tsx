@@ -33,10 +33,8 @@ export interface IMemberProps {
   memberType: string | undefined;
 }
 
-export const Member = (props: IMemberProps) => {
-  useScrollRestoration();
-
-  return props.member !== undefined ? (
+export const Member = (props: IMemberProps) =>
+  props.member !== undefined ? (
     <>
       <TitleBar
         title={props.member.nameNotations.lastName + props.member.nameNotations.firstName}
@@ -178,4 +176,3 @@ export const Member = (props: IMemberProps) => {
       </main>
     </>
   ) : null;
-};

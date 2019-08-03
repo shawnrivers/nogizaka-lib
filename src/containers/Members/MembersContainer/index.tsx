@@ -5,13 +5,42 @@ import { IRootState } from 'stores/state';
 import { getMembers } from '../actions';
 import * as MembersSelectors from '../selectors';
 import { RouteComponentProps } from 'react-router';
-import { MembersCurrentPage, FetchStatus } from 'utils/constants';
+import { MembersCurrentPage, FetchStatus, MemberGenerationType } from 'utils/constants';
+import { TabItem } from 'components/molecules/TabBar';
 
-type OwnProps = RouteComponentProps<{
+const membersTabItems: TabItem[] = [
+  {
+    link: `/members/${MembersCurrentPage.First}`,
+    page: MembersCurrentPage.First,
+    name: MemberGenerationType.First,
+  },
+  {
+    link: `/members/${MembersCurrentPage.Second}`,
+    page: MembersCurrentPage.Second,
+    name: MemberGenerationType.Second,
+  },
+  {
+    link: `/members/${MembersCurrentPage.Third}`,
+    page: MembersCurrentPage.Third,
+    name: MemberGenerationType.Third,
+  },
+  {
+    link: `/members/${MembersCurrentPage.Fourth}`,
+    page: MembersCurrentPage.Fourth,
+    name: MemberGenerationType.Fourth,
+  },
+  {
+    link: `/members/${MembersCurrentPage.Graduate}`,
+    page: MembersCurrentPage.Graduate,
+    name: MemberGenerationType.Graduate,
+  },
+];
+
+type MatchParams = {
   generation: MembersCurrentPage;
-}>;
+};
 
-export const MembersContainer = (ownProps: OwnProps) => {
+export const MembersContainer = (props: RouteComponentProps<MatchParams>) => {
   const dispatch = useDispatch();
 
   const { members, fetchStatus, membersByType } = useSelector((state: IRootState) => ({
@@ -32,5 +61,12 @@ export const MembersContainer = (ownProps: OwnProps) => {
     }
   }, []);
 
-  return <Members members={members} membersByType={membersByType} currentLocation={ownProps.match.params.generation} />;
+  return (
+    <Members
+      members={members}
+      membersByType={membersByType}
+      currentLocation={props.match.params.generation}
+      tabItems={membersTabItems}
+    />
+  );
 };

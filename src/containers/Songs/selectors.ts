@@ -130,8 +130,8 @@ export const convertSongForDisplay = (song: ISong, members: IMembers): ISongDisp
 export const selectSongCd = (
   song: ISong,
 ): {
-  songCdNumber: string | undefined;
-  songCdType: string | undefined;
+  songCdNumber: string;
+  songCdType: string;
 } => {
   if (song) {
     if (song.single.title !== '') {
@@ -146,7 +146,7 @@ export const selectSongCd = (
   }
 
   return {
-    songCdNumber: undefined,
-    songCdType: undefined,
+    songCdNumber: '',
+    songCdType: '',
   };
 };

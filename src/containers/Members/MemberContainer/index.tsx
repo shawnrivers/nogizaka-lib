@@ -6,6 +6,7 @@ import * as MembersSelectors from '../selectors';
 import { getMembers } from '../actions';
 import { Member, IMemberProps } from 'components/templates/Member';
 import { FetchStatus } from 'utils/constants';
+import { useScrollRestoration } from 'utils/hooks';
 
 type MatchParams = {
   name: string;
@@ -34,6 +35,8 @@ export const MemberContainer = (ownProps: RouteComponentProps<MatchParams>) => {
       dispatch(getMembers());
     }
   }, []);
+
+  useScrollRestoration();
 
   return <Member {...memberProps} />;
 };

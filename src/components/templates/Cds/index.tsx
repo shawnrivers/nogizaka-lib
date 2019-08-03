@@ -11,27 +11,15 @@ interface ICdsProps {
   currentLocation: CdsCurrentPage;
   singles: ISingle[];
   albums: IAlbum[];
+  tabItems: TabItem[];
 }
-
-const cdsTabMenuItems: TabItem[] = [
-  {
-    link: `/cds/${CdsCurrentPage.Single}`,
-    page: CdsCurrentPage.Single,
-    name: 'Singles',
-  },
-  {
-    link: `/cds/${CdsCurrentPage.Album}`,
-    page: CdsCurrentPage.Album,
-    name: 'Albums',
-  },
-];
 
 export const Cds = (props: ICdsProps) => (
   <>
     <NavigationBar currentTab="cds" />
     <main className={styles.container}>
       <div className={styles.tab}>
-        <TabBar items={cdsTabMenuItems} selectedItem={props.currentLocation} />
+        <TabBar items={props.tabItems} selectedItem={props.currentLocation} />
       </div>
       <div className={styles['card-list']}>
         <CdCardList singles={props.singles} albums={props.albums} currentPage={props.currentLocation} />
