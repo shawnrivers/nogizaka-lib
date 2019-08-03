@@ -15,36 +15,44 @@ export interface ICdProps {
 }
 
 export const Cd = (props: ICdProps) => {
-  useScrollRestoration();
+  if (props.cd !== undefined) {
+    const artworks = React.useMemo(() => (props.cd.artworks !== undefined ? Object.values(props.cd.artworks) : []), [
+      props.cd.artworks,
+    ]);
 
-  return props.cd !== undefined ? (
-    <>
-      <TitleBar title={props.cd.title} backTo={`/cds/${props.cdType}`} />
-      <main>
-        <SwipeableArtworkCarousel artworks={Object.values(props.cd.artworks)} />
-        <div className={styles.details}>
-          <DetailsCard hasBackground={true}>
-            <div className={styles.heading}>
-              <span className={styles.title}>{props.cd.title}</span>
-              <span className={styles.release}>Release: {props.cd.release}</span>
-            </div>
-            <div className={styles['song-rows']}>
-              {props.cd.songs.map(song => (
-                <div className={styles['song-row']} key={song.number}>
-                  <SongCard
-                    number={song.number}
-                    title={song.title}
-                    titleKey={song.key}
-                    type={song.type}
-                    focusPerformers={song.focusPerformers}
-                    className={styles['song-card']}
-                  />
-                </div>
-              ))}
-            </div>
-          </DetailsCard>
-        </div>
-      </main>
-    </>
-  ) : null;
+    useScrollRestoration();
+
+    return (
+      <>
+        <TitleBar title={props.cd.title} backTo={`/cds/${props.cdType}`} />
+        <main>
+          <SwipeableArtworkCarousel artworks={artworks} />
+          <div className={styles.details}>
+            <DetailsCard hasBackground={true}>
+              <div className={styles.heading}>
+                <span className={styles.title}>{props.cd.title}</span>
+                <span className={styles.release}>Release: {props.cd.release}</span>
+              </div>
+              <div className={styles['song-rows']}>
+                {props.cd.songs.map(song => (
+                  <div className={styles['song-row']} key={song.number}>
+                    <SongCard
+                      number={song.number}
+                      title={song.title}
+                      titleKey={song.key}
+                      type={song.type}
+                      focusPerformers={song.focusPerformers}
+                      className={styles['song-card']}
+                    />
+                  </div>
+                ))}
+              </div>
+            </DetailsCard>
+          </div>
+        </main>
+      </>
+    );
+  }
+
+  return null;
 };

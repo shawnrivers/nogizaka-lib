@@ -27,6 +27,7 @@ export const SongContainer = (ownProps: RouteComponentProps<MatchParams>) => {
 
   const songProps: ISongProps = React.useMemo(() => {
     const { songCdNumber, songCdType } = SongsSelectors.selectSongCd(songs[key]);
+
     return { song: SongsSelectors.convertSongForDisplay(songs[key], members), songCdNumber, songCdType };
   }, [songs, key, members]);
 

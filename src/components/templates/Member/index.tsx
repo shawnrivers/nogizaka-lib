@@ -44,13 +44,11 @@ export const Member = (props: IMemberProps) => {
       />
       <main>
         <GlowStickColorBackground colors={props.member.glowStickColor} />
-        <LazyLoad>
-          <img
-            className={styles['profile-image']}
-            src={props.member.mainImage.small}
-            srcSet={`${props.member.mainImage.small}, ${props.member.mainImage.large} 2x`}
-          />
-        </LazyLoad>
+        <img
+          className={styles['profile-image']}
+          src={props.member.mainImage.small}
+          srcSet={`${props.member.mainImage.small}, ${props.member.mainImage.large} 2x`}
+        />
         <DetailsCard className={styles.card}>
           <div className={styles['first-container']}>
             <span className={styles.name}>

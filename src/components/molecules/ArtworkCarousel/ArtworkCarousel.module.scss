@@ -1,6 +1,14 @@
+@import '../../../styles/layout.scss';
+
 .container {
   position: fixed;
-  top: 32px;
+  top: 0;
+}
+
+.wrapper {
+  width: 100%;
+  margin-top: 36px;
+  overflow-x: hidden;
 }
 
 .artwork {
