@@ -13,6 +13,8 @@ $title-bar-height: 48px;
   width: 100%;
   height: $title-bar-height;
   background-color: $white;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .button {

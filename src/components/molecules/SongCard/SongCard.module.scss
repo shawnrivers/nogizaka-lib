@@ -46,14 +46,20 @@
 
 .title {
   @extend %sub-heading-bold;
+  overflow: hidden;
+  max-height: 36px;
   margin-bottom: 8px;
   color: $gray-1;
+  line-height: 18px;
+  text-overflow: ellipsis;
 }
 
 .description {
   @extend %caption-regular;
   overflow: hidden;
+  height: 12px;
   color: $gray-3;
+  line-height: 12px;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
