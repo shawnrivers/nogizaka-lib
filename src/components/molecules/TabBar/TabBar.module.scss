@@ -9,16 +9,18 @@
 }
 
 .text {
-  padding-bottom: 4px;
+  padding-bottom: 8px;
   margin: 4px;
   color: $gray-2;
   font-size: $size-sub-heading;
   font-weight: $weight-regular;
+  line-height: $size-sub-heading;
 }
 
 .selected {
   border-bottom: 3px $gray-1 solid;
   color: $gray-1;
-  font-size: $size-heading;
+  font-size: $size-title;
   font-weight: $weight-bold;
+  line-height: $size-title;
 }
