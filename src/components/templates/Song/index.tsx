@@ -95,7 +95,7 @@ export const Song = (props: ISongProps) =>
                       </div>
                     ))}
                     <div className={styles['row-indicator']}>
-                      <div className={styles.indicator} />
+                      <div className={styles['last-indicator']} />
                     </div>
                   </div>
                 ) : (

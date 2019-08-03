@@ -65,7 +65,7 @@
 }
 
 .text {
-  @extend %flex, %flex-align-center, %flex-justify-center, %caption-regular;
+  @extend %flex, %flex-align-center, %flex-justify-center, %caption-bold;
   padding: 0 8px 8px;
   color: $gray-2;
 }

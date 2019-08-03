@@ -1,7 +1,7 @@
 import * as React from 'react';
 import LazyLoad from 'react-lazyload';
 import { IMemberDisplay } from 'models/IMember';
-import { PositionType, MembersCurrentPage } from 'utils/constants';
+import { PositionType } from 'utils/constants';
 import { TitleBar } from 'components/molecules/TitleBar';
 import { DetailsCard } from 'components/molecules/DetailsCard';
 import { Divider } from 'components/atoms/Divider';
@@ -9,7 +9,6 @@ import { toOrdinalNumber } from 'utils/strings';
 import { PositionBadge } from 'components/atoms/PositionBadge';
 import { PositionCounterBar } from 'components/atoms/PositionCounterBar';
 import { ImagePlaceholder } from 'components/atoms/ImagePlaceholder';
-import { useScrollRestoration } from 'utils/hooks';
 import styles from './Member.module.scss';
 
 const GlowStickColorBackground = (props: {
@@ -123,7 +122,7 @@ export const Member = (props: IMemberProps) =>
               <div className={styles['position-history']}>
                 {props.member.positionsHistory.map((positionRecord, index) => (
                   <div className={styles['position-record']} key={index}>
-                    <span className={styles['single-number']}>{toOrdinalNumber(positionRecord.singleNumber)}</span>
+                    <span className={styles['single-number']}>{positionRecord.singleNumber}</span>
                     <PositionBadge position={positionRecord.position} />
                   </div>
                 ))}

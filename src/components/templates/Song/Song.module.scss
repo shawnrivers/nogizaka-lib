@@ -47,14 +47,14 @@
 }
 
 .creator-title {
-  @extend %body-light;
+  @extend %body-regular;
   margin-bottom: 8px;
   color: $gray-3;
   line-height: $size-body;
 }
 
 .creator-content {
-  @extend %body-regular;
+  @extend %body-bold;
   color: $gray-2;
   line-height: $size-body;
 }
@@ -69,13 +69,13 @@
 }
 
 .sub-heading-text {
-  @extend %sub-heading-bold;
+  @extend %heading-bold;
   margin-right: 16px;
   color: $gray-2;
 }
 
 .performers-tag {
-  @extend %body-regular;
+  @extend %body-bold;
   color: $purple-1;
 }
 
@@ -88,19 +88,36 @@
   margin-left: -10px;
 }
 
-.indicator {
-  width: 20px;
-  height: 20px;
+$indicator-size: 16px;
+
+%indicator {
+  width: $indicator-size;
+  height: $indicator-size;
   box-sizing: border-box;
-  margin-right: 16px;
-  border: 6px solid $gray-3;
+  margin-right: 12px;
+  margin-left: 3px;
+}
+
+.indicator {
+  @extend %indicator;
+  border: 4px solid $gray-3;
   border-radius: 50%;
   color: $white;
 }
 
+.last-indicator {
+  @extend %indicator;
+  width: 12px;
+  height: 12px;
+  margin-left: 5px;
+  background-color: $gray-3;
+  border-radius: 50%;
+}
+
 .row-number {
-  @extend %body-regular;
+  @extend %body-bold;
   color: $gray-2;
+  line-height: $indicator-size;
 }
 
 .row {
@@ -108,7 +125,7 @@
   width: 100%;
   box-sizing: border-box;
   padding: 16px 0 24px 12px;
-  border-left: 1px solid $gray-5;
+  border-left: 2px solid $gray-5;
 }
 
 .row-no-indicator {

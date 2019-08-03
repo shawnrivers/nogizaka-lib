@@ -37,7 +37,7 @@
 }
 
 .name-caption {
-  @extend %body-light;
+  @extend %body-regular;
   margin-bottom: 4px;
   color: $gray-3;
   text-transform: capitalize;
@@ -45,7 +45,7 @@
 
 .sites {
   a {
-    @extend %body-light;
+    @extend %body-regular;
     margin-right: 4px;
     margin-left: 4px;
     color: $purple-1;
@@ -68,7 +68,7 @@
 }
 
 .info-item-title {
-  @extend %body-light;
+  @extend %body-regular;
   margin-bottom: 8px;
   color: $gray-3;
   line-height: $size-body;
@@ -89,7 +89,7 @@
 }
 
 .sub-heading {
-  @extend %sub-heading-bold;
+  @extend %heading-bold;
   display: block;
   margin-bottom: 16px;
   color: $gray-2;
@@ -107,7 +107,7 @@
   padding-bottom: 6px;
   color: $gray-3;
   .photo-album-release {
-    @extend %body-light;
+    @extend %body-regular;
   }
 }
 
@@ -127,7 +127,7 @@
 }
 
 .single-number {
-  @extend %caption-light;
+  @extend %caption-regular;
   margin-bottom: 4px;
   color: $gray-2;
 }
@@ -148,7 +148,7 @@
 }
 
 .position-indicator-caption {
-  @extend %caption-regular;
+  @extend %body-regular;
   margin-left: 4px;
   color: $gray-3;
 }

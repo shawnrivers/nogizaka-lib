@@ -1,14 +1,25 @@
 .container {
   min-height: 100vh;
+  padding-right: 32px;
+  padding-left: 32px;
   background-image: url('assets/images/gradient-bg.svg');
   background-position-y: -180px;
   background-size: 100%;
 }
 
 .tab {
-  padding: 32px;
+  padding-top: 32px;
+  padding-bottom: 32px;
 }
 
 .card-list {
-  padding: 64px 0 80px;
+  padding-top: 64px;
+  padding-bottom: 80px;
+}
+
+@media screen and (max-width: 340px) {
+  .container {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
 }
