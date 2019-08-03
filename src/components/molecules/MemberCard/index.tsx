@@ -41,7 +41,7 @@ interface IMemberCardProps {
 
 export const MemberCard = (props: IMemberCardProps) => {
   return props.name !== 'kojimaharuna' ? (
-    <Link to={`/member/${props.name}`}>
+    <Link to={`/member/${props.name}`} aria-label={props.name}>
       <div className={styles.container}>
         {props.position !== undefined ? <Badge position={props.position} /> : null}
         <LazyLoad placeholder={<ImagePlaceholder />}>

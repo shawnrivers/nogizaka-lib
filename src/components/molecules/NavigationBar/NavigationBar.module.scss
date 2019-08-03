@@ -39,7 +39,7 @@ $bar-height: 56px;
 
 .icon-inactive {
   @extend %navigation-bar-icon;
-  fill: $gray-3;
+  fill: $gray-2;
 }
 
 .text-active {
@@ -49,5 +49,5 @@ $bar-height: 56px;
 
 .text-inactive {
   @extend %text;
-  color: $gray-3;
+  color: $gray-2;
 }

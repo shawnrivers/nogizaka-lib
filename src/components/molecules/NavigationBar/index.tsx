@@ -6,7 +6,7 @@ import { SearchIcon } from 'components/atoms/Icons/SearchIcon';
 import { Link } from 'react-router-dom';
 
 interface INavigationBarProps {
-  currentTab: 'cds' | 'members' | 'search';
+  currentTab: 'cds' | 'members';
 }
 
 export const NavigationBar = (props: INavigationBarProps) => {

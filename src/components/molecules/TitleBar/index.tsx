@@ -11,7 +11,7 @@ interface ITitleBarProps {
 export const TitleBar = (props: ITitleBarProps) => (
   <nav className={styles.container}>
     {window.history.length < 2 ? (
-      <Link className={styles.button} to={props.backTo}>
+      <Link className={styles.button} to={props.backTo} aria-label="back">
         <BackIcon className={styles.icon} />
       </Link>
     ) : (
