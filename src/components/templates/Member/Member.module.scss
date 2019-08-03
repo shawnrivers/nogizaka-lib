@@ -117,6 +117,7 @@
 .position-history {
   @extend %flex, %flex-row;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .position-record {
