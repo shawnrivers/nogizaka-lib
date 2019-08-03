@@ -3,7 +3,7 @@
 @import '../../../styles/typography.scss';
 
 .card {
-  margin-top: -32px;
+  margin-top: calc(100vw + 12px);
 }
 
 .heading {

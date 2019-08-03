@@ -1,11 +1,16 @@
 @import '../../../styles/layout.scss';
 
+.container {
+  position: fixed;
+  top: 0;
+}
+
 .wrapper {
   width: 100%;
   overflow-x: hidden;
 }
 
-.container {
+.images-container {
   @extend %flex, %flex-row;
   width: max-content;
   margin-top: 36px;

@@ -25,7 +25,7 @@ export const SwipeableArtworkCarousel = (props: ISwipeableArtworkCarouselProps) 
   );
 
   return (
-    <>
+    <div className={styles.container}>
       <Swipeable
         onSwipedRight={() => goToDirection('left')}
         onSwipedLeft={() => goToDirection('right')}
@@ -33,7 +33,7 @@ export const SwipeableArtworkCarousel = (props: ISwipeableArtworkCarouselProps) 
       >
         <div className={styles.wrapper}>
           <div
-            className={styles.container}
+            className={styles['images-container']}
             style={{
               transition: 'transform 0.5s ease',
               transform: `translateX(${-100 * artworkIndex}vw)`,
@@ -52,6 +52,6 @@ export const SwipeableArtworkCarousel = (props: ISwipeableArtworkCarouselProps) 
         </div>
       </Swipeable>
       <CarouselIndicator count={props.artworks.length} activeIndex={artworkIndex} handleClick={setArtworkIndex} />
-    </>
+    </div>
   );
 };

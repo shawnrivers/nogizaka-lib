@@ -4,9 +4,9 @@
 .container {
   @extend %flex, %flex-justify-center, %flex-align-center;
   position: relative;
-  width: 100%;
+  width: 100vw;
   height: 36px;
-  margin-top: -64px;
+  margin-top: -80px;
 }
 
 %dot {
