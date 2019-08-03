@@ -34,7 +34,7 @@ $bar-height: 56px;
 
 .icon-active {
   @extend %navigation-bar-icon;
-  fill: $purple-1;
+  fill: $pink-1;
 }
 
 .icon-inactive {
@@ -44,7 +44,7 @@ $bar-height: 56px;
 
 .text-active {
   @extend %text;
-  color: $purple-1;
+  color: $pink-1;
 }
 
 .text-inactive {
