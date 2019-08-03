@@ -1,5 +1,5 @@
-@import '../../../styles/colors.scss';
-@import '../../../styles/layout.scss';
+@import 'styles/colors.scss';
+@import 'styles/layout.scss';
 
 .container {
   @extend %flex, %flex-justify-center, %flex-align-center;

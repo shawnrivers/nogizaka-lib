@@ -1,7 +1,7 @@
-@import '../../../styles/elevations.scss';
-@import '../../../styles/colors.scss';
-@import '../../../styles/layout.scss';
-@import '../../../styles/typography.scss';
+@import 'styles/elevations.scss';
+@import 'styles/colors.scss';
+@import 'styles/layout.scss';
+@import 'styles/typography.scss';
 
 %badge {
   @extend %elevation-0;
