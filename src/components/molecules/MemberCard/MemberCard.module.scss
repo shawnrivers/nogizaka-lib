@@ -69,3 +69,9 @@
   padding: 0 8px 8px;
   color: $gray-2;
 }
+
+@media screen and (max-width: 340px) {
+  .text {
+    font-size: 10px;
+  }
+}
