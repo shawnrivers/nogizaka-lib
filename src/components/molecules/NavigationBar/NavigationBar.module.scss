@@ -8,25 +8,28 @@
   height: 24px;
 }
 
+$bar-height: 56px;
+
 %text {
   font-size: $size-body;
   font-weight: $weight-bold;
 }
 
 .container {
-  @extend %flex, %flex-row, %elevation-3;
+  @extend %flex, %flex-row, %elevation-reverse-3;
   position: fixed;
-  top: 0;
+  bottom: 0;
   width: 100%;
-  height: 48px;
+  height: $bar-height;
   justify-content: space-evenly;
+  padding-bottom: env(safe-area-inset-bottom);
   background-color: $white;
 }
 
 .button {
   @extend %flex, %flex-column, %flex-align-center, %flex-justify-center;
   width: 100%;
-  height: 48px;
+  height: $bar-height;
 }
 
 .icon-active {

@@ -1,17 +1,17 @@
 import * as React from 'react';
 import { NavigationBar } from 'components/molecules/NavigationBar';
-import { TabMenu, TabMenuItem } from 'components/molecules/TabMenu';
 import { MembersCurrentPage, MemberGenerationType } from 'utils/constants';
 import { MemberCardList, MembersByType } from 'components/organisms/MemberCardList';
 import { IMembers } from 'models/IMember';
 import styles from './Members.module.scss';
+import { TabItem, TabBar } from 'components/molecules/TabBar';
 interface IMembersProps {
   currentLocation: MembersCurrentPage;
   members: IMembers;
   membersByType: MembersByType;
 }
 
-const membersTabMenuItems: TabMenuItem[] = [
+const membersTabMenuItems: TabItem[] = [
   {
     link: `/members/${MembersCurrentPage.First}`,
     page: MembersCurrentPage.First,
@@ -46,8 +46,12 @@ export const Members = (props: IMembersProps) => {
     <>
       <NavigationBar currentTab="members" />
       <main className={styles.container}>
-        <TabMenu items={membersTabMenuItems} selectedItem={currentLocation} />
-        <MemberCardList members={membersByType} currentPage={currentLocation} />
+        <div className={styles.tab}>
+          <TabBar items={membersTabMenuItems} selectedItem={currentLocation} />
+        </div>
+        <div className={styles['card-list']}>
+          <MemberCardList members={membersByType} currentPage={currentLocation} />
+        </div>
       </main>
     </>
   );

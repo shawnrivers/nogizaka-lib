@@ -2,10 +2,10 @@ import * as React from 'react';
 import { ISingle } from 'models/ISingle';
 import { IAlbum } from 'models/IAlbum';
 import { CdCardList } from 'components/organisms/CdCardList';
-import { TabMenu, TabMenuItem } from 'components/molecules/TabMenu';
 import { CdsCurrentPage } from 'utils/constants';
 import { NavigationBar } from 'components/molecules/NavigationBar';
 import styles from './Cds.module.scss';
+import { TabBar, TabItem } from 'components/molecules/TabBar';
 
 interface ICdsProps {
   currentLocation: CdsCurrentPage;
@@ -13,7 +13,7 @@ interface ICdsProps {
   albums: IAlbum[];
 }
 
-const cdsTabMenuItems: TabMenuItem[] = [
+const cdsTabMenuItems: TabItem[] = [
   {
     link: `/cds/${CdsCurrentPage.Single}`,
     page: CdsCurrentPage.Single,
@@ -30,8 +30,12 @@ export const Cds = (props: ICdsProps) => (
   <>
     <NavigationBar currentTab="cds" />
     <main className={styles.container}>
-      <TabMenu items={cdsTabMenuItems} selectedItem={props.currentLocation} />
-      <CdCardList singles={props.singles} albums={props.albums} currentPage={props.currentLocation} />
+      <div className={styles.tab}>
+        <TabBar items={cdsTabMenuItems} selectedItem={props.currentLocation} />
+      </div>
+      <div className={styles['card-list']}>
+        <CdCardList singles={props.singles} albums={props.albums} currentPage={props.currentLocation} />
+      </div>
     </main>
   </>
 );
