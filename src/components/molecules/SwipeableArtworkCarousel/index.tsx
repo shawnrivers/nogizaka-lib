@@ -16,10 +16,13 @@ interface ISwipeableArtworkCarouselProps {
 export const SwipeableArtworkCarousel = (props: ISwipeableArtworkCarouselProps) => {
   const [artworkIndex, setArtworkIndex] = React.useState(0);
 
-  const goToDirection = (direction: 'left' | 'right') =>
-    direction === 'right'
-      ? setArtworkIndex(artworkIndex <= props.artworks.length - 2 ? artworkIndex + 1 : artworkIndex)
-      : setArtworkIndex(artworkIndex >= 1 ? artworkIndex - 1 : artworkIndex);
+  const goToDirection = React.useCallback(
+    (direction: 'left' | 'right') =>
+      direction === 'right'
+        ? setArtworkIndex(artworkIndex <= props.artworks.length - 2 ? artworkIndex + 1 : artworkIndex)
+        : setArtworkIndex(artworkIndex >= 1 ? artworkIndex - 1 : artworkIndex),
+    [artworkIndex, props.artworks],
+  );
 
   return (
     <>
