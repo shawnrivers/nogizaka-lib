@@ -18,7 +18,7 @@ $bar-height: 56px;
 .container {
   @extend %flex, %flex-row, %elevation-reverse-3;
   position: fixed;
-  bottom: 0;
+  bottom: -1px;
   width: 100%;
   height: $bar-height;
   justify-content: space-evenly;
