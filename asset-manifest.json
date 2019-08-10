@@ -1,7 +1,7 @@
 {
   "main.css": "/nogizaka-lib/static/css/main.81149ca6.chunk.css",
-  "main.js": "/nogizaka-lib/static/js/main.4a2b6358.chunk.js",
-  "main.js.map": "/nogizaka-lib/static/js/main.4a2b6358.chunk.js.map",
+  "main.js": "/nogizaka-lib/static/js/main.53bccb70.chunk.js",
+  "main.js.map": "/nogizaka-lib/static/js/main.53bccb70.chunk.js.map",
   "static/js/1.78e32fe2.chunk.js": "/nogizaka-lib/static/js/1.78e32fe2.chunk.js",
   "static/js/1.78e32fe2.chunk.js.map": "/nogizaka-lib/static/js/1.78e32fe2.chunk.js.map",
   "runtime~main.js": "/nogizaka-lib/static/js/runtime~main.db58dcb4.js",
@@ -11,6 +11,6 @@
   "static/media/DetailsCard.module.scss": "/nogizaka-lib/static/media/gradient-bg-3.a0697dd2.svg",
   "static/media/Members.module.scss": "/nogizaka-lib/static/media/gradient-bg-2.ab94272e.svg",
   "index.html": "/nogizaka-lib/index.html",
-  "precache-manifest.07caf788afbbb35616fa9d07ad1af438.js": "/nogizaka-lib/precache-manifest.07caf788afbbb35616fa9d07ad1af438.js",
+  "precache-manifest.3d68bb1949136b96995a82fb756d17ec.js": "/nogizaka-lib/precache-manifest.3d68bb1949136b96995a82fb756d17ec.js",
   "service-worker.js": "/nogizaka-lib/service-worker.js"
 }
