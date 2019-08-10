@@ -19,12 +19,10 @@ type CdResponse = {
   number: string;
   release: string;
   artworks: {
-    [type: string]: {
-      large: string;
-      medium: string;
-      small: string;
-    };
-  };
+    large: string;
+    medium: string;
+    small: string;
+  }[];
   shopping: SiteResponse[];
   songs: {
     number: number;

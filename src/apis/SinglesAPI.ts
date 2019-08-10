@@ -21,7 +21,7 @@ export const fetchSingles = async (): Promise<ISingle[]> => {
     'https://raw.githubusercontent.com/shawnrivers/nogizaka-data/master/src/json/singles.json',
   );
 
-  const convertedSingles = singlesResponse.map(singleResponse => convertSingleResponse(singleResponse));
+  const convertedSingles = singlesResponse.map(convertSingleResponse);
 
   return convertedSingles;
 };

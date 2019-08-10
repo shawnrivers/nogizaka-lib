@@ -17,7 +17,7 @@ interface ICdProps {
 }
 
 export const CdCard = (props: ICdProps) => {
-  const artwork = Object.values(props.cd.artworks)[0];
+  const artwork = props.cd.artworks[0];
 
   return (
     <Link to={`/cds/${props.currentPage}/${props.cd.number}`} aria-label={props.cd.title}>
