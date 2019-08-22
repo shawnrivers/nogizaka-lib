@@ -92,8 +92,9 @@ export type MemberResponse = {
     type: UnitType;
   }[];
   positionsHistory: {
-    [singleNumber: string]: PositionType;
-  };
+    singleNumber: string;
+    position: PositionType;
+  }[];
   positionsCounter: {
     center: number;
     fukujin: number;

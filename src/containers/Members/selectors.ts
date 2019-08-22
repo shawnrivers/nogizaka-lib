@@ -207,7 +207,7 @@ export const convertMemberForDisplay = (member: IMember): IMemberDisplay | undef
       photoAlbums: member.photoAlbums,
       units,
       corps,
-      positionsHistory: convertPositionHistoryForDisplay(member.positionsHistory),
+      positionsHistory: member.positionsHistory.filter(history => history.position !== PositionType.None),
       positionsCounter: member.positionsCounter,
     };
   }

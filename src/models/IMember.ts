@@ -41,8 +41,9 @@ export type IMember = {
     type: UnitType;
   }[];
   positionsHistory: {
-    [singleNumber: string]: PositionType;
-  };
+    singleNumber: string;
+    position: PositionType;
+  }[];
   positionsCounter: {
     center: number;
     fukujin: number;
@@ -88,7 +89,7 @@ export type IMemberDisplay = {
   units: string[];
   corps: string[];
   positionsHistory: {
-    singleNumber: number;
+    singleNumber: string;
     position: PositionType;
   }[];
   positionsCounter: {
