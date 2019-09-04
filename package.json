@@ -8,7 +8,7 @@
     "bfj": "6.1.1",
     "case-sensitive-paths-webpack-plugin": "2.2.0",
     "chalk": "2.4.1",
-    "dotenv": "6.0.0",
+    "dotenv": "8.1.0",
     "dotenv-expand": "5.1.0",
     "file-loader": "2.0.0",
     "fork-ts-checker-webpack-plugin-alt": "0.4.14",
