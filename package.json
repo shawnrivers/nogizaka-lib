@@ -75,7 +75,7 @@
     "eslint-plugin-react": "7.11.1",
     "fetch-mock": "^7.3.3",
     "gh-pages": "^2.0.1",
-    "html-webpack-plugin": "4.0.0-alpha.2",
+    "html-webpack-plugin": "4.0.0-beta.11",
     "jest": "23.6.0",
     "jest-pnp-resolver": "1.0.1",
     "jest-resolve": "23.6.0",
