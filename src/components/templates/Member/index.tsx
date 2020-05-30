@@ -5,7 +5,6 @@ import { PositionType } from 'utils/constants';
 import { TitleBar } from 'components/molecules/TitleBar';
 import { DetailsCard } from 'components/molecules/DetailsCard';
 import { Divider } from 'components/atoms/Divider';
-import { toOrdinalNumber } from 'utils/strings';
 import { PositionBadge } from 'components/atoms/PositionBadge';
 import { PositionCounterBar } from 'components/atoms/PositionCounterBar';
 import { ImagePlaceholder } from 'components/atoms/ImagePlaceholder';
@@ -57,7 +56,7 @@ export const Member = (props: IMemberProps) =>
             </span>
             <span className={styles.sites}>
               {props.member.sites.map(site => (
-                <a href={site.url} key={site.title} target="_blank">
+                <a href={site.url} key={site.title} target="_blank" rel="noopener noreferrer">
                   {site.title}
                 </a>
               ))}
