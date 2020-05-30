@@ -44,6 +44,7 @@
 
 .profile-image-container {
   position: relative;
+  padding: 6px;
 }
 
 .profile-image-container::before {
@@ -56,12 +57,13 @@
 
 .profile-image {
   position: absolute;
-  top: 0;
-  width: 100%;
+  top: 6px;
+  width: calc(100% - 12px);
+  height: calc(100% - 12px);
   box-sizing: border-box;
-  padding: 6px;
   border-radius: 6px;
   object-fit: cover;
+  object-position: top;
 }
 
 .text {
