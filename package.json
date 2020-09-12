@@ -15,7 +15,7 @@
     "fs-extra": "7.0.0",
     "identity-obj-proxy": "3.0.0",
     "mini-css-extract-plugin": "0.4.3",
-    "node-fetch": "^2.3.0",
+    "node-fetch": "^2.6.1",
     "node-sass": "^4.14.1",
     "optimize-css-assets-webpack-plugin": "5.0.3",
     "pnp-webpack-plugin": "1.1.0",
