@@ -1,3 +1,11 @@
+⚠️ **IMPORTANT** ⚠️
+
+Nogizaka Lib is deprecated and replaced by [NOGILIB](https://github.com/shawnrivers/nogilib).
+
+Please check the new project in https://github.com/shawnrivers/nogilib.
+
+---
+
 # [Nogizaka Lib](https://shawnrivers.github.io/nogizaka-lib/)
 
 README: [English](https://github.com/shawnrivers/nogizaka-lib/blob/master/README.md), [日本語](https://github.com/shawnrivers/nogizaka-lib/blob/master/README.ja.md)
